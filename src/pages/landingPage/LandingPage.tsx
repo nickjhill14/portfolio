@@ -1,3 +1,4 @@
+import { Container, Stack, Typography } from "@mui/material";
 import { BasicInfo } from "../../domain";
 
 type LandingPageProps = {
@@ -9,14 +10,16 @@ function LandingPage(props: LandingPageProps) {
   const { name, role, email, phoneNumber, linkedIn, github } = basicInfo;
 
   return (
-    <>
-      <h1>{name}</h1>
-      <h2>{role}</h2>
-      <p>{email}</p>
-      <p>{phoneNumber}</p>
-      <p>{linkedIn}</p>
-      <p>{github}</p>
-    </>
+    <Container>
+      <Typography variant="h1">{name}</Typography>
+      <Typography variant="h2">{role}</Typography>
+      <Stack direction="row" spacing={2}>
+        <Typography variant="subtitle1">{email}</Typography>
+        <Typography variant="subtitle1">{phoneNumber}</Typography>
+        <Typography variant="subtitle1">{linkedIn}</Typography>
+        <Typography variant="subtitle1">{github}</Typography>
+      </Stack>
+    </Container>
   );
 }
 
