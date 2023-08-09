@@ -4,6 +4,10 @@
 
 ## Formatting
 
+```shell
+npm run format
+```
+
 ## Linting
 
 ### Tests
