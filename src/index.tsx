@@ -1,6 +1,17 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { App } from "./App";
+import { LandingPage } from "./pages/landingPage/LandingPage";
+import { BasicInfo } from "./domain";
+import { faker } from "@faker-js/faker";
+
+const basicInfo: BasicInfo = {
+  name: faker.person.fullName(),
+  role: faker.person.jobTitle(),
+  email: faker.internet.email(),
+  phoneNumber: faker.phone.number(),
+  linkedIn: faker.internet.userName(),
+  github: faker.internet.userName(),
+};
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement,
@@ -8,6 +19,6 @@ const root = ReactDOM.createRoot(
 
 root.render(
   <React.StrictMode>
-    <App />
+    <LandingPage basicInfo={basicInfo} />
   </React.StrictMode>,
 );
