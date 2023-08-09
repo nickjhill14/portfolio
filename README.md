@@ -8,6 +8,8 @@
 npm run format
 ```
 
+Formatting is configured in [.prettierrc.json](.prettierrc.json) and files can be ignored in [.prettierignore](.prettierignore).
+
 ## Linting
 
 ```shell
@@ -20,8 +22,18 @@ To attempt to fix lint issues:
 npm run lint:fix
 ```
 
+Linting is configured in [.eslintrc.json](.eslintrc.json).
+
 ### Tests
 
+```shell
+npm t
+```
+
 ## Running Locally
+
+```shell
+npm start
+```
 
 ## Storybook
