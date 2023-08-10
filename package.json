@@ -12,6 +12,15 @@
   "devDependencies": {
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
     "@faker-js/faker": "^8.0.2",
+    "@storybook/addon-essentials": "^7.2.2",
+    "@storybook/addon-interactions": "^7.2.2",
+    "@storybook/addon-links": "^7.2.2",
+    "@storybook/addon-onboarding": "^1.0.8",
+    "@storybook/blocks": "^7.2.2",
+    "@storybook/preset-create-react-app": "^7.2.2",
+    "@storybook/react": "^7.2.2",
+    "@storybook/react-webpack5": "^7.2.2",
+    "@storybook/testing-library": "^0.2.0",
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
@@ -19,11 +28,16 @@
     "@types/node": "^16.18.40",
     "@types/react": "^18.2.19",
     "@types/react-dom": "^18.2.7",
+    "babel-plugin-named-exports-order": "^0.0.2",
+    "eslint-plugin-storybook": "^0.6.13",
     "husky": "^8.0.0",
     "prettier": "3.0.1",
     "prettier-plugin-organize-imports": "^3.2.3",
+    "prop-types": "^15.8.1",
     "react-scripts": "5.0.1",
-    "typescript": "^4.9.5"
+    "storybook": "^7.2.2",
+    "typescript": "^4.9.5",
+    "webpack": "^5.88.2"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -34,7 +48,9 @@
     "test": "react-scripts test --watchAll=false",
     "test:watch": "react-scripts test",
     "prepare": "husky install",
-    "pre-commit": "npm run format && npm run lint:check && npm test"
+    "pre-commit": "npm run format && npm run lint:check && npm test",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
   },
   "browserslist": {
     "production": [
