@@ -1,8 +1,8 @@
-import { render, screen } from "@testing-library/react";
-import { ExperienceSection } from "./ExperienceSection";
 import { faker } from "@faker-js/faker";
+import { render, screen } from "@testing-library/react";
 import { Experience } from "../../domain";
 import { buildDates } from "../../utils/builders";
+import { ExperienceSection } from "./ExperienceSection";
 
 describe(ExperienceSection, () => {
   it("renders the section", () => {

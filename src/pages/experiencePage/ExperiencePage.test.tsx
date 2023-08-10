@@ -1,8 +1,8 @@
-import { render, screen } from "@testing-library/react";
-import { ExperiencePage } from "./ExperiencePage";
-import { ExperienceInfo } from "../../domain";
 import { faker } from "@faker-js/faker";
+import { render, screen } from "@testing-library/react";
+import { ExperienceInfo } from "../../domain";
 import { buildExperience } from "../../utils/builders";
+import { ExperiencePage } from "./ExperiencePage";
 
 describe(ExperiencePage, () => {
   it("renders the page", () => {
