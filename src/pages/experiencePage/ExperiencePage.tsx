@@ -1,5 +1,5 @@
 import { Alert, Container, Typography } from "@mui/material";
-import { ExperienceSection } from "../../components/experience/ExperienceSection";
+import { ExperienceSection } from "../../components/experienceSection/ExperienceSection";
 import { ExperienceInfo } from "../../domain";
 
 type ExperiencePageProps = {

@@ -15,4 +15,18 @@ type Experience = {
 
 type ExperienceInfo = Experience[];
 
-export { type BasicInfo, type Experience, type ExperienceInfo };
+type Education = {
+  qualification: string;
+  institution: string;
+  dates: string;
+};
+
+type EducationInfo = Education[];
+
+export {
+  type BasicInfo,
+  type Experience,
+  type ExperienceInfo,
+  type Education,
+  type EducationInfo,
+};
