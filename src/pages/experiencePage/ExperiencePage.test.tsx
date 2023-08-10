@@ -13,12 +13,11 @@ describe(ExperiencePage, () => {
     ).toBeInTheDocument();
   });
 
-  //   TODO: Implement this
-  xit("renders a message when there is no experience section", () => {
+  it("renders a message when there is no experience sections", () => {
     render(<ExperiencePage experienceInfo={[]} />);
 
     expect(
-      screen.getByRole("heading", { name: "No experience section provided" }),
+      screen.getByText("No experience sections provided"),
     ).toBeInTheDocument();
   });
 

@@ -1,4 +1,4 @@
-import { Container, Typography } from "@mui/material";
+import { Alert, Container, Typography } from "@mui/material";
 import { ExperienceSection } from "../../components/experience/ExperienceSection";
 import { ExperienceInfo } from "../../domain";
 
@@ -10,9 +10,13 @@ function ExperiencePage({ experienceInfo }: ExperiencePageProps) {
   return (
     <Container>
       <Typography variant="h2">Experience</Typography>
-      {experienceInfo.map((experience) => (
-        <ExperienceSection experience={experience} key={experience.name} />
-      ))}
+      {experienceInfo.length === 0 ? (
+        <Alert severity="warning">No experience sections provided</Alert>
+      ) : (
+        experienceInfo.map((experience) => (
+          <ExperienceSection experience={experience} key={experience.name} />
+        ))
+      )}
     </Container>
   );
 }
