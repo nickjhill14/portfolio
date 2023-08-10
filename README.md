@@ -30,6 +30,12 @@ Linting is configured in [.eslintrc.json](.eslintrc.json).
 npm t
 ```
 
+To run tests in `watch` mode:
+
+```shell
+npm run test:watch
+```
+
 ## Running Locally
 
 ```shell

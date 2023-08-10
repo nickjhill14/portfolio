@@ -7,4 +7,13 @@ type BasicInfo = {
   github: string;
 };
 
-export { type BasicInfo };
+type Experience = {
+  name: string;
+  location: string;
+  // TODO: Use a date type
+  dates: string;
+  details?: string[];
+  company?: string;
+};
+
+export { type BasicInfo, type Experience };

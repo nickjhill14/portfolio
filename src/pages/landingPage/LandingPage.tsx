@@ -5,8 +5,7 @@ type LandingPageProps = {
   basicInfo: BasicInfo;
 };
 
-function LandingPage(props: LandingPageProps) {
-  const { basicInfo } = props;
+function LandingPage({ basicInfo }: LandingPageProps) {
   const { name, role, email, phoneNumber, linkedIn, github } = basicInfo;
 
   return (
