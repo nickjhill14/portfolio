@@ -1,3 +1,4 @@
+import { Container, Typography } from "@mui/material";
 import { ExperienceSection } from "../../components/experience/ExperienceSection";
 import { ExperienceInfo } from "../../domain";
 
@@ -7,12 +8,12 @@ type ExperiencePageProps = {
 
 function ExperiencePage({ experienceInfo }: ExperiencePageProps) {
   return (
-    <>
-      <h1>Experience</h1>
+    <Container>
+      <Typography variant="h2">Experience</Typography>
       {experienceInfo.map((experience) => (
         <ExperienceSection experience={experience} key={experience.name} />
       ))}
-    </>
+    </Container>
   );
 }
 

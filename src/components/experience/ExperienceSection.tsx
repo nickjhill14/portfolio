@@ -1,3 +1,4 @@
+import { Stack, Typography } from "@mui/material";
 import { Experience } from "../../domain";
 
 type ExperienceSectionProps = {
@@ -8,11 +9,13 @@ function ExperienceSection({ experience }: ExperienceSectionProps) {
   const { name, location, dates } = experience;
 
   return (
-    <>
-      <h2>{name}</h2>
-      <p>{location}</p>
-      <p>{dates}</p>
-    </>
+    <Stack>
+      <Typography variant="h3">{name}</Typography>
+      <Stack direction="row" spacing={2}>
+        <Typography variant="subtitle1">{location}</Typography>
+        <Typography variant="subtitle1">{dates}</Typography>
+      </Stack>
+    </Stack>
   );
 }
 

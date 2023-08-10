@@ -6,26 +6,36 @@ function buildBasicInfo(override?: Partial<BasicInfo>): BasicInfo {
     name: faker.person.fullName(),
     role: faker.person.jobTitle(),
     email: faker.internet.email(),
-    phoneNumber: faker.phone.number(),
+    phoneNumber: faker.phone.number("+44 7## ### ###"),
     linkedIn: faker.internet.userName(),
     github: faker.internet.userName(),
     ...override,
   };
 }
 
+function buildDates(): string {
+  return faker.date
+    .betweens({
+      from: "2011-01-08T00:00:00.000Z",
+      to: "2020-02-03T00:00:00.000Z",
+      count: 2,
+    })
+    .map((date) => {
+      return date.toLocaleDateString("en-GB", {
+        year: "numeric",
+        month: "long",
+      });
+    })
+    .join(" - ");
+}
+
 function buildExperience(override?: Partial<Experience>): Experience {
   return {
     name: faker.person.jobTitle(),
     location: faker.location.country(),
-    dates: faker.date
-      .betweens({
-        from: "2011-01-08T00:00:00.000Z",
-        to: "2020-02-03T00:00:00.000Z",
-        count: 2,
-      })
-      .join(" - "),
+    dates: buildDates(),
     ...override,
   };
 }
 
-export { buildBasicInfo, buildExperience };
+export { buildBasicInfo, buildDates, buildExperience };
