@@ -1,5 +1,17 @@
 import { faker } from "@faker-js/faker";
-import { Experience } from "../domain";
+import { BasicInfo, Experience } from "../domain";
+
+function buildBasicInfo(override?: Partial<BasicInfo>): BasicInfo {
+  return {
+    name: faker.person.fullName(),
+    role: faker.person.jobTitle(),
+    email: faker.internet.email(),
+    phoneNumber: faker.phone.number(),
+    linkedIn: faker.internet.userName(),
+    github: faker.internet.userName(),
+    ...override,
+  };
+}
 
 function buildExperience(override?: Partial<Experience>): Experience {
   return {
@@ -16,4 +28,4 @@ function buildExperience(override?: Partial<Experience>): Experience {
   };
 }
 
-export { buildExperience };
+export { buildBasicInfo, buildExperience };

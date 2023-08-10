@@ -1,15 +1,15 @@
 import { ExperienceSection } from "../../components/experience/ExperienceSection";
-import { Experience } from "../../domain";
+import { ExperienceInfo } from "../../domain";
 
 type ExperiencePageProps = {
-  experiences: Experience[];
+  experienceInfo: ExperienceInfo;
 };
 
-function ExperiencePage({ experiences }: ExperiencePageProps) {
+function ExperiencePage({ experienceInfo }: ExperiencePageProps) {
   return (
     <>
       <h1>Experience</h1>
-      {experiences.map((experience) => (
+      {experienceInfo.map((experience) => (
         <ExperienceSection experience={experience} key={experience.name} />
       ))}
     </>

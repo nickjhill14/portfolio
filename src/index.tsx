@@ -1,17 +1,16 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { LandingPage } from "./pages/landingPage/LandingPage";
-import { BasicInfo } from "./domain";
-import { faker } from "@faker-js/faker";
+import { BasicInfo, ExperienceInfo } from "./domain";
+import { ExperiencePage } from "./pages/experiencePage/ExperiencePage";
+import { buildBasicInfo, buildExperience } from "./utils/builders";
 
-const basicInfo: BasicInfo = {
-  name: faker.person.fullName(),
-  role: faker.person.jobTitle(),
-  email: faker.internet.email(),
-  phoneNumber: faker.phone.number(),
-  linkedIn: faker.internet.userName(),
-  github: faker.internet.userName(),
-};
+const basicInfo: BasicInfo = buildBasicInfo();
+const experienceInfo: ExperienceInfo = [
+  buildExperience(),
+  buildExperience(),
+  buildExperience(),
+];
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement,
@@ -20,5 +19,6 @@ const root = ReactDOM.createRoot(
 root.render(
   <React.StrictMode>
     <LandingPage basicInfo={basicInfo} />
+    <ExperiencePage experienceInfo={experienceInfo} />
   </React.StrictMode>,
 );

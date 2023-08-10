@@ -16,4 +16,6 @@ type Experience = {
   company?: string;
 };
 
-export { type BasicInfo, type Experience };
+type ExperienceInfo = Experience[];
+
+export { type BasicInfo, type Experience, type ExperienceInfo };

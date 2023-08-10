@@ -1,4 +1,4 @@
-import { render } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import { ExperienceSection } from "./ExperienceSection";
 import { faker } from "@faker-js/faker";
 import { Experience } from "../../domain";
@@ -17,5 +17,9 @@ describe(ExperienceSection, () => {
     const experience: Experience = { name, location, dates };
 
     render(<ExperienceSection experience={experience} />);
+
+    expect(screen.getByRole("heading", { name })).toBeInTheDocument();
+    expect(screen.getByText(location)).toBeInTheDocument();
+    expect(screen.getByText(dates)).toBeInTheDocument();
   });
 });
