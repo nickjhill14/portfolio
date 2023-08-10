@@ -1,5 +1,6 @@
 import { faker } from "@faker-js/faker";
 import { BasicInfo, Education, Experience } from "../domain";
+import { upperCaseFirstChar } from "./helpers";
 
 function buildBasicInfo(override?: Partial<BasicInfo>): BasicInfo {
   return {
@@ -13,7 +14,7 @@ function buildBasicInfo(override?: Partial<BasicInfo>): BasicInfo {
   };
 }
 
-function buildDates(): string {
+function buildDateRange(): string {
   return faker.date
     .betweens({
       from: "2011-01-08T00:00:00.000Z",
@@ -33,22 +34,18 @@ function buildExperience(override?: Partial<Experience>): Experience {
   return {
     name: faker.person.jobTitle(),
     location: faker.location.country(),
-    dates: buildDates(),
+    dateRange: buildDateRange(),
     ...override,
   };
 }
 
 function buildEducation(override?: Partial<Education>): Education {
-  const qualificationName = faker.company.buzzNoun();
-
   return {
-    qualification: `Degree In ${qualificationName
-      .charAt(0)
-      .toUpperCase()}${qualificationName.slice(1)}`,
+    qualification: `Degree In ${upperCaseFirstChar(faker.company.buzzNoun())}`,
     institution: `School Of ${faker.location.city()}`,
-    dates: buildDates(),
+    dateRange: buildDateRange(),
     ...override,
   };
 }
 
-export { buildBasicInfo, buildDates, buildExperience, buildEducation };
+export { buildBasicInfo, buildDateRange, buildExperience, buildEducation };

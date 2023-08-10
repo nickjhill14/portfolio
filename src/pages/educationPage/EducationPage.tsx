@@ -1,5 +1,5 @@
 import { Alert, Container, Typography } from "@mui/material";
-import { EducationSection } from "../../components/educationSection/EducationSection";
+import { Section } from "../../components/section/Section";
 import { EducationInfo } from "../../domain";
 
 type EducationPageProps = {
@@ -13,10 +13,12 @@ function EducationPage({ educationInfo }: EducationPageProps) {
       {educationInfo.length === 0 ? (
         <Alert severity="warning">No education sections provided</Alert>
       ) : (
-        educationInfo.map((education) => (
-          <EducationSection
-            education={education}
-            key={education.qualification}
+        educationInfo.map(({ qualification, institution, dateRange }) => (
+          <Section
+            heading={qualification}
+            location={institution}
+            dateRange={dateRange}
+            key={qualification}
           />
         ))
       )}

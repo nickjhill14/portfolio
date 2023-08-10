@@ -10,7 +10,7 @@ type BasicInfo = {
 type Experience = {
   name: string;
   location: string;
-  dates: string;
+  dateRange: string;
 };
 
 type ExperienceInfo = Experience[];
@@ -18,7 +18,7 @@ type ExperienceInfo = Experience[];
 type Education = {
   qualification: string;
   institution: string;
-  dates: string;
+  dateRange: string;
 };
 
 type EducationInfo = Education[];

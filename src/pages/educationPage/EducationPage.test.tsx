@@ -2,6 +2,7 @@ import { faker } from "@faker-js/faker";
 import { render, screen } from "@testing-library/react";
 import { EducationInfo } from "../../domain";
 import { buildEducation } from "../../utils/builders";
+import { upperCaseFirstChar } from "../../utils/helpers";
 import { EducationPage } from "./EducationPage";
 
 describe(EducationPage, () => {
@@ -38,3 +39,6 @@ describe(EducationPage, () => {
     ).toBeInTheDocument();
   });
 });
+function upperCasedFirstChar(arg0: string) {
+  throw new Error("Function not implemented.");
+}
