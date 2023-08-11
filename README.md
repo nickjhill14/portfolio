@@ -22,7 +22,7 @@ To attempt to fix lint issues:
 npm run lint:fix
 ```
 
-Linting is configured in [.eslintrc.json](.eslintrc.json).
+Linting is configured in [.eslintrc.json](.eslintrc.json) and files can be ignored in [.eslintignore](.eslintignore).
 
 ### Tests
 
