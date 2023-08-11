@@ -22,11 +22,11 @@ const MultipleExperience: Story = {
   },
 };
 
-const NoExperienceProvided: Story = {
+const NoExperience: Story = {
   args: {
     experienceInfo: [],
   },
 };
 
 export default meta;
-export { SingleExperience, MultipleExperience, NoExperienceProvided };
+export { SingleExperience, MultipleExperience, NoExperience };

@@ -22,11 +22,11 @@ const MultipleEducation: Story = {
   },
 };
 
-const NoEducationProvided: Story = {
+const NoEducation: Story = {
   args: {
     educationInfo: [],
   },
 };
 
 export default meta;
-export { SingleEducation, MultipleEducation, NoEducationProvided };
+export { SingleEducation, MultipleEducation, NoEducation };

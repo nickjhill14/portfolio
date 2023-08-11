@@ -23,10 +23,20 @@ type Education = {
 
 type EducationInfo = Education[];
 
+type Project = {
+  name: string;
+  institution: string;
+  dateRange: string;
+};
+
+type ProjectInfo = Project[];
+
 export {
   type BasicInfo,
   type Experience,
   type ExperienceInfo,
   type Education,
   type EducationInfo,
+  type Project,
+  type ProjectInfo,
 };

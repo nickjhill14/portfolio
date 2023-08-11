@@ -1,5 +1,5 @@
 import { faker } from "@faker-js/faker";
-import { BasicInfo, Education, Experience } from "../domain";
+import { BasicInfo, Education, Experience, Project } from "../domain";
 import { upperCaseFirstChar } from "./helpers";
 
 function buildBasicInfo(override?: Partial<BasicInfo>): BasicInfo {
@@ -48,4 +48,19 @@ function buildEducation(override?: Partial<Education>): Education {
   };
 }
 
-export { buildBasicInfo, buildDateRange, buildExperience, buildEducation };
+function buildProject(override?: Partial<Project>): Project {
+  return {
+    name: upperCaseFirstChar(faker.company.buzzNoun()),
+    institution: `School Of ${faker.location.city()}`,
+    dateRange: buildDateRange(),
+    ...override,
+  };
+}
+
+export {
+  buildBasicInfo,
+  buildDateRange,
+  buildExperience,
+  buildEducation,
+  buildProject,
+};
