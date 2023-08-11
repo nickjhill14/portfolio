@@ -1,4 +1,6 @@
-import { Alert, Container, Typography } from "@mui/material";
+import SchoolOutlinedIcon from "@mui/icons-material/SchoolOutlined";
+import { Alert, Container } from "@mui/material";
+import { IconText } from "../../components/iconText/IconText";
 import { Section } from "../../components/section/Section";
 import { EducationInfo } from "../../domain";
 
@@ -9,7 +11,7 @@ type EducationPageProps = {
 function EducationPage({ educationInfo }: EducationPageProps) {
   return (
     <Container>
-      <Typography variant="h2">Education</Typography>
+      <IconText icon={SchoolOutlinedIcon} text="Education" />
       {educationInfo.length === 0 ? (
         <Alert severity="warning">No education sections provided</Alert>
       ) : (
