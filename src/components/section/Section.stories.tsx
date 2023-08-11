@@ -5,7 +5,7 @@ import { upperCaseFirstChar } from "../../utils/helpers";
 import { Section } from "./Section";
 
 const meta = {
-  title: "Section",
+  title: "Components/Section",
   component: Section,
   tags: ["autodocs"],
 } satisfies Meta<typeof Section>;

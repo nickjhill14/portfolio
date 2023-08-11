@@ -3,7 +3,7 @@ import { buildExperience } from "../../utils/builders";
 import { ExperiencePage } from "./ExperiencePage";
 
 const meta = {
-  title: "ExperiencePage",
+  title: "Pages/ExperiencePage",
   component: ExperiencePage,
   tags: ["autodocs"],
 } satisfies Meta<typeof ExperiencePage>;

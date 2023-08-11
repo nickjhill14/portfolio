@@ -3,7 +3,7 @@ import { buildEducation } from "../../utils/builders";
 import { EducationPage } from "./EducationPage";
 
 const meta = {
-  title: "EducationPage",
+  title: "Pages/EducationPage",
   component: EducationPage,
   tags: ["autodocs"],
 } satisfies Meta<typeof EducationPage>;
