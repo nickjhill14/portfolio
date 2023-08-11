@@ -43,3 +43,7 @@ npm start
 ```
 
 ## Storybook
+
+```shell
+npm run storybook
+```
