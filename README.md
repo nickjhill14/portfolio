@@ -2,7 +2,7 @@
 
 ## Local Dev
 
-## Formatting
+### Formatting
 
 ```shell
 npm run format
@@ -10,7 +10,7 @@ npm run format
 
 Formatting is configured in [.prettierrc.json](.prettierrc.json) and files can be ignored in [.prettierignore](.prettierignore).
 
-## Linting
+### Linting
 
 ```shell
 npm run lint:check
@@ -42,7 +42,7 @@ npm run test:watch
 npm start
 ```
 
-## Storybook
+### Storybook
 
 ```shell
 npm run storybook
