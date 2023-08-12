@@ -1,5 +1,12 @@
 import { faker } from "@faker-js/faker";
-import { BasicInfo, Education, Experience, Project } from "../domain";
+import EmojiEventsOutlinedIcon from "@mui/icons-material/EmojiEventsOutlined";
+import {
+  Achievement,
+  BasicInfo,
+  Education,
+  Experience,
+  Project,
+} from "../domain";
 import { upperCaseFirstChar } from "./helpers";
 
 function buildBasicInfo(override?: Partial<BasicInfo>): BasicInfo {
@@ -57,10 +64,20 @@ function buildProject(override?: Partial<Project>): Project {
   };
 }
 
+function buildAchievement(override?: Partial<Achievement>): Achievement {
+  return {
+    name: `Certificate In ${upperCaseFirstChar(faker.company.buzzNoun())}`,
+    icon: EmojiEventsOutlinedIcon,
+    description: faker.lorem.sentence(5),
+    ...override,
+  };
+}
+
 export {
   buildBasicInfo,
   buildDateRange,
   buildExperience,
   buildEducation,
   buildProject,
+  buildAchievement,
 };

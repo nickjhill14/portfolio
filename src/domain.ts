@@ -1,3 +1,5 @@
+import { MuiIcon } from "./utils/muiTypes";
+
 type BasicInfo = {
   name: string;
   role: string;
@@ -31,6 +33,14 @@ type Project = {
 
 type ProjectInfo = Project[];
 
+type Achievement = {
+  name: string;
+  icon: MuiIcon;
+  description: string;
+};
+
+type AchievementInfo = Achievement[];
+
 export {
   type BasicInfo,
   type Experience,
@@ -39,4 +49,6 @@ export {
   type EducationInfo,
   type Project,
   type ProjectInfo,
+  type Achievement,
+  type AchievementInfo,
 };

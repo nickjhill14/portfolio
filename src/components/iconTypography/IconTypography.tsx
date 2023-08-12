@@ -1,16 +1,8 @@
-import {
-  Stack,
-  SvgIcon,
-  SvgIconTypeMap,
-  Typography,
-  TypographyProps,
-} from "@mui/material";
-import { OverridableComponent } from "@mui/material/OverridableComponent";
+import { Stack, SvgIcon, Typography, TypographyProps } from "@mui/material";
+import { MuiIcon } from "../../utils/muiTypes";
 
 type IconTypographyProps = {
-  icon: OverridableComponent<SvgIconTypeMap<object, "svg">> & {
-    muiName: string;
-  };
+  icon: MuiIcon;
   text: string;
   variant: TypographyProps["variant"];
 };
