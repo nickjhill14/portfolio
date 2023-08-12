@@ -41,6 +41,10 @@ type Achievement = {
 
 type AchievementInfo = Achievement[];
 
+type Skill = string;
+
+type SkillInfo = Skill[];
+
 export {
   type BasicInfo,
   type Experience,
@@ -51,4 +55,6 @@ export {
   type ProjectInfo,
   type Achievement,
   type AchievementInfo,
+  type Skill,
+  type SkillInfo,
 };

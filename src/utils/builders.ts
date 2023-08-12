@@ -6,6 +6,7 @@ import {
   Education,
   Experience,
   Project,
+  Skill,
 } from "../domain";
 import { upperCaseFirstChar } from "./helpers";
 
@@ -73,6 +74,10 @@ function buildAchievement(override?: Partial<Achievement>): Achievement {
   };
 }
 
+function buildSkill(): Skill {
+  return upperCaseFirstChar(faker.hacker.ingverb());
+}
+
 export {
   buildBasicInfo,
   buildDateRange,
@@ -80,4 +85,5 @@ export {
   buildEducation,
   buildProject,
   buildAchievement,
+  buildSkill,
 };
