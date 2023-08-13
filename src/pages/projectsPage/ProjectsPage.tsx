@@ -1,6 +1,6 @@
 import TerminalOutlinedIcon from "@mui/icons-material/TerminalOutlined";
-import { Alert, Container } from "@mui/material";
-import { IconTypography } from "../../components/iconTypography/IconTypography";
+import { Alert } from "@mui/material";
+import { Page } from "../../components/page/Page";
 import { Section } from "../../components/section/Section";
 import { ProjectInfo } from "../../domain";
 
@@ -10,12 +10,7 @@ type ProjectsPageProps = {
 
 function ProjectsPage({ projectInfo }: ProjectsPageProps) {
   return (
-    <Container>
-      <IconTypography
-        icon={TerminalOutlinedIcon}
-        text="Projects"
-        variant="h2"
-      />
+    <Page headingIcon={TerminalOutlinedIcon} headingText="Projects">
       {projectInfo.length === 0 ? (
         <Alert severity="warning">No project sections provided</Alert>
       ) : (
@@ -28,7 +23,7 @@ function ProjectsPage({ projectInfo }: ProjectsPageProps) {
           />
         ))
       )}
-    </Container>
+    </Page>
   );
 }
 

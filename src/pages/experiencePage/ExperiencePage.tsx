@@ -1,6 +1,6 @@
 import WorkOutlineOutlinedIcon from "@mui/icons-material/WorkOutlineOutlined";
-import { Alert, Container } from "@mui/material";
-import { IconTypography } from "../../components/iconTypography/IconTypography";
+import { Alert } from "@mui/material";
+import { Page } from "../../components/page/Page";
 import { Section } from "../../components/section/Section";
 import { ExperienceInfo } from "../../domain";
 
@@ -10,12 +10,7 @@ type ExperiencePageProps = {
 
 function ExperiencePage({ experienceInfo }: ExperiencePageProps) {
   return (
-    <Container>
-      <IconTypography
-        icon={WorkOutlineOutlinedIcon}
-        text="Experience"
-        variant="h2"
-      />
+    <Page headingIcon={WorkOutlineOutlinedIcon} headingText="Experience">
       {experienceInfo.length === 0 ? (
         <Alert severity="warning">No experience sections provided</Alert>
       ) : (
@@ -28,7 +23,7 @@ function ExperiencePage({ experienceInfo }: ExperiencePageProps) {
           />
         ))
       )}
-    </Container>
+    </Page>
   );
 }
 

@@ -29,4 +29,4 @@ function Section({ heading, location, dateRange }: SectionProps) {
   );
 }
 
-export { Section, type SectionProps };
+export { Section };

@@ -19,4 +19,4 @@ function IconTypography({ icon, text, variant }: IconTypographyProps) {
   );
 }
 
-export { IconTypography, type IconTypographyProps };
+export { IconTypography };

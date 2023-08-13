@@ -21,4 +21,4 @@ function AchievementSection(props: AchievementSectionProps) {
   );
 }
 
-export { AchievementSection, type AchievementSectionProps };
+export { AchievementSection };

@@ -1,7 +1,7 @@
 import SchoolOutlinedIcon from "@mui/icons-material/SchoolOutlined";
-import { Alert, Container } from "@mui/material";
+import { Alert } from "@mui/material";
 import { AchievementSection } from "../../components/achievementSection/AchievementSection";
-import { IconTypography } from "../../components/iconTypography/IconTypography";
+import { Page } from "../../components/page/Page";
 import { AchievementInfo } from "../../domain";
 
 type AchievementsPageProps = {
@@ -10,12 +10,7 @@ type AchievementsPageProps = {
 
 function AchievementsPage({ AchievementInfo }: AchievementsPageProps) {
   return (
-    <Container>
-      <IconTypography
-        icon={SchoolOutlinedIcon}
-        text="Achievements"
-        variant="h2"
-      />
+    <Page headingIcon={SchoolOutlinedIcon} headingText="Achievements">
       {/* TODO: Add horiztonal rules between all achievements except the last */}
       {AchievementInfo.length === 0 ? (
         <Alert severity="warning">No achievement sections provided</Alert>
@@ -29,7 +24,7 @@ function AchievementsPage({ AchievementInfo }: AchievementsPageProps) {
           />
         ))
       )}
-    </Container>
+    </Page>
   );
 }
 
