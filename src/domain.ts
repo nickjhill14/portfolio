@@ -43,13 +43,9 @@ type AchievementInfo = Achievement[];
 
 type Skill = string;
 
-type Skills = Skill[];
-
 type Language = { name: string; level: number };
 
-type Languages = Language[];
-
-type SkillInfo = { skills: Skills; languages: Languages };
+type SkillInfo = { skills: Skill[]; languages: Language[] };
 
 export {
   type BasicInfo,
