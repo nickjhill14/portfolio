@@ -5,6 +5,7 @@ import {
   BasicInfo,
   Education,
   Experience,
+  Language,
   Project,
   Skill,
 } from "../domain";
@@ -78,6 +79,10 @@ function buildSkill(): Skill {
   return upperCaseFirstChar(faker.hacker.ingverb());
 }
 
+function buildLanguage(override?: Partial<Language>): Language {
+  return { name: "Country", level: faker.number.int(5), ...override };
+}
+
 export {
   buildBasicInfo,
   buildDateRange,
@@ -86,4 +91,5 @@ export {
   buildProject,
   buildAchievement,
   buildSkill,
+  buildLanguage,
 };

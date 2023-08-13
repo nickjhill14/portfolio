@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { buildSkill } from "../../utils/builders";
+import { buildLanguage, buildSkill } from "../../utils/builders";
 import { SkillsPage } from "./SkillsPage";
 
 const meta = {
@@ -10,23 +10,30 @@ const meta = {
 
 type Story = StoryObj<typeof meta>;
 
-const SingleSkill: Story = {
+const SingleSkillAndLanguage: Story = {
   args: {
-    skillInfo: [buildSkill()],
+    skillInfo: { skills: [buildSkill()], languages: [buildLanguage()] },
   },
 };
 
-const MultipleSkills: Story = {
+const MultipleSkillsAndLanguages: Story = {
   args: {
-    skillInfo: [buildSkill(), buildSkill(), buildSkill()],
+    skillInfo: {
+      skills: [buildSkill(), buildSkill(), buildSkill()],
+      languages: [buildLanguage(), buildLanguage(), buildLanguage()],
+    },
   },
 };
 
-const NoSkills: Story = {
+const NoSkillsOrLanguages: Story = {
   args: {
-    skillInfo: [],
+    skillInfo: { skills: [], languages: [] },
   },
 };
 
 export default meta;
-export { SingleSkill, MultipleSkills, NoSkills };
+export {
+  SingleSkillAndLanguage,
+  MultipleSkillsAndLanguages,
+  NoSkillsOrLanguages,
+};
