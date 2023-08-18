@@ -6,15 +6,21 @@ import { AchievementsPage } from "./AchievementsPage";
 
 describe(AchievementsPage, () => {
   it("renders the page", () => {
-    render(<AchievementsPage AchievementInfo={[buildAchievement()]} />);
+    render(<AchievementsPage achievementInfo={[buildAchievement()]} />);
 
     expect(
       screen.getByRole("heading", { name: "Achievements" }),
     ).toBeInTheDocument();
   });
 
+  it("does not render a divider when there is 1 achievement section", () => {
+    render(<AchievementsPage achievementInfo={[buildAchievement()]} />);
+
+    expect(screen.queryByTestId("divider")).not.toBeInTheDocument();
+  });
+
   it("renders a message when there are no achievement sections", () => {
-    render(<AchievementsPage AchievementInfo={[]} />);
+    render(<AchievementsPage achievementInfo={[]} />);
 
     expect(
       screen.getByText("No achievement sections provided"),
@@ -28,7 +34,7 @@ describe(AchievementsPage, () => {
     const achievement2 = buildAchievement({ name: achievement2Name });
     const AchievementInfo: AchievementInfo = [achievement1, achievement2];
 
-    render(<AchievementsPage AchievementInfo={AchievementInfo} />);
+    render(<AchievementsPage achievementInfo={AchievementInfo} />);
 
     expect(
       screen.getByRole("heading", { name: achievement1Name }),
@@ -36,5 +42,6 @@ describe(AchievementsPage, () => {
     expect(
       screen.getByRole("heading", { name: achievement2Name }),
     ).toBeInTheDocument();
+    expect(screen.getByTestId("divider")).toBeInTheDocument();
   });
 });

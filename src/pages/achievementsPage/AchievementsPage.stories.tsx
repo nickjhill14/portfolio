@@ -14,13 +14,13 @@ type Story = StoryObj<typeof meta>;
 
 const SingleAchievement: Story = {
   args: {
-    AchievementInfo: [buildAchievement()],
+    achievementInfo: [buildAchievement()],
   },
 };
 
 const MultipleAchievements: Story = {
   args: {
-    AchievementInfo: [
+    achievementInfo: [
       buildAchievement(),
       buildAchievement({ icon: MilitaryTechOutlinedIcon }),
       buildAchievement({ icon: WorkspacePremiumOutlinedIcon }),
@@ -30,7 +30,7 @@ const MultipleAchievements: Story = {
 
 const NoAchievements: Story = {
   args: {
-    AchievementInfo: [],
+    achievementInfo: [],
   },
 };
 

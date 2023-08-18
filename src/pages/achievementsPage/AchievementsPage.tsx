@@ -5,22 +5,22 @@ import { Page } from "../../components/page/Page";
 import { AchievementInfo } from "../../domain";
 
 type AchievementsPageProps = {
-  AchievementInfo: AchievementInfo;
+  achievementInfo: AchievementInfo;
 };
 
-function AchievementsPage({ AchievementInfo }: AchievementsPageProps) {
+function AchievementsPage({ achievementInfo }: AchievementsPageProps) {
   return (
     <Page headingIcon={SchoolOutlinedIcon} headingText="Achievements">
-      {/* TODO: Add horiztonal rules between all achievements except the last */}
-      {AchievementInfo.length === 0 ? (
+      {achievementInfo.length === 0 ? (
         <Alert severity="warning">No achievement sections provided</Alert>
       ) : (
-        AchievementInfo.map(({ name, icon, description }) => (
+        achievementInfo.map(({ name, icon, description }, index) => (
           <AchievementSection
             heading={name}
             icon={icon}
             description={description}
             key={name}
+            divider={index < achievementInfo.length - 1}
           />
         ))
       )}
