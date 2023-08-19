@@ -80,7 +80,11 @@ function buildSkill(): Skill {
 }
 
 function buildLanguage(override?: Partial<Language>): Language {
-  return { name: "Country", level: faker.number.int(5), ...override };
+  return {
+    name: faker.location.country(),
+    level: faker.number.int(5),
+    ...override,
+  };
 }
 
 export {

@@ -60,9 +60,11 @@ describe(SkillsPage, () => {
     renderSkillsPage({ skillInfo });
 
     expect(screen.getByText(language1Name)).toBeInTheDocument();
-    expect(screen.getByText(language1Level)).toBeInTheDocument();
+    expect(screen.getByLabelText(`${language1Level} Star`)).toBeInTheDocument();
     expect(screen.getByText(language2Name)).toBeInTheDocument();
-    expect(screen.getByText(language2Level)).toBeInTheDocument();
+    expect(
+      screen.getByLabelText(`${language2Level} Stars`),
+    ).toBeInTheDocument();
   });
 
   it("renders a message when there are no languages", () => {
