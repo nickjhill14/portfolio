@@ -1,11 +1,13 @@
-# Portfolio
+# 🖼️ Portfolio Generator
 
-## Prerequisites
+A tool to generate portfolio web apps.
+
+## 🛠️ Prerequisites
 
 - [NVM](https://github.com/nvm-sh/nvm#installing-and-updating)
 - [Talisman](https://thoughtworks.github.io/talisman/docs/installation/global-hook/)
 
-## Getting Started
+## 🚀 Getting Started
 
 1. Setup [Node](https://nodejs.org/en):
 
@@ -25,27 +27,25 @@
    npm run prepare
    ```
 
-## Local Dev
-
-### Formatting
+## 🖌️ Formatting
 
 ```shell
 npm run format
 ```
 
-### Linting
+## 🤔 Typechecking
 
 ```shell
-npm run lint:check
+npm run typecheck
 ```
 
-To attempt to fix lint issues:
+## 🧹 Linting
 
 ```shell
-npm run lint:fix
+npm run lint
 ```
 
-### Tests
+## ✅ Tests
 
 ```shell
 npm t
@@ -57,22 +57,24 @@ To run tests in `watch` mode:
 npm run test:watch
 ```
 
-## Running Locally
+## 🏃‍♂️ Running Locally
 
 ```shell
 npm start
 ```
 
-### Storybook
+## 📖 Storybook
 
 ```shell
 npm run storybook
 ```
 
-## Contributing
+## ✍️ Committing
 
 Prior to committing, run the pre-commit script:
 
 ```shell
 npm run pre-commit
 ```
+
+_Note: This runs automatically on commit._

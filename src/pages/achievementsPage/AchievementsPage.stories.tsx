@@ -35,4 +35,4 @@ const NoAchievements: Story = {
 };
 
 export default meta;
-export { SingleAchievement, MultipleAchievements, NoAchievements };
+export { MultipleAchievements, NoAchievements, SingleAchievement };

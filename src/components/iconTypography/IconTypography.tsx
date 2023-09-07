@@ -1,4 +1,9 @@
-import { Stack, SvgIcon, Typography, TypographyProps } from "@mui/material";
+import {
+  Stack,
+  SvgIcon,
+  Typography,
+  type TypographyProps,
+} from "@mui/material";
 import { MuiIcon } from "../../utils/muiTypes";
 
 type IconTypographyProps = {

@@ -88,12 +88,12 @@ function buildLanguage(override?: Partial<Language>): Language {
 }
 
 export {
+  buildAchievement,
   buildBasicInfo,
   buildDateRange,
-  buildExperience,
   buildEducation,
-  buildProject,
-  buildAchievement,
-  buildSkill,
+  buildExperience,
   buildLanguage,
+  buildProject,
+  buildSkill,
 };

@@ -1,5 +1,5 @@
 import AbcIcon from "@mui/icons-material/Abc";
-import { TypographyProps } from "@mui/material";
+import type { TypographyProps } from "@mui/material";
 import { render, screen } from "@testing-library/react";
 import { IconTypography } from "./IconTypography";
 

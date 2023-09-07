@@ -37,4 +37,4 @@ const MultipleChildren: Story = {
 };
 
 export default meta;
-export { SingleChild, MultipleChildren };
+export { MultipleChildren, SingleChild };

@@ -29,4 +29,4 @@ const NoExperience: Story = {
 };
 
 export default meta;
-export { SingleExperience, MultipleExperience, NoExperience };
+export { MultipleExperience, NoExperience, SingleExperience };

@@ -1,4 +1,7 @@
 {
-  "short_name": "Portfolio",
-  "name": "Portfolio Web App"
+  "name": "Portfolio Generator",
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
 }

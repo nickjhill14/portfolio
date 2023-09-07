@@ -1,1 +1,15 @@
+# Storybook
 /storybook-static
+
+# Depedencies
+node_modules/
+
+# Build
+dist/
+
+# Config
+.prettierrc.js
+.eslintrc.js
+
+# Env
+env.d.ts

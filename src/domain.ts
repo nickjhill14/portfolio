@@ -48,16 +48,16 @@ type Language = { name: string; level: number };
 type SkillInfo = { skills: Skill[]; languages: Language[] };
 
 export {
-  type BasicInfo,
-  type Experience,
-  type ExperienceInfo,
-  type Education,
-  type EducationInfo,
-  type Project,
-  type ProjectInfo,
   type Achievement,
   type AchievementInfo,
-  type Skill,
+  type BasicInfo,
+  type Education,
+  type EducationInfo,
+  type Experience,
+  type ExperienceInfo,
   type Language,
+  type Project,
+  type ProjectInfo,
+  type Skill,
   type SkillInfo,
 };

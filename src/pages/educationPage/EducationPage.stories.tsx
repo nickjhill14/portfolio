@@ -29,4 +29,4 @@ const NoEducation: Story = {
 };
 
 export default meta;
-export { SingleEducation, MultipleEducation, NoEducation };
+export { MultipleEducation, NoEducation, SingleEducation };

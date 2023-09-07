@@ -29,4 +29,4 @@ const NoProjects: Story = {
 };
 
 export default meta;
-export { SingleProject, MultipleProjects, NoProjects };
+export { MultipleProjects, NoProjects, SingleProject };

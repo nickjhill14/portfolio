@@ -33,7 +33,7 @@ const NoSkillsOrLanguages: Story = {
 
 export default meta;
 export {
-  SingleSkillAndLanguage,
   MultipleSkillsAndLanguages,
   NoSkillsOrLanguages,
+  SingleSkillAndLanguage,
 };
