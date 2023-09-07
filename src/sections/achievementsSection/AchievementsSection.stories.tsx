@@ -2,13 +2,13 @@ import MilitaryTechOutlinedIcon from "@mui/icons-material/MilitaryTechOutlined";
 import WorkspacePremiumOutlinedIcon from "@mui/icons-material/WorkspacePremiumOutlined";
 import type { Meta, StoryObj } from "@storybook/react";
 import { buildAchievement } from "../../utils/builders";
-import { AchievementsPage } from "./AchievementsPage";
+import { AchievementsSection } from "./AchievementsSection";
 
 const meta = {
-  title: "Pages/AchievementsPage",
-  component: AchievementsPage,
+  title: "Sections/AchievementsSection",
+  component: AchievementsSection,
   tags: ["autodocs"],
-} satisfies Meta<typeof AchievementsPage>;
+} satisfies Meta<typeof AchievementsSection>;
 
 type Story = StoryObj<typeof meta>;
 

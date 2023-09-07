@@ -2,20 +2,20 @@ import { faker } from "@faker-js/faker";
 import { render, screen } from "@testing-library/react";
 import { Skill, SkillInfo } from "../../domain";
 import { buildLanguage, buildSkill } from "../../utils/builders";
-import { SkillsPage, SkillsPageProps } from "./SkillsPage";
+import { SkillsSection, SkillsSectionProps } from "./SkillsSection";
 
-function renderSkillsPage(propsOverride?: Partial<SkillsPageProps>) {
-  const props: SkillsPageProps = {
+function renderSkillsSection(propsOverride?: Partial<SkillsSectionProps>) {
+  const props: SkillsSectionProps = {
     skillInfo: { skills: [], languages: [] },
     ...propsOverride,
   };
 
-  render(<SkillsPage {...props} />);
+  render(<SkillsSection {...props} />);
 }
 
-describe(SkillsPage, () => {
-  it("renders the page", () => {
-    renderSkillsPage();
+describe(SkillsSection, () => {
+  it("renders the section", () => {
+    renderSkillsSection();
 
     expect(screen.getByRole("heading", { name: "Skills" })).toBeInTheDocument();
   });
@@ -23,7 +23,7 @@ describe(SkillsPage, () => {
   it("renders a message when there are no skills", () => {
     const skillInfo: SkillInfo = { skills: [], languages: [buildLanguage()] };
 
-    renderSkillsPage({ skillInfo });
+    renderSkillsSection({ skillInfo });
 
     expect(screen.getByText("No skills provided")).toBeInTheDocument();
   });
@@ -33,7 +33,7 @@ describe(SkillsPage, () => {
     const skill2: Skill = buildSkill();
     const skillInfo: SkillInfo = { skills: [skill1, skill2], languages: [] };
 
-    renderSkillsPage({ skillInfo });
+    renderSkillsSection({ skillInfo });
 
     expect(screen.getByText(skill1)).toBeInTheDocument();
     expect(screen.getByText(skill2)).toBeInTheDocument();
@@ -57,7 +57,7 @@ describe(SkillsPage, () => {
       languages: [language1, language2],
     };
 
-    renderSkillsPage({ skillInfo });
+    renderSkillsSection({ skillInfo });
 
     expect(screen.getByText(language1Name)).toBeInTheDocument();
     expect(screen.getByLabelText(`${language1Level} Star`)).toBeInTheDocument();
@@ -68,7 +68,9 @@ describe(SkillsPage, () => {
   });
 
   it("renders a message when there are no languages", () => {
-    renderSkillsPage({ skillInfo: { skills: [buildSkill()], languages: [] } });
+    renderSkillsSection({
+      skillInfo: { skills: [buildSkill()], languages: [] },
+    });
 
     expect(screen.getByText("No languages provided")).toBeInTheDocument();
   });

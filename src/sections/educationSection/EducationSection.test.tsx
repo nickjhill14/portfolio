@@ -2,11 +2,11 @@ import { faker } from "@faker-js/faker";
 import { render, screen } from "@testing-library/react";
 import { EducationInfo } from "../../domain";
 import { buildEducation } from "../../utils/builders";
-import { EducationPage } from "./EducationPage";
+import { EducationSection } from "./EducationSection";
 
-describe(EducationPage, () => {
-  it("renders the page", () => {
-    render(<EducationPage educationInfo={[buildEducation()]} />);
+describe(EducationSection, () => {
+  it("renders the section", () => {
+    render(<EducationSection educationInfo={[buildEducation()]} />);
 
     expect(
       screen.getByRole("heading", { name: "Education" }),
@@ -14,7 +14,7 @@ describe(EducationPage, () => {
   });
 
   it("renders a message when there are no education sections", () => {
-    render(<EducationPage educationInfo={[]} />);
+    render(<EducationSection educationInfo={[]} />);
 
     expect(
       screen.getByText("No education sections provided"),
@@ -28,7 +28,7 @@ describe(EducationPage, () => {
     const education2 = buildEducation({ qualification: education2Name });
     const educationInfo: EducationInfo = [education1, education2];
 
-    render(<EducationPage educationInfo={educationInfo} />);
+    render(<EducationSection educationInfo={educationInfo} />);
 
     expect(
       screen.getByRole("heading", { name: education1Name }),

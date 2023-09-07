@@ -5,11 +5,11 @@ import { Alert, Chip, Rating, Stack, Typography } from "@mui/material";
 import { Page } from "../../components/page/Page";
 import { SkillInfo } from "../../domain";
 
-type SkillsPageProps = {
+type SkillsSectionProps = {
   skillInfo: SkillInfo;
 };
 
-function SkillsPage({ skillInfo }: SkillsPageProps) {
+function SkillsSection({ skillInfo }: SkillsSectionProps) {
   const { skills, languages } = skillInfo;
 
   return (
@@ -49,4 +49,4 @@ function SkillsPage({ skillInfo }: SkillsPageProps) {
   );
 }
 
-export { SkillsPage, type SkillsPageProps };
+export { SkillsSection, type SkillsSectionProps };

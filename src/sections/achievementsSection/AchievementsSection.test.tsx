@@ -2,11 +2,11 @@ import { faker } from "@faker-js/faker";
 import { render, screen } from "@testing-library/react";
 import { AchievementInfo } from "../../domain";
 import { buildAchievement } from "../../utils/builders";
-import { AchievementsPage } from "./AchievementsPage";
+import { AchievementsSection } from "./AchievementsSection";
 
-describe(AchievementsPage, () => {
-  it("renders the page", () => {
-    render(<AchievementsPage achievementInfo={[buildAchievement()]} />);
+describe(AchievementsSection, () => {
+  it("renders the section", () => {
+    render(<AchievementsSection achievementInfo={[buildAchievement()]} />);
 
     expect(
       screen.getByRole("heading", { name: "Achievements" }),
@@ -14,13 +14,13 @@ describe(AchievementsPage, () => {
   });
 
   it("does not render a divider when there is 1 achievement section", () => {
-    render(<AchievementsPage achievementInfo={[buildAchievement()]} />);
+    render(<AchievementsSection achievementInfo={[buildAchievement()]} />);
 
     expect(screen.queryByTestId("divider")).not.toBeInTheDocument();
   });
 
   it("renders a message when there are no achievement sections", () => {
-    render(<AchievementsPage achievementInfo={[]} />);
+    render(<AchievementsSection achievementInfo={[]} />);
 
     expect(
       screen.getByText("No achievement sections provided"),
@@ -34,7 +34,7 @@ describe(AchievementsPage, () => {
     const achievement2 = buildAchievement({ name: achievement2Name });
     const AchievementInfo: AchievementInfo = [achievement1, achievement2];
 
-    render(<AchievementsPage achievementInfo={AchievementInfo} />);
+    render(<AchievementsSection achievementInfo={AchievementInfo} />);
 
     expect(
       screen.getByRole("heading", { name: achievement1Name }),

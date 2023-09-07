@@ -1,12 +1,12 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { buildProject } from "../../utils/builders";
-import { ProjectsPage } from "./ProjectsPage";
+import { ProjectsSection } from "./ProjectsSection";
 
 const meta = {
-  title: "Pages/ProjectsPage",
-  component: ProjectsPage,
+  title: "Sections/ProjectsSection",
+  component: ProjectsSection,
   tags: ["autodocs"],
-} satisfies Meta<typeof ProjectsPage>;
+} satisfies Meta<typeof ProjectsSection>;
 
 type Story = StoryObj<typeof meta>;
 

@@ -4,11 +4,11 @@ import { AchievementSection } from "../../components/achievementSection/Achievem
 import { Page } from "../../components/page/Page";
 import { AchievementInfo } from "../../domain";
 
-type AchievementsPageProps = {
+type AchievementsSectionProps = {
   achievementInfo: AchievementInfo;
 };
 
-function AchievementsPage({ achievementInfo }: AchievementsPageProps) {
+function AchievementsSection({ achievementInfo }: AchievementsSectionProps) {
   return (
     <Page headingIcon={SchoolOutlinedIcon} headingText="Achievements">
       {achievementInfo.length === 0 ? (
@@ -28,4 +28,4 @@ function AchievementsPage({ achievementInfo }: AchievementsPageProps) {
   );
 }
 
-export { AchievementsPage };
+export { AchievementsSection };

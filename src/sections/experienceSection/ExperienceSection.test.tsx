@@ -2,11 +2,11 @@ import { faker } from "@faker-js/faker";
 import { render, screen } from "@testing-library/react";
 import { ExperienceInfo } from "../../domain";
 import { buildExperience } from "../../utils/builders";
-import { ExperiencePage } from "./ExperiencePage";
+import { ExperienceSection } from "./ExperienceSection";
 
-describe(ExperiencePage, () => {
-  it("renders the page", () => {
-    render(<ExperiencePage experienceInfo={[buildExperience()]} />);
+describe(ExperienceSection, () => {
+  it("renders the section", () => {
+    render(<ExperienceSection experienceInfo={[buildExperience()]} />);
 
     expect(
       screen.getByRole("heading", { name: "Experience" }),
@@ -14,7 +14,7 @@ describe(ExperiencePage, () => {
   });
 
   it("renders a message when there are no experience sections", () => {
-    render(<ExperiencePage experienceInfo={[]} />);
+    render(<ExperienceSection experienceInfo={[]} />);
 
     expect(
       screen.getByText("No experience sections provided"),
@@ -28,7 +28,7 @@ describe(ExperiencePage, () => {
     const experience2 = buildExperience({ name: experience2Name });
     const experienceInfo: ExperienceInfo = [experience1, experience2];
 
-    render(<ExperiencePage experienceInfo={experienceInfo} />);
+    render(<ExperienceSection experienceInfo={experienceInfo} />);
 
     expect(
       screen.getByRole("heading", { name: experience1Name }),

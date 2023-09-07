@@ -1,12 +1,12 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { buildExperience } from "../../utils/builders";
-import { ExperiencePage } from "./ExperiencePage";
+import { ExperienceSection } from "./ExperienceSection";
 
 const meta = {
-  title: "Pages/ExperiencePage",
-  component: ExperiencePage,
+  title: "Sections/ExperienceSection",
+  component: ExperienceSection,
   tags: ["autodocs"],
-} satisfies Meta<typeof ExperiencePage>;
+} satisfies Meta<typeof ExperienceSection>;
 
 type Story = StoryObj<typeof meta>;
 

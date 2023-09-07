@@ -4,11 +4,11 @@ import { Page } from "../../components/page/Page";
 import { Section } from "../../components/section/Section";
 import { ProjectInfo } from "../../domain";
 
-type ProjectsPageProps = {
+type ProjectsSectionProps = {
   projectInfo: ProjectInfo;
 };
 
-function ProjectsPage({ projectInfo }: ProjectsPageProps) {
+function ProjectsSection({ projectInfo }: ProjectsSectionProps) {
   return (
     <Page headingIcon={TerminalOutlinedIcon} headingText="Projects">
       {projectInfo.length === 0 ? (
@@ -27,4 +27,4 @@ function ProjectsPage({ projectInfo }: ProjectsPageProps) {
   );
 }
 
-export { ProjectsPage };
+export { ProjectsSection };

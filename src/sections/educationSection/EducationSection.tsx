@@ -4,11 +4,11 @@ import { Page } from "../../components/page/Page";
 import { Section } from "../../components/section/Section";
 import { EducationInfo } from "../../domain";
 
-type EducationPageProps = {
+type EducationSectionProps = {
   educationInfo: EducationInfo;
 };
 
-function EducationPage({ educationInfo }: EducationPageProps) {
+function EducationSection({ educationInfo }: EducationSectionProps) {
   return (
     <Page headingIcon={SchoolOutlinedIcon} headingText="Education">
       {educationInfo.length === 0 ? (
@@ -27,4 +27,4 @@ function EducationPage({ educationInfo }: EducationPageProps) {
   );
 }
 
-export { EducationPage };
+export { EducationSection };

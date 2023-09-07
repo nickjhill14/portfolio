@@ -2,11 +2,11 @@ import { faker } from "@faker-js/faker";
 import { render, screen } from "@testing-library/react";
 import { ProjectInfo } from "../../domain";
 import { buildProject } from "../../utils/builders";
-import { ProjectsPage } from "./ProjectsPage";
+import { ProjectsSection } from "./ProjectsSection";
 
-describe(ProjectsPage, () => {
-  it("renders the page", () => {
-    render(<ProjectsPage projectInfo={[buildProject()]} />);
+describe(ProjectsSection, () => {
+  it("renders the section", () => {
+    render(<ProjectsSection projectInfo={[buildProject()]} />);
 
     expect(
       screen.getByRole("heading", { name: "Projects" }),
@@ -14,7 +14,7 @@ describe(ProjectsPage, () => {
   });
 
   it("renders a message when there are no project sections", () => {
-    render(<ProjectsPage projectInfo={[]} />);
+    render(<ProjectsSection projectInfo={[]} />);
 
     expect(
       screen.getByText("No project sections provided"),
@@ -28,7 +28,7 @@ describe(ProjectsPage, () => {
     const project2 = buildProject({ name: project2Name });
     const projectInfo: ProjectInfo = [project1, project2];
 
-    render(<ProjectsPage projectInfo={projectInfo} />);
+    render(<ProjectsSection projectInfo={projectInfo} />);
 
     expect(
       screen.getByRole("heading", { name: project1Name }),

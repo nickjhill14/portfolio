@@ -1,12 +1,12 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { buildEducation } from "../../utils/builders";
-import { EducationPage } from "./EducationPage";
+import { EducationSection } from "./EducationSection";
 
 const meta = {
-  title: "Pages/EducationPage",
-  component: EducationPage,
+  title: "Sections/EducationSection",
+  component: EducationSection,
   tags: ["autodocs"],
-} satisfies Meta<typeof EducationPage>;
+} satisfies Meta<typeof EducationSection>;
 
 type Story = StoryObj<typeof meta>;
 

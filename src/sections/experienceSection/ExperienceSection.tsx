@@ -4,11 +4,11 @@ import { Page } from "../../components/page/Page";
 import { Section } from "../../components/section/Section";
 import { ExperienceInfo } from "../../domain";
 
-type ExperiencePageProps = {
+type ExperienceSectionProps = {
   experienceInfo: ExperienceInfo;
 };
 
-function ExperiencePage({ experienceInfo }: ExperiencePageProps) {
+function ExperienceSection({ experienceInfo }: ExperienceSectionProps) {
   return (
     <Page headingIcon={WorkOutlineOutlinedIcon} headingText="Experience">
       {experienceInfo.length === 0 ? (
@@ -27,4 +27,4 @@ function ExperiencePage({ experienceInfo }: ExperiencePageProps) {
   );
 }
 
-export { ExperiencePage };
+export { ExperienceSection };
