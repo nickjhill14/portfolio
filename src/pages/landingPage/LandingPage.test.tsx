@@ -1,6 +1,7 @@
 import { faker } from "@faker-js/faker";
 import { render, screen } from "@testing-library/react";
 import { BasicInfo } from "../../domain";
+import { buildBasicInfo } from "../../utils/builders";
 import { LandingPage } from "./LandingPage";
 
 describe(LandingPage, () => {
@@ -29,5 +30,14 @@ describe(LandingPage, () => {
     expect(screen.getByText(linkedIn)).toBeInTheDocument();
     expect(screen.getByText(email)).toBeInTheDocument();
     expect(screen.getByText(github)).toBeInTheDocument();
+  });
+
+  it("renders a link to the CV page", () => {
+    render(<LandingPage basicInfo={buildBasicInfo()} />);
+
+    expect(screen.getByRole("link", { name: "Go To CV" })).toHaveAttribute(
+      "href",
+      "#cv",
+    );
   });
 });
