@@ -1,6 +1,7 @@
 import { faker } from "@faker-js/faker";
+import { AbcOutlined } from "@mui/icons-material";
+import { Alert } from "@mui/material";
 import type { Meta, StoryObj } from "@storybook/react";
-import { buildDateRange } from "../../utils/builders";
 import { upperCaseFirstChar } from "../../utils/helpers";
 import { Section } from "./Section";
 
@@ -12,13 +13,28 @@ const meta = {
 
 type Story = StoryObj<typeof meta>;
 
-const Default: Story = {
+const SingleChild: Story = {
   args: {
-    heading: upperCaseFirstChar(faker.company.buzzNoun()),
-    location: faker.location.city(),
-    dateRange: buildDateRange(),
+    headingText: upperCaseFirstChar(faker.company.buzzNoun()),
+    headingIcon: AbcOutlined,
+    children: <Alert severity="info">Child</Alert>,
+  },
+};
+
+const MultipleChildren: Story = {
+  args: {
+    headingText: upperCaseFirstChar(faker.company.buzzNoun()),
+    headingIcon: AbcOutlined,
+    children: [
+      <Alert severity="info" key="Child 1">
+        {upperCaseFirstChar(faker.company.buzzNoun())}
+      </Alert>,
+      <Alert severity="warning" key="Child 2">
+        {upperCaseFirstChar(faker.company.buzzNoun())}
+      </Alert>,
+    ],
   },
 };
 
 export default meta;
-export { Default };
+export { MultipleChildren, SingleChild };

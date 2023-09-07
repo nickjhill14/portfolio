@@ -1,7 +1,7 @@
 import SchoolOutlinedIcon from "@mui/icons-material/SchoolOutlined";
 import { Alert } from "@mui/material";
 import { AchievementSection } from "../../components/achievementSection/AchievementSection";
-import { Page } from "../../components/page/Page";
+import { Section } from "../../components/section/Section";
 import { AchievementInfo } from "../../domain";
 
 type AchievementsSectionProps = {
@@ -10,7 +10,7 @@ type AchievementsSectionProps = {
 
 function AchievementsSection({ achievementInfo }: AchievementsSectionProps) {
   return (
-    <Page headingIcon={SchoolOutlinedIcon} headingText="Achievements">
+    <Section headingIcon={SchoolOutlinedIcon} headingText="Achievements">
       {achievementInfo.length === 0 ? (
         <Alert severity="warning">No achievement sections provided</Alert>
       ) : (
@@ -24,7 +24,7 @@ function AchievementsSection({ achievementInfo }: AchievementsSectionProps) {
           />
         ))
       )}
-    </Page>
+    </Section>
   );
 }
 

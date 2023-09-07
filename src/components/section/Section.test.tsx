@@ -1,20 +1,54 @@
 import { faker } from "@faker-js/faker";
+import { AbcOutlined } from "@mui/icons-material";
 import { render, screen } from "@testing-library/react";
-import { buildDateRange } from "../../utils/builders";
-import { Section } from "./Section";
+import { Section, SectionProps } from "./Section";
+
+function renderSection(propsOverride?: Partial<SectionProps>) {
+  const props: SectionProps = {
+    headingText: faker.company.buzzNoun(),
+    headingIcon: AbcOutlined,
+    children: [],
+    ...propsOverride,
+  };
+
+  render(<Section {...props} />);
+}
 
 describe(Section, () => {
-  it("renders the section", () => {
-    const heading = faker.company.buzzNoun();
-    const location = faker.location.city();
-    const dateRange = buildDateRange();
+  it("renders the section heading", () => {
+    const headingText = faker.company.buzzNoun();
 
-    render(
-      <Section heading={heading} location={location} dateRange={dateRange} />,
-    );
+    renderSection({ headingText });
 
-    expect(screen.getByRole("heading", { name: heading })).toBeInTheDocument();
-    expect(screen.getByText(location)).toBeInTheDocument();
-    expect(screen.getByText(dateRange)).toBeInTheDocument();
+    expect(
+      screen.getByRole("heading", { name: headingText }),
+    ).toBeInTheDocument();
+  });
+
+  it("renders a single child", () => {
+    const childName = "Child Name";
+
+    renderSection({ children: <button>{childName}</button> });
+
+    expect(screen.getByRole("button", { name: childName })).toBeInTheDocument();
+  });
+
+  it("renders multiple children", () => {
+    const child1Name = "Child 1 Name";
+    const child2Name = "Child 2 Name";
+
+    renderSection({
+      children: [
+        <button key={child1Name}>{child1Name}</button>,
+        <button key={child2Name}>{child2Name}</button>,
+      ],
+    });
+
+    expect(
+      screen.getByRole("button", { name: child1Name }),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole("button", { name: child2Name }),
+    ).toBeInTheDocument();
   });
 });

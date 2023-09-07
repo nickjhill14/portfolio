@@ -1,7 +1,7 @@
 import SchoolOutlinedIcon from "@mui/icons-material/SchoolOutlined";
 import { Alert } from "@mui/material";
-import { Page } from "../../components/page/Page";
 import { Section } from "../../components/section/Section";
+import { SectionDetails } from "../../components/sectionDetails/SectionDetails";
 import { EducationInfo } from "../../domain";
 
 type EducationSectionProps = {
@@ -10,12 +10,12 @@ type EducationSectionProps = {
 
 function EducationSection({ educationInfo }: EducationSectionProps) {
   return (
-    <Page headingIcon={SchoolOutlinedIcon} headingText="Education">
+    <Section headingIcon={SchoolOutlinedIcon} headingText="Education">
       {educationInfo.length === 0 ? (
-        <Alert severity="warning">No education sections provided</Alert>
+        <Alert severity="warning">No education details provided</Alert>
       ) : (
         educationInfo.map(({ qualification, institution, dateRange }) => (
-          <Section
+          <SectionDetails
             heading={qualification}
             location={institution}
             dateRange={dateRange}
@@ -23,7 +23,7 @@ function EducationSection({ educationInfo }: EducationSectionProps) {
           />
         ))
       )}
-    </Page>
+    </Section>
   );
 }
 

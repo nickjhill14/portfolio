@@ -13,11 +13,11 @@ describe(ExperienceSection, () => {
     ).toBeInTheDocument();
   });
 
-  it("renders a message when there are no experience sections", () => {
+  it("renders a message when there are no experience details", () => {
     render(<ExperienceSection experienceInfo={[]} />);
 
     expect(
-      screen.getByText("No experience sections provided"),
+      screen.getByText("No experience details provided"),
     ).toBeInTheDocument();
   });
 

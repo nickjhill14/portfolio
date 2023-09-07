@@ -1,7 +1,7 @@
 import TerminalOutlinedIcon from "@mui/icons-material/TerminalOutlined";
 import { Alert } from "@mui/material";
-import { Page } from "../../components/page/Page";
 import { Section } from "../../components/section/Section";
+import { SectionDetails } from "../../components/sectionDetails/SectionDetails";
 import { ProjectInfo } from "../../domain";
 
 type ProjectsSectionProps = {
@@ -10,12 +10,12 @@ type ProjectsSectionProps = {
 
 function ProjectsSection({ projectInfo }: ProjectsSectionProps) {
   return (
-    <Page headingIcon={TerminalOutlinedIcon} headingText="Projects">
+    <Section headingIcon={TerminalOutlinedIcon} headingText="Projects">
       {projectInfo.length === 0 ? (
-        <Alert severity="warning">No project sections provided</Alert>
+        <Alert severity="warning">No project details provided</Alert>
       ) : (
         projectInfo.map(({ name, institution, dateRange }) => (
-          <Section
+          <SectionDetails
             heading={name}
             location={institution}
             dateRange={dateRange}
@@ -23,7 +23,7 @@ function ProjectsSection({ projectInfo }: ProjectsSectionProps) {
           />
         ))
       )}
-    </Page>
+    </Section>
   );
 }
 

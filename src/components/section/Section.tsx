@@ -1,32 +1,27 @@
-import CalendarMonthOutlinedIcon from "@mui/icons-material/CalendarMonthOutlined";
-import LocationOnOutlinedIcon from "@mui/icons-material/LocationOnOutlined";
-import { Stack, Typography } from "@mui/material";
+import { Paper, styled } from "@mui/material";
+import { ReactElement } from "react";
+import { MuiIcon } from "../../utils/muiTypes";
 import { IconTypography } from "../iconTypography/IconTypography";
 
+const SectionPaper = styled(Paper)({
+  padding: "25px",
+});
+
 type SectionProps = {
-  heading: string;
-  location: string;
-  dateRange: string;
+  headingText: string;
+  headingIcon: MuiIcon;
+  children: ReactElement | ReactElement[];
 };
 
-function Section({ heading, location, dateRange }: SectionProps) {
+function Section(props: SectionProps) {
+  const { headingText, headingIcon, children } = props;
+
   return (
-    <Stack>
-      <Typography variant="h3">{heading}</Typography>
-      <Stack direction="row" spacing={2}>
-        <IconTypography
-          icon={LocationOnOutlinedIcon}
-          text={location}
-          variant="subtitle1"
-        />
-        <IconTypography
-          icon={CalendarMonthOutlinedIcon}
-          text={dateRange}
-          variant="subtitle1"
-        />
-      </Stack>
-    </Stack>
+    <SectionPaper elevation={6}>
+      <IconTypography icon={headingIcon} text={headingText} variant="h2" />
+      {children}
+    </SectionPaper>
   );
 }
 
-export { Section };
+export { Section, type SectionProps };

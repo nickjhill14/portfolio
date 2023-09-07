@@ -2,7 +2,7 @@ import CircleIcon from "@mui/icons-material/Circle";
 import CircleOutlinedIcon from "@mui/icons-material/CircleOutlined";
 import CodeOutlinedIcon from "@mui/icons-material/CodeOutlined";
 import { Alert, Chip, Rating, Stack, Typography } from "@mui/material";
-import { Page } from "../../components/page/Page";
+import { Section } from "../../components/section/Section";
 import { SkillInfo } from "../../domain";
 
 type SkillsSectionProps = {
@@ -13,7 +13,7 @@ function SkillsSection({ skillInfo }: SkillsSectionProps) {
   const { skills, languages } = skillInfo;
 
   return (
-    <Page headingIcon={CodeOutlinedIcon} headingText="Skills">
+    <Section headingIcon={CodeOutlinedIcon} headingText="Skills">
       <Stack spacing={1}>
         {skills.length === 0 ? (
           <Alert severity="warning">No skills provided</Alert>
@@ -45,7 +45,7 @@ function SkillsSection({ skillInfo }: SkillsSectionProps) {
           </Stack>
         )}
       </Stack>
-    </Page>
+    </Section>
   );
 }
 

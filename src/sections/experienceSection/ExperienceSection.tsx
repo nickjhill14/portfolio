@@ -1,7 +1,7 @@
 import WorkOutlineOutlinedIcon from "@mui/icons-material/WorkOutlineOutlined";
 import { Alert } from "@mui/material";
-import { Page } from "../../components/page/Page";
 import { Section } from "../../components/section/Section";
+import { SectionDetails } from "../../components/sectionDetails/SectionDetails";
 import { ExperienceInfo } from "../../domain";
 
 type ExperienceSectionProps = {
@@ -10,12 +10,12 @@ type ExperienceSectionProps = {
 
 function ExperienceSection({ experienceInfo }: ExperienceSectionProps) {
   return (
-    <Page headingIcon={WorkOutlineOutlinedIcon} headingText="Experience">
+    <Section headingIcon={WorkOutlineOutlinedIcon} headingText="Experience">
       {experienceInfo.length === 0 ? (
-        <Alert severity="warning">No experience sections provided</Alert>
+        <Alert severity="warning">No experience details provided</Alert>
       ) : (
         experienceInfo.map(({ name, location, dateRange }) => (
-          <Section
+          <SectionDetails
             heading={name}
             location={location}
             dateRange={dateRange}
@@ -23,7 +23,7 @@ function ExperienceSection({ experienceInfo }: ExperienceSectionProps) {
           />
         ))
       )}
-    </Page>
+    </Section>
   );
 }
 

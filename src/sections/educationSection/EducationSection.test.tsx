@@ -13,15 +13,15 @@ describe(EducationSection, () => {
     ).toBeInTheDocument();
   });
 
-  it("renders a message when there are no education sections", () => {
+  it("renders a message when there are no education details", () => {
     render(<EducationSection educationInfo={[]} />);
 
     expect(
-      screen.getByText("No education sections provided"),
+      screen.getByText("No education details provided"),
     ).toBeInTheDocument();
   });
 
-  it("renders multiple education sections", () => {
+  it("renders multiple education details", () => {
     const education1Name = `Degree In ${faker.company.buzzNoun()}`;
     const education2Name = `Degree In ${faker.company.buzzNoun()}`;
     const education1 = buildEducation({ qualification: education1Name });

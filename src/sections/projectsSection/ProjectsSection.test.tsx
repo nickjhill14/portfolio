@@ -13,15 +13,13 @@ describe(ProjectsSection, () => {
     ).toBeInTheDocument();
   });
 
-  it("renders a message when there are no project sections", () => {
+  it("renders a message when there are no project details", () => {
     render(<ProjectsSection projectInfo={[]} />);
 
-    expect(
-      screen.getByText("No project sections provided"),
-    ).toBeInTheDocument();
+    expect(screen.getByText("No project details provided")).toBeInTheDocument();
   });
 
-  it("renders multiple project sections", () => {
+  it("renders multiple project details", () => {
     const project1Name = faker.company.buzzNoun();
     const project2Name = faker.company.buzzNoun();
     const project1 = buildProject({ name: project1Name });
