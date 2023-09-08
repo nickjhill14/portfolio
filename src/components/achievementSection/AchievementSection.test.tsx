@@ -8,11 +8,10 @@ import {
 function renderAchievementsSection(
   propsOverride?: Partial<AchievementSectionProps>,
 ) {
-  const { name, icon, description } = buildAchievement();
+  const { name, description } = buildAchievement();
 
   const props: AchievementSectionProps = {
     heading: name,
-    icon,
     description,
     ...propsOverride,
   };
@@ -22,9 +21,9 @@ function renderAchievementsSection(
 
 describe(AchievementSection, () => {
   it("renders the section", () => {
-    const { name: heading, icon, description } = buildAchievement();
+    const { name: heading, description } = buildAchievement();
 
-    renderAchievementsSection({ heading, icon, description });
+    renderAchievementsSection({ heading, description });
 
     expect(screen.getByRole("heading", { name: heading })).toBeInTheDocument();
     expect(screen.getByText(description)).toBeInTheDocument();
