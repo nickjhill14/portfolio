@@ -5,6 +5,10 @@ import { IconTypography } from "../iconTypography/IconTypography";
 
 const SectionPaper = styled(Paper)({
   padding: "25px",
+  display: "flex",
+  flexDirection: "column",
+  height: "100%",
+  gap: "10px",
 });
 
 type SectionProps = {

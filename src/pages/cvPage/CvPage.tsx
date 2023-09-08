@@ -15,13 +15,12 @@ import { ProjectsSection } from "../../sections/projectsSection/ProjectsSection"
 import { SkillsSection } from "../../sections/skillsSection/SkillsSection";
 
 const CvPageContainer = styled(Container)({
-  height: "100vh",
-  display: "flex",
-  flexDirection: "column",
+  padding: "25px",
+  paddingBottom: "50px",
 });
 
 const GoHomeButton = styled(Button)({
-  margin: "25px;",
+  marginBottom: "25px;",
   alignSelf: "flex-start",
 });
 
@@ -52,7 +51,7 @@ function CvPage({
       >
         Go Home
       </GoHomeButton>
-      <Grid container spacing={2}>
+      <Grid container columnSpacing={2} rowSpacing={8}>
         <Grid item xs={6}>
           <ExperienceSection experienceInfo={experienceInfo} />
         </Grid>
