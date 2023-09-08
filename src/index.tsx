@@ -1,10 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { BasicInfo } from "./domain";
-import { LandingPage } from "./pages/landingPage/LandingPage";
-import { buildBasicInfo } from "./utils/builders";
-
-const basicInfo: BasicInfo = buildBasicInfo();
+import { RouterProvider } from "react-router-dom";
+import { portfolioRouter } from "./routing/portfolioRouting/PortfolioRouting";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement,
@@ -12,6 +9,6 @@ const root = ReactDOM.createRoot(
 
 root.render(
   <React.StrictMode>
-    <LandingPage basicInfo={basicInfo} />
+    <RouterProvider router={portfolioRouter} />
   </React.StrictMode>,
 );
