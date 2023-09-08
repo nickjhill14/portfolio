@@ -18,7 +18,12 @@ function Section(props: SectionProps) {
 
   return (
     <SectionPaper elevation={6}>
-      <IconTypography icon={headingIcon} text={headingText} variant="h2" />
+      <IconTypography
+        icon={headingIcon}
+        text={headingText}
+        variant="h4"
+        component="h2"
+      />
       {children}
     </SectionPaper>
   );

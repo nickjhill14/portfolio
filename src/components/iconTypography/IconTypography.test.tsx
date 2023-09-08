@@ -12,4 +12,14 @@ describe(IconTypography, () => {
 
     expect(screen.getByText(text)).toBeInTheDocument();
   });
+
+  it("renders the typography with an overridden component", () => {
+    const text = "Test";
+
+    render(
+      <IconTypography icon={AbcIcon} text={text} variant="h1" component="h4" />,
+    );
+
+    expect(screen.getByRole("heading", { level: 4 })).toBeInTheDocument();
+  });
 });

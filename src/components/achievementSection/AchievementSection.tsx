@@ -17,7 +17,9 @@ function AchievementSection(props: AchievementSectionProps) {
       <Stack direction="row" alignItems="center" spacing={1}>
         <SvgIcon component={icon} fontSize="large" />
         <Stack>
-          <Typography variant="h3">{heading}</Typography>
+          <Typography variant="h5" component="h3">
+            {heading}
+          </Typography>
           <Typography variant="body1">{description}</Typography>
         </Stack>
       </Stack>
