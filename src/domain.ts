@@ -1,5 +1,3 @@
-import { MuiIcon } from "./utils/muiTypes";
-
 type BasicInfo = {
   name: string;
   role: string;
@@ -35,7 +33,6 @@ type ProjectInfo = Project[];
 
 type Achievement = {
   name: string;
-  icon: MuiIcon;
   description: string;
 };
 
@@ -47,17 +44,17 @@ type Language = { name: string; level: number };
 
 type SkillInfo = { skills: Skill[]; languages: Language[] };
 
-export {
-  type Achievement,
-  type AchievementInfo,
-  type BasicInfo,
-  type Education,
-  type EducationInfo,
-  type Experience,
-  type ExperienceInfo,
-  type Language,
-  type Project,
-  type ProjectInfo,
-  type Skill,
-  type SkillInfo,
+export type {
+  Achievement,
+  AchievementInfo,
+  BasicInfo,
+  Education,
+  EducationInfo,
+  Experience,
+  ExperienceInfo,
+  Language,
+  Project,
+  ProjectInfo,
+  Skill,
+  SkillInfo,
 };

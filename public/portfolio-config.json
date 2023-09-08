@@ -1,0 +1,127 @@
+{
+  "basicInfo": {
+    "name": "Nicholas Hill",
+    "role": "Senior Consultant Developer",
+    "email": "nicholasjhill@live.co.uk",
+    "phoneNumber": "(+44) 7763047785",
+    "linkedIn": "nicholas-j-hill",
+    "github": "nickjhill14"
+  },
+  "experienceInfo": [
+    {
+      "name": "Senior Consultant Developer",
+      "location": "London",
+      "dateRange": "Feb. 2020 - Present"
+    },
+    {
+      "name": "English Teacher",
+      "location": "Shenzhen & Hong Kong",
+      "dateRange": "Sep. 2017 - Aug. 2019"
+    }
+  ],
+  "educationInfo": [
+    {
+      "qualification": "Masters In Computer Science (1st Class)",
+      "institution": "University Of Nottingham",
+      "dateRange": "Sep. 2013 - Jul. 2017"
+    },
+    {
+      "qualification": "A Levels In Maths, Geography, & IT",
+      "institution": "Beaumont School",
+      "dateRange": "Sep. 2011 - Aug. 2013"
+    },
+    {
+      "qualification": "12 GCSEs",
+      "institution": "Beaumont School",
+      "dateRange": "Sep. 2009 - Aug. 2011"
+    }
+  ],
+  "achievementsInfo": [
+    {
+      "name": "AWS Certified Cloud Practitioner",
+      "description": "Understanding of AWS concepts and services."
+    },
+    {
+      "name": "7Digital/Esendex For Software Quality",
+      "description": "For the Autonomous Robot Image Tagging System project."
+    },
+    {
+      "name": "C++ Hall Of Fame, University Of Nottingham",
+      "description": "For a high attaining C++ game project."
+    }
+  ],
+  "skillsInfo": {
+    "skills": [
+      "JavaScript",
+      "TypeScript",
+      "Java",
+      "Python",
+      "HTML",
+      "CSS",
+      "React",
+      "Redux",
+      "Node.js",
+      "Spring",
+      "SQL",
+      "PostgreSQL",
+      "JUnit",
+      "Jest",
+      "Cypress",
+      "Playwright",
+      "Terraform",
+      "AWS",
+      "Docker",
+      "OpenShift",
+      "Agile",
+      "Kanban",
+      "Clean Code",
+      "TDD",
+      "CI/CD",
+      "REST",
+      "Microservices",
+      "Microfrontends",
+      "BFF",
+      "Git",
+      "GitHub",
+      "Bitbucket",
+      "GoCD",
+      "GitHub Actions",
+      "Jenkins",
+      "Jira",
+      "Kibana",
+      "Snowflake",
+      "Mermaid.js"
+    ],
+    "languages": [
+      { "name": "English", "level": 5 },
+      { "name": "Mandarin Chinese", "level": 2 }
+    ]
+  },
+  "projectInfo": [
+    {
+      "name": "React App Template",
+      "institution": "Personal",
+      "dateRange": "Sep. 2023 - Present"
+    },
+    {
+      "name": "Portfolio Generator",
+      "institution": "Personal",
+      "dateRange": "Aug. 2023 - Present"
+    },
+    {
+      "name": "Bahmni",
+      "institution": "Thoughtworks",
+      "dateRange": "Jul. 2020 - Sep. 2020"
+    },
+    {
+      "name": "OpenMRS",
+      "institution": "Thoughtworks",
+      "dateRange": "Apr. 2020 - Sep. 2020"
+    },
+    {
+      "name": "Autonomous Robot Image Tagging System",
+      "institution": "University Of Nottingham",
+      "dateRange": "Sep. 2014 - Jul. 2015"
+    }
+  ]
+}

@@ -60,10 +60,10 @@ function CvPage({
           <EducationSection educationInfo={educationInfo} />
         </Grid>
         <Grid item xs={6}>
-          <AchievementsSection achievementInfo={achievementsInfo} />
+          <ProjectsSection projectInfo={projectInfo} />
         </Grid>
         <Grid item xs={6}>
-          <ProjectsSection projectInfo={projectInfo} />
+          <AchievementsSection achievementInfo={achievementsInfo} />
         </Grid>
         <Grid item xs={12}>
           <SkillsSection skillInfo={skillsInfo} />

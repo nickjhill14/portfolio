@@ -1,5 +1,3 @@
-import MilitaryTechOutlinedIcon from "@mui/icons-material/MilitaryTechOutlined";
-import WorkspacePremiumOutlinedIcon from "@mui/icons-material/WorkspacePremiumOutlined";
 import type { Meta, StoryObj } from "@storybook/react";
 import { buildAchievement } from "../../utils/builders";
 import { AchievementsSection } from "./AchievementsSection";
@@ -22,8 +20,8 @@ const MultipleAchievements: Story = {
   args: {
     achievementInfo: [
       buildAchievement(),
-      buildAchievement({ icon: MilitaryTechOutlinedIcon }),
-      buildAchievement({ icon: WorkspacePremiumOutlinedIcon }),
+      buildAchievement(),
+      buildAchievement(),
     ],
   },
 };

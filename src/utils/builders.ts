@@ -1,5 +1,4 @@
 import { faker } from "@faker-js/faker";
-import EmojiEventsOutlinedIcon from "@mui/icons-material/EmojiEventsOutlined";
 import {
   Achievement,
   BasicInfo,
@@ -69,7 +68,6 @@ function buildProject(override?: Partial<Project>): Project {
 function buildAchievement(override?: Partial<Achievement>): Achievement {
   return {
     name: `Certificate In ${upperCaseFirstChar(faker.company.buzzNoun())}`,
-    icon: EmojiEventsOutlinedIcon,
     description: faker.lorem.sentence(5),
     ...override,
   };

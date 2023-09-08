@@ -1,5 +1,4 @@
 import { faker } from "@faker-js/faker";
-import EmojiEventsOutlinedIcon from "@mui/icons-material/EmojiEventsOutlined";
 import type { Meta, StoryObj } from "@storybook/react";
 import { upperCaseFirstChar } from "../../utils/helpers";
 import { AchievementSection } from "./AchievementSection";
@@ -15,7 +14,6 @@ type Story = StoryObj<typeof meta>;
 const Default: Story = {
   args: {
     heading: `Certificate In ${upperCaseFirstChar(faker.company.buzzNoun())}`,
-    icon: EmojiEventsOutlinedIcon,
     description: faker.lorem.sentence(5),
   },
 };
