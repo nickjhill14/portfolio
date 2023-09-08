@@ -1,8 +1,8 @@
 import SchoolOutlinedIcon from "@mui/icons-material/SchoolOutlined";
 import { Alert } from "@mui/material";
-import { AchievementSection } from "../../components/achievementSection/AchievementSection";
 import { Section } from "../../components/section/Section";
 import { AchievementInfo } from "../../domain";
+import { AchievementSection } from "./achievementSection/AchievementSection";
 
 type AchievementsSectionProps = {
   achievementInfo: AchievementInfo;

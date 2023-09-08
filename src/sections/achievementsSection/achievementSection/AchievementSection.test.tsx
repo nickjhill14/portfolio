@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import { buildAchievement } from "../../utils/builders";
+import { buildAchievement } from "../../../utils/builders";
 import {
   AchievementSection,
   AchievementSectionProps,

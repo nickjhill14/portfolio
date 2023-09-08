@@ -1,10 +1,10 @@
 import { faker } from "@faker-js/faker";
 import type { Meta, StoryObj } from "@storybook/react";
-import { upperCaseFirstChar } from "../../utils/helpers";
+import { upperCaseFirstChar } from "../../../utils/helpers";
 import { AchievementSection } from "./AchievementSection";
 
 const meta = {
-  title: "Components/AchievementSection",
+  title: "Sections/AchievementsSection/AchievementSection",
   component: AchievementSection,
   tags: ["autodocs"],
 } satisfies Meta<typeof AchievementSection>;
