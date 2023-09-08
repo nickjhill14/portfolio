@@ -4,6 +4,7 @@ import LocalPhoneOutlinedIcon from "@mui/icons-material/LocalPhoneOutlined";
 import TimelineOutlinedIcon from "@mui/icons-material/TimelineOutlined";
 import WorkOutlineOutlinedIcon from "@mui/icons-material/WorkOutlineOutlined";
 import { Button, Container, Stack, styled, Typography } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 import { IconTypography } from "../../components/iconTypography/IconTypography";
 import { BasicInfo } from "../../domain";
 
@@ -23,6 +24,8 @@ type LandingPageProps = {
 };
 
 function LandingPage({ basicInfo }: LandingPageProps) {
+  const navigate = useNavigate();
+
   const { name, role, email, phoneNumber, linkedIn, github } = basicInfo;
 
   return (
@@ -56,7 +59,8 @@ function LandingPage({ basicInfo }: LandingPageProps) {
         </Stack>
       </Stack>
       <GoToCvButton
-        href="#cv"
+        onClick={() => navigate("/cv")}
+        role="link"
         startIcon={<DescriptionIcon />}
         variant="contained"
       >

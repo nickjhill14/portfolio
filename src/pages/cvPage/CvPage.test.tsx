@@ -1,5 +1,10 @@
 import { render, screen } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
+import { useNavigate } from "react-router-dom";
+import { PortfolioRoutePaths } from "../../routing/portfolioRouting/PortfolioRouting";
 import { CvPage } from "./CvPage";
+
+vitest.mock("react-router-dom");
 
 describe(CvPage, () => {
   it("renders the CV sections", () => {
@@ -28,7 +33,11 @@ describe(CvPage, () => {
     ).toBeInTheDocument();
   });
 
-  it("renders a link to the landing page", () => {
+  it("renders a link to the CV page", async () => {
+    const navigateMock = vitest.fn();
+
+    vitest.mocked(useNavigate).mockReturnValue(navigateMock);
+
     render(
       <CvPage
         experienceInfo={[]}
@@ -38,10 +47,8 @@ describe(CvPage, () => {
         projectInfo={[]}
       />,
     );
+    await userEvent.click(screen.getByRole("link", { name: "Go Home" }));
 
-    expect(screen.getByRole("link", { name: "Go Home" })).toHaveAttribute(
-      "href",
-      "#home",
-    );
+    expect(navigateMock).toHaveBeenCalledWith(PortfolioRoutePaths.BASE);
   });
 });

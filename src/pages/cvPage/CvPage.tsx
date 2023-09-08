@@ -1,5 +1,6 @@
 import { Home } from "@mui/icons-material";
 import { Button, Container, Grid, styled } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 import {
   AchievementInfo,
   EducationInfo,
@@ -39,9 +40,16 @@ function CvPage({
   projectInfo,
   skillsInfo,
 }: CvPageProps) {
+  const navigate = useNavigate();
+
   return (
     <CvPageContainer>
-      <GoHomeButton href="#home" startIcon={<Home />} variant="contained">
+      <GoHomeButton
+        onClick={() => navigate("/")}
+        role="link"
+        startIcon={<Home />}
+        variant="contained"
+      >
         Go Home
       </GoHomeButton>
       <Grid container spacing={2}>

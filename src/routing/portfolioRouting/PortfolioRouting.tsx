@@ -11,13 +11,18 @@ import {
   buildSkill,
 } from "../../utils/builders";
 
+enum PortfolioRoutePaths {
+  BASE = "/",
+  CV = "/cv",
+}
+
 const portfolioRoutes: RouteObject[] = [
   {
-    path: "/",
+    path: PortfolioRoutePaths.BASE,
     element: <LandingPage basicInfo={buildBasicInfo()} />,
   },
   {
-    path: "/cv",
+    path: PortfolioRoutePaths.CV,
     element: (
       <CvPage
         experienceInfo={[buildExperience(), buildExperience()]}
@@ -39,4 +44,4 @@ const portfolioRoutes: RouteObject[] = [
 
 const portfolioRouter = createBrowserRouter(portfolioRoutes);
 
-export { portfolioRouter, portfolioRoutes };
+export { PortfolioRoutePaths, portfolioRouter, portfolioRoutes };

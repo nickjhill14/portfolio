@@ -1,8 +1,13 @@
 import { faker } from "@faker-js/faker";
 import { render, screen } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
+import { useNavigate } from "react-router-dom";
 import { BasicInfo } from "../../domain";
+import { PortfolioRoutePaths } from "../../routing/portfolioRouting/PortfolioRouting";
 import { buildBasicInfo } from "../../utils/builders";
 import { LandingPage } from "./LandingPage";
+
+vitest.mock("react-router-dom");
 
 describe(LandingPage, () => {
   it("renders the page", () => {
@@ -32,12 +37,14 @@ describe(LandingPage, () => {
     expect(screen.getByText(github)).toBeInTheDocument();
   });
 
-  it("renders a link to the CV page", () => {
-    render(<LandingPage basicInfo={buildBasicInfo()} />);
+  it("renders a link to the CV page", async () => {
+    const navigateMock = vitest.fn();
 
-    expect(screen.getByRole("link", { name: "Go To CV" })).toHaveAttribute(
-      "href",
-      "#cv",
-    );
+    vitest.mocked(useNavigate).mockReturnValue(navigateMock);
+
+    render(<LandingPage basicInfo={buildBasicInfo()} />);
+    await userEvent.click(screen.getByRole("link", { name: "Go To CV" }));
+
+    expect(navigateMock).toHaveBeenCalledWith(PortfolioRoutePaths.CV);
   });
 });
