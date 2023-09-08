@@ -14,10 +14,10 @@ function AchievementSection(props: AchievementSectionProps) {
     <Stack spacing={1}>
       <Stack direction="row" alignItems="center" spacing={1}>
         <Stack>
-          <Typography variant="h5" component="h3">
+          <Typography variant="h6" component="h3">
             {heading}
           </Typography>
-          <Typography variant="body1">{description}</Typography>
+          <Typography variant="body2">{description}</Typography>
         </Stack>
       </Stack>
       {divider && <Divider data-testid="divider" />}

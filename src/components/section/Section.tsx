@@ -7,7 +7,6 @@ const SectionPaper = styled(Paper)({
   padding: "25px",
   display: "flex",
   flexDirection: "column",
-  height: "100%",
   gap: "10px",
 });
 
@@ -25,7 +24,7 @@ function Section(props: SectionProps) {
       <IconTypography
         icon={headingIcon}
         text={headingText}
-        variant="h4"
+        variant="h5"
         component="h2"
       />
       {children}

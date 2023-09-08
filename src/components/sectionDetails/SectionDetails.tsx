@@ -12,19 +12,19 @@ type SectionDetailsProps = {
 function SectionDetails({ heading, location, dateRange }: SectionDetailsProps) {
   return (
     <Stack>
-      <Typography variant="h5" component="h3">
+      <Typography variant="h6" component="h3">
         {heading}
       </Typography>
       <Stack direction="row" spacing={2}>
         <IconTypography
           icon={LocationOnOutlinedIcon}
           text={location}
-          variant="subtitle1"
+          variant="subtitle2"
         />
         <IconTypography
           icon={CalendarMonthOutlinedIcon}
           text={dateRange}
-          variant="subtitle1"
+          variant="subtitle2"
         />
       </Stack>
     </Stack>
