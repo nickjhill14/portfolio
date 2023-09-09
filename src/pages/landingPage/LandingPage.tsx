@@ -3,7 +3,7 @@ import DescriptionIcon from "@mui/icons-material/Description";
 import LocalPhoneOutlinedIcon from "@mui/icons-material/LocalPhoneOutlined";
 import TimelineOutlinedIcon from "@mui/icons-material/TimelineOutlined";
 import WorkOutlineOutlinedIcon from "@mui/icons-material/WorkOutlineOutlined";
-import { Button, Grid, Typography } from "@mui/material";
+import { Button, Grid, Stack, Typography } from "@mui/material";
 import { useLoaderData, useNavigate } from "react-router-dom";
 import { IconTypography } from "../../components/iconTypography/IconTypography";
 import { BasicInfo } from "../../domain";
@@ -25,35 +25,31 @@ function LandingPage() {
           {role}
         </Typography>
       </Grid>
-      <Grid item xs={12} sm={3}>
-        <IconTypography
-          icon={AlternateEmailOutlinedIcon}
-          text={email}
-          variant="subtitle1"
-        />
-      </Grid>
-      <Grid item xs={12} sm={3}>
-        <IconTypography
-          icon={LocalPhoneOutlinedIcon}
-          text={phoneNumber}
-          variant="subtitle1"
-        />
-      </Grid>
-      <Grid item xs={12} sm={3}>
-        <IconTypography
-          // TODO: Change this to the LinkedIn icon
-          icon={WorkOutlineOutlinedIcon}
-          text={linkedIn}
-          variant="subtitle1"
-        />
-      </Grid>
-      <Grid item xs={12} sm={3}>
-        <IconTypography
-          // TODO: Change this to the GitHub icon
-          icon={TimelineOutlinedIcon}
-          text={github}
-          variant="subtitle1"
-        />
+      <Grid item xs={12}>
+        <Stack direction={{ xs: "column", sm: "row" }} spacing={2}>
+          <IconTypography
+            icon={AlternateEmailOutlinedIcon}
+            text={email}
+            variant="subtitle1"
+          />
+          <IconTypography
+            icon={LocalPhoneOutlinedIcon}
+            text={phoneNumber}
+            variant="subtitle1"
+          />
+          <IconTypography
+            // TODO: Change this to the LinkedIn icon
+            icon={WorkOutlineOutlinedIcon}
+            text={linkedIn}
+            variant="subtitle1"
+          />
+          <IconTypography
+            // TODO: Change this to the GitHub icon
+            icon={TimelineOutlinedIcon}
+            text={github}
+            variant="subtitle1"
+          />
+        </Stack>
       </Grid>
       <Grid item xs={12}>
         <Button
