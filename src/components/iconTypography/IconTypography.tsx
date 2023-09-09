@@ -27,7 +27,7 @@ function IconTypography({
 
   return (
     // TODO: Center the icon and the text
-    <Stack direction="row" spacing={1} alignItems="flexStart">
+    <Stack direction="row" spacing={1}>
       <Typography {...typographyProps}>
         <SvgIcon component={icon} fontSize="inherit" />
       </Typography>

@@ -12,7 +12,7 @@ function AchievementSection(props: AchievementSectionProps) {
 
   return (
     <Stack spacing={1}>
-      <Stack direction="row" alignItems="center" spacing={1}>
+      <Stack direction="row" spacing={1}>
         <Stack>
           <Typography variant="h6" component="h3">
             {heading}
