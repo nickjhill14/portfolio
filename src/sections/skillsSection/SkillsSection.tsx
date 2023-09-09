@@ -32,7 +32,6 @@ function SkillsSection({ skillInfo }: SkillsSectionProps) {
           {languages.map(({ name, level }) => (
             <Stack direction="row" key={name}>
               <Typography component="legend">{name}</Typography>
-              {/* TODO: Style icon colours */}
               <Rating
                 name="read-only"
                 value={level}

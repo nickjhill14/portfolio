@@ -1,11 +1,18 @@
 import {
-  Stack,
   SvgIcon,
   Typography,
+  styled,
   type TypographyProps,
 } from "@mui/material";
 import { ElementType } from "react";
 import { MuiIcon } from "../../utils/muiTypes";
+
+const StyledIconTypography = styled(Typography)({
+  display: "flex",
+  justifyContent: "flex-start",
+  alignItems: "center",
+  gap: "5px",
+});
 
 type IconTypographyProps = {
   icon: MuiIcon;
@@ -26,13 +33,10 @@ function IconTypography({
   };
 
   return (
-    // TODO: Center the icon and the text
-    <Stack direction="row" spacing={1}>
-      <Typography {...typographyProps}>
-        <SvgIcon component={icon} fontSize="inherit" />
-      </Typography>
-      <Typography variant={variant}>{text}</Typography>
-    </Stack>
+    <StyledIconTypography {...typographyProps}>
+      <SvgIcon component={icon} fontSize="inherit" />
+      {text}
+    </StyledIconTypography>
   );
 }
 
