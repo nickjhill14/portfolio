@@ -5,17 +5,17 @@ const config: StorybookConfig = {
   addons: [
     "@storybook/addon-links",
     "@storybook/addon-essentials",
-    "@storybook/addon-onboarding",
     "@storybook/addon-interactions",
+    "storybook-addon-react-router-v6",
+    "storybook-msw-addon",
   ],
   framework: {
     name: "@storybook/react-vite",
     options: {},
   },
   docs: {
-    autodocs: "tag",
+    autodocs: true,
   },
-  staticDirs: ["../public"],
 };
 
 export default config;

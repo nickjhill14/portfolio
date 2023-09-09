@@ -1,5 +1,5 @@
-import type { Preview, StoryFn } from "@storybook/react";
-import { MemoryRouter } from "react-router-dom";
+import type { Preview } from "@storybook/react";
+import { initialize, mswLoader } from "storybook-msw-addon";
 
 const preview: Preview = {
   parameters: {
@@ -15,18 +15,11 @@ const preview: Preview = {
         order: ["Pages", "Sections", "Components"],
       },
     },
+    showPanel: true,
   },
 };
 
-function withRouter(StoryFn: StoryFn) {
-  return (
-    <MemoryRouter>
-      <StoryFn />
-    </MemoryRouter>
-  );
-}
-
-const decorators = [withRouter];
+initialize();
 
 export default preview;
-export { decorators };
+export const loaders = [mswLoader];

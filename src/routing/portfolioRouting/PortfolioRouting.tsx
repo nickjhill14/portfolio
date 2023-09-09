@@ -1,5 +1,8 @@
 import { createBrowserRouter, type RouteObject } from "react-router-dom";
-import portfolioConfig from "../../../public/portfolio-config.json";
+import {
+  getBasicInfo,
+  getCvInfo,
+} from "../../api/portfolioGateway/portfolioGateway";
 import { CvPage } from "../../pages/cvPage/CvPage";
 import { LandingPage } from "../../pages/landingPage/LandingPage";
 
@@ -11,19 +14,13 @@ enum PortfolioRoutePaths {
 const portfolioRoutes: RouteObject[] = [
   {
     path: PortfolioRoutePaths.BASE,
-    element: <LandingPage basicInfo={portfolioConfig.basicInfo} />,
+    element: <LandingPage />,
+    loader: getBasicInfo,
   },
   {
     path: PortfolioRoutePaths.CV,
-    element: (
-      <CvPage
-        experienceInfo={portfolioConfig.experienceInfo}
-        educationInfo={portfolioConfig.educationInfo}
-        achievementsInfo={portfolioConfig.achievementsInfo}
-        skillsInfo={portfolioConfig.skillsInfo}
-        projectInfo={portfolioConfig.projectInfo}
-      />
-    ),
+    element: <CvPage />,
+    loader: getCvInfo,
   },
 ];
 

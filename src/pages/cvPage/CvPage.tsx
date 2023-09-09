@@ -1,13 +1,7 @@
 import { Home } from "@mui/icons-material";
 import { Button, Container, Grid, styled } from "@mui/material";
-import { useNavigate } from "react-router-dom";
-import {
-  AchievementInfo,
-  EducationInfo,
-  ExperienceInfo,
-  ProjectInfo,
-  SkillInfo,
-} from "../../domain";
+import { useLoaderData, useNavigate } from "react-router-dom";
+import { CvInfo } from "../../domain";
 import { AchievementsSection } from "../../sections/achievementsSection/AchievementsSection";
 import { EducationSection } from "../../sections/educationSection/EducationSection";
 import { ExperienceSection } from "../../sections/experienceSection/ExperienceSection";
@@ -23,21 +17,14 @@ const GoHomeButton = styled(Button)({
   alignSelf: "flex-start",
 });
 
-type CvPageProps = {
-  experienceInfo: ExperienceInfo;
-  educationInfo: EducationInfo;
-  achievementsInfo: AchievementInfo;
-  projectInfo: ProjectInfo;
-  skillsInfo: SkillInfo;
-};
-
-function CvPage({
-  experienceInfo,
-  educationInfo,
-  achievementsInfo,
-  projectInfo,
-  skillsInfo,
-}: CvPageProps) {
+function CvPage() {
+  const {
+    experienceInfo,
+    educationInfo,
+    projectInfo,
+    skillInfo,
+    achievementsInfo,
+  } = useLoaderData() as CvInfo;
   const navigate = useNavigate();
 
   return (
@@ -64,7 +51,7 @@ function CvPage({
           <AchievementsSection achievementInfo={achievementsInfo} />
         </Grid>
         <Grid item xs={12}>
-          <SkillsSection skillInfo={skillsInfo} />
+          <SkillsSection skillInfo={skillInfo} />
         </Grid>
       </Grid>
     </CvPageContainer>

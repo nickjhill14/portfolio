@@ -1,22 +1,19 @@
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import { useNavigate } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
 import { PortfolioRoutePaths } from "../../routing/portfolioRouting/PortfolioRouting";
+import { buildCvInfo } from "../../utils/builders";
 import { CvPage } from "./CvPage";
 
 vitest.mock("react-router-dom");
 
 describe(CvPage, () => {
+  beforeEach(() => {
+    vitest.mocked(useLoaderData).mockReturnValue(buildCvInfo());
+  });
+
   it("renders the CV sections", () => {
-    render(
-      <CvPage
-        experienceInfo={[]}
-        educationInfo={[]}
-        achievementsInfo={[]}
-        skillsInfo={{ skills: [], languages: [] }}
-        projectInfo={[]}
-      />,
-    );
+    render(<CvPage />);
 
     expect(
       screen.getByRole("heading", { name: "Experience" }),
@@ -38,15 +35,7 @@ describe(CvPage, () => {
 
     vitest.mocked(useNavigate).mockReturnValue(navigateMock);
 
-    render(
-      <CvPage
-        experienceInfo={[]}
-        educationInfo={[]}
-        achievementsInfo={[]}
-        skillsInfo={{ skills: [], languages: [] }}
-        projectInfo={[]}
-      />,
-    );
+    render(<CvPage />);
     await userEvent.click(screen.getByRole("link", { name: "Go Home" }));
 
     expect(navigateMock).toHaveBeenCalledWith(PortfolioRoutePaths.BASE);

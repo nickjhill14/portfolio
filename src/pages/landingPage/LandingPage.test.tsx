@@ -1,7 +1,7 @@
 import { faker } from "@faker-js/faker";
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import { useNavigate } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
 import { BasicInfo } from "../../domain";
 import { PortfolioRoutePaths } from "../../routing/portfolioRouting/PortfolioRouting";
 import { buildBasicInfo } from "../../utils/builders";
@@ -10,6 +10,12 @@ import { LandingPage } from "./LandingPage";
 vitest.mock("react-router-dom");
 
 describe(LandingPage, () => {
+  const useLoaderDataMock = vitest.mocked(useLoaderData);
+
+  beforeEach(() => {
+    useLoaderDataMock.mockReturnValue(buildBasicInfo());
+  });
+
   it("renders the page", () => {
     const name = faker.person.fullName();
     const role = faker.person.jobTitle();
@@ -26,7 +32,9 @@ describe(LandingPage, () => {
       github,
     };
 
-    render(<LandingPage basicInfo={basicInfo} />);
+    useLoaderDataMock.mockReturnValue(basicInfo);
+
+    render(<LandingPage />);
 
     expect(screen.getByRole("heading", { name })).toBeInTheDocument();
     expect(screen.getByRole("heading", { name: role })).toBeInTheDocument();
@@ -42,7 +50,7 @@ describe(LandingPage, () => {
 
     vitest.mocked(useNavigate).mockReturnValue(navigateMock);
 
-    render(<LandingPage basicInfo={buildBasicInfo()} />);
+    render(<LandingPage />);
     await userEvent.click(screen.getByRole("link", { name: "Go To CV" }));
 
     expect(navigateMock).toHaveBeenCalledWith(PortfolioRoutePaths.CV);

@@ -2,6 +2,7 @@ import { faker } from "@faker-js/faker";
 import {
   Achievement,
   BasicInfo,
+  CvInfo,
   Education,
   Experience,
   Language,
@@ -85,9 +86,21 @@ function buildLanguage(override?: Partial<Language>): Language {
   };
 }
 
+function buildCvInfo(override?: Partial<CvInfo>): CvInfo {
+  return {
+    experienceInfo: [buildExperience()],
+    educationInfo: [buildEducation()],
+    projectInfo: [buildProject()],
+    skillInfo: { skills: [buildSkill()], languages: [buildLanguage()] },
+    achievementsInfo: [buildAchievement()],
+    ...override,
+  };
+}
+
 export {
   buildAchievement,
   buildBasicInfo,
+  buildCvInfo,
   buildDateRange,
   buildEducation,
   buildExperience,

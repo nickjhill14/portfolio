@@ -44,10 +44,19 @@ type Language = { name: string; level: number };
 
 type SkillInfo = { skills: Skill[]; languages: Language[] };
 
+type CvInfo = {
+  experienceInfo: ExperienceInfo;
+  educationInfo: EducationInfo;
+  skillInfo: SkillInfo;
+  projectInfo: ProjectInfo;
+  achievementsInfo: AchievementInfo;
+};
+
 export type {
   Achievement,
   AchievementInfo,
   BasicInfo,
+  CvInfo,
   Education,
   EducationInfo,
   Experience,
