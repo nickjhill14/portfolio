@@ -3,29 +3,29 @@
     {
       "name": "Senior Consultant Developer",
       "location": "London",
-      "dateRange": "Feb. 2020 - Present"
+      "dateRange": "Feb. '20 - Present"
     },
     {
       "name": "English Teacher",
       "location": "Shenzhen & Hong Kong",
-      "dateRange": "Sep. 2017 - Aug. 2019"
+      "dateRange": "Sep. '17 - Aug. '19"
     }
   ],
   "educationInfo": [
     {
       "qualification": "Masters In Computer Science (1st Class)",
       "institution": "University Of Nottingham",
-      "dateRange": "Sep. 2013 - Jul. 2017"
+      "dateRange": "Sep. '13 - Jul. '17"
     },
     {
       "qualification": "A Levels In Maths, Geography, & IT",
       "institution": "Beaumont School",
-      "dateRange": "Sep. 2011 - Aug. 2013"
+      "dateRange": "Sep. '11 - Aug. '13"
     },
     {
       "qualification": "12 GCSEs",
       "institution": "Beaumont School",
-      "dateRange": "Sep. 2009 - Aug. 2011"
+      "dateRange": "Sep. '09 - Aug. '11"
     }
   ],
   "achievementsInfo": [
@@ -93,27 +93,27 @@
     {
       "name": "React App Template",
       "institution": "Personal",
-      "dateRange": "Sep. 2023 - Present"
+      "dateRange": "Sep. '23 - Present"
     },
     {
       "name": "Portfolio Generator",
       "institution": "Personal",
-      "dateRange": "Aug. 2023 - Present"
+      "dateRange": "Aug. '23 - Present"
     },
     {
       "name": "Bahmni",
       "institution": "Thoughtworks",
-      "dateRange": "Jul. 2020 - Sep. 2020"
+      "dateRange": "Jul. '20 - Sep. '20"
     },
     {
       "name": "OpenMRS",
       "institution": "Thoughtworks",
-      "dateRange": "Apr. 2020 - Sep. 2020"
+      "dateRange": "Apr. '20 - Sep. '20"
     },
     {
       "name": "Autonomous Robot Image Tagging System",
       "institution": "University Of Nottingham",
-      "dateRange": "Sep. 2014 - Jul. 2015"
+      "dateRange": "Sep. '14 - Jul. '15"
     }
   ]
 }
