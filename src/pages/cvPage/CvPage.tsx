@@ -38,16 +38,16 @@ function CvPage() {
         Go Home
       </GoHomeButton>
       <Grid container spacing={2}>
-        <Grid item xs={6}>
+        <Grid item xs={12} sm={6}>
           <ExperienceSection experienceInfo={experienceInfo} />
         </Grid>
-        <Grid item xs={6}>
+        <Grid item xs={12} sm={6}>
           <EducationSection educationInfo={educationInfo} />
         </Grid>
-        <Grid item xs={6}>
+        <Grid item xs={12} sm={6}>
           <ProjectsSection projectInfo={projectInfo} />
         </Grid>
-        <Grid item xs={6}>
+        <Grid item xs={12} sm={6}>
           <AchievementsSection achievementInfo={achievementsInfo} />
         </Grid>
         <Grid item xs={12}>
