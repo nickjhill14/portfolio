@@ -19,6 +19,13 @@ const meta = {
         loader: getCvInfo,
       },
     }),
+  },
+} satisfies Meta<typeof CvPage>;
+
+type Story = StoryObj<typeof meta>;
+
+const Default: Story = {
+  parameters: {
     msw: {
       handlers: [
         rest.get("/portfolioConfig/cv-info.json", (_, res, ctx) => {
@@ -27,13 +34,29 @@ const meta = {
       ],
     },
   },
-} satisfies Meta<typeof CvPage>;
+};
 
-type Story = StoryObj<typeof meta>;
-
-const Default: Story = {};
-
-const NoInfoProvided: Story = {};
+const NoInfoProvided: Story = {
+  parameters: {
+    msw: {
+      handlers: [
+        rest.get("/portfolioConfig/cv-info.json", (_, res, ctx) => {
+          return res(
+            ctx.json(
+              buildCvInfo({
+                experienceInfo: [],
+                educationInfo: [],
+                skillInfo: { skills: [], languages: [] },
+                achievementsInfo: [],
+                projectInfo: [],
+              }),
+            ),
+          );
+        }),
+      ],
+    },
+  },
+};
 
 export default meta;
 export { Default, NoInfoProvided };
