@@ -13,7 +13,7 @@ const CvPageContainer = styled(Container)({
 });
 
 const GoHomeButton = styled(Button)({
-  marginBottom: "25px;",
+  marginBottom: "25px",
   alignSelf: "flex-start",
 });
 
