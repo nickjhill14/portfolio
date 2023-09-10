@@ -1,10 +1,10 @@
 import AlternateEmailOutlinedIcon from "@mui/icons-material/AlternateEmailOutlined";
 import DescriptionIcon from "@mui/icons-material/Description";
+import GitHubIcon from "@mui/icons-material/GitHub";
 import LocalPhoneOutlinedIcon from "@mui/icons-material/LocalPhoneOutlined";
-import TimelineOutlinedIcon from "@mui/icons-material/TimelineOutlined";
 import WorkOutlineOutlinedIcon from "@mui/icons-material/WorkOutlineOutlined";
 import { Button, Grid, Stack, Typography } from "@mui/material";
-import { useLoaderData, useNavigate } from "react-router-dom";
+import { Link, useLoaderData, useNavigate } from "react-router-dom";
 import { IconTypography } from "../../components/iconTypography/IconTypography";
 import { BasicInfo } from "../../domain/basicInfo";
 
@@ -43,23 +43,31 @@ function LandingPage() {
             text={linkedIn}
             variant="body1"
           />
-          <IconTypography
-            // TODO: Change this to the GitHub icon
-            icon={TimelineOutlinedIcon}
-            text={github}
-            variant="body1"
-          />
+          <IconTypography icon={GitHubIcon} text={github} variant="body1" />
         </Stack>
       </Grid>
       <Grid item xs={12}>
-        <Button
-          onClick={() => navigate("/cv")}
-          role="link"
-          startIcon={<DescriptionIcon />}
-          variant="contained"
-        >
-          Go To CV
-        </Button>
+        <Stack direction={{ xs: "column", sm: "row" }} spacing={2}>
+          <Button
+            onClick={() => navigate("/cv")}
+            role="link"
+            startIcon={<DescriptionIcon />}
+            variant="contained"
+          >
+            View CV
+          </Button>
+          <Button
+            component={Link}
+            role="link"
+            variant="contained"
+            startIcon={<GitHubIcon />}
+            to="https://github.com/nickjhill14/portfolio-generator"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Visit Repo
+          </Button>
+        </Stack>
       </Grid>
     </Grid>
   );

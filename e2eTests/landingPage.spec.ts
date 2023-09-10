@@ -17,8 +17,28 @@ test.describe("Landing Page", () => {
   });
 
   test("navigating to the CV page", async ({ page }) => {
-    await page.getByRole("link", { name: "Go To CV" }).click();
+    await page.getByRole("link", { name: "View CV" }).click();
 
     await expect(page).toHaveURL("/cv");
+  });
+
+  test("navigating to the GitHub repo", async ({ page, context }) => {
+    const pagePromise = context.waitForEvent("page");
+
+    expect(page.getByRole("link", { name: "Visit Repo" })).toHaveAttribute(
+      "target",
+      "_blank",
+    );
+    expect(page.getByRole("link", { name: "Visit Repo" })).toHaveAttribute(
+      "rel",
+      "noopener noreferrer",
+    );
+
+    await page.getByRole("link", { name: "Visit Repo" }).click();
+    const newPage = await pagePromise;
+
+    await expect(newPage).toHaveURL(
+      "https://github.com/nickjhill14/portfolio-generator",
+    );
   });
 });

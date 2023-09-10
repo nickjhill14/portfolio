@@ -40,7 +40,7 @@ describe(LandingPage, () => {
     vitest.mocked(useNavigate).mockReturnValue(navigateMock);
 
     render(<LandingPage />);
-    await userEvent.click(screen.getByRole("link", { name: "Go To CV" }));
+    await userEvent.click(screen.getByRole("link", { name: "View CV" }));
 
     expect(navigateMock).toHaveBeenCalledWith(PortfolioRoutePaths.CV);
   });
