@@ -36,7 +36,7 @@ jobs:
     needs: build-and-test
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - name: Install Vercel CLI
         run: npm i -g vercel@latest
       - name: Pull Vercel Env Info
