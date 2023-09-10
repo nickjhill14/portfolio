@@ -17,5 +17,10 @@
     "noEmit": true,
     "jsx": "react-jsx"
   },
-  "include": ["src", ".storybook/*.ts", ".storybook/*.tsx"]
+  "include": [
+    "src",
+    ".storybook/*.ts",
+    ".storybook/*.tsx",
+    "e2eTests/*.spec.ts"
+  ]
 }

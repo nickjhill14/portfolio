@@ -57,6 +57,18 @@ To run tests in `watch` mode:
 npm run test:watch
 ```
 
+### 🧪 E2E Tests
+
+```shell
+npm run test:e2e
+```
+
+To run tests in `UI` mode:
+
+```shell
+npm run test:e2e:ui
+```
+
 ## 🏃‍♂️ Running Locally
 
 ```shell

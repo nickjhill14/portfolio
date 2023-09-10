@@ -14,7 +14,9 @@
     "react-router-dom": "^6.15.0"
   },
   "devDependencies": {
+    "@axe-core/playwright": "^4.7.3",
     "@faker-js/faker": "^8.0.2",
+    "@playwright/test": "^1.37.1",
     "@storybook/addon-essentials": "^7.4.0",
     "@storybook/addon-interactions": "^7.4.0",
     "@storybook/addon-links": "^7.4.0",
@@ -64,6 +66,8 @@
     "lint": "eslint .",
     "test": "vitest run",
     "test:watch": "vitest watch",
+    "test:e2e": "playwright test",
+    "test:e2e:ui": "playwright test --ui",
     "prepare": "husky install",
     "pre-commit": "npm run format && npm run typecheck && npm run lint && npm t",
     "storybook": "storybook dev -p 6006",
