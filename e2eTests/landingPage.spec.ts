@@ -7,8 +7,6 @@ test.describe("Landing Page", () => {
   });
 
   test("there are no accessibility violations", async ({ page }) => {
-    test.fail();
-
     await expect(
       page.getByRole("heading", { name: "Nicholas Hill" }),
     ).toBeVisible();

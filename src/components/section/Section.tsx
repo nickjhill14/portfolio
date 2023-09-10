@@ -25,7 +25,7 @@ function Section(props: SectionProps) {
         icon={headingIcon}
         text={headingText}
         variant="h5"
-        component="h2"
+        component="h1"
       />
       {children}
     </SectionPaper>

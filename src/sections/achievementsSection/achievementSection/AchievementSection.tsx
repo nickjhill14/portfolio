@@ -14,7 +14,7 @@ function AchievementSection(props: AchievementSectionProps) {
     <Stack spacing={1}>
       <Stack direction="row" spacing={1}>
         <Stack>
-          <Typography variant="h6" component="h3">
+          <Typography variant="h6" component="h2">
             {heading}
           </Typography>
           <Typography variant="body2">{description}</Typography>

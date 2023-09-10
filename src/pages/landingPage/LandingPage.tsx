@@ -30,24 +30,24 @@ function LandingPage() {
           <IconTypography
             icon={AlternateEmailOutlinedIcon}
             text={email}
-            variant="subtitle1"
+            variant="body1"
           />
           <IconTypography
             icon={LocalPhoneOutlinedIcon}
             text={phoneNumber}
-            variant="subtitle1"
+            variant="body1"
           />
           <IconTypography
             // TODO: Change this to the LinkedIn icon
             icon={WorkOutlineOutlinedIcon}
             text={linkedIn}
-            variant="subtitle1"
+            variant="body1"
           />
           <IconTypography
             // TODO: Change this to the GitHub icon
             icon={TimelineOutlinedIcon}
             text={github}
-            variant="subtitle1"
+            variant="body1"
           />
         </Stack>
       </Grid>
