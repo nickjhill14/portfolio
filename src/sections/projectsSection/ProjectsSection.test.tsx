@@ -1,4 +1,3 @@
-import { faker } from "@faker-js/faker";
 import { render, screen } from "@testing-library/react";
 import { ProjectInfo } from "../../domain";
 import { buildProject } from "../../utils/builders";
@@ -20,8 +19,8 @@ describe(ProjectsSection, () => {
   });
 
   it("renders multiple project details", () => {
-    const project1Name = faker.company.buzzNoun();
-    const project2Name = faker.company.buzzNoun();
+    const project1Name = "Portfolio";
+    const project2Name = "Portfolio Generator";
     const project1 = buildProject({ name: project1Name });
     const project2 = buildProject({ name: project2Name });
     const projectInfo: ProjectInfo = [project1, project2];

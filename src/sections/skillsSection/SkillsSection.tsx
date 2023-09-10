@@ -18,9 +18,9 @@ function SkillsSection({ skillInfo }: SkillsSectionProps) {
         <Alert severity="warning">No skills provided</Alert>
       ) : (
         <Stack direction="row" flexWrap="wrap" gap={1}>
-          {skills.map((skill) => (
+          {skills.map(({ name }) => (
             // TODO: Add icons
-            <Chip label={skill} variant="outlined" key={skill} />
+            <Chip label={name} variant="outlined" key={name} />
           ))}
         </Stack>
       )}

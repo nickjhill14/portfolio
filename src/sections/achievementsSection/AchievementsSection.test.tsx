@@ -1,4 +1,3 @@
-import { faker } from "@faker-js/faker";
 import { render, screen } from "@testing-library/react";
 import { AchievementInfo } from "../../domain";
 import { buildAchievement } from "../../utils/builders";
@@ -28,8 +27,8 @@ describe(AchievementsSection, () => {
   });
 
   it("renders multiple achievement sections", () => {
-    const achievement1Name = `Certificate In ${faker.company.buzzNoun()}`;
-    const achievement2Name = `Certificate In ${faker.company.buzzNoun()}`;
+    const achievement1Name = "Certificate In Portfolio Creation";
+    const achievement2Name = "Certificate In Portfolio Generating";
     const achievement1 = buildAchievement({ name: achievement1Name });
     const achievement2 = buildAchievement({ name: achievement2Name });
     const AchievementInfo: AchievementInfo = [achievement1, achievement2];

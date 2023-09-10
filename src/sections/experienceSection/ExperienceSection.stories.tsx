@@ -1,5 +1,6 @@
+import { faker } from "@faker-js/faker";
 import type { Meta, StoryObj } from "@storybook/react";
-import { buildExperience } from "../../utils/builders";
+import { buildDateRange } from "../../utils/builders";
 import { ExperienceSection } from "./ExperienceSection";
 
 const meta = {
@@ -12,13 +13,30 @@ type Story = StoryObj<typeof meta>;
 
 const SingleExperience: Story = {
   args: {
-    experienceInfo: [buildExperience()],
+    experienceInfo: [
+      {
+        name: faker.person.jobTitle(),
+        location: faker.location.country(),
+        dateRange: buildDateRange(),
+      },
+    ],
   },
 };
 
 const MultipleExperience: Story = {
   args: {
-    experienceInfo: [buildExperience(), buildExperience(), buildExperience()],
+    experienceInfo: [
+      {
+        name: faker.person.jobTitle(),
+        location: faker.location.country(),
+        dateRange: buildDateRange(),
+      },
+      {
+        name: faker.person.jobTitle(),
+        location: faker.location.country(),
+        dateRange: buildDateRange(),
+      },
+    ],
   },
 };
 

@@ -1,12 +1,11 @@
-import { faker } from "@faker-js/faker";
 import { render, screen } from "@testing-library/react";
 import { buildDateRange } from "../../utils/builders";
 import { SectionDetails } from "./SectionDetails";
 
 describe(SectionDetails, () => {
   it("renders the section details", () => {
-    const heading = faker.company.buzzNoun();
-    const location = faker.location.city();
+    const heading = "Section Details Heading";
+    const location = "UK";
     const dateRange = buildDateRange();
 
     render(

@@ -1,5 +1,7 @@
+import { faker } from "@faker-js/faker";
 import type { Meta, StoryObj } from "@storybook/react";
-import { buildProject } from "../../utils/builders";
+import { buildDateRange } from "../../utils/builders";
+import { upperCaseFirstChar } from "../../utils/helpers";
 import { ProjectsSection } from "./ProjectsSection";
 
 const meta = {
@@ -12,13 +14,30 @@ type Story = StoryObj<typeof meta>;
 
 const SingleProject: Story = {
   args: {
-    projectInfo: [buildProject()],
+    projectInfo: [
+      {
+        name: upperCaseFirstChar(faker.company.buzzNoun()),
+        institution: `School Of ${faker.location.city()}`,
+        dateRange: buildDateRange(),
+      },
+    ],
   },
 };
 
 const MultipleProjects: Story = {
   args: {
-    projectInfo: [buildProject(), buildProject(), buildProject()],
+    projectInfo: [
+      {
+        name: upperCaseFirstChar(faker.company.buzzNoun()),
+        institution: `School Of ${faker.location.city()}`,
+        dateRange: buildDateRange(),
+      },
+      {
+        name: upperCaseFirstChar(faker.company.buzzNoun()),
+        institution: `School Of ${faker.location.city()}`,
+        dateRange: buildDateRange(),
+      },
+    ],
   },
 };
 

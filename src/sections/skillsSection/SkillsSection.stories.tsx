@@ -1,5 +1,6 @@
+import { faker } from "@faker-js/faker";
 import type { Meta, StoryObj } from "@storybook/react";
-import { buildLanguage, buildSkill } from "../../utils/builders";
+import { upperCaseFirstChar } from "../../utils/helpers";
 import { SkillsSection } from "./SkillsSection";
 
 const meta = {
@@ -12,15 +13,26 @@ type Story = StoryObj<typeof meta>;
 
 const SingleSkillAndLanguage: Story = {
   args: {
-    skillInfo: { skills: [buildSkill()], languages: [buildLanguage()] },
+    skillInfo: {
+      skills: [{ name: upperCaseFirstChar(faker.hacker.ingverb()) }],
+      languages: [
+        { name: faker.location.country(), level: faker.number.int(5) },
+      ],
+    },
   },
 };
 
 const MultipleSkillsAndLanguages: Story = {
   args: {
     skillInfo: {
-      skills: [buildSkill(), buildSkill(), buildSkill()],
-      languages: [buildLanguage(), buildLanguage(), buildLanguage()],
+      skills: [
+        { name: upperCaseFirstChar(faker.hacker.ingverb()) },
+        { name: upperCaseFirstChar(faker.hacker.ingverb()) },
+      ],
+      languages: [
+        { name: faker.location.country(), level: faker.number.int(5) },
+        { name: faker.location.country(), level: faker.number.int(5) },
+      ],
     },
   },
 };

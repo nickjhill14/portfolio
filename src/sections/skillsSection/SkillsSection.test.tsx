@@ -1,6 +1,5 @@
-import { faker } from "@faker-js/faker";
 import { render, screen } from "@testing-library/react";
-import { Skill, SkillInfo } from "../../domain";
+import { SkillInfo } from "../../domain";
 import { buildLanguage, buildSkill } from "../../utils/builders";
 import { SkillsSection, SkillsSectionProps } from "./SkillsSection";
 
@@ -29,20 +28,20 @@ describe(SkillsSection, () => {
   });
 
   it("renders skills", () => {
-    const skill1: Skill = buildSkill();
-    const skill2: Skill = buildSkill();
+    const skill1 = buildSkill({ name: "Portfolio Creation" });
+    const skill2 = buildSkill({ name: "Portfolio Generating" });
     const skillInfo: SkillInfo = { skills: [skill1, skill2], languages: [] };
 
     renderSkillsSection({ skillInfo });
 
-    expect(screen.getByText(skill1)).toBeInTheDocument();
-    expect(screen.getByText(skill2)).toBeInTheDocument();
+    expect(screen.getByText(skill1.name)).toBeInTheDocument();
+    expect(screen.getByText(skill2.name)).toBeInTheDocument();
   });
 
   it("renders languages", () => {
-    const language1Name = faker.location.country();
+    const language1Name = "English";
     const language1Level = 1;
-    const language2Name = faker.location.country();
+    const language2Name = "Mandarin Chinese";
     const language2Level = 5;
     const language1 = buildLanguage({
       name: language1Name,

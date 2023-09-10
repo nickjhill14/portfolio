@@ -1,11 +1,10 @@
-import { faker } from "@faker-js/faker";
 import { AbcOutlined } from "@mui/icons-material";
 import { render, screen } from "@testing-library/react";
 import { Section, SectionProps } from "./Section";
 
 function renderSection(propsOverride?: Partial<SectionProps>) {
   const props: SectionProps = {
-    headingText: faker.company.buzzNoun(),
+    headingText: "Default Section Heading",
     headingIcon: AbcOutlined,
     children: [],
     ...propsOverride,
@@ -16,7 +15,7 @@ function renderSection(propsOverride?: Partial<SectionProps>) {
 
 describe(Section, () => {
   it("renders the section heading", () => {
-    const headingText = faker.company.buzzNoun();
+    const headingText = "Section Heading";
 
     renderSection({ headingText });
 

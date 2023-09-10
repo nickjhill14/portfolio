@@ -38,7 +38,7 @@ type Achievement = {
 
 type AchievementInfo = Achievement[];
 
-type Skill = string;
+type Skill = { name: string };
 
 type Language = { name: string; level: number };
 

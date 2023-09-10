@@ -1,4 +1,3 @@
-import { faker } from "@faker-js/faker";
 import { render, screen } from "@testing-library/react";
 import { EducationInfo } from "../../domain";
 import { buildEducation } from "../../utils/builders";
@@ -22,8 +21,8 @@ describe(EducationSection, () => {
   });
 
   it("renders multiple education details", () => {
-    const education1Name = `Degree In ${faker.company.buzzNoun()}`;
-    const education2Name = `Degree In ${faker.company.buzzNoun()}`;
+    const education1Name = "Degree In Portfolios";
+    const education2Name = "Degree In Portfolio Generating";
     const education1 = buildEducation({ qualification: education1Name });
     const education2 = buildEducation({ qualification: education2Name });
     const educationInfo: EducationInfo = [education1, education2];

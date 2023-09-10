@@ -9,16 +9,15 @@ import {
   Project,
   Skill,
 } from "../domain";
-import { upperCaseFirstChar } from "./helpers";
 
 function buildBasicInfo(override?: Partial<BasicInfo>): BasicInfo {
   return {
-    name: faker.person.fullName(),
-    role: faker.person.jobTitle(),
-    email: faker.internet.email(),
-    phoneNumber: faker.phone.number("+44 7## ### ###"),
-    linkedIn: faker.internet.userName(),
-    github: faker.internet.userName(),
+    name: "Portfolio Pete",
+    role: "Portfolio Creator",
+    email: "portfolio-pete@email.com",
+    phoneNumber: "(+44) 765 432 100",
+    linkedIn: "portfolio-pete",
+    github: "portfolio-pete-dev",
     ...override,
   };
 }
@@ -41,8 +40,8 @@ function buildDateRange(): string {
 
 function buildExperience(override?: Partial<Experience>): Experience {
   return {
-    name: faker.person.jobTitle(),
-    location: faker.location.country(),
+    name: "Portfolio Creator",
+    location: "UK",
     dateRange: buildDateRange(),
     ...override,
   };
@@ -50,8 +49,8 @@ function buildExperience(override?: Partial<Experience>): Experience {
 
 function buildEducation(override?: Partial<Education>): Education {
   return {
-    qualification: `Degree In ${upperCaseFirstChar(faker.company.buzzNoun())}`,
-    institution: `School Of ${faker.location.city()}`,
+    qualification: "Degree In Portfolio Creation",
+    institution: "University Of Portfolios",
     dateRange: buildDateRange(),
     ...override,
   };
@@ -59,8 +58,8 @@ function buildEducation(override?: Partial<Education>): Education {
 
 function buildProject(override?: Partial<Project>): Project {
   return {
-    name: upperCaseFirstChar(faker.company.buzzNoun()),
-    institution: `School Of ${faker.location.city()}`,
+    name: "Portfolio Generator",
+    institution: "Personal Project",
     dateRange: buildDateRange(),
     ...override,
   };
@@ -68,20 +67,20 @@ function buildProject(override?: Partial<Project>): Project {
 
 function buildAchievement(override?: Partial<Achievement>): Achievement {
   return {
-    name: `Certificate In ${upperCaseFirstChar(faker.company.buzzNoun())}`,
-    description: faker.lorem.sentence(5),
+    name: "Certificate In Portfolio Creation",
+    description: "Created a portfolio",
     ...override,
   };
 }
 
-function buildSkill(): Skill {
-  return upperCaseFirstChar(faker.hacker.ingverb());
+function buildSkill(override?: Partial<Skill>): Skill {
+  return { name: "Portfolio Creation", ...override };
 }
 
 function buildLanguage(override?: Partial<Language>): Language {
   return {
-    name: faker.location.country(),
-    level: faker.number.int(5),
+    name: "English",
+    level: 5,
     ...override,
   };
 }

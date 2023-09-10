@@ -1,5 +1,7 @@
+import { faker } from "@faker-js/faker";
 import type { Meta, StoryObj } from "@storybook/react";
-import { buildEducation } from "../../utils/builders";
+import { buildDateRange } from "../../utils/builders";
+import { upperCaseFirstChar } from "../../utils/helpers";
 import { EducationSection } from "./EducationSection";
 
 const meta = {
@@ -12,13 +14,36 @@ type Story = StoryObj<typeof meta>;
 
 const SingleEducation: Story = {
   args: {
-    educationInfo: [buildEducation()],
+    educationInfo: [
+      {
+        qualification: `Degree In ${upperCaseFirstChar(
+          faker.company.buzzNoun(),
+        )}`,
+        institution: `School Of ${faker.location.city()}`,
+        dateRange: buildDateRange(),
+      },
+    ],
   },
 };
 
 const MultipleEducation: Story = {
   args: {
-    educationInfo: [buildEducation(), buildEducation(), buildEducation()],
+    educationInfo: [
+      {
+        qualification: `Degree In ${upperCaseFirstChar(
+          faker.company.buzzNoun(),
+        )}`,
+        institution: `School Of ${faker.location.city()}`,
+        dateRange: buildDateRange(),
+      },
+      {
+        qualification: `Degree In ${upperCaseFirstChar(
+          faker.company.buzzNoun(),
+        )}`,
+        institution: `School Of ${faker.location.city()}`,
+        dateRange: buildDateRange(),
+      },
+    ],
   },
 };
 

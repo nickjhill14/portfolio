@@ -1,4 +1,3 @@
-import { faker } from "@faker-js/faker";
 import { render, screen } from "@testing-library/react";
 import { ExperienceInfo } from "../../domain";
 import { buildExperience } from "../../utils/builders";
@@ -22,8 +21,8 @@ describe(ExperienceSection, () => {
   });
 
   it("renders multiple experience sections", () => {
-    const experience1Name = faker.person.jobTitle();
-    const experience2Name = faker.person.jobTitle();
+    const experience1Name = "Portfolio Creating";
+    const experience2Name = "Portfolio Generating";
     const experience1 = buildExperience({ name: experience1Name });
     const experience2 = buildExperience({ name: experience2Name });
     const experienceInfo: ExperienceInfo = [experience1, experience2];
