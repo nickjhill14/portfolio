@@ -12,6 +12,7 @@
 # Production
 /build
 /storybook-static
+.vercel
 
 # Env Vars
 .env.local
