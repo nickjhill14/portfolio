@@ -32,6 +32,9 @@ describe(LandingPage, () => {
     expect(screen.getByText(basicInfo.linkedIn)).toBeInTheDocument();
     expect(screen.getByText(basicInfo.email)).toBeInTheDocument();
     expect(screen.getByText(basicInfo.github)).toBeInTheDocument();
+    expect(
+      screen.queryByText("Thank you to the best pair, Kate"),
+    ).not.toBeInTheDocument();
   });
 
   it("renders a link to the CV page", async () => {
@@ -43,5 +46,31 @@ describe(LandingPage, () => {
     await userEvent.click(screen.getByRole("link", { name: "View CV" }));
 
     expect(navigateMock).toHaveBeenCalledWith(PortfolioRoutePaths.CV);
+  });
+
+  it("renders a hidden acknowledgement", async () => {
+    render(<LandingPage />);
+    await userEvent.click(
+      screen.getByRole("button", { name: "View Acknowledgements" }),
+    );
+
+    expect(
+      screen.getByRole("presentation", { name: "Acknowledgements Snackbar" }),
+    ).toBeInTheDocument();
+    expect(screen.getByText("Thank you to the best pair, Kate")).toBeVisible();
+  });
+
+  it("closes the hidden acknowledgement on click", async () => {
+    render(<LandingPage />);
+    await userEvent.click(
+      screen.getByRole("button", { name: "View Acknowledgements" }),
+    );
+    await userEvent.click(
+      screen.getByRole("button", { name: "Close Acknowledgements" }),
+    );
+
+    expect(
+      screen.getByText("Thank you to the best pair, Kate"),
+    ).not.toBeVisible();
   });
 });
