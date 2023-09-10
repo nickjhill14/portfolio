@@ -3,7 +3,7 @@ import CircleOutlinedIcon from "@mui/icons-material/CircleOutlined";
 import CodeOutlinedIcon from "@mui/icons-material/CodeOutlined";
 import { Alert, Chip, Divider, Rating, Stack, Typography } from "@mui/material";
 import { Section } from "../../components/section/Section";
-import { SkillInfo } from "../../domain";
+import { SkillInfo } from "../../domain/cvInfo";
 
 type SkillsSectionProps = {
   skillInfo: SkillInfo;

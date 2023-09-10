@@ -6,7 +6,7 @@ import {
   withRouter,
 } from "storybook-addon-react-router-v6";
 import { getCvInfo } from "../../api/portfolioGateway/portfolioGateway";
-import { CvInfo } from "../../domain";
+import { CvInfo } from "../../domain/cvInfo";
 import { buildDateRange } from "../../utils/builders";
 import { upperCaseFirstChar } from "../../utils/helpers";
 import { CvPage } from "./CvPage";

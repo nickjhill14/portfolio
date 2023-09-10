@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import { EducationInfo } from "../../domain";
+import { EducationInfo } from "../../domain/cvInfo";
 import { buildEducation } from "../../utils/builders";
 import { EducationSection } from "./EducationSection";
 
@@ -18,6 +18,14 @@ describe(EducationSection, () => {
     expect(
       screen.getByText("No education details provided"),
     ).toBeInTheDocument();
+  });
+
+  it("renders details when provided", () => {
+    const details: string[] = ["Learnt how to create a portfolio"];
+
+    render(<EducationSection educationInfo={[buildEducation({ details })]} />);
+
+    expect(screen.getByText(details[0])).toBeInTheDocument();
   });
 
   it("renders multiple education details", () => {

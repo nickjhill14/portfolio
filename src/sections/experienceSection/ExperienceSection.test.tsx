@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import { ExperienceInfo } from "../../domain";
+import { ExperienceInfo } from "../../domain/cvInfo";
 import { buildExperience } from "../../utils/builders";
 import { ExperienceSection } from "./ExperienceSection";
 
@@ -12,6 +12,16 @@ describe(ExperienceSection, () => {
     ).toBeInTheDocument();
   });
 
+  it("renders details when provided", () => {
+    const details: string[] = ["Experienced creating a portfolio"];
+
+    render(
+      <ExperienceSection experienceInfo={[buildExperience({ details })]} />,
+    );
+
+    expect(screen.getByText(details[0])).toBeInTheDocument();
+  });
+
   it("renders a message when there are no experience details", () => {
     render(<ExperienceSection experienceInfo={[]} />);
 
@@ -21,19 +31,17 @@ describe(ExperienceSection, () => {
   });
 
   it("renders multiple experience sections", () => {
-    const experience1Name = "Portfolio Creating";
-    const experience2Name = "Portfolio Generating";
-    const experience1 = buildExperience({ name: experience1Name });
-    const experience2 = buildExperience({ name: experience2Name });
+    const experience1 = buildExperience({ name: "Portfolio Creating" });
+    const experience2 = buildExperience({ name: "Portfolio Generating" });
     const experienceInfo: ExperienceInfo = [experience1, experience2];
 
     render(<ExperienceSection experienceInfo={experienceInfo} />);
 
     expect(
-      screen.getByRole("heading", { name: experience1Name }),
+      screen.getByRole("heading", { name: experience1.name }),
     ).toBeInTheDocument();
     expect(
-      screen.getByRole("heading", { name: experience2Name }),
+      screen.getByRole("heading", { name: experience2.name }),
     ).toBeInTheDocument();
   });
 });

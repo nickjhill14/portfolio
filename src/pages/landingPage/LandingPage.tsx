@@ -6,7 +6,7 @@ import WorkOutlineOutlinedIcon from "@mui/icons-material/WorkOutlineOutlined";
 import { Button, Grid, Stack, Typography } from "@mui/material";
 import { useLoaderData, useNavigate } from "react-router-dom";
 import { IconTypography } from "../../components/iconTypography/IconTypography";
-import { BasicInfo } from "../../domain";
+import { BasicInfo } from "../../domain/basicInfo";
 
 function LandingPage() {
   const { name, role, email, phoneNumber, linkedIn, github } =

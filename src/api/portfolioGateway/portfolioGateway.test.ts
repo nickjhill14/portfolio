@@ -1,4 +1,5 @@
-import { BasicInfo, CvInfo } from "../../domain";
+import { BasicInfo } from "../../domain/basicInfo";
+import { CvInfo } from "../../domain/cvInfo";
 import { buildBasicInfo, buildCvInfo } from "../../utils/builders";
 import { getBasicInfo, getCvInfo } from "./portfolioGateway";
 

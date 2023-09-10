@@ -40,6 +40,19 @@ const MultipleExperience: Story = {
   },
 };
 
+const WithDetails: Story = {
+  args: {
+    experienceInfo: [
+      {
+        name: faker.person.jobTitle(),
+        location: faker.location.country(),
+        dateRange: buildDateRange(),
+        details: [faker.lorem.sentence(5), faker.lorem.sentence(5)],
+      },
+    ],
+  },
+};
+
 const NoExperience: Story = {
   args: {
     experienceInfo: [],
@@ -47,4 +60,4 @@ const NoExperience: Story = {
 };
 
 export default meta;
-export { MultipleExperience, NoExperience, SingleExperience };
+export { MultipleExperience, NoExperience, SingleExperience, WithDetails };

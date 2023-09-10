@@ -1,14 +1,14 @@
 import { faker } from "@faker-js/faker";
+import { BasicInfo } from "../domain/basicInfo";
 import {
   Achievement,
-  BasicInfo,
   CvInfo,
   Education,
   Experience,
   Language,
   Project,
   Skill,
-} from "../domain";
+} from "../domain/cvInfo";
 
 function buildBasicInfo(override?: Partial<BasicInfo>): BasicInfo {
   return {

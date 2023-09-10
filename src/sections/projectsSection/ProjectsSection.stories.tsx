@@ -41,6 +41,19 @@ const MultipleProjects: Story = {
   },
 };
 
+const WithDetails: Story = {
+  args: {
+    projectInfo: [
+      {
+        name: upperCaseFirstChar(faker.company.buzzNoun()),
+        institution: `School Of ${faker.location.city()}`,
+        dateRange: buildDateRange(),
+        details: [faker.lorem.sentence(5), faker.lorem.sentence(5)],
+      },
+    ],
+  },
+};
+
 const NoProjects: Story = {
   args: {
     projectInfo: [],
@@ -48,4 +61,4 @@ const NoProjects: Story = {
 };
 
 export default meta;
-export { MultipleProjects, NoProjects, SingleProject };
+export { MultipleProjects, NoProjects, SingleProject, WithDetails };

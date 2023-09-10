@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import { SkillInfo } from "../../domain";
+import { SkillInfo } from "../../domain/cvInfo";
 import { buildLanguage, buildSkill } from "../../utils/builders";
 import { SkillsSection, SkillsSectionProps } from "./SkillsSection";
 

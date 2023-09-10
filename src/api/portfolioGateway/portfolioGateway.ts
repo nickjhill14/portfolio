@@ -1,4 +1,5 @@
-import { BasicInfo, CvInfo } from "../../domain";
+import { BasicInfo } from "../../domain/basicInfo";
+import { CvInfo } from "../../domain/cvInfo";
 
 async function getBasicInfo(): Promise<BasicInfo> {
   const res: Response = await fetch("/portfolioConfig/basic-info.json", {

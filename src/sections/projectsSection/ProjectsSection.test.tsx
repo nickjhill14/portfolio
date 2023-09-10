@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import { ProjectInfo } from "../../domain";
+import { ProjectInfo } from "../../domain/cvInfo";
 import { buildProject } from "../../utils/builders";
 import { ProjectsSection } from "./ProjectsSection";
 
@@ -16,6 +16,14 @@ describe(ProjectsSection, () => {
     render(<ProjectsSection projectInfo={[]} />);
 
     expect(screen.getByText("No project details provided")).toBeInTheDocument();
+  });
+
+  it("renders details when provided", () => {
+    const details: string[] = ["Created a portfolio"];
+
+    render(<ProjectsSection projectInfo={[buildProject({ details })]} />);
+
+    expect(screen.getByText(details[0])).toBeInTheDocument();
   });
 
   it("renders multiple project details", () => {

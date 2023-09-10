@@ -3,12 +3,23 @@
     {
       "name": "Senior Consultant Developer",
       "location": "London",
-      "dateRange": "Feb. 20 - Present"
+      "dateRange": "Feb. 20 - Present",
+      "details": [
+        "Advocating software excellence through the effective implementation of coding practices, cross-role collaboration, and QA strategy",
+        "Digitally transforming clients in the healthcare and automotive industries",
+        "Driving the development of high-performing via Agile methodologies",
+        "Working across the tech stack (frontend, backend, and infra)",
+        "Contributing to internal, external, and open-source projects globally"
+      ]
     },
     {
       "name": "English Teacher",
       "location": "Shenzhen & Hong Kong",
-      "dateRange": "Sep. 17 - Aug. 19"
+      "dateRange": "Sep. 17 - Aug. 19",
+      "details": [
+        "Scored 97% Teaching English As A Foreign Language (GA Level 3)",
+        "Scored 91% in the Chinese Language Proficiency Test (HSK Level 3)"
+      ]
     }
   ],
   "educationInfo": [
@@ -103,17 +114,26 @@
     {
       "name": "Bahmni",
       "institution": "Thoughtworks",
-      "dateRange": "Jul. 20 - Sep. 20"
+      "dateRange": "Jul. 20 - Sep. 20",
+      "details": [
+        "Enriched an existing open-source medical record and hospital system with SNOMED Clinical Terms for COVID-19"
+      ]
     },
     {
       "name": "OpenMRS",
       "institution": "Thoughtworks",
-      "dateRange": "Apr. 20 - Sep. 20"
+      "dateRange": "Apr. 20 - Sep. 20",
+      "details": [
+        "Developed a patient registration module for an open-source project supporting healthcare in developing countries"
+      ]
     },
     {
       "name": "Autonomous Robot Image Tagging System",
       "institution": "University Of Nottingham",
-      "dateRange": "Sep. 14 - Jul. 15"
+      "dateRange": "Sep. 14 - Jul. 15",
+      "details": [
+        "Developed a system composed of an autonomous image-capturing robot and a web app allowing users to tag objects in the images taken"
+      ]
     }
   ]
 }

@@ -1,17 +1,10 @@
-type BasicInfo = {
-  name: string;
-  role: string;
-  email: string;
-  phoneNumber: string;
-  linkedIn: string;
-  github: string;
-};
+type SectionDetails = { details?: string[] };
 
 type Experience = {
   name: string;
   location: string;
   dateRange: string;
-};
+} & SectionDetails;
 
 type ExperienceInfo = Experience[];
 
@@ -19,7 +12,7 @@ type Education = {
   qualification: string;
   institution: string;
   dateRange: string;
-};
+} & SectionDetails;
 
 type EducationInfo = Education[];
 
@@ -27,7 +20,7 @@ type Project = {
   name: string;
   institution: string;
   dateRange: string;
-};
+} & SectionDetails;
 
 type ProjectInfo = Project[];
 
@@ -55,7 +48,6 @@ type CvInfo = {
 export type {
   Achievement,
   AchievementInfo,
-  BasicInfo,
   CvInfo,
   Education,
   EducationInfo,

@@ -26,7 +26,7 @@ const SingleEducation: Story = {
   },
 };
 
-const MultipleEducation: Story = {
+const MultipleEducations: Story = {
   args: {
     educationInfo: [
       {
@@ -47,6 +47,21 @@ const MultipleEducation: Story = {
   },
 };
 
+const WithDetails: Story = {
+  args: {
+    educationInfo: [
+      {
+        qualification: `Degree In ${upperCaseFirstChar(
+          faker.company.buzzNoun(),
+        )}`,
+        institution: `School Of ${faker.location.city()}`,
+        dateRange: buildDateRange(),
+        details: [faker.lorem.sentence(5), faker.lorem.sentence(5)],
+      },
+    ],
+  },
+};
+
 const NoEducation: Story = {
   args: {
     educationInfo: [],
@@ -54,4 +69,4 @@ const NoEducation: Story = {
 };
 
 export default meta;
-export { MultipleEducation, NoEducation, SingleEducation };
+export { MultipleEducations, NoEducation, SingleEducation, WithDetails };

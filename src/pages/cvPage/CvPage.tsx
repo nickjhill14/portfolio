@@ -1,7 +1,7 @@
 import { Home } from "@mui/icons-material";
 import { Button, Grid } from "@mui/material";
 import { useLoaderData, useNavigate } from "react-router-dom";
-import { CvInfo } from "../../domain";
+import { CvInfo } from "../../domain/cvInfo";
 import { AchievementsSection } from "../../sections/achievementsSection/AchievementsSection";
 import { EducationSection } from "../../sections/educationSection/EducationSection";
 import { ExperienceSection } from "../../sections/experienceSection/ExperienceSection";

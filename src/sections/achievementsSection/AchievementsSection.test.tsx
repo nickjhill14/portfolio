@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import { AchievementInfo } from "../../domain";
+import { AchievementInfo } from "../../domain/cvInfo";
 import { buildAchievement } from "../../utils/builders";
 import { AchievementsSection } from "./AchievementsSection";
 

@@ -6,7 +6,7 @@ import {
   withRouter,
 } from "storybook-addon-react-router-v6";
 import { getBasicInfo } from "../../api/portfolioGateway/portfolioGateway";
-import { BasicInfo } from "../../domain";
+import { BasicInfo } from "../../domain/basicInfo";
 import { LandingPage } from "./LandingPage";
 
 const basicInfo: BasicInfo = {
