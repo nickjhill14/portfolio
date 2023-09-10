@@ -1,10 +1,9 @@
-import { VolunteerActivism } from "@mui/icons-material";
+import { LinkedIn, VolunteerActivism } from "@mui/icons-material";
 import AlternateEmailOutlinedIcon from "@mui/icons-material/AlternateEmailOutlined";
 import CloseIcon from "@mui/icons-material/Close";
 import DescriptionIcon from "@mui/icons-material/Description";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import LocalPhoneOutlinedIcon from "@mui/icons-material/LocalPhoneOutlined";
-import WorkOutlineOutlinedIcon from "@mui/icons-material/WorkOutlineOutlined";
 import {
   Button,
   Grid,
@@ -56,12 +55,7 @@ function LandingPage() {
               text={phoneNumber}
               variant="body1"
             />
-            <IconTypography
-              // TODO: Change this to the LinkedIn icon
-              icon={WorkOutlineOutlinedIcon}
-              text={linkedIn}
-              variant="body1"
-            />
+            <IconTypography icon={LinkedIn} text={linkedIn} variant="body1" />
             <IconTypography icon={GitHubIcon} text={github} variant="body1" />
           </Stack>
         </Grid>
