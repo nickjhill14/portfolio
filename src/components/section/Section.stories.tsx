@@ -1,6 +1,6 @@
 import { faker } from "@faker-js/faker";
 import { AbcOutlined } from "@mui/icons-material";
-import { Alert } from "@mui/material";
+import { Typography } from "@mui/material";
 import type { Meta, StoryObj } from "@storybook/react";
 import { upperCaseFirstChar } from "../../utils/helpers";
 import { Section } from "./Section";
@@ -17,7 +17,9 @@ const SingleChild: Story = {
   args: {
     headingText: upperCaseFirstChar(faker.company.buzzNoun()),
     headingIcon: AbcOutlined,
-    children: <Alert severity="info">Child</Alert>,
+    children: (
+      <Typography>{upperCaseFirstChar(faker.company.buzzNoun())}</Typography>
+    ),
   },
 };
 
@@ -26,12 +28,12 @@ const MultipleChildren: Story = {
     headingText: upperCaseFirstChar(faker.company.buzzNoun()),
     headingIcon: AbcOutlined,
     children: [
-      <Alert severity="info" key="Child 1">
+      <Typography key="child-1">
         {upperCaseFirstChar(faker.company.buzzNoun())}
-      </Alert>,
-      <Alert severity="warning" key="Child 2">
+      </Typography>,
+      <Typography key="child-2">
         {upperCaseFirstChar(faker.company.buzzNoun())}
-      </Alert>,
+      </Typography>,
     ],
   },
 };
