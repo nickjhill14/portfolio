@@ -49,7 +49,25 @@ describe(SectionDetails, () => {
 
     expect(screen.getByRole("list")).toBeInTheDocument();
     expect(screen.getAllByRole("listitem")).toHaveLength(details.length);
+    expect(screen.getAllByRole("listitem")[0]).toHaveStyle(
+      "display: list-item",
+    );
     expect(screen.getByText(details[0])).toBeInTheDocument();
     expect(screen.getByText(details[1])).toBeInTheDocument();
+  });
+
+  it("does not render bullet point when there is 1 detail", () => {
+    const details: string[] = ["Detail 1"];
+
+    render(
+      <SectionDetails
+        heading="Section Details Heading"
+        location="UK"
+        dateRange={buildDateRange()}
+        details={details}
+      />,
+    );
+
+    expect(screen.getByRole("listitem")).not.toHaveStyle("display: list-item");
   });
 });

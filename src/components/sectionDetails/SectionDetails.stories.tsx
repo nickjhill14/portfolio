@@ -20,7 +20,14 @@ const Default: Story = {
   },
 };
 
-const WithDetails: Story = {
+const WithSingleDetail: Story = {
+  args: {
+    ...Default.args,
+    details: [faker.lorem.sentence(5)],
+  },
+};
+
+const WithMultipleDetails: Story = {
   args: {
     ...Default.args,
     details: [faker.lorem.sentence(5), faker.lorem.sentence(5)],
@@ -28,4 +35,4 @@ const WithDetails: Story = {
 };
 
 export default meta;
-export { Default, WithDetails };
+export { Default, WithMultipleDetails, WithSingleDetail };

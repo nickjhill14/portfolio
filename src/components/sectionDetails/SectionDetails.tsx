@@ -34,9 +34,13 @@ function SectionDetails({
         />
       </Stack>
       {details && details.length > 0 && (
-        <List sx={{ listStyleType: "disc", pl: 2 }}>
+        <List sx={details.length > 1 ? { listStyleType: "disc", pl: 2 } : {}}>
           {details.map((detail) => (
-            <ListItem key={detail} sx={{ display: "list-item" }} disablePadding>
+            <ListItem
+              key={detail}
+              sx={details.length > 1 ? { display: "list-item" } : {}}
+              disablePadding
+            >
               <ListItemText
                 disableTypography
                 primary={<Typography variant="body2">{detail}</Typography>}
