@@ -10,6 +10,7 @@ describe(ExperienceSection, () => {
     expect(
       screen.getByRole("heading", { name: "Experience" }),
     ).toBeInTheDocument();
+    expect(screen.queryByTestId("divider")).not.toBeInTheDocument();
   });
 
   it("renders details when provided", () => {
@@ -43,5 +44,6 @@ describe(ExperienceSection, () => {
     expect(
       screen.getByRole("heading", { name: experience2.name }),
     ).toBeInTheDocument();
+    expect(screen.getByTestId("divider")).toBeInTheDocument();
   });
 });

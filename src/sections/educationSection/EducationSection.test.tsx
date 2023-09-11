@@ -10,6 +10,7 @@ describe(EducationSection, () => {
     expect(
       screen.getByRole("heading", { name: "Education" }),
     ).toBeInTheDocument();
+    expect(screen.queryByTestId("divider")).not.toBeInTheDocument();
   });
 
   it("renders a message when there are no education details", () => {
@@ -43,5 +44,6 @@ describe(EducationSection, () => {
     expect(
       screen.getByRole("heading", { name: education2Name }),
     ).toBeInTheDocument();
+    expect(screen.getByTestId("divider")).toBeInTheDocument();
   });
 });

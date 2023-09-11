@@ -1,13 +1,21 @@
 import CalendarMonthOutlinedIcon from "@mui/icons-material/CalendarMonthOutlined";
 import LocationOnOutlinedIcon from "@mui/icons-material/LocationOnOutlined";
-import { List, ListItem, ListItemText, Stack, Typography } from "@mui/material";
+import {
+  Divider,
+  List,
+  ListItem,
+  ListItemText,
+  Stack,
+  Typography,
+} from "@mui/material";
 import { IconTypography } from "../iconTypography/IconTypography";
 
 type SectionDetailsProps = {
   heading: string;
-  location: string;
-  dateRange: string;
+  location?: string;
+  dateRange?: string;
   details?: string[];
+  divider?: boolean;
 };
 
 function SectionDetails({
@@ -15,6 +23,7 @@ function SectionDetails({
   location,
   dateRange,
   details,
+  divider,
 }: SectionDetailsProps) {
   return (
     <Stack>
@@ -22,19 +31,28 @@ function SectionDetails({
         {heading}
       </Typography>
       <Stack direction="row" spacing={2}>
-        <IconTypography
-          icon={LocationOnOutlinedIcon}
-          text={location}
-          variant="caption"
-        />
-        <IconTypography
-          icon={CalendarMonthOutlinedIcon}
-          text={dateRange}
-          variant="caption"
-        />
+        {location && (
+          <IconTypography
+            icon={LocationOnOutlinedIcon}
+            text={location}
+            variant="caption"
+            data-testid="location"
+          />
+        )}
+        {dateRange && (
+          <IconTypography
+            icon={CalendarMonthOutlinedIcon}
+            text={dateRange}
+            variant="caption"
+            data-testid="date-range"
+          />
+        )}
       </Stack>
       {details && details.length > 0 && (
-        <List sx={details.length > 1 ? { listStyleType: "disc", pl: 2 } : {}}>
+        <List
+          sx={details.length > 1 ? { listStyleType: "disc", pl: 2 } : {}}
+          disablePadding
+        >
           {details.map((detail) => (
             <ListItem
               key={detail}
@@ -49,6 +67,7 @@ function SectionDetails({
           ))}
         </List>
       )}
+      {divider && <Divider data-testid="divider" />}
     </Stack>
   );
 }

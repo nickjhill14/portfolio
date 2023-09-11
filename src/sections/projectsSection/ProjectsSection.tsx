@@ -14,12 +14,13 @@ function ProjectsSection({ projectInfo }: ProjectsSectionProps) {
       {projectInfo.length === 0 ? (
         <Alert severity="warning">No project details provided</Alert>
       ) : (
-        projectInfo.map(({ name, institution, dateRange, details }) => (
+        projectInfo.map(({ name, institution, dateRange, details }, index) => (
           <SectionDetails
             heading={name}
             location={institution}
             dateRange={dateRange}
             details={details}
+            divider={index < projectInfo.length - 1}
             key={name}
           />
         ))

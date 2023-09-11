@@ -14,12 +14,13 @@ function ExperienceSection({ experienceInfo }: ExperienceSectionProps) {
       {experienceInfo.length === 0 ? (
         <Alert severity="warning">No experience details provided</Alert>
       ) : (
-        experienceInfo.map(({ name, location, dateRange, details }) => (
+        experienceInfo.map(({ name, location, dateRange, details }, index) => (
           <SectionDetails
             heading={name}
             location={location}
             dateRange={dateRange}
             details={details}
+            divider={index < experienceInfo.length - 1}
             key={name}
           />
         ))

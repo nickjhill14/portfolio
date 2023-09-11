@@ -15,12 +15,13 @@ function EducationSection({ educationInfo }: EducationSectionProps) {
         <Alert severity="warning">No education details provided</Alert>
       ) : (
         educationInfo.map(
-          ({ qualification, institution, dateRange, details }) => (
+          ({ qualification, institution, dateRange, details }, index) => (
             <SectionDetails
               heading={qualification}
               location={institution}
               dateRange={dateRange}
               details={details}
+              divider={index < educationInfo.length - 1}
               key={qualification}
             />
           ),

@@ -10,6 +10,7 @@ describe(ProjectsSection, () => {
     expect(
       screen.getByRole("heading", { name: "Projects" }),
     ).toBeInTheDocument();
+    expect(screen.queryByTestId("divider")).not.toBeInTheDocument();
   });
 
   it("renders a message when there are no project details", () => {
@@ -41,5 +42,6 @@ describe(ProjectsSection, () => {
     expect(
       screen.getByRole("heading", { name: project2Name }),
     ).toBeInTheDocument();
+    expect(screen.getByTestId("divider")).toBeInTheDocument();
   });
 });

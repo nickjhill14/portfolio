@@ -34,5 +34,12 @@ const WithMultipleDetails: Story = {
   },
 };
 
+const WithDivider: Story = {
+  args: {
+    ...Default.args,
+    divider: true,
+  },
+};
+
 export default meta;
-export { Default, WithMultipleDetails, WithSingleDetail };
+export { Default, WithDivider, WithMultipleDetails, WithSingleDetail };

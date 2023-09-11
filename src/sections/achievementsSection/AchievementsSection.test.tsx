@@ -10,11 +10,6 @@ describe(AchievementsSection, () => {
     expect(
       screen.getByRole("heading", { name: "Achievements" }),
     ).toBeInTheDocument();
-  });
-
-  it("does not render a divider when there is 1 achievement section", () => {
-    render(<AchievementsSection achievementInfo={[buildAchievement()]} />);
-
     expect(screen.queryByTestId("divider")).not.toBeInTheDocument();
   });
 
@@ -27,19 +22,21 @@ describe(AchievementsSection, () => {
   });
 
   it("renders multiple achievement sections", () => {
-    const achievement1Name = "Certificate In Portfolio Creation";
-    const achievement2Name = "Certificate In Portfolio Generating";
-    const achievement1 = buildAchievement({ name: achievement1Name });
-    const achievement2 = buildAchievement({ name: achievement2Name });
+    const achievement1 = buildAchievement({
+      name: "Certificate In Portfolio Creation",
+    });
+    const achievement2 = buildAchievement({
+      name: "Certificate In Portfolio Generating",
+    });
     const AchievementInfo: AchievementInfo = [achievement1, achievement2];
 
     render(<AchievementsSection achievementInfo={AchievementInfo} />);
 
     expect(
-      screen.getByRole("heading", { name: achievement1Name }),
+      screen.getByRole("heading", { name: achievement1.name }),
     ).toBeInTheDocument();
     expect(
-      screen.getByRole("heading", { name: achievement2Name }),
+      screen.getByRole("heading", { name: achievement2.name }),
     ).toBeInTheDocument();
     expect(screen.getByTestId("divider")).toBeInTheDocument();
   });
