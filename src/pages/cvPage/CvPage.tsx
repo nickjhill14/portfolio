@@ -46,7 +46,9 @@ function CvPage() {
           </Grid>
         ))
       ) : (
-        <Alert severity="warning">No CV sections provided</Alert>
+        <Grid item xs={12}>
+          <Alert severity="warning">No CV sections provided</Alert>
+        </Grid>
       )}
       <Grid item xs={12}>
         <SkillsSection skillsInfo={skillsInfo} />
