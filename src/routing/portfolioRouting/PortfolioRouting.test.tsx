@@ -2,11 +2,11 @@ import { render, screen } from "@testing-library/react";
 import { RouterProvider, createMemoryRouter } from "react-router-dom";
 import {
   getBasicInfo,
-  getCvInfo,
+  getCv,
 } from "../../api/portfolioGateway/portfolioGateway";
 import { CvPage } from "../../pages/cvPage/CvPage";
 import { LandingPage } from "../../pages/landingPage/LandingPage";
-import { buildBasicInfo, buildCvInfo } from "../../utils/builders";
+import { buildBasicInfo, buildCv } from "../../utils/builders";
 import { PortfolioRoutePaths, portfolioRoutes } from "./PortfolioRouting";
 
 vitest.mock("../../api/portfolioGateway/portfolioGateway");
@@ -31,7 +31,7 @@ describe("PortfolioRouting", () => {
   it("navigates to the landing page at the CV route", async () => {
     const cvPageComponent = "CvPage Component";
 
-    vitest.mocked(getCvInfo).mockResolvedValue(buildCvInfo());
+    vitest.mocked(getCv).mockResolvedValue(buildCv());
     vitest.mocked(CvPage).mockReturnValue(<>{cvPageComponent}</>);
 
     const portfolioRouter = createMemoryRouter(portfolioRoutes, {

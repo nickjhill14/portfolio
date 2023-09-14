@@ -1,7 +1,5 @@
-import { BasicInfo } from "../../domain/basicInfo";
-import { CvInfo } from "../../domain/cvInfo";
-import { buildBasicInfo, buildCvInfo } from "../../utils/builders";
-import { getBasicInfo, getCvInfo } from "./portfolioGateway";
+import { buildBasicInfo, buildCv } from "../../utils/builders";
+import { getBasicInfo, getCv } from "./portfolioGateway";
 
 describe("portfolioGateway", () => {
   describe(getBasicInfo, () => {
@@ -10,7 +8,7 @@ describe("portfolioGateway", () => {
 
       fetchMock.mockResponse(JSON.stringify({ basicInfo }));
 
-      const actualBasicInfo: BasicInfo = await getBasicInfo();
+      const actualBasicInfo = await getBasicInfo();
 
       expect(fetch).toHaveBeenCalledWith("/portfolioConfig/basic-info.json", {
         method: "GET",
@@ -19,18 +17,18 @@ describe("portfolioGateway", () => {
     });
   });
 
-  describe(getCvInfo, () => {
-    it("calls the CV info endpoint", async () => {
-      const cvInfo: CvInfo = buildCvInfo();
+  describe(getCv, () => {
+    it("calls the CV endpoint", async () => {
+      const cv = buildCv();
 
-      fetchMock.mockResponse(JSON.stringify({ cvInfo }));
+      fetchMock.mockResponse(JSON.stringify({ cv }));
 
-      const actualCvInfo: CvInfo = await getCvInfo();
+      const actualCv = await getCv();
 
-      expect(fetch).toHaveBeenCalledWith("/portfolioConfig/cv-info.json", {
+      expect(fetch).toHaveBeenCalledWith("/portfolioConfig/cv.json", {
         method: "GET",
       });
-      expect(actualCvInfo).toEqual({ cvInfo });
+      expect(actualCv).toEqual({ cv });
     });
   });
 });

@@ -1,11 +1,12 @@
-import { AbcOutlined } from "@mui/icons-material";
 import { render, screen } from "@testing-library/react";
+import { PropsWithChildren } from "react";
 import { Section, SectionProps } from "./Section";
 
-function renderSection(propsOverride?: Partial<SectionProps>) {
-  const props: SectionProps = {
+function renderSection(
+  propsOverride?: Partial<PropsWithChildren<SectionProps>>,
+) {
+  const props: PropsWithChildren<SectionProps> = {
     headingText: "Default Section Heading",
-    headingIcon: AbcOutlined,
     children: [],
     ...propsOverride,
   };

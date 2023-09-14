@@ -1,14 +1,6 @@
 import { faker } from "@faker-js/faker";
 import { BasicInfo } from "../domain/basicInfo";
-import {
-  Achievement,
-  CvInfo,
-  Education,
-  Experience,
-  Language,
-  Project,
-  Skill,
-} from "../domain/cvInfo";
+import { Cv, CvSection, CvSectionItems, Language, Skill } from "../domain/cv";
 
 function buildBasicInfo(override?: Partial<BasicInfo>): BasicInfo {
   return {
@@ -38,41 +30,6 @@ function buildDateRange(): string {
     .join(" - ");
 }
 
-function buildExperience(override?: Partial<Experience>): Experience {
-  return {
-    name: "Portfolio Creator",
-    location: "UK",
-    dateRange: buildDateRange(),
-    ...override,
-  };
-}
-
-function buildEducation(override?: Partial<Education>): Education {
-  return {
-    qualification: "Degree In Portfolio Creation",
-    institution: "University Of Portfolios",
-    dateRange: buildDateRange(),
-    ...override,
-  };
-}
-
-function buildProject(override?: Partial<Project>): Project {
-  return {
-    name: "Portfolio Generator",
-    institution: "Personal Project",
-    dateRange: buildDateRange(),
-    ...override,
-  };
-}
-
-function buildAchievement(override?: Partial<Achievement>): Achievement {
-  return {
-    name: "Certificate In Portfolio Creation",
-    description: "Created a portfolio",
-    ...override,
-  };
-}
-
 function buildSkill(override?: Partial<Skill>): Skill {
   return { name: "Portfolio Creation", ...override };
 }
@@ -85,25 +42,32 @@ function buildLanguage(override?: Partial<Language>): Language {
   };
 }
 
-function buildCvInfo(override?: Partial<CvInfo>): CvInfo {
+function buildCvSection(override?: Partial<CvSection>): CvSection {
   return {
-    experienceInfo: [buildExperience()],
-    educationInfo: [buildEducation()],
-    projectInfo: [buildProject()],
-    skillInfo: { skills: [buildSkill()], languages: [buildLanguage()] },
-    achievementsInfo: [buildAchievement()],
+    title: "Experience",
+    ...override,
+  };
+}
+
+function buildCvSectionItems(
+  override?: Partial<CvSectionItems>,
+): CvSectionItems {
+  return { name: "Went To University", ...override };
+}
+
+function buildCv(override?: Partial<Cv>): Cv {
+  return {
+    skillsInfo: { skills: [buildSkill()], languages: [buildLanguage()] },
     ...override,
   };
 }
 
 export {
-  buildAchievement,
   buildBasicInfo,
-  buildCvInfo,
+  buildCv,
+  buildCvSection,
+  buildCvSectionItems,
   buildDateRange,
-  buildEducation,
-  buildExperience,
   buildLanguage,
-  buildProject,
   buildSkill,
 };

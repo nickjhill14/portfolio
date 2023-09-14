@@ -1,25 +1,23 @@
 import CircleIcon from "@mui/icons-material/Circle";
 import CircleOutlinedIcon from "@mui/icons-material/CircleOutlined";
-import CodeOutlinedIcon from "@mui/icons-material/CodeOutlined";
 import { Alert, Chip, Divider, Rating, Stack, Typography } from "@mui/material";
-import { Section } from "../../components/section/Section";
-import { SkillInfo } from "../../domain/cvInfo";
+import { SkillsInfo } from "../../domain/cv";
+import { Section } from "../section/Section";
 
 type SkillsSectionProps = {
-  skillInfo: SkillInfo;
+  skillsInfo: SkillsInfo;
 };
 
-function SkillsSection({ skillInfo }: SkillsSectionProps) {
-  const { skills, languages } = skillInfo;
+function SkillsSection({ skillsInfo }: SkillsSectionProps) {
+  const { skills, languages } = skillsInfo;
 
   return (
-    <Section headingIcon={CodeOutlinedIcon} headingText="Skills">
+    <Section headingText="Skills">
       {skills.length === 0 ? (
         <Alert severity="warning">No skills provided</Alert>
       ) : (
         <Stack direction="row" flexWrap="wrap" gap={1}>
           {skills.map(({ name }) => (
-            // TODO: Add icons
             <Chip label={name} variant="outlined" key={name} />
           ))}
         </Stack>

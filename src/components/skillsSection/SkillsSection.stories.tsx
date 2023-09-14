@@ -4,7 +4,7 @@ import { upperCaseFirstChar } from "../../utils/helpers";
 import { SkillsSection } from "./SkillsSection";
 
 const meta = {
-  title: "Sections/SkillsSection",
+  title: "Components/SkillsSection",
   component: SkillsSection,
   tags: ["autodocs"],
 } satisfies Meta<typeof SkillsSection>;
@@ -13,7 +13,7 @@ type Story = StoryObj<typeof meta>;
 
 const SingleSkillAndLanguage: Story = {
   args: {
-    skillInfo: {
+    skillsInfo: {
       skills: [{ name: upperCaseFirstChar(faker.hacker.ingverb()) }],
       languages: [
         { name: faker.location.country(), level: faker.number.int(5) },
@@ -24,7 +24,7 @@ const SingleSkillAndLanguage: Story = {
 
 const MultipleSkillsAndLanguages: Story = {
   args: {
-    skillInfo: {
+    skillsInfo: {
       skills: [
         { name: upperCaseFirstChar(faker.hacker.ingverb()) },
         { name: upperCaseFirstChar(faker.hacker.ingverb()) },
@@ -39,7 +39,7 @@ const MultipleSkillsAndLanguages: Story = {
 
 const NoSkillsOrLanguages: Story = {
   args: {
-    skillInfo: { skills: [], languages: [] },
+    skillsInfo: { skills: [], languages: [] },
   },
 };
 

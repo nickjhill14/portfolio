@@ -1,7 +1,5 @@
-import { Paper, styled } from "@mui/material";
-import { ReactElement } from "react";
-import { MuiIcon } from "../../utils/muiTypes";
-import { IconTypography } from "../iconTypography/IconTypography";
+import { Paper, Typography, styled } from "@mui/material";
+import { PropsWithChildren } from "react";
 
 const SectionPaper = styled(Paper)({
   padding: "25px",
@@ -12,21 +10,16 @@ const SectionPaper = styled(Paper)({
 
 type SectionProps = {
   headingText: string;
-  headingIcon: MuiIcon;
-  children: ReactElement | ReactElement[];
 };
 
-function Section(props: SectionProps) {
-  const { headingText, headingIcon, children } = props;
+function Section(props: PropsWithChildren<SectionProps>) {
+  const { headingText, children } = props;
 
   return (
-    <SectionPaper elevation={6}>
-      <IconTypography
-        icon={headingIcon}
-        text={headingText}
-        variant="h5"
-        component="h1"
-      />
+    <SectionPaper elevation={5}>
+      <Typography variant="h5" component="h1">
+        {headingText}
+      </Typography>
       {children}
     </SectionPaper>
   );

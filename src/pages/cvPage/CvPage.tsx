@@ -1,21 +1,13 @@
 import { Home } from "@mui/icons-material";
-import { Button, Grid } from "@mui/material";
+import { Alert, Button, Grid } from "@mui/material";
 import { useLoaderData, useNavigate } from "react-router-dom";
-import { CvInfo } from "../../domain/cvInfo";
-import { AchievementsSection } from "../../sections/achievementsSection/AchievementsSection";
-import { EducationSection } from "../../sections/educationSection/EducationSection";
-import { ExperienceSection } from "../../sections/experienceSection/ExperienceSection";
-import { ProjectsSection } from "../../sections/projectsSection/ProjectsSection";
-import { SkillsSection } from "../../sections/skillsSection/SkillsSection";
+import { Section } from "../../components/section/Section";
+import { SectionDetails } from "../../components/sectionDetails/SectionDetails";
+import { SkillsSection } from "../../components/skillsSection/SkillsSection";
+import { Cv } from "../../domain/cv";
 
 function CvPage() {
-  const {
-    experienceInfo,
-    educationInfo,
-    projectInfo,
-    skillInfo,
-    achievementsInfo,
-  } = useLoaderData() as CvInfo;
+  const { cvSections, skillsInfo } = useLoaderData() as Cv;
   const navigate = useNavigate();
 
   return (
@@ -30,20 +22,34 @@ function CvPage() {
           Go Home
         </Button>
       </Grid>
-      <Grid item xs={12} sm={6}>
-        <ExperienceSection experienceInfo={experienceInfo} />
-      </Grid>
-      <Grid item xs={12} sm={6}>
-        <EducationSection educationInfo={educationInfo} />
-      </Grid>
-      <Grid item xs={12} sm={6}>
-        <ProjectsSection projectInfo={projectInfo} />
-      </Grid>
-      <Grid item xs={12} sm={6}>
-        <AchievementsSection achievementInfo={achievementsInfo} />
-      </Grid>
+      {cvSections && cvSections.length > 0 ? (
+        cvSections?.map((cvSection) => (
+          <Grid item key={cvSection.title} xs={12} sm={6}>
+            <Section headingText={cvSection.title}>
+              {cvSection.items && cvSection.items.length > 0 ? (
+                cvSection.items.map((item, index) => (
+                  <SectionDetails
+                    heading={item.name}
+                    location={item.location}
+                    dateRange={item.dateRange}
+                    details={item.details}
+                    divider={
+                      cvSection.items && index < cvSection.items.length - 1
+                    }
+                    key={item.name}
+                  />
+                ))
+              ) : (
+                <Alert severity="warning">No items provided</Alert>
+              )}
+            </Section>
+          </Grid>
+        ))
+      ) : (
+        <Alert severity="warning">No CV sections provided</Alert>
+      )}
       <Grid item xs={12}>
-        <SkillsSection skillInfo={skillInfo} />
+        <SkillsSection skillsInfo={skillsInfo} />
       </Grid>
     </Grid>
   );

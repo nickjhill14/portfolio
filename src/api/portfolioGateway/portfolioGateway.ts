@@ -1,5 +1,5 @@
 import { BasicInfo } from "../../domain/basicInfo";
-import { CvInfo } from "../../domain/cvInfo";
+import { Cv } from "../../domain/cv";
 
 async function getBasicInfo(): Promise<BasicInfo> {
   const res: Response = await fetch("/portfolioConfig/basic-info.json", {
@@ -10,8 +10,8 @@ async function getBasicInfo(): Promise<BasicInfo> {
   return body;
 }
 
-async function getCvInfo(): Promise<CvInfo> {
-  const res: Response = await fetch("/portfolioConfig/cv-info.json", {
+async function getCv(): Promise<Cv> {
+  const res: Response = await fetch("/portfolioConfig/cv.json", {
     method: "GET",
   });
   const body = await res.json();
@@ -19,4 +19,4 @@ async function getCvInfo(): Promise<CvInfo> {
   return body;
 }
 
-export { getBasicInfo, getCvInfo };
+export { getBasicInfo, getCv };

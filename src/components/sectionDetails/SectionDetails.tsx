@@ -18,13 +18,9 @@ type SectionDetailsProps = {
   divider?: boolean;
 };
 
-function SectionDetails({
-  heading,
-  location,
-  dateRange,
-  details,
-  divider,
-}: SectionDetailsProps) {
+function SectionDetails(props: SectionDetailsProps) {
+  const { heading, location, dateRange, details, divider } = props;
+
   return (
     <Stack>
       <Typography variant="h6" component="h2">

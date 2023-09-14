@@ -7,9 +7,7 @@ test.describe("CV Page", () => {
   });
 
   test("there are no accessibility violations", async ({ page }) => {
-    await expect(
-      page.getByRole("heading", { name: "Experience" }),
-    ).toBeVisible();
+    await expect(page.getByRole("link", { name: "Go Home" })).toBeVisible();
 
     const { violations } = await new AxeBuilder({ page }).analyze();
 
