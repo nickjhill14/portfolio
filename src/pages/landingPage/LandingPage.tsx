@@ -25,7 +25,7 @@ const AcksButton = styled(IconButton)({
 });
 
 function LandingPage() {
-  const { name, role, email, phoneNumber, linkedIn, github } =
+  const { name, role, email, phone, linkedIn, gitHub } =
     useLoaderData() as BasicInfo;
   const navigate = useNavigate();
   const [openAcks, setOpenAcks] = useState(false);
@@ -52,11 +52,11 @@ function LandingPage() {
             />
             <IconTypography
               icon={LocalPhoneOutlinedIcon}
-              text={phoneNumber}
+              text={phone}
               variant="body1"
             />
             <IconTypography icon={LinkedIn} text={linkedIn} variant="body1" />
-            <IconTypography icon={GitHubIcon} text={github} variant="body1" />
+            <IconTypography icon={GitHubIcon} text={gitHub} variant="body1" />
           </Stack>
         </Grid>
         <Grid item xs={12}>

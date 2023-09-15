@@ -28,10 +28,10 @@ describe(LandingPage, () => {
       screen.getByRole("heading", { name: basicInfo.role }),
     ).toBeInTheDocument();
     expect(screen.getByText(basicInfo.email)).toBeInTheDocument();
-    expect(screen.getByText(basicInfo.phoneNumber)).toBeInTheDocument();
+    expect(screen.getByText(basicInfo.phone)).toBeInTheDocument();
     expect(screen.getByText(basicInfo.linkedIn)).toBeInTheDocument();
     expect(screen.getByText(basicInfo.email)).toBeInTheDocument();
-    expect(screen.getByText(basicInfo.github)).toBeInTheDocument();
+    expect(screen.getByText(basicInfo.gitHub)).toBeInTheDocument();
     expect(
       screen.queryByText("Thank you to the best pair, Kate"),
     ).not.toBeInTheDocument();

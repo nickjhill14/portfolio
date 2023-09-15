@@ -2,9 +2,9 @@ type BasicInfo = {
   name: string;
   role: string;
   email: string;
-  phoneNumber: string;
+  phone: string;
   linkedIn: string;
-  github: string;
+  gitHub: string;
 };
 
 export type { BasicInfo };

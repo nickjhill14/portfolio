@@ -13,9 +13,9 @@ const basicInfo: BasicInfo = {
   name: faker.person.fullName(),
   role: faker.person.jobTitle(),
   email: faker.internet.email(),
-  phoneNumber: faker.phone.number("+44 7## ### ###"),
+  phone: faker.phone.number("+44 7## ### ###"),
   linkedIn: faker.internet.userName(),
-  github: faker.internet.userName(),
+  gitHub: faker.internet.userName(),
 };
 
 const meta = {

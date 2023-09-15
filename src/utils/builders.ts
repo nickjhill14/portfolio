@@ -7,9 +7,9 @@ function buildBasicInfo(override?: Partial<BasicInfo>): BasicInfo {
     name: "Portfolio Pete",
     role: "Portfolio Creator",
     email: "portfolio-pete@email.com",
-    phoneNumber: "(+44) 765 432 100",
+    phone: "(+44) 765 432 100",
     linkedIn: "portfolio-pete",
-    github: "portfolio-pete-dev",
+    gitHub: "portfolio-pete-dev",
     ...override,
   };
 }
