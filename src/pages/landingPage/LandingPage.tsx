@@ -1,6 +1,7 @@
 import { LinkedIn, VolunteerActivism } from "@mui/icons-material";
 import AlternateEmailOutlinedIcon from "@mui/icons-material/AlternateEmailOutlined";
 import CloseIcon from "@mui/icons-material/Close";
+import CreateIcon from "@mui/icons-material/Create";
 import DescriptionIcon from "@mui/icons-material/Description";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import LocalPhoneOutlinedIcon from "@mui/icons-material/LocalPhoneOutlined";
@@ -68,6 +69,14 @@ function LandingPage() {
               variant="contained"
             >
               View CV
+            </Button>
+            <Button
+              onClick={() => navigate("/create")}
+              role="link"
+              startIcon={<CreateIcon />}
+              variant="contained"
+            >
+              Create
             </Button>
             <Button
               component={Link}

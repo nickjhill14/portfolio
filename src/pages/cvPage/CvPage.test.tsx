@@ -69,7 +69,7 @@ describe(CvPage, () => {
     ).not.toBeInTheDocument();
   });
 
-  it("renders a link to the CV page", async () => {
+  it("navigates to the landing page when clicking the home link", async () => {
     const navigateMock = vitest.fn();
 
     vitest.mocked(useNavigate).mockReturnValue(navigateMock);

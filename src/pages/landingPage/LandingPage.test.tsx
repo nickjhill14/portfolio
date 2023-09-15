@@ -37,7 +37,7 @@ describe(LandingPage, () => {
     ).not.toBeInTheDocument();
   });
 
-  it("renders a link to the CV page", async () => {
+  it("navigates to the CV page when clicking the CV button", async () => {
     const navigateMock = vitest.fn();
 
     vitest.mocked(useNavigate).mockReturnValue(navigateMock);
@@ -46,6 +46,17 @@ describe(LandingPage, () => {
     await userEvent.click(screen.getByRole("link", { name: "View CV" }));
 
     expect(navigateMock).toHaveBeenCalledWith(PortfolioRoutePaths.CV);
+  });
+
+  it("navigates to the create portfolio page when clicking the create button", async () => {
+    const navigateMock = vitest.fn();
+
+    vitest.mocked(useNavigate).mockReturnValue(navigateMock);
+
+    render(<LandingPage />);
+    await userEvent.click(screen.getByRole("link", { name: "Create" }));
+
+    expect(navigateMock).toHaveBeenCalledWith(PortfolioRoutePaths.CREATE);
   });
 
   it("renders a hidden acknowledgement", async () => {

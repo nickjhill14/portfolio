@@ -1,7 +1,11 @@
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
+import { useNavigate } from "react-router-dom";
+import { PortfolioRoutePaths } from "../../routing/portfolioRouting/PortfolioRouting";
 import { buildBasicInfo } from "../../utils/builders";
 import { CreatePortfolioPage } from "./CreatePortfolioPage";
+
+vitest.mock("react-router-dom");
 
 describe(CreatePortfolioPage, () => {
   it("renders the page", () => {
@@ -16,6 +20,17 @@ describe(CreatePortfolioPage, () => {
     expect(
       screen.getByRole("heading", { name: "Preview" }),
     ).toBeInTheDocument();
+  });
+
+  it("navigates to the landing page when clicking the home button", async () => {
+    const navigateMock = vitest.fn();
+
+    vitest.mocked(useNavigate).mockReturnValue(navigateMock);
+
+    render(<CreatePortfolioPage />);
+    await userEvent.click(screen.getByRole("link", { name: "Go Home" }));
+
+    expect(navigateMock).toHaveBeenCalledWith(PortfolioRoutePaths.BASE);
   });
 
   it("displays the basic info provided in a preview window", async () => {

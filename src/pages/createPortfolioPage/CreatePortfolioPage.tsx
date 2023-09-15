@@ -1,9 +1,12 @@
-import { Grid, TextField, Typography } from "@mui/material";
+import { Home } from "@mui/icons-material";
+import { Button, Grid, TextField, Typography } from "@mui/material";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Section } from "../../components/section/Section";
 import { BasicInfo } from "../../domain/basicInfo";
 
 function CreatePortfolioPage() {
+  const navigate = useNavigate();
   const [basicInfo, setBasicInfo] = useState<BasicInfo>({
     name: "",
     role: "",
@@ -15,6 +18,16 @@ function CreatePortfolioPage() {
 
   return (
     <Grid container spacing={2}>
+      <Grid item xs={12}>
+        <Button
+          onClick={() => navigate("/")}
+          role="link"
+          startIcon={<Home />}
+          variant="contained"
+        >
+          Go Home
+        </Button>
+      </Grid>
       <Grid item xs={12}>
         <Typography variant="h2" component="h1">
           Create A Portfolio

@@ -4,6 +4,7 @@ import {
   getBasicInfo,
   getCv,
 } from "../../api/portfolioGateway/portfolioGateway";
+import { CreatePortfolioPage } from "../../pages/createPortfolioPage/CreatePortfolioPage";
 import { CvPage } from "../../pages/cvPage/CvPage";
 import { LandingPage } from "../../pages/landingPage/LandingPage";
 import { buildBasicInfo, buildCv } from "../../utils/builders";
@@ -12,6 +13,7 @@ import { PortfolioRoutePaths, portfolioRoutes } from "./PortfolioRouting";
 vitest.mock("../../api/portfolioGateway/portfolioGateway");
 vitest.mock("../../pages/landingPage/LandingPage");
 vitest.mock("../../pages/cvPage/CvPage");
+vitest.mock("../../pages/createPortfolioPage/CreatePortfolioPage");
 
 describe("PortfolioRouting", () => {
   it("navigates to the landing page at the base route", async () => {
@@ -40,5 +42,22 @@ describe("PortfolioRouting", () => {
     render(<RouterProvider router={portfolioRouter} />);
 
     expect(await screen.findByText(cvPageComponent)).toBeInTheDocument();
+  });
+
+  it("navigates to the create portfolio page at the create route", async () => {
+    const createPortfolioPageComponent = "CreatePortfolioPage Component";
+
+    vitest
+      .mocked(CreatePortfolioPage)
+      .mockReturnValue(<>{createPortfolioPageComponent}</>);
+
+    const portfolioRouter = createMemoryRouter(portfolioRoutes, {
+      initialEntries: [PortfolioRoutePaths.CREATE],
+    });
+    render(<RouterProvider router={portfolioRouter} />);
+
+    expect(
+      await screen.findByText(createPortfolioPageComponent),
+    ).toBeInTheDocument();
   });
 });

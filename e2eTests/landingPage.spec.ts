@@ -22,6 +22,12 @@ test.describe("Landing Page", () => {
     await expect(page).toHaveURL("/cv");
   });
 
+  test("navigating to the create portfolio page", async ({ page }) => {
+    await page.getByRole("link", { name: "Create" }).click();
+
+    await expect(page).toHaveURL("/create");
+  });
+
   test("navigating to the GitHub repo", async ({ page, context }) => {
     const pagePromise = context.waitForEvent("page");
 
