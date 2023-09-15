@@ -8,7 +8,7 @@ import {
 import { getCv } from "../../api/portfolioGateway/portfolioGateway";
 import { Cv } from "../../domain/cv";
 import { buildDateRange } from "../../utils/builders";
-import { upperCaseFirstChar } from "../../utils/helpers";
+import { upperCaseFirstChar } from "../../utils/helpers/helpers";
 import { CvPage } from "./CvPage";
 
 const meta = {

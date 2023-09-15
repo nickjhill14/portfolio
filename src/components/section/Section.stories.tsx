@@ -1,7 +1,7 @@
 import { faker } from "@faker-js/faker";
 import { Typography } from "@mui/material";
 import type { Meta, StoryObj } from "@storybook/react";
-import { upperCaseFirstChar } from "../../utils/helpers";
+import { upperCaseFirstChar } from "../../utils/helpers/helpers";
 import { Section } from "./Section";
 
 const meta = {

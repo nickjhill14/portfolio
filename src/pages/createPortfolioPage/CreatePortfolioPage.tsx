@@ -17,7 +17,7 @@ function CreatePortfolioPage() {
   });
 
   return (
-    <Grid container spacing={2}>
+    <Grid container spacing={2} p={2}>
       <Grid item xs={12}>
         <Button
           onClick={() => navigate("/")}

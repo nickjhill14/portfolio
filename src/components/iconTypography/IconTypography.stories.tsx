@@ -1,7 +1,7 @@
 import { faker } from "@faker-js/faker";
 import { MenuBook } from "@mui/icons-material";
 import type { Meta, StoryObj } from "@storybook/react";
-import { upperCaseFirstChar } from "../../utils/helpers";
+import { upperCaseFirstChar } from "../../utils/helpers/helpers";
 import { IconTypography } from "./IconTypography";
 
 const meta = {

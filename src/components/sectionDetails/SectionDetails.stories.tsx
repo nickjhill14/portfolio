@@ -1,7 +1,7 @@
 import { faker } from "@faker-js/faker";
 import type { Meta, StoryObj } from "@storybook/react";
 import { buildDateRange } from "../../utils/builders";
-import { upperCaseFirstChar } from "../../utils/helpers";
+import { upperCaseFirstChar } from "../../utils/helpers/helpers";
 import { SectionDetails } from "./SectionDetails";
 
 const meta = {

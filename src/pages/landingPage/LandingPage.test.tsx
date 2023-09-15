@@ -59,6 +59,37 @@ describe(LandingPage, () => {
     expect(navigateMock).toHaveBeenCalledWith(PortfolioRoutePaths.CREATE);
   });
 
+  it("changes the colour mode to dark when clicking the colour mode icon", async () => {
+    render(<LandingPage />);
+    await userEvent.click(
+      screen.getByRole("button", { name: "Toggle Dark Mode" }),
+    );
+
+    expect(
+      screen.getByRole("button", { name: "Toggle Light Mode" }),
+    ).toBeInTheDocument();
+    expect(
+      screen.queryByRole("button", { name: "Toggle Dark Mode" }),
+    ).not.toBeInTheDocument();
+  });
+
+  it("changes the colour mode back to light clicking the colour mode icon twice", async () => {
+    render(<LandingPage />);
+    await userEvent.click(
+      screen.getByRole("button", { name: "Toggle Dark Mode" }),
+    );
+    await userEvent.click(
+      screen.getByRole("button", { name: "Toggle Light Mode" }),
+    );
+
+    expect(
+      screen.getByRole("button", { name: "Toggle Dark Mode" }),
+    ).toBeInTheDocument();
+    expect(
+      screen.queryByRole("button", { name: "Toggle Light Mode" }),
+    ).not.toBeInTheDocument();
+  });
+
   it("renders a hidden acknowledgement", async () => {
     render(<LandingPage />);
     await userEvent.click(

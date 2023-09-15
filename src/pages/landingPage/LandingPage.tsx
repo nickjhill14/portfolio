@@ -2,8 +2,10 @@ import { LinkedIn, VolunteerActivism } from "@mui/icons-material";
 import AlternateEmailOutlinedIcon from "@mui/icons-material/AlternateEmailOutlined";
 import CloseIcon from "@mui/icons-material/Close";
 import CreateIcon from "@mui/icons-material/Create";
+import DarkModeIcon from "@mui/icons-material/DarkMode";
 import DescriptionIcon from "@mui/icons-material/Description";
 import GitHubIcon from "@mui/icons-material/GitHub";
+import LightModeIcon from "@mui/icons-material/LightMode";
 import LocalPhoneOutlinedIcon from "@mui/icons-material/LocalPhoneOutlined";
 import {
   Button,
@@ -17,6 +19,7 @@ import {
 import { useState } from "react";
 import { Link, useLoaderData, useNavigate } from "react-router-dom";
 import { IconTypography } from "../../components/iconTypography/IconTypography";
+import { useColourMode } from "../../contexts/themeContext/ThemeContext";
 import { BasicInfo } from "../../domain/basicInfo";
 
 const AcksButton = styled(IconButton)({
@@ -25,15 +28,28 @@ const AcksButton = styled(IconButton)({
   right: 0,
 });
 
+const ToggleColourModeButton = styled(IconButton)({
+  position: "fixed",
+  bottom: 0,
+  left: 0,
+});
+
 function LandingPage() {
   const { name, role, email, phone, linkedIn, gitHub } =
     useLoaderData() as BasicInfo;
   const navigate = useNavigate();
+  const { toggleColourMode } = useColourMode();
   const [openAcks, setOpenAcks] = useState(false);
+  const [darkMode, setDarkMode] = useState(false);
+
+  function handleToggleColourMode() {
+    setDarkMode(!darkMode);
+    toggleColourMode();
+  }
 
   return (
     <>
-      <Grid container spacing={2}>
+      <Grid container spacing={2} p={2} marginBottom={2}>
         <Grid item xs={12}>
           <Typography variant="h2" component="h1">
             {name}
@@ -92,6 +108,12 @@ function LandingPage() {
           </Stack>
         </Grid>
       </Grid>
+      <ToggleColourModeButton
+        onClick={handleToggleColourMode}
+        aria-label={darkMode ? "Toggle Light Mode" : "Toggle Dark Mode"}
+      >
+        {darkMode ? <DarkModeIcon /> : <LightModeIcon />}
+      </ToggleColourModeButton>
       <AcksButton
         onClick={() => setOpenAcks(true)}
         aria-label="View Acknowledgements"

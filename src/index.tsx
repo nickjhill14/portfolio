@@ -1,28 +1,21 @@
-import { ThemeProvider } from "@emotion/react";
-import { createTheme } from "@mui/material";
 import { Analytics } from "@vercel/analytics/react";
-import React from "react";
+import { StrictMode } from "react";
 import ReactDOM from "react-dom/client";
 import { RouterProvider } from "react-router-dom";
+import { ThemeProvider } from "./contexts/themeContext/ThemeContext";
 import { portfolioRouter } from "./routing/portfolioRouting/PortfolioRouting";
-
-const theme = createTheme({
-  palette: {
-    mode: "light",
-  },
-});
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement,
 );
 
 root.render(
-  <React.StrictMode>
-    <main>
-      <ThemeProvider theme={theme}>
+  <StrictMode>
+    <ThemeProvider>
+      <main>
         <RouterProvider router={portfolioRouter} />
-      </ThemeProvider>
-    </main>
+      </main>
+    </ThemeProvider>
     <Analytics />
-  </React.StrictMode>,
+  </StrictMode>,
 );
