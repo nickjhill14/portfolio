@@ -1,51 +1,19 @@
-import { LinkedIn, VolunteerActivism } from "@mui/icons-material";
+import { LinkedIn } from "@mui/icons-material";
 import AlternateEmailOutlinedIcon from "@mui/icons-material/AlternateEmailOutlined";
-import CloseIcon from "@mui/icons-material/Close";
 import CreateIcon from "@mui/icons-material/Create";
-import DarkModeIcon from "@mui/icons-material/DarkMode";
 import DescriptionIcon from "@mui/icons-material/Description";
 import GitHubIcon from "@mui/icons-material/GitHub";
-import LightModeIcon from "@mui/icons-material/LightMode";
 import LocalPhoneOutlinedIcon from "@mui/icons-material/LocalPhoneOutlined";
-import {
-  Button,
-  Grid,
-  IconButton,
-  Snackbar,
-  Stack,
-  Typography,
-  styled,
-} from "@mui/material";
-import { useState } from "react";
+import { Button, Grid, Stack, Typography } from "@mui/material";
 import { Link, useLoaderData, useNavigate } from "react-router-dom";
+import { Footer } from "../../components/footer/Footer";
 import { IconTypography } from "../../components/iconTypography/IconTypography";
-import { useColourMode } from "../../contexts/themeContext/ThemeContext";
 import { BasicInfo } from "../../domain/basicInfo";
-
-const AcksButton = styled(IconButton)({
-  position: "fixed",
-  bottom: 0,
-  right: 0,
-});
-
-const ToggleColourModeButton = styled(IconButton)({
-  position: "fixed",
-  bottom: 0,
-  left: 0,
-});
 
 function LandingPage() {
   const { name, role, email, phone, linkedIn, gitHub } =
     useLoaderData() as BasicInfo;
   const navigate = useNavigate();
-  const { toggleColourMode } = useColourMode();
-  const [openAcks, setOpenAcks] = useState(false);
-  const [darkMode, setDarkMode] = useState(false);
-
-  function handleToggleColourMode() {
-    setDarkMode(!darkMode);
-    toggleColourMode();
-  }
 
   return (
     <>
@@ -108,33 +76,7 @@ function LandingPage() {
           </Stack>
         </Grid>
       </Grid>
-      <ToggleColourModeButton
-        onClick={handleToggleColourMode}
-        aria-label={darkMode ? "Toggle light mode" : "Toggle dark mode"}
-      >
-        {darkMode ? <DarkModeIcon /> : <LightModeIcon />}
-      </ToggleColourModeButton>
-      <AcksButton
-        onClick={() => setOpenAcks(true)}
-        aria-label="View acknowledgements"
-      >
-        <VolunteerActivism />
-      </AcksButton>
-      <Snackbar
-        open={openAcks}
-        action={
-          <IconButton
-            aria-label="Close acknowledgements"
-            color="inherit"
-            onClick={() => setOpenAcks(false)}
-            component={Button}
-          >
-            <CloseIcon />
-          </IconButton>
-        }
-        message="Thank you to the best pair, Kate"
-        aria-label="Acknowledgements Snackbar"
-      />
+      <Footer />
     </>
   );
 }
