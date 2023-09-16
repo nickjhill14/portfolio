@@ -9,10 +9,10 @@ import { useColourMode } from "../../contexts/themeContext/ThemeContext";
 function Footer() {
   const { toggleColourMode } = useColourMode();
   const [openAcks, setOpenAcks] = useState(false);
-  const [darkMode, setDarkMode] = useState(false);
+  const [lightMode, setLightMode] = useState(false);
 
   function handleToggleColourMode() {
-    setDarkMode(!darkMode);
+    setLightMode(!lightMode);
     toggleColourMode();
   }
 
@@ -28,9 +28,9 @@ function Footer() {
     >
       <IconButton
         onClick={handleToggleColourMode}
-        aria-label={darkMode ? "Toggle light mode" : "Toggle dark mode"}
+        aria-label={lightMode ? "Toggle dark mode" : "Toggle light mode"}
       >
-        {darkMode ? <DarkModeIcon /> : <LightModeIcon />}
+        {lightMode ? <DarkModeIcon /> : <LightModeIcon />}
       </IconButton>
       <IconButton
         onClick={() => setOpenAcks(true)}

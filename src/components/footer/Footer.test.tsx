@@ -3,25 +3,8 @@ import userEvent from "@testing-library/user-event";
 import { Footer } from "./Footer";
 
 describe(Footer, () => {
-  it("changes the colour mode to dark when clicking the colour mode icon", async () => {
+  it("changes the colour mode when clicking the colour mode icon", async () => {
     render(<Footer />);
-    await userEvent.click(
-      screen.getByRole("button", { name: "Toggle dark mode" }),
-    );
-
-    expect(
-      screen.getByRole("button", { name: "Toggle light mode" }),
-    ).toBeInTheDocument();
-    expect(
-      screen.queryByRole("button", { name: "Toggle dark mode" }),
-    ).not.toBeInTheDocument();
-  });
-
-  it("changes the colour mode back to light clicking the colour mode icon twice", async () => {
-    render(<Footer />);
-    await userEvent.click(
-      screen.getByRole("button", { name: "Toggle dark mode" }),
-    );
     await userEvent.click(
       screen.getByRole("button", { name: "Toggle light mode" }),
     );
@@ -31,6 +14,23 @@ describe(Footer, () => {
     ).toBeInTheDocument();
     expect(
       screen.queryByRole("button", { name: "Toggle light mode" }),
+    ).not.toBeInTheDocument();
+  });
+
+  it("changes the colour mode back clicking the colour mode icon twice", async () => {
+    render(<Footer />);
+    await userEvent.click(
+      screen.getByRole("button", { name: "Toggle light mode" }),
+    );
+    await userEvent.click(
+      screen.getByRole("button", { name: "Toggle dark mode" }),
+    );
+
+    expect(
+      screen.getByRole("button", { name: "Toggle light mode" }),
+    ).toBeInTheDocument();
+    expect(
+      screen.queryByRole("button", { name: "Toggle dark mode" }),
     ).not.toBeInTheDocument();
   });
 

@@ -23,8 +23,8 @@ describe("ThemeContext", () => {
       </ThemeProvider>,
     );
 
-    expect(screen.getByText("light")).toBeInTheDocument();
-    expect(screen.queryByText("dark")).not.toBeInTheDocument();
+    expect(screen.getByText("dark")).toBeInTheDocument();
+    expect(screen.queryByText("light")).not.toBeInTheDocument();
   });
 
   it("toggles the mode", async () => {
@@ -37,7 +37,7 @@ describe("ThemeContext", () => {
       screen.getByRole("button", { name: "Toggle Colour Mode" }),
     );
 
-    expect(screen.getByText("dark")).toBeInTheDocument();
-    expect(screen.queryByText("light")).not.toBeInTheDocument();
+    expect(screen.getByText("light")).toBeInTheDocument();
+    expect(screen.queryByText("dark")).not.toBeInTheDocument();
   });
 });
