@@ -110,13 +110,13 @@ function LandingPage() {
       </Grid>
       <ToggleColourModeButton
         onClick={handleToggleColourMode}
-        aria-label={darkMode ? "Toggle Light Mode" : "Toggle Dark Mode"}
+        aria-label={darkMode ? "Toggle light mode" : "Toggle dark mode"}
       >
         {darkMode ? <DarkModeIcon /> : <LightModeIcon />}
       </ToggleColourModeButton>
       <AcksButton
         onClick={() => setOpenAcks(true)}
-        aria-label="View Acknowledgements"
+        aria-label="View acknowledgements"
       >
         <VolunteerActivism />
       </AcksButton>
@@ -124,7 +124,7 @@ function LandingPage() {
         open={openAcks}
         action={
           <IconButton
-            aria-label="Close Acknowledgements"
+            aria-label="Close acknowledgements"
             color="inherit"
             onClick={() => setOpenAcks(false)}
             component={Button}

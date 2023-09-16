@@ -1,20 +1,45 @@
 import { Home } from "@mui/icons-material";
-import { Button, Grid, TextField, Typography } from "@mui/material";
+import ContentCopyIcon from "@mui/icons-material/ContentCopy";
+import {
+  Button,
+  ClickAwayListener,
+  Grid,
+  IconButton,
+  Stack,
+  TextField,
+  Tooltip,
+  Typography,
+  styled,
+} from "@mui/material";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Section } from "../../components/section/Section";
 import { BasicInfo } from "../../domain/basicInfo";
 
+const defaultBasicInfo: BasicInfo = {
+  name: "",
+  role: "",
+  email: "",
+  phone: "",
+  gitHub: "",
+  linkedIn: "",
+};
+
+const CopyToClipboardButton = styled(IconButton)({
+  alignSelf: "end",
+});
+
 function CreatePortfolioPage() {
   const navigate = useNavigate();
-  const [basicInfo, setBasicInfo] = useState<BasicInfo>({
-    name: "",
-    role: "",
-    email: "",
-    phone: "",
-    gitHub: "",
-    linkedIn: "",
-  });
+  const [basicInfo, setBasicInfo] = useState<BasicInfo>(defaultBasicInfo);
+  const [openTooltip, setOpenTooltip] = useState(false);
+
+  const basicInfoPreview = JSON.stringify(basicInfo, null, 2);
+
+  async function copyToClipboard() {
+    await navigator.clipboard.writeText(basicInfoPreview);
+    setOpenTooltip(true);
+  }
 
   return (
     <Grid container spacing={2} p={2}>
@@ -86,12 +111,31 @@ function CreatePortfolioPage() {
         </Section>
       </Grid>
       <Grid item xs={12} md={4}>
+        {/* TODO: Move this into a separate component */}
         <Section headingText="Preview">
-          <pre>{JSON.stringify(basicInfo, null, 2)}</pre>
+          <Stack justifyContent="space-between">
+            <pre>{basicInfoPreview}</pre>
+            <ClickAwayListener onClickAway={() => setOpenTooltip(false)}>
+              <Tooltip
+                open={openTooltip}
+                disableFocusListener
+                disableHoverListener
+                disableTouchListener
+                title="Copied to clipboard"
+              >
+                <CopyToClipboardButton
+                  aria-label="Copy to clipboard"
+                  onClick={copyToClipboard}
+                >
+                  <ContentCopyIcon />
+                </CopyToClipboardButton>
+              </Tooltip>
+            </ClickAwayListener>
+          </Stack>
         </Section>
       </Grid>
     </Grid>
   );
 }
 
-export { CreatePortfolioPage };
+export { CreatePortfolioPage, defaultBasicInfo };
