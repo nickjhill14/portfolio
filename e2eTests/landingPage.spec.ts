@@ -43,8 +43,6 @@ test.describe("Landing Page", () => {
     await page.getByRole("link", { name: "Visit Repo" }).click();
     const newPage = await pagePromise;
 
-    await expect(newPage).toHaveURL(
-      "https://github.com/nickjhill14/portfolio-generator",
-    );
+    await expect(newPage).toHaveURL("https://github.com/nickjhill14/portfolio");
   });
 });

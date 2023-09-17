@@ -34,7 +34,7 @@ function LandingPageLinks() {
         role="link"
         variant="contained"
         startIcon={<GitHubIcon />}
-        to="https://github.com/nickjhill14/portfolio-generator"
+        to="https://github.com/nickjhill14/portfolio"
         target="_blank"
         rel="noopener noreferrer"
       >
