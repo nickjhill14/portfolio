@@ -1,6 +1,6 @@
-# 🖼️ Portfolio Generator
+# 🖼️ Nicholas Hill - Portfolio
 
-A tool to generate portfolio web apps.
+A portfolio web app for Nicholas Hill incl. a tool to generate portfolio web apps.
 
 ## 🛠️ Prerequisites
 
