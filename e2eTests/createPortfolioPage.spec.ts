@@ -26,7 +26,6 @@ test.describe("Create Portfolio Page", () => {
       name: faker.person.fullName(),
       role: faker.person.jobTitle(),
       email: faker.internet.email(),
-      phone: faker.phone.number(),
       gitHub: faker.internet.userName(),
       linkedIn: faker.internet.userName(),
     };
@@ -35,7 +34,6 @@ test.describe("Create Portfolio Page", () => {
     await page.getByRole("textbox", { name: "Name" }).type(basicInfo.name);
     await page.getByRole("textbox", { name: "Role" }).type(basicInfo.role);
     await page.getByRole("textbox", { name: "Email" }).type(basicInfo.email);
-    await page.getByRole("textbox", { name: "Phone" }).type(basicInfo.phone);
     await page.getByRole("textbox", { name: "GitHub" }).type(basicInfo.gitHub);
     await page
       .getByRole("textbox", { name: "LinkedIn" })

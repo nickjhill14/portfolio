@@ -14,7 +14,7 @@ describe(LandingPage, () => {
     useLoaderDataMock.mockReturnValue(buildBasicInfo());
   });
 
-  it("renders the page", () => {
+  it("renders the page (without phone)", () => {
     const basicInfo = buildBasicInfo();
 
     useLoaderDataMock.mockReturnValue(basicInfo);
@@ -28,11 +28,22 @@ describe(LandingPage, () => {
       screen.getByRole("heading", { name: basicInfo.role }),
     ).toBeInTheDocument();
     expect(screen.getByText(basicInfo.email)).toBeInTheDocument();
-    expect(screen.getByText(basicInfo.phone)).toBeInTheDocument();
     expect(screen.getByText(basicInfo.linkedIn)).toBeInTheDocument();
     expect(screen.getByText(basicInfo.email)).toBeInTheDocument();
     expect(screen.getByText(basicInfo.gitHub)).toBeInTheDocument();
+    expect(screen.queryByTestId("PhoneIcon")).not.toBeInTheDocument();
     expect(screen.getByTestId("footer")).toBeInTheDocument();
+  });
+
+  it("renders the phone when provided", () => {
+    const phone = "07123456789";
+    const basicInfo = buildBasicInfo({ phone });
+
+    useLoaderDataMock.mockReturnValue(basicInfo);
+
+    render(<LandingPage />);
+
+    expect(screen.getByText(phone)).toBeInTheDocument();
   });
 
   it("navigates to the CV page when clicking the CV button", async () => {

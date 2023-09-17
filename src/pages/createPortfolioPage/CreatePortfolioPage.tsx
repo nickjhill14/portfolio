@@ -2,6 +2,7 @@ import { Home } from "@mui/icons-material";
 import ContentCopyIcon from "@mui/icons-material/ContentCopy";
 import {
   Button,
+  Checkbox,
   ClickAwayListener,
   Grid,
   IconButton,
@@ -20,7 +21,6 @@ const defaultBasicInfo: BasicInfo = {
   name: "",
   role: "",
   email: "",
-  phone: "",
   gitHub: "",
   linkedIn: "",
 };
@@ -33,6 +33,7 @@ function CreatePortfolioPage() {
   const navigate = useNavigate();
   const [basicInfo, setBasicInfo] = useState<BasicInfo>(defaultBasicInfo);
   const [openTooltip, setOpenTooltip] = useState(false);
+  const [enablePhone, setEnablePhone] = useState(false);
 
   const basicInfoPreview = JSON.stringify(basicInfo, null, 2);
 
@@ -88,15 +89,6 @@ function CreatePortfolioPage() {
             }
           />
           <TextField
-            label="Phone"
-            variant="outlined"
-            autoComplete="off"
-            value={basicInfo.phone}
-            onChange={(event) =>
-              setBasicInfo({ ...basicInfo, phone: event.target.value })
-            }
-          />
-          <TextField
             label="GitHub"
             variant="outlined"
             autoComplete="off"
@@ -114,6 +106,23 @@ function CreatePortfolioPage() {
               setBasicInfo({ ...basicInfo, linkedIn: event.target.value })
             }
           />
+          <Stack direction="row" justifyContent="space-between">
+            <TextField
+              label="Phone"
+              variant="outlined"
+              autoComplete="off"
+              disabled={!enablePhone}
+              value={basicInfo.phone}
+              onChange={(event) =>
+                setBasicInfo({ ...basicInfo, phone: event.target.value })
+              }
+              fullWidth
+            />
+            <Checkbox
+              aria-label={`${enablePhone ? "Disable" : "Enable"} phone`}
+              onClick={() => setEnablePhone(!enablePhone)}
+            />
+          </Stack>
         </Section>
       </Grid>
       <Grid item xs={12} md={4}>

@@ -1,46 +1,12 @@
-import { VolunteerActivism } from "@mui/icons-material";
-import CloseIcon from "@mui/icons-material/Close";
 import CreateIcon from "@mui/icons-material/Create";
-import DarkModeIcon from "@mui/icons-material/DarkMode";
 import DescriptionIcon from "@mui/icons-material/Description";
 import GitHubIcon from "@mui/icons-material/GitHub";
-import LightModeIcon from "@mui/icons-material/LightMode";
-import {
-  Button,
-  Grid,
-  IconButton,
-  Skeleton,
-  Snackbar,
-  Stack,
-  Typography,
-  styled,
-} from "@mui/material";
-import { useState } from "react";
+import { Button, Grid, Skeleton, Stack, Typography } from "@mui/material";
 import { Link, useNavigate } from "react-router-dom";
-import { useColourMode } from "../../contexts/themeContext/ThemeContext";
-
-const AcksButton = styled(IconButton)({
-  position: "fixed",
-  bottom: 0,
-  right: 0,
-});
-
-const ToggleColourModeButton = styled(IconButton)({
-  position: "fixed",
-  bottom: 0,
-  left: 0,
-});
+import { Footer } from "../../components/footer/Footer";
 
 function LandingPageSkeleton() {
   const navigate = useNavigate();
-  const { toggleColourMode } = useColourMode();
-  const [openAcks, setOpenAcks] = useState(false);
-  const [darkMode, setDarkMode] = useState(false);
-
-  function handleToggleColourMode() {
-    setDarkMode(!darkMode);
-    toggleColourMode();
-  }
 
   return (
     <>
@@ -59,9 +25,6 @@ function LandingPageSkeleton() {
           <Stack direction={{ xs: "column", sm: "row" }} spacing={2}>
             <Typography variant="body1">
               <Skeleton width={125} data-testId="email-skeleton" />
-            </Typography>
-            <Typography variant="body1">
-              <Skeleton width={125} data-testId="phone-skeleton" />
             </Typography>
             <Typography variant="body1">
               <Skeleton width={125} data-testId="git-hub-skeleton" />
@@ -103,33 +66,7 @@ function LandingPageSkeleton() {
           </Stack>
         </Grid>
       </Grid>
-      <ToggleColourModeButton
-        onClick={handleToggleColourMode}
-        aria-label={darkMode ? "Toggle light mode" : "Toggle dark mode"}
-      >
-        {darkMode ? <DarkModeIcon /> : <LightModeIcon />}
-      </ToggleColourModeButton>
-      <AcksButton
-        onClick={() => setOpenAcks(true)}
-        aria-label="View acknowledgements"
-      >
-        <VolunteerActivism />
-      </AcksButton>
-      <Snackbar
-        open={openAcks}
-        action={
-          <IconButton
-            aria-label="Close acknowledgements"
-            color="inherit"
-            onClick={() => setOpenAcks(false)}
-            component={Button}
-          >
-            <CloseIcon />
-          </IconButton>
-        }
-        message="Thank you to the best pair, Kate"
-        aria-label="Acknowledgements Snackbar"
-      />
+      <Footer />
     </>
   );
 }

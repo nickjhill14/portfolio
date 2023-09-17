@@ -33,8 +33,8 @@ describe(CreatePortfolioPage, () => {
     expect(navigateMock).toHaveBeenCalledWith(PortfolioRoutePaths.BASE);
   });
 
-  it("displays the basic info provided in a preview window", async () => {
-    const basicInfo = buildBasicInfo();
+  it("displays the basic info provided in a preview window (without phone)", async () => {
+    const basicInfo = buildBasicInfo({ phone: undefined });
 
     render(<CreatePortfolioPage />);
     await userEvent.type(
@@ -48,10 +48,6 @@ describe(CreatePortfolioPage, () => {
     await userEvent.type(
       screen.getByRole("textbox", { name: "Email" }),
       basicInfo.email,
-    );
-    await userEvent.type(
-      screen.getByRole("textbox", { name: "Phone" }),
-      basicInfo.phone,
     );
     await userEvent.type(
       screen.getByRole("textbox", { name: "GitHub" }),
@@ -72,14 +68,43 @@ describe(CreatePortfolioPage, () => {
       screen.getByText(`"email": "${basicInfo.email}"`, { exact: false }),
     ).toBeInTheDocument();
     expect(
-      screen.getByText(`"phone": "${basicInfo.phone}"`, { exact: false }),
-    ).toBeInTheDocument();
-    expect(
       screen.getByText(`"gitHub": "${basicInfo.gitHub}"`, { exact: false }),
     ).toBeInTheDocument();
     expect(
       screen.getByText(`"linkedIn": "${basicInfo.linkedIn}"`, { exact: false }),
     ).toBeInTheDocument();
+    expect(
+      screen.queryByText("phone: ", { exact: false }),
+    ).not.toBeInTheDocument();
+  });
+
+  it("adds the phone to the preview", async () => {
+    const phone = "07123456789";
+
+    render(<CreatePortfolioPage />);
+    await userEvent.click(screen.getByLabelText("Enable phone"));
+    await userEvent.type(screen.getByRole("textbox", { name: "Phone" }), phone);
+
+    expect(
+      screen.getByText(`"phone": "${phone}"`, { exact: false }),
+    ).toBeInTheDocument();
+    expect(screen.queryByLabelText("Enable phone")).not.toBeInTheDocument();
+  });
+
+  it("disables phone field by default", async () => {
+    render(<CreatePortfolioPage />);
+
+    expect(screen.getByRole("textbox", { name: "Phone" })).toBeDisabled();
+    expect(screen.getByLabelText("Enable phone")).toBeInTheDocument();
+    expect(screen.queryByLabelText("Disable phone")).not.toBeInTheDocument();
+  });
+
+  it("disables phone field when clicking the phone checkbox twice", async () => {
+    render(<CreatePortfolioPage />);
+    await userEvent.click(screen.getByLabelText("Enable phone"));
+    await userEvent.click(screen.getByLabelText("Disable phone"));
+
+    expect(screen.getByRole("textbox", { name: "Phone" })).toBeDisabled();
   });
 
   it("copies the preview JSON to the clipboard when the clipboard icon has been clicked", async () => {

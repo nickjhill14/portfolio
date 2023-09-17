@@ -35,11 +35,13 @@ function LandingPage() {
               text={email}
               variant="body1"
             />
-            <IconTypography
-              icon={LocalPhoneOutlinedIcon}
-              text={phone}
-              variant="body1"
-            />
+            {phone && (
+              <IconTypography
+                icon={LocalPhoneOutlinedIcon}
+                text={phone}
+                variant="body1"
+              />
+            )}
             <IconTypography icon={LinkedIn} text={linkedIn} variant="body1" />
             <IconTypography icon={GitHubIcon} text={gitHub} variant="body1" />
           </Stack>
