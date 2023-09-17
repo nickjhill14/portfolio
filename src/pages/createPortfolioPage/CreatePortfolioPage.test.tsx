@@ -3,9 +3,11 @@ import userEvent from "@testing-library/user-event";
 import { useNavigate } from "react-router-dom";
 import { PortfolioRoutePaths } from "../../routing/portfolioRouting/PortfolioRouting";
 import { buildBasicInfo } from "../../utils/builders";
+import { downloadJson } from "../../utils/helpers/helpers";
 import { CreatePortfolioPage, defaultBasicInfo } from "./CreatePortfolioPage";
 
 vitest.mock("react-router-dom");
+vitest.mock("../../utils/helpers/helpers");
 
 describe(CreatePortfolioPage, () => {
   it("renders the page", () => {
@@ -143,5 +145,17 @@ describe(CreatePortfolioPage, () => {
     await waitFor(() => {
       expect(screen.queryByText("Copied to clipboard")).not.toBeInTheDocument();
     });
+  });
+
+  it("downloads the basic info when the download button has been clicked", async () => {
+    vitest.mocked(downloadJson);
+
+    render(<CreatePortfolioPage />);
+    await userEvent.click(screen.getByRole("button", { name: "Download" }));
+
+    expect(downloadJson).toHaveBeenCalledWith(
+      "basic-info",
+      JSON.stringify(defaultBasicInfo, null, 2),
+    );
   });
 });

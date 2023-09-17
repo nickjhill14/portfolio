@@ -1,5 +1,6 @@
 import { Home } from "@mui/icons-material";
 import ContentCopyIcon from "@mui/icons-material/ContentCopy";
+import DownloadIcon from "@mui/icons-material/Download";
 import {
   Button,
   Checkbox,
@@ -17,6 +18,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Section } from "../../components/section/Section";
 import { BasicInfo } from "../../domain/basicInfo";
+import { downloadJson } from "../../utils/helpers/helpers";
 
 const defaultBasicInfo: BasicInfo = {
   name: "",
@@ -132,7 +134,6 @@ function CreatePortfolioPage() {
         </Section>
       </Grid>
       <Grid item xs={12} md={4}>
-        {/* TODO: Move this into a separate component */}
         <Section headingText="Preview">
           <Stack justifyContent="space-between">
             <pre>{basicInfoPreview}</pre>
@@ -153,6 +154,13 @@ function CreatePortfolioPage() {
               </Tooltip>
             </ClickAwayListener>
           </Stack>
+          <Button
+            onClick={() => downloadJson("basic-info", basicInfoPreview)}
+            variant="contained"
+            startIcon={<DownloadIcon />}
+          >
+            Download
+          </Button>
         </Section>
       </Grid>
     </Grid>

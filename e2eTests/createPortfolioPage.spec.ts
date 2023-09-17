@@ -44,6 +44,14 @@ test.describe("Create Portfolio Page", () => {
     expect(clipboardText).toEqual(JSON.stringify(basicInfo, null, 2));
   });
 
+  test("downloading basic info", async ({ page }) => {
+    const downloadPromise = page.waitForEvent("download");
+    await page.getByRole("button", { name: "Download" }).click();
+    const download = await downloadPromise;
+
+    expect(download.suggestedFilename()).toBe("basic-info.json");
+  });
+
   test("navigating to the landing page", async ({ page }) => {
     await page.getByRole("link", { name: "Go Home" }).click();
 
