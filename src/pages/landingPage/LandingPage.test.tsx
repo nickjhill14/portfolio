@@ -1,7 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
-import { useLoaderData, useNavigate } from "react-router-dom";
-import { PortfolioRoutePaths } from "../../routing/portfolioRouting/PortfolioRouting";
+import { useLoaderData } from "react-router-dom";
 import { buildBasicInfo } from "../../utils/builders";
 import { LandingPage } from "./LandingPage";
 
@@ -32,6 +30,7 @@ describe(LandingPage, () => {
     expect(screen.getByText(basicInfo.email)).toBeInTheDocument();
     expect(screen.getByText(basicInfo.gitHub)).toBeInTheDocument();
     expect(screen.queryByTestId("PhoneIcon")).not.toBeInTheDocument();
+    expect(screen.getByTestId("landing-page-links")).toBeInTheDocument();
     expect(screen.getByTestId("footer")).toBeInTheDocument();
   });
 
@@ -44,27 +43,5 @@ describe(LandingPage, () => {
     render(<LandingPage />);
 
     expect(screen.getByText(phone)).toBeInTheDocument();
-  });
-
-  it("navigates to the CV page when clicking the CV button", async () => {
-    const navigateMock = vitest.fn();
-
-    vitest.mocked(useNavigate).mockReturnValue(navigateMock);
-
-    render(<LandingPage />);
-    await userEvent.click(screen.getByRole("link", { name: "View CV" }));
-
-    expect(navigateMock).toHaveBeenCalledWith(PortfolioRoutePaths.CV);
-  });
-
-  it("navigates to the create portfolio page when clicking the create button", async () => {
-    const navigateMock = vitest.fn();
-
-    vitest.mocked(useNavigate).mockReturnValue(navigateMock);
-
-    render(<LandingPage />);
-    await userEvent.click(screen.getByRole("link", { name: "Create" }));
-
-    expect(navigateMock).toHaveBeenCalledWith(PortfolioRoutePaths.CREATE);
   });
 });
