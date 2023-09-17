@@ -4,6 +4,7 @@ import {
   Button,
   Checkbox,
   ClickAwayListener,
+  FormControlLabel,
   Grid,
   IconButton,
   Stack,
@@ -40,6 +41,11 @@ function CreatePortfolioPage() {
   async function copyToClipboard() {
     await navigator.clipboard.writeText(basicInfoPreview);
     setOpenTooltip(true);
+  }
+
+  function togglePhone() {
+    enablePhone && setBasicInfo({ ...basicInfo, phone: undefined });
+    setEnablePhone(!enablePhone);
   }
 
   return (
@@ -106,21 +112,21 @@ function CreatePortfolioPage() {
               setBasicInfo({ ...basicInfo, linkedIn: event.target.value })
             }
           />
-          <Stack direction="row" justifyContent="space-between">
+          <Stack direction="row" justifyContent="space-between" spacing={1}>
             <TextField
               label="Phone"
               variant="outlined"
               autoComplete="off"
               disabled={!enablePhone}
-              value={basicInfo.phone}
+              value={basicInfo.phone ?? ""}
               onChange={(event) =>
                 setBasicInfo({ ...basicInfo, phone: event.target.value })
               }
               fullWidth
             />
-            <Checkbox
-              aria-label={`${enablePhone ? "Disable" : "Enable"} phone`}
-              onClick={() => setEnablePhone(!enablePhone)}
+            <FormControlLabel
+              control={<Checkbox onClick={togglePhone} />}
+              label={enablePhone ? "Disable" : "Enable"}
             />
           </Stack>
         </Section>

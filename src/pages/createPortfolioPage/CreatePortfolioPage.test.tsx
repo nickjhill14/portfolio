@@ -82,29 +82,43 @@ describe(CreatePortfolioPage, () => {
     const phone = "07123456789";
 
     render(<CreatePortfolioPage />);
-    await userEvent.click(screen.getByLabelText("Enable phone"));
+    await userEvent.click(screen.getByRole("checkbox", { name: "Enable" }));
     await userEvent.type(screen.getByRole("textbox", { name: "Phone" }), phone);
 
     expect(
       screen.getByText(`"phone": "${phone}"`, { exact: false }),
     ).toBeInTheDocument();
-    expect(screen.queryByLabelText("Enable phone")).not.toBeInTheDocument();
+    expect(
+      screen.queryByRole("checkbox", { name: "Enable" }),
+    ).not.toBeInTheDocument();
   });
 
   it("disables phone field by default", async () => {
     render(<CreatePortfolioPage />);
 
     expect(screen.getByRole("textbox", { name: "Phone" })).toBeDisabled();
-    expect(screen.getByLabelText("Enable phone")).toBeInTheDocument();
-    expect(screen.queryByLabelText("Disable phone")).not.toBeInTheDocument();
+    expect(
+      screen.getByRole("checkbox", { name: "Enable" }),
+    ).toBeInTheDocument();
+    expect(
+      screen.queryByRole("checkbox", { name: "Disable" }),
+    ).not.toBeInTheDocument();
   });
 
-  it("disables phone field when clicking the phone checkbox twice", async () => {
+  it("clears and disables the phone field when disabling the input field", async () => {
     render(<CreatePortfolioPage />);
-    await userEvent.click(screen.getByLabelText("Enable phone"));
-    await userEvent.click(screen.getByLabelText("Disable phone"));
+    await userEvent.click(screen.getByRole("checkbox", { name: "Enable" }));
+    await userEvent.type(
+      screen.getByRole("textbox", { name: "Phone" }),
+      "07123456789",
+    );
+    await userEvent.click(screen.getByRole("checkbox", { name: "Disable" }));
 
+    expect(screen.getByRole("textbox", { name: "Phone" })).toHaveValue("");
     expect(screen.getByRole("textbox", { name: "Phone" })).toBeDisabled();
+    expect(
+      screen.queryByText("phone: ", { exact: false }),
+    ).not.toBeInTheDocument();
   });
 
   it("copies the preview JSON to the clipboard when the clipboard icon has been clicked", async () => {
