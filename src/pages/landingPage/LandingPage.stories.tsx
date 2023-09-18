@@ -34,13 +34,6 @@ const meta = {
         loader: getBasicInfo,
       },
     }),
-    msw: {
-      handlers: [
-        rest.get("/portfolioConfig/basic-info.json", (_, res, ctx) => {
-          return res(ctx.json(basicInfo));
-        }),
-      ],
-    },
   },
 } satisfies Meta<typeof LandingPage>;
 

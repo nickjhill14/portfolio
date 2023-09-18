@@ -2,7 +2,7 @@ import { LinkedIn } from "@mui/icons-material";
 import AlternateEmailOutlinedIcon from "@mui/icons-material/AlternateEmailOutlined";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import LocalPhoneOutlinedIcon from "@mui/icons-material/LocalPhoneOutlined";
-import { Grid, Stack, Typography } from "@mui/material";
+import { Grid, Link, Stack, Typography } from "@mui/material";
 import { useLoaderData } from "react-router-dom";
 import { Footer } from "../../components/footer/Footer";
 import { IconTypography } from "../../components/iconTypography/IconTypography";
@@ -15,7 +15,7 @@ function LandingPage() {
 
   return (
     <>
-      <Grid container spacing={2} p={2} marginBottom={2}>
+      <Grid container spacing={2} p={2} mb={2}>
         <Grid item xs={12}>
           <Typography variant="h2" component="h1">
             {name}
@@ -28,20 +28,44 @@ function LandingPage() {
         </Grid>
         <Grid item xs={12}>
           <Stack direction={{ xs: "column", sm: "row" }} spacing={2}>
-            <IconTypography
-              icon={AlternateEmailOutlinedIcon}
-              text={email}
-              variant="body1"
-            />
-            {phone && (
+            <Link
+              href={`mailto:${email}`}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <IconTypography
-                icon={LocalPhoneOutlinedIcon}
-                text={phone}
+                icon={AlternateEmailOutlinedIcon}
+                text={email}
                 variant="body1"
               />
+            </Link>
+            {phone && (
+              <Link
+                href={`tel:${phone}`}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <IconTypography
+                  icon={LocalPhoneOutlinedIcon}
+                  text={phone}
+                  variant="body1"
+                />
+              </Link>
             )}
-            <IconTypography icon={LinkedIn} text={linkedIn} variant="body1" />
-            <IconTypography icon={GitHubIcon} text={gitHub} variant="body1" />
+            <Link
+              href={`https://www.linkedin.com/in/${linkedIn}`}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <IconTypography icon={LinkedIn} text={linkedIn} variant="body1" />
+            </Link>
+            <Link
+              href={`https://www.github.com/${gitHub}`}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <IconTypography icon={GitHubIcon} text={gitHub} variant="body1" />
+            </Link>
           </Stack>
         </Grid>
         <Grid item xs={12}>

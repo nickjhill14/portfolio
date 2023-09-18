@@ -30,17 +30,12 @@ test.describe("Landing Page", () => {
 
   test("navigating to the GitHub repo", async ({ page, context }) => {
     const pagePromise = context.waitForEvent("page");
+    const visitRepoLink = page.getByRole("link", { name: "Visit Repo" });
 
-    expect(page.getByRole("link", { name: "Visit Repo" })).toHaveAttribute(
-      "target",
-      "_blank",
-    );
-    expect(page.getByRole("link", { name: "Visit Repo" })).toHaveAttribute(
-      "rel",
-      "noopener noreferrer",
-    );
+    expect(visitRepoLink).toHaveAttribute("target", "_blank");
+    expect(visitRepoLink).toHaveAttribute("rel", "noopener noreferrer");
 
-    await page.getByRole("link", { name: "Visit Repo" }).click();
+    await visitRepoLink.click();
     const newPage = await pagePromise;
 
     await expect(newPage).toHaveURL("https://github.com/nickjhill14/portfolio");
