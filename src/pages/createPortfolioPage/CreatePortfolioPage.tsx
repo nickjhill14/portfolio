@@ -72,7 +72,7 @@ function CreatePortfolioPage() {
           <TextField
             label="Name"
             variant="outlined"
-            autoComplete="off"
+            autoComplete="no"
             value={basicInfo.name}
             onChange={(event) =>
               setBasicInfo({ ...basicInfo, name: event.target.value })
@@ -81,7 +81,7 @@ function CreatePortfolioPage() {
           <TextField
             label="Role"
             variant="outlined"
-            autoComplete="off"
+            autoComplete="no"
             value={basicInfo.role}
             onChange={(event) =>
               setBasicInfo({ ...basicInfo, role: event.target.value })
@@ -90,7 +90,7 @@ function CreatePortfolioPage() {
           <TextField
             label="Email"
             variant="outlined"
-            autoComplete="off"
+            autoComplete="no"
             value={basicInfo.email}
             onChange={(event) =>
               setBasicInfo({ ...basicInfo, email: event.target.value })
@@ -99,7 +99,7 @@ function CreatePortfolioPage() {
           <TextField
             label="GitHub"
             variant="outlined"
-            autoComplete="off"
+            autoComplete="no"
             value={basicInfo.gitHub}
             onChange={(event) =>
               setBasicInfo({ ...basicInfo, gitHub: event.target.value })
@@ -108,7 +108,7 @@ function CreatePortfolioPage() {
           <TextField
             label="LinkedIn"
             variant="outlined"
-            autoComplete="off"
+            autoComplete="no"
             value={basicInfo.linkedIn}
             onChange={(event) =>
               setBasicInfo({ ...basicInfo, linkedIn: event.target.value })
@@ -118,7 +118,7 @@ function CreatePortfolioPage() {
             <TextField
               label="Phone"
               variant="outlined"
-              autoComplete="off"
+              autoComplete="no"
               disabled={!enablePhone}
               value={basicInfo.phone ?? ""}
               onChange={(event) =>
