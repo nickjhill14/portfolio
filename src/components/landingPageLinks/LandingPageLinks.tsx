@@ -11,7 +11,7 @@ function LandingPageLinks() {
     <Stack
       direction={{ xs: "column", sm: "row" }}
       spacing={2}
-      data-testId="landing-page-links"
+      data-testid="landing-page-links"
     >
       <Button
         onClick={() => navigate("/cv")}

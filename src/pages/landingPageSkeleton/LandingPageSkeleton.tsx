@@ -8,24 +8,24 @@ function LandingPageSkeleton() {
       <Grid container spacing={2} p={2} marginBottom={2}>
         <Grid item xs={12}>
           <Typography variant="h2" component="h1">
-            <Skeleton data-testId="name-skeleton" />
+            <Skeleton data-testid="name-skeleton" />
           </Typography>
         </Grid>
         <Grid item xs={12}>
           <Typography variant="h3" component="h2">
-            <Skeleton data-testId="role-skeleton" />
+            <Skeleton data-testid="role-skeleton" />
           </Typography>
         </Grid>
         <Grid item xs={12}>
           <Stack direction={{ xs: "column", sm: "row" }} spacing={2}>
             <Typography variant="body1">
-              <Skeleton width={125} data-testId="email-skeleton" />
+              <Skeleton width={125} data-testid="email-skeleton" />
             </Typography>
             <Typography variant="body1">
-              <Skeleton width={125} data-testId="git-hub-skeleton" />
+              <Skeleton width={125} data-testid="git-hub-skeleton" />
             </Typography>
             <Typography variant="body1">
-              <Skeleton width={125} data-testId="linked-in-skeleton" />
+              <Skeleton width={125} data-testid="linked-in-skeleton" />
             </Typography>
           </Stack>
         </Grid>

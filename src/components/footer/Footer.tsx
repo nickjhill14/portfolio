@@ -18,7 +18,7 @@ function Footer() {
 
   return (
     <Stack
-      data-testId="footer"
+      data-testid="footer"
       direction="row"
       justifyContent="space-between"
       position="fixed"

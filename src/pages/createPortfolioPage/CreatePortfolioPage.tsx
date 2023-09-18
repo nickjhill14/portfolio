@@ -136,7 +136,9 @@ function CreatePortfolioPage() {
       <Grid item xs={12} md={4}>
         <Section headingText="Preview">
           <Stack justifyContent="space-between">
-            <pre>{basicInfoPreview}</pre>
+            <pre style={{ whiteSpace: "pre-wrap", wordBreak: "break-all" }}>
+              {basicInfoPreview}
+            </pre>
             <ClickAwayListener onClickAway={() => setOpenTooltip(false)}>
               <Tooltip
                 open={openTooltip}
