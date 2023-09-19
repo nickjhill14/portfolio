@@ -14,6 +14,7 @@ import {
   Typography,
   styled,
 } from "@mui/material";
+import { motion } from "framer-motion";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Section } from "../../components/section/Section";
@@ -67,109 +68,123 @@ function CreatePortfolioPage() {
           Create A Portfolio
         </Typography>
       </Grid>
-      <Grid item xs={12} md={8}>
-        <Section headingText="Add Basic Info">
-          <TextField
-            label="Name"
-            name="Name"
-            variant="outlined"
-            autoComplete="off"
-            value={basicInfo.name}
-            onChange={(event) =>
-              setBasicInfo({ ...basicInfo, name: event.target.value })
-            }
-          />
-          <TextField
-            label="Role"
-            name="Role"
-            variant="outlined"
-            autoComplete="off"
-            value={basicInfo.role}
-            onChange={(event) =>
-              setBasicInfo({ ...basicInfo, role: event.target.value })
-            }
-          />
-          <TextField
-            label="Email"
-            name="Email"
-            variant="outlined"
-            autoComplete="off"
-            value={basicInfo.email}
-            onChange={(event) =>
-              setBasicInfo({ ...basicInfo, email: event.target.value })
-            }
-          />
-          <TextField
-            label="GitHub"
-            name="GitHub"
-            variant="outlined"
-            autoComplete="off"
-            value={basicInfo.gitHub}
-            onChange={(event) =>
-              setBasicInfo({ ...basicInfo, gitHub: event.target.value })
-            }
-          />
-          <TextField
-            label="LinkedIn"
-            name="LinkedIn"
-            variant="outlined"
-            autoComplete="off"
-            value={basicInfo.linkedIn}
-            onChange={(event) =>
-              setBasicInfo({ ...basicInfo, linkedIn: event.target.value })
-            }
-          />
-          <Stack direction="row" justifyContent="space-between" spacing={1}>
+      <Grid
+        container
+        spacing={2}
+        p={2}
+        component={motion.div}
+        initial={{ opacity: 0, scale: 0.5 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{
+          duration: 0.5,
+          delay: 0.25,
+          ease: [0, 0.71, 0.2, 1.01],
+        }}
+      >
+        <Grid item xs={12} md={8}>
+          <Section headingText="Add Basic Info">
             <TextField
-              label="Phone"
-              name="Phone"
+              label="Name"
+              name="Name"
               variant="outlined"
               autoComplete="off"
-              disabled={!enablePhone}
-              value={basicInfo.phone ?? ""}
+              value={basicInfo.name}
               onChange={(event) =>
-                setBasicInfo({ ...basicInfo, phone: event.target.value })
+                setBasicInfo({ ...basicInfo, name: event.target.value })
               }
-              fullWidth
             />
-            <FormControlLabel
-              control={<Checkbox onClick={togglePhone} />}
-              label={enablePhone ? "Disable" : "Enable"}
+            <TextField
+              label="Role"
+              name="Role"
+              variant="outlined"
+              autoComplete="off"
+              value={basicInfo.role}
+              onChange={(event) =>
+                setBasicInfo({ ...basicInfo, role: event.target.value })
+              }
             />
-          </Stack>
-        </Section>
-      </Grid>
-      <Grid item xs={12} md={4}>
-        <Section headingText="Preview">
-          <Stack justifyContent="space-between">
-            <pre style={{ whiteSpace: "pre-wrap", wordBreak: "break-all" }}>
-              {basicInfoPreview}
-            </pre>
-            <ClickAwayListener onClickAway={() => setOpenTooltip(false)}>
-              <Tooltip
-                open={openTooltip}
-                disableFocusListener
-                disableHoverListener
-                disableTouchListener
-                title="Copied to clipboard"
-              >
-                <CopyToClipboardButton
-                  aria-label="Copy to clipboard"
-                  onClick={copyToClipboard}
+            <TextField
+              label="Email"
+              name="Email"
+              variant="outlined"
+              autoComplete="off"
+              value={basicInfo.email}
+              onChange={(event) =>
+                setBasicInfo({ ...basicInfo, email: event.target.value })
+              }
+            />
+            <TextField
+              label="GitHub"
+              name="GitHub"
+              variant="outlined"
+              autoComplete="off"
+              value={basicInfo.gitHub}
+              onChange={(event) =>
+                setBasicInfo({ ...basicInfo, gitHub: event.target.value })
+              }
+            />
+            <TextField
+              label="LinkedIn"
+              name="LinkedIn"
+              variant="outlined"
+              autoComplete="off"
+              value={basicInfo.linkedIn}
+              onChange={(event) =>
+                setBasicInfo({ ...basicInfo, linkedIn: event.target.value })
+              }
+            />
+            <Stack direction="row" justifyContent="space-between" spacing={1}>
+              <TextField
+                label="Phone"
+                name="Phone"
+                variant="outlined"
+                autoComplete="off"
+                disabled={!enablePhone}
+                value={basicInfo.phone ?? ""}
+                onChange={(event) =>
+                  setBasicInfo({ ...basicInfo, phone: event.target.value })
+                }
+                fullWidth
+              />
+              <FormControlLabel
+                control={<Checkbox onClick={togglePhone} />}
+                label={enablePhone ? "Disable" : "Enable"}
+              />
+            </Stack>
+          </Section>
+        </Grid>
+        <Grid item xs={12} md={4}>
+          <Section headingText="Preview">
+            <Stack justifyContent="space-between">
+              <pre style={{ whiteSpace: "pre-wrap", wordBreak: "break-all" }}>
+                {basicInfoPreview}
+              </pre>
+              <ClickAwayListener onClickAway={() => setOpenTooltip(false)}>
+                <Tooltip
+                  open={openTooltip}
+                  disableFocusListener
+                  disableHoverListener
+                  disableTouchListener
+                  title="Copied to clipboard"
                 >
-                  <ContentCopyIcon />
-                </CopyToClipboardButton>
-              </Tooltip>
-            </ClickAwayListener>
-          </Stack>
-          <Button
-            onClick={() => downloadJson("basic-info", basicInfoPreview)}
-            variant="contained"
-            startIcon={<DownloadIcon />}
-          >
-            Download
-          </Button>
-        </Section>
+                  <CopyToClipboardButton
+                    aria-label="Copy to clipboard"
+                    onClick={copyToClipboard}
+                  >
+                    <ContentCopyIcon />
+                  </CopyToClipboardButton>
+                </Tooltip>
+              </ClickAwayListener>
+            </Stack>
+            <Button
+              onClick={() => downloadJson("basic-info", basicInfoPreview)}
+              variant="contained"
+              startIcon={<DownloadIcon />}
+            >
+              Download
+            </Button>
+          </Section>
+        </Grid>
       </Grid>
     </Grid>
   );
