@@ -31,17 +31,6 @@ function ThemeProvider({ children }: PropsWithChildren) {
         palette: {
           mode,
         },
-        components: {
-          MuiOutlinedInput: {
-            styleOverrides: {
-              input: {
-                "&:-webkit-autofill": {
-                  backgroundClip: "text",
-                },
-              },
-            },
-          },
-        },
       }),
     [mode],
   );
