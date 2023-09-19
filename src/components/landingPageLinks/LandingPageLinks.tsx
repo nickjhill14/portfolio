@@ -2,6 +2,7 @@ import CreateIcon from "@mui/icons-material/Create";
 import DescriptionIcon from "@mui/icons-material/Description";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import { Button, Stack } from "@mui/material";
+import { motion } from "framer-motion";
 import { Link, useNavigate } from "react-router-dom";
 
 function LandingPageLinks() {
@@ -14,6 +15,9 @@ function LandingPageLinks() {
       data-testid="landing-page-links"
     >
       <Button
+        component={motion.button}
+        whileHover={{ scale: 1.1 }}
+        whileTap={{ scale: 0.9 }}
         onClick={() => navigate("/cv")}
         role="link"
         startIcon={<DescriptionIcon />}
@@ -22,6 +26,9 @@ function LandingPageLinks() {
         View CV
       </Button>
       <Button
+        component={motion.button}
+        whileHover={{ scale: 1.1 }}
+        whileTap={{ scale: 0.9 }}
         onClick={() => navigate("/create")}
         role="link"
         startIcon={<CreateIcon />}
