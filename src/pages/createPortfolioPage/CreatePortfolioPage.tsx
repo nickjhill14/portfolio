@@ -104,7 +104,6 @@ function CreatePortfolioPage() {
             <Section headingText="Add Basic Info">
               <TextField
                 label="Name"
-                variant="outlined"
                 value={basicInfo.name}
                 onChange={(event) =>
                   setBasicInfo({ ...basicInfo, name: event.target.value })
@@ -112,7 +111,6 @@ function CreatePortfolioPage() {
               />
               <TextField
                 label="Role"
-                variant="outlined"
                 value={basicInfo.role}
                 onChange={(event) =>
                   setBasicInfo({ ...basicInfo, role: event.target.value })
@@ -120,7 +118,6 @@ function CreatePortfolioPage() {
               />
               <TextField
                 label="Email"
-                variant="outlined"
                 value={basicInfo.email}
                 onChange={(event) =>
                   setBasicInfo({ ...basicInfo, email: event.target.value })
@@ -128,7 +125,6 @@ function CreatePortfolioPage() {
               />
               <TextField
                 label="GitHub"
-                variant="outlined"
                 value={basicInfo.gitHub}
                 onChange={(event) =>
                   setBasicInfo({ ...basicInfo, gitHub: event.target.value })
@@ -136,7 +132,6 @@ function CreatePortfolioPage() {
               />
               <TextField
                 label="LinkedIn"
-                variant="outlined"
                 value={basicInfo.linkedIn}
                 onChange={(event) =>
                   setBasicInfo({ ...basicInfo, linkedIn: event.target.value })
@@ -145,7 +140,6 @@ function CreatePortfolioPage() {
               <Stack direction="row" justifyContent="space-between" spacing={1}>
                 <TextField
                   label="Phone"
-                  variant="outlined"
                   disabled={!enablePhone}
                   value={basicInfo.phone ?? ""}
                   onChange={(event) =>
