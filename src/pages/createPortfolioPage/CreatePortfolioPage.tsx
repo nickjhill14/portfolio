@@ -88,9 +88,7 @@ function CreatePortfolioPage() {
           <Section headingText="Add Basic Info">
             <TextField
               label="Name"
-              name="Name"
               variant="outlined"
-              autoComplete="off"
               value={basicInfo.name}
               onChange={(event) =>
                 setBasicInfo({ ...basicInfo, name: event.target.value })
@@ -98,9 +96,7 @@ function CreatePortfolioPage() {
             />
             <TextField
               label="Role"
-              name="Role"
               variant="outlined"
-              autoComplete="off"
               value={basicInfo.role}
               onChange={(event) =>
                 setBasicInfo({ ...basicInfo, role: event.target.value })
@@ -108,9 +104,7 @@ function CreatePortfolioPage() {
             />
             <TextField
               label="Email"
-              name="Email"
               variant="outlined"
-              autoComplete="off"
               value={basicInfo.email}
               onChange={(event) =>
                 setBasicInfo({ ...basicInfo, email: event.target.value })
@@ -118,9 +112,7 @@ function CreatePortfolioPage() {
             />
             <TextField
               label="GitHub"
-              name="GitHub"
               variant="outlined"
-              autoComplete="off"
               value={basicInfo.gitHub}
               onChange={(event) =>
                 setBasicInfo({ ...basicInfo, gitHub: event.target.value })
@@ -128,9 +120,7 @@ function CreatePortfolioPage() {
             />
             <TextField
               label="LinkedIn"
-              name="LinkedIn"
               variant="outlined"
-              autoComplete="off"
               value={basicInfo.linkedIn}
               onChange={(event) =>
                 setBasicInfo({ ...basicInfo, linkedIn: event.target.value })
@@ -139,9 +129,7 @@ function CreatePortfolioPage() {
             <Stack direction="row" justifyContent="space-between" spacing={1}>
               <TextField
                 label="Phone"
-                name="Phone"
                 variant="outlined"
-                autoComplete="off"
                 disabled={!enablePhone}
                 value={basicInfo.phone ?? ""}
                 onChange={(event) =>
