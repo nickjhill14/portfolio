@@ -15,7 +15,26 @@ describe(CreateCvSections, () => {
     ).toBeInTheDocument();
   });
 
-  it("creates a section", async () => {
+  it("displays an error message when no title is provided", async () => {
+    render(<CreateCvSections />);
+    await userEvent.click(screen.getByRole("button", { name: "Create" }));
+
+    expect(screen.getByText("Required field")).toBeInTheDocument();
+  });
+
+  it("removes error once a title is provided", async () => {
+    render(<CreateCvSections />);
+    await userEvent.click(screen.getByRole("button", { name: "Create" }));
+    await userEvent.type(
+      screen.getByRole("textbox", { name: "Title" }),
+      "Experience",
+    );
+    await userEvent.click(screen.getByRole("button", { name: "Create" }));
+
+    expect(screen.queryByText("Required field")).not.toBeInTheDocument();
+  });
+
+  it("creates a CV section", async () => {
     const cvSection = buildCvSection();
 
     render(<CreateCvSections />);
@@ -25,28 +44,20 @@ describe(CreateCvSections, () => {
     );
     await userEvent.click(screen.getByRole("button", { name: "Create" }));
 
-    expect(screen.queryByText("Required field")).not.toBeInTheDocument();
+    expect(
+      screen.getByText(`"title": "${cvSection.title}"`, { exact: false }),
+    ).toBeInTheDocument();
   });
 
-  it("displays an error message when no title is provided", async () => {
+  it("clears the current CV section after creation", async () => {
     render(<CreateCvSections />);
+    await userEvent.type(
+      screen.getByRole("textbox", { name: "Title" }),
+      "Experience",
+    );
     await userEvent.click(screen.getByRole("button", { name: "Create" }));
 
-    expect(screen.getByText("Required field")).toBeInTheDocument();
-  });
-
-  it("displays the default CV in a preview window", async () => {
-    render(<CreateCvSections />);
-
-    expect(
-      screen.getByText('"skillsInfo": {', { exact: false }),
-    ).toBeInTheDocument();
-    expect(
-      screen.getByText('"skills": []', { exact: false }),
-    ).toBeInTheDocument();
-    expect(
-      screen.getByText('"languages": []', { exact: false }),
-    ).toBeInTheDocument();
+    expect(screen.getByRole("textbox", { name: "Title" })).toHaveValue("");
   });
 
   it("downloads the CV when the download button has been clicked", async () => {

@@ -14,14 +14,24 @@ const defaultCv: Cv = {
 };
 
 function CreateCvSections() {
-  const [cvSection, setCvSection] = useState<CvSection>({ title: "" });
+  const [cv, setCv] = useState<Cv>(defaultCv);
+  const [currentCvSection, setCurrentCvSection] = useState<CvSection>({
+    title: "",
+  });
   const [requiredTitleError, setRequiredTitleError] = useState(false);
 
-  const cvPreview = JSON.stringify(defaultCv, null, 2);
+  const cvPreview = JSON.stringify(cv, null, 2);
 
   function handleCreate() {
-    if (!cvSection.title) {
+    if (!currentCvSection.title) {
       setRequiredTitleError(true);
+    } else {
+      const currentCvSections = cv.cvSections ?? [];
+      currentCvSections.push(currentCvSection);
+
+      setCv({ ...cv, cvSections: currentCvSections });
+      setCurrentCvSection({ title: "" });
+      setRequiredTitleError(false);
     }
   }
 
@@ -47,9 +57,12 @@ function CreateCvSections() {
                 error={requiredTitleError}
                 helperText={requiredTitleError && "Required field"}
                 label="Title"
-                value={cvSection.title}
+                value={currentCvSection.title}
                 onChange={(event) =>
-                  setCvSection({ ...cvSection, title: event.target.value })
+                  setCurrentCvSection({
+                    ...currentCvSection,
+                    title: event.target.value,
+                  })
                 }
                 fullWidth
               />

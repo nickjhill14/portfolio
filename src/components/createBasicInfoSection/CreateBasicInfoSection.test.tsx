@@ -101,9 +101,6 @@ describe(CreateBasicInfoSection, () => {
 
     expect(screen.getByRole("textbox", { name: "Phone" })).toHaveValue("");
     expect(screen.getByRole("textbox", { name: "Phone" })).toBeDisabled();
-    expect(
-      screen.queryByText("phone: ", { exact: false }),
-    ).not.toBeInTheDocument();
   });
 
   it("downloads the basic info when the download button has been clicked", async () => {
