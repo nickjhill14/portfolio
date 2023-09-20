@@ -1,8 +1,16 @@
-import { makeLoader } from "react-router-typesafe";
+import { defer, makeLoader } from "react-router-typesafe";
 import { getBasicInfo, getCv } from "../gateways/portfolioGateway";
 
-const getBasicInfoLoader = makeLoader(() => getBasicInfo());
+const getBasicInfoLoader = makeLoader(() => {
+  const basicInfo = getBasicInfo();
 
-const getCvLoader = makeLoader(() => getCv());
+  return defer({ basicInfo });
+});
+
+const getCvLoader = makeLoader(() => {
+  const cv = getCv();
+
+  return defer({ cv });
+});
 
 export { getBasicInfoLoader, getCvLoader };
