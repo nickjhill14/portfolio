@@ -1,55 +1,92 @@
-import { render, screen } from "@testing-library/react";
-import { useLoaderData } from "react-router-dom";
+import { screen } from "@testing-library/react";
+import { useLoaderData } from "react-router-typesafe";
+import { renderWithMemoryRouter } from "../../utils/Renderers";
 import { buildBasicInfo } from "../../utils/builders";
 import { LandingPage } from "./LandingPage";
 
-vitest.mock("react-router-dom");
+const navigateMock = vitest.fn();
+
+vitest.mock("react-router-typesafe");
+vitest.mock("react-router-dom", async () => {
+  const actual = await vitest.importActual<typeof import("react-router-dom")>(
+    "react-router-dom",
+  );
+
+  return {
+    ...actual,
+    useNavigate: () => navigateMock,
+  };
+});
 
 describe(LandingPage, () => {
   const useLoaderDataMock = vitest.mocked(useLoaderData);
 
-  beforeEach(() => {
-    useLoaderDataMock.mockReturnValue(buildBasicInfo());
-  });
-
-  it("renders the page (without phone)", () => {
+  it("renders a loading skeleton when loading basic info data", async () => {
     const basicInfo = buildBasicInfo();
 
-    useLoaderDataMock.mockReturnValue(basicInfo);
+    useLoaderDataMock.mockReturnValue({
+      basicInfo: Promise.resolve(basicInfo),
+    });
 
-    render(<LandingPage />);
+    renderWithMemoryRouter(<LandingPage />);
+
+    expect(screen.getByTestId("landing-page-skeleton")).toBeInTheDocument();
+    expect(screen.getByTestId("landing-page-links")).toBeInTheDocument();
+    expect(screen.getByTestId("footer")).toBeInTheDocument();
+    expect(
+      await screen.findByRole("heading", { name: basicInfo.name }),
+    ).toBeInTheDocument();
+    expect(
+      screen.queryByTestId("landing-page-skeleton"),
+    ).not.toBeInTheDocument();
+  });
+
+  it("renders the page (without phone)", async () => {
+    const basicInfo = buildBasicInfo();
+
+    useLoaderDataMock.mockReturnValue({
+      basicInfo: Promise.resolve(basicInfo),
+    });
+
+    renderWithMemoryRouter(<LandingPage />);
 
     expect(
-      screen.getByRole("heading", { name: basicInfo.name }),
+      await screen.findByRole("heading", { name: basicInfo.name }),
     ).toBeInTheDocument();
     expect(
       screen.getByRole("heading", { name: basicInfo.role }),
     ).toBeInTheDocument();
     expect(screen.queryByTestId("PhoneIcon")).not.toBeInTheDocument();
-    expect(screen.getByTestId("landing-page-links")).toBeInTheDocument();
-    expect(screen.getByTestId("footer")).toBeInTheDocument();
   });
 
-  it("renders an email link", () => {
+  it("renders an email link", async () => {
     const basicInfo = buildBasicInfo();
 
-    useLoaderDataMock.mockReturnValue(basicInfo);
+    useLoaderDataMock.mockReturnValue({
+      basicInfo: Promise.resolve(basicInfo),
+    });
 
-    render(<LandingPage />);
-    const emailLink = screen.getByRole("link", { name: basicInfo.email });
+    renderWithMemoryRouter(<LandingPage />);
+    const emailLink = await screen.findByRole("link", {
+      name: basicInfo.email,
+    });
 
     expect(emailLink).toHaveAttribute("href", `mailto:${basicInfo.email}`);
     expect(emailLink).toHaveAttribute("target", "_blank");
     expect(emailLink).toHaveAttribute("rel", "noopener noreferrer");
   });
 
-  it("renders a LinkedIn link", () => {
+  it("renders a LinkedIn link", async () => {
     const basicInfo = buildBasicInfo();
 
-    useLoaderDataMock.mockReturnValue(basicInfo);
+    useLoaderDataMock.mockReturnValue({
+      basicInfo: Promise.resolve(basicInfo),
+    });
 
-    render(<LandingPage />);
-    const linkedInLink = screen.getByRole("link", { name: basicInfo.linkedIn });
+    renderWithMemoryRouter(<LandingPage />);
+    const linkedInLink = await screen.findByRole("link", {
+      name: basicInfo.linkedIn,
+    });
 
     expect(linkedInLink).toHaveAttribute(
       "href",
@@ -59,13 +96,17 @@ describe(LandingPage, () => {
     expect(linkedInLink).toHaveAttribute("rel", "noopener noreferrer");
   });
 
-  it("renders a GH link", () => {
+  it("renders a GH link", async () => {
     const basicInfo = buildBasicInfo();
 
-    useLoaderDataMock.mockReturnValue(basicInfo);
+    useLoaderDataMock.mockReturnValue({
+      basicInfo: Promise.resolve(basicInfo),
+    });
 
-    render(<LandingPage />);
-    const gitHubLink = screen.getByRole("link", { name: basicInfo.gitHub });
+    renderWithMemoryRouter(<LandingPage />);
+    const gitHubLink = await screen.findByRole("link", {
+      name: basicInfo.gitHub,
+    });
 
     expect(gitHubLink).toHaveAttribute(
       "href",
@@ -75,14 +116,16 @@ describe(LandingPage, () => {
     expect(gitHubLink).toHaveAttribute("rel", "noopener noreferrer");
   });
 
-  it("renders the phone link when provided", () => {
+  it("renders the phone link when provided", async () => {
     const phone = "07123456789";
     const basicInfo = buildBasicInfo({ phone });
 
-    useLoaderDataMock.mockReturnValue(basicInfo);
+    useLoaderDataMock.mockReturnValue({
+      basicInfo: Promise.resolve(basicInfo),
+    });
 
-    render(<LandingPage />);
-    const phoneLink = screen.getByRole("link", { name: phone });
+    renderWithMemoryRouter(<LandingPage />);
+    const phoneLink = await screen.findByRole("link", { name: phone });
 
     expect(phoneLink).toHaveAttribute("href", `tel:${phone}`);
     expect(phoneLink).toHaveAttribute("target", "_blank");

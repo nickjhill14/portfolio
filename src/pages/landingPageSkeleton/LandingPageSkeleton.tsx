@@ -2,15 +2,21 @@ import { Grid, Skeleton, Stack, Typography } from "@mui/material";
 
 function LandingPageSkeleton() {
   return (
-    <Grid container spacing={2} p={2} marginBottom={2}>
+    <Grid
+      container
+      spacing={2}
+      p={2}
+      mb={2}
+      data-testid="landing-page-skeleton"
+    >
       <Grid item xs={12}>
         <Typography variant="h2" component="h1">
-          <Skeleton data-testid="name-skeleton" />
+          <Skeleton data-testid="name-skeleton" width={500} />
         </Typography>
       </Grid>
       <Grid item xs={12}>
         <Typography variant="h3" component="h2">
-          <Skeleton data-testid="role-skeleton" />
+          <Skeleton data-testid="role-skeleton" width={750} />
         </Typography>
       </Grid>
       <Grid item xs={12}>
