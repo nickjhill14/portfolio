@@ -1,22 +1,8 @@
-import { Home } from "@mui/icons-material";
-import { Button, Grid, Skeleton } from "@mui/material";
-import { useNavigate } from "react-router-dom";
+import { Grid, Skeleton } from "@mui/material";
 
 function CvPageSkeleton() {
-  const navigate = useNavigate();
-
   return (
-    <Grid container spacing={2} p={2}>
-      <Grid item xs={12}>
-        <Button
-          onClick={() => navigate("/")}
-          role="link"
-          startIcon={<Home />}
-          variant="contained"
-        >
-          Go Home
-        </Button>
-      </Grid>
+    <Grid container spacing={2} p={2} data-testid="cv-page-skeleton">
       <Grid item xs={12} sm={6}>
         <Skeleton
           height={250}

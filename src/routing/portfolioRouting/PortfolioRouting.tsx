@@ -1,5 +1,6 @@
 import { createBrowserRouter, type RouteObject } from "react-router-dom";
-import { getBasicInfo, getCv } from "../../api/gateways/portfolioGateway";
+import { getBasicInfo } from "../../api/gateways/portfolioGateway";
+import { getCvLoader } from "../../api/loaders/portfolioLoader";
 import { CreatePortfolioPage } from "../../pages/createPortfolioPage/CreatePortfolioPage";
 import { CvPage } from "../../pages/cvPage/CvPage";
 import { LandingPage } from "../../pages/landingPage/LandingPage";
@@ -19,7 +20,7 @@ const portfolioRoutes: RouteObject[] = [
   {
     path: PortfolioRoutePaths.CV,
     element: <CvPage />,
-    loader: getCv,
+    loader: getCvLoader,
   },
   {
     path: PortfolioRoutePaths.CREATE,

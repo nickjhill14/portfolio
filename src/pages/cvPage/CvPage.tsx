@@ -1,14 +1,18 @@
 import { Home } from "@mui/icons-material";
 import { Alert, Button, Grid, useTheme } from "@mui/material";
 import { motion, useScroll } from "framer-motion";
-import { useLoaderData, useNavigate } from "react-router-dom";
+import { Suspense } from "react";
+import { Await, useNavigate } from "react-router-dom";
+import { useLoaderData } from "react-router-typesafe";
+import { getCvLoader } from "../../api/loaders/portfolioLoader";
 import { Section } from "../../components/section/Section";
 import { SectionDetails } from "../../components/sectionDetails/SectionDetails";
 import { SkillsSection } from "../../components/skillsSection/SkillsSection";
 import { Cv } from "../../domain/cv";
+import { CvPageSkeleton } from "../cvPageSkeleton/CvPageSkeleton";
 
 function CvPage() {
-  const { cvSections, skillsInfo } = useLoaderData() as Cv;
+  const cvLoaderData = useLoaderData<typeof getCvLoader>();
   const navigate = useNavigate();
   const { scrollYProgress } = useScroll();
   const theme = useTheme();
@@ -41,37 +45,46 @@ function CvPage() {
             Go Home
           </Button>
         </Grid>
-        {cvSections && cvSections.length > 0 ? (
-          cvSections?.map((cvSection) => (
-            <Grid item key={cvSection.title} xs={12} sm={6}>
-              <Section headingText={cvSection.title}>
-                {cvSection.items && cvSection.items.length > 0 ? (
-                  cvSection.items.map((item, index) => (
-                    <SectionDetails
-                      heading={item.name}
-                      location={item.location}
-                      dateRange={item.dateRange}
-                      details={item.details}
-                      divider={
-                        cvSection.items && index < cvSection.items.length - 1
-                      }
-                      key={item.name}
-                    />
+        <Suspense fallback={<CvPageSkeleton />}>
+          <Await resolve={cvLoaderData.cv}>
+            {({ cvSections, skillsInfo }: Cv) => (
+              <Grid container spacing={2} p={2}>
+                {cvSections && cvSections.length > 0 ? (
+                  cvSections?.map((cvSection) => (
+                    <Grid item key={cvSection.title} xs={12} sm={6}>
+                      <Section headingText={cvSection.title}>
+                        {cvSection.items && cvSection.items.length > 0 ? (
+                          cvSection.items.map((item, index) => (
+                            <SectionDetails
+                              heading={item.name}
+                              location={item.location}
+                              dateRange={item.dateRange}
+                              details={item.details}
+                              divider={
+                                cvSection.items &&
+                                index < cvSection.items.length - 1
+                              }
+                              key={item.name}
+                            />
+                          ))
+                        ) : (
+                          <Alert severity="warning">No items provided</Alert>
+                        )}
+                      </Section>
+                    </Grid>
                   ))
                 ) : (
-                  <Alert severity="warning">No items provided</Alert>
+                  <Grid item xs={12}>
+                    <Alert severity="warning">No CV sections provided</Alert>
+                  </Grid>
                 )}
-              </Section>
-            </Grid>
-          ))
-        ) : (
-          <Grid item xs={12}>
-            <Alert severity="warning">No CV sections provided</Alert>
-          </Grid>
-        )}
-        <Grid item xs={12}>
-          <SkillsSection skillsInfo={skillsInfo} />
-        </Grid>
+                <Grid item xs={12}>
+                  <SkillsSection skillsInfo={skillsInfo} />
+                </Grid>
+              </Grid>
+            )}
+          </Await>
+        </Suspense>
       </Grid>
     </>
   );
