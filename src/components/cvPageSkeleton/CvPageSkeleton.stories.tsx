@@ -1,11 +1,9 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { withRouter } from "storybook-addon-react-router-v6";
 import { CvPageSkeleton } from "./CvPageSkeleton";
 
 const meta = {
-  title: "Pages/CvPageSkeleton",
+  title: "Components/CvPageSkeleton",
   component: CvPageSkeleton,
-  decorators: [withRouter],
   tags: ["autodocs"],
 } satisfies Meta<typeof CvPageSkeleton>;
 

@@ -11,8 +11,8 @@ import { getBasicInfoLoader } from "../../api/loaders/portfolioLoader";
 import { Footer } from "../../components/footer/Footer";
 import { IconTypography } from "../../components/iconTypography/IconTypography";
 import { LandingPageLinks } from "../../components/landingPageLinks/LandingPageLinks";
+import { LandingPageSkeleton } from "../../components/landingPageSkeleton/LandingPageSkeleton";
 import { BasicInfo } from "../../domain/basicInfo";
-import { LandingPageSkeleton } from "../landingPageSkeleton/LandingPageSkeleton";
 
 function LandingPage() {
   const basicInfoLoaderData = useLoaderData<typeof getBasicInfoLoader>();

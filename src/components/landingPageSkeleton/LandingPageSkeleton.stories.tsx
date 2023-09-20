@@ -1,11 +1,9 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { withRouter } from "storybook-addon-react-router-v6";
 import { LandingPageSkeleton } from "./LandingPageSkeleton";
 
 const meta = {
-  title: "Pages/LandingPageSkeleton",
+  title: "Components/LandingPageSkeleton",
   component: LandingPageSkeleton,
-  decorators: [withRouter],
   tags: ["autodocs"],
 } satisfies Meta<typeof LandingPageSkeleton>;
 

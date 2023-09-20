@@ -5,11 +5,11 @@ import { Suspense } from "react";
 import { Await, useNavigate } from "react-router-dom";
 import { useLoaderData } from "react-router-typesafe";
 import { getCvLoader } from "../../api/loaders/portfolioLoader";
+import { CvPageSkeleton } from "../../components/cvPageSkeleton/CvPageSkeleton";
 import { Section } from "../../components/section/Section";
 import { SectionDetails } from "../../components/sectionDetails/SectionDetails";
 import { SkillsSection } from "../../components/skillsSection/SkillsSection";
 import { Cv } from "../../domain/cv";
-import { CvPageSkeleton } from "../cvPageSkeleton/CvPageSkeleton";
 
 function CvPage() {
   const cvLoaderData = useLoaderData<typeof getCvLoader>();
