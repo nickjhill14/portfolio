@@ -12,7 +12,7 @@ describe(CreateCvSections, () => {
     ).toBeInTheDocument();
   });
 
-  it("adds a section title", async () => {
+  it("creates a section", async () => {
     const cvSection = buildCvSection();
 
     render(<CreateCvSections />);

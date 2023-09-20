@@ -1,4 +1,4 @@
-import { render, screen, waitFor } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { buildBasicInfo } from "../../utils/builders";
 import { downloadJson } from "../../utils/helpers/helpers";
@@ -15,9 +15,6 @@ describe(CreateBasicInfoSection, () => {
 
     expect(
       screen.getByRole("heading", { name: "Create Basic Info" }),
-    ).toBeInTheDocument();
-    expect(
-      screen.getByRole("heading", { name: "Preview" }),
     ).toBeInTheDocument();
   });
 
@@ -107,30 +104,6 @@ describe(CreateBasicInfoSection, () => {
     expect(
       screen.queryByText("phone: ", { exact: false }),
     ).not.toBeInTheDocument();
-  });
-
-  it("copies the preview JSON to the clipboard when the clipboard icon has been clicked", async () => {
-    userEvent.setup();
-    render(<CreateBasicInfoSection />);
-    await userEvent.click(
-      screen.getByRole("button", { name: "Copy to clipboard" }),
-    );
-    const clipboardText = await navigator.clipboard.readText();
-
-    expect(clipboardText).toEqual(JSON.stringify(defaultBasicInfo, null, 2));
-    expect(screen.getByText("Copied to clipboard")).toBeInTheDocument();
-  });
-
-  it("removes the copied to clipboard tooltip on click away", async () => {
-    render(<CreateBasicInfoSection />);
-    await userEvent.click(
-      screen.getByRole("button", { name: "Copy to clipboard" }),
-    );
-    await userEvent.click(screen.getByRole("textbox", { name: "Name" }));
-
-    await waitFor(() => {
-      expect(screen.queryByText("Copied to clipboard")).not.toBeInTheDocument();
-    });
   });
 
   it("downloads the basic info when the download button has been clicked", async () => {

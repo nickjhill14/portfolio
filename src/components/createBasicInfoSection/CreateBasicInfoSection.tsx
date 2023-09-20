@@ -1,21 +1,14 @@
-import ContentCopyIcon from "@mui/icons-material/ContentCopy";
-import DownloadIcon from "@mui/icons-material/Download";
 import {
-  Button,
   Checkbox,
-  ClickAwayListener,
   FormControlLabel,
   Grid,
-  IconButton,
   Stack,
   TextField,
-  Tooltip,
-  styled,
 } from "@mui/material";
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { BasicInfo } from "../../domain/basicInfo";
-import { downloadJson } from "../../utils/helpers/helpers";
+import { ConfigPreview } from "../configPreview/ConfigPreview";
 import { Section } from "../section/Section";
 
 const defaultBasicInfo: BasicInfo = {
@@ -26,21 +19,11 @@ const defaultBasicInfo: BasicInfo = {
   linkedIn: "",
 };
 
-const CopyToClipboardButton = styled(IconButton)({
-  alignSelf: "end",
-});
-
 function CreateBasicInfoSection() {
   const [basicInfo, setBasicInfo] = useState<BasicInfo>(defaultBasicInfo);
-  const [openTooltip, setOpenTooltip] = useState(false);
   const [enablePhone, setEnablePhone] = useState(false);
 
   const basicInfoPreview = JSON.stringify(basicInfo, null, 2);
-
-  async function copyToClipboard() {
-    await navigator.clipboard.writeText(basicInfoPreview);
-    setOpenTooltip(true);
-  }
 
   function togglePhone() {
     enablePhone && setBasicInfo({ ...basicInfo, phone: undefined });
@@ -115,39 +98,7 @@ function CreateBasicInfoSection() {
         </Section>
       </Grid>
       <Grid item xs={12} md={4}>
-        <Section headingText="Preview">
-          <Stack justifyContent="space-between">
-            <pre style={{ whiteSpace: "pre-wrap", wordBreak: "break-all" }}>
-              {basicInfoPreview}
-            </pre>
-            <ClickAwayListener onClickAway={() => setOpenTooltip(false)}>
-              <Tooltip
-                open={openTooltip}
-                disableFocusListener
-                disableHoverListener
-                disableTouchListener
-                title="Copied to clipboard"
-              >
-                <CopyToClipboardButton
-                  aria-label="Copy to clipboard"
-                  onClick={copyToClipboard}
-                >
-                  <ContentCopyIcon />
-                </CopyToClipboardButton>
-              </Tooltip>
-            </ClickAwayListener>
-          </Stack>
-          <Button
-            component={motion.button}
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.9 }}
-            onClick={() => downloadJson("basic-info", basicInfoPreview)}
-            variant="contained"
-            startIcon={<DownloadIcon />}
-          >
-            Download
-          </Button>
-        </Section>
+        <ConfigPreview json={basicInfoPreview} fileName="basic-info" />
       </Grid>
     </Grid>
   );

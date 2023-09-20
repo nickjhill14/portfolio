@@ -56,7 +56,7 @@ function buildCvSectionItems(
 
 function buildCv(override?: Partial<Cv>): Cv {
   return {
-    skillsInfo: { skills: [buildSkill()], languages: [buildLanguage()] },
+    skillsInfo: { skills: [], languages: [] },
     ...override,
   };
 }
