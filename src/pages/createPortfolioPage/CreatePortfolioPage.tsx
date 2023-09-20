@@ -77,6 +77,9 @@ function CreatePortfolioPage() {
               onClick={() => setActiveStep((previousStep) => previousStep + 1)}
               variant="contained"
               endIcon={<NavigateNextIcon />}
+              component={motion.button}
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
             >
               Next
             </Button>
@@ -88,6 +91,9 @@ function CreatePortfolioPage() {
               onClick={() => setActiveStep((previousStep) => previousStep - 1)}
               variant="contained"
               startIcon={<NavigateBeforeIcon />}
+              component={motion.button}
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
             >
               Back
             </Button>
