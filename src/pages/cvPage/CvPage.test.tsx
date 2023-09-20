@@ -38,6 +38,7 @@ describe(CvPage, () => {
     renderWithMemoryRouter(<CvPage />);
 
     expect(screen.getByTestId("cv-page-skeleton")).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: "CV" })).toBeInTheDocument();
     expect(
       await screen.findByRole("heading", { name: cvSection.title }),
     ).toBeInTheDocument();

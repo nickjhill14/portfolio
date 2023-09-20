@@ -1,5 +1,5 @@
 import { Home } from "@mui/icons-material";
-import { Alert, Button, Grid, useTheme } from "@mui/material";
+import { Alert, Button, Grid, Typography, useTheme } from "@mui/material";
 import { motion, useScroll } from "framer-motion";
 import { Suspense } from "react";
 import { Await, useNavigate } from "react-router-dom";
@@ -44,6 +44,11 @@ function CvPage() {
           >
             Go Home
           </Button>
+        </Grid>
+        <Grid item xs={12}>
+          <Typography variant="h2" component="h1">
+            CV
+          </Typography>
         </Grid>
         <Suspense fallback={<CvPageSkeleton />}>
           <Await resolve={cvLoaderData.cv}>
