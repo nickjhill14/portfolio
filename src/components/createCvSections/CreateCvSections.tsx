@@ -2,12 +2,22 @@ import AddIcon from "@mui/icons-material/Add";
 import { Button, Grid, TextField } from "@mui/material";
 import { motion } from "framer-motion";
 import { useState } from "react";
-import { CvSection } from "../../domain/cv";
+import { Cv, CvSection } from "../../domain/cv";
+import { ConfigPreview } from "../configPreview/ConfigPreview";
 import { Section } from "../section/Section";
+
+const defaultCv: Cv = {
+  skillsInfo: {
+    skills: [],
+    languages: [],
+  },
+};
 
 function CreateCvSections() {
   const [cvSection, setCvSection] = useState<CvSection>({ title: "" });
   const [requiredTitleError, setRequiredTitleError] = useState(false);
+
+  const cvPreview = JSON.stringify(defaultCv, null, 2);
 
   function handleCreate() {
     if (!cvSection.title) {
@@ -28,7 +38,7 @@ function CreateCvSections() {
         ease: [0, 0.71, 0.2, 1.01],
       }}
     >
-      <Grid item xs={12}>
+      <Grid item xs={12} md={8}>
         <Section headingText="Create CV Sections">
           <Grid container spacing={2}>
             <Grid item xs={12}>
@@ -59,8 +69,11 @@ function CreateCvSections() {
           </Grid>
         </Section>
       </Grid>
+      <Grid item xs={12} md={4}>
+        <ConfigPreview json={cvPreview} fileName="cv" />
+      </Grid>
     </Grid>
   );
 }
 
-export { CreateCvSections };
+export { CreateCvSections, defaultCv };

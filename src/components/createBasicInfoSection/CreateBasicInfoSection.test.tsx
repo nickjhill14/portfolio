@@ -71,7 +71,7 @@ describe(CreateBasicInfoSection, () => {
     await userEvent.type(screen.getByRole("textbox", { name: "Phone" }), phone);
 
     expect(
-      screen.getByText(`"phone": "${phone}"`, { exact: false }),
+      await screen.findByText(`"phone": "${phone}"`, { exact: false }),
     ).toBeInTheDocument();
     expect(
       screen.queryByRole("checkbox", { name: "Enable" }),
