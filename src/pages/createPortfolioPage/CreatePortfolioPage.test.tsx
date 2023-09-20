@@ -35,6 +35,20 @@ describe(CreatePortfolioPage, () => {
     ).not.toBeInTheDocument();
   });
 
+  it("changes the steps back to basic info when clicking back", async () => {
+    render(<CreatePortfolioPage />);
+    await userEvent.click(screen.getByRole("button", { name: "Next" }));
+    await userEvent.click(screen.getByRole("button", { name: "Back" }));
+
+    expect(screen.getByText("Create basic info")).toHaveClass("Mui-active");
+    expect(screen.getByText("Create CV sections")).not.toHaveClass(
+      "Mui-active",
+    );
+    expect(
+      screen.queryByRole("button", { name: "Back" }),
+    ).not.toBeInTheDocument();
+  });
+
   it("renders the basic info by default", () => {
     render(<CreatePortfolioPage />);
 
@@ -55,6 +69,19 @@ describe(CreatePortfolioPage, () => {
     ).toBeInTheDocument();
     expect(
       screen.queryByRole("heading", { name: "Create Basic Info" }),
+    ).not.toBeInTheDocument();
+  });
+
+  it("renders the basic info when clicking back", async () => {
+    render(<CreatePortfolioPage />);
+    await userEvent.click(screen.getByRole("button", { name: "Next" }));
+    await userEvent.click(screen.getByRole("button", { name: "Back" }));
+
+    expect(
+      screen.getByRole("heading", { name: "Create Basic Info" }),
+    ).toBeInTheDocument();
+    expect(
+      screen.queryByRole("heading", { name: "Create CV Sections" }),
     ).not.toBeInTheDocument();
   });
 

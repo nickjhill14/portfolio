@@ -1,4 +1,5 @@
 import { Home } from "@mui/icons-material";
+import NavigateBeforeIcon from "@mui/icons-material/NavigateBefore";
 import NavigateNextIcon from "@mui/icons-material/NavigateNext";
 import {
   Button,
@@ -70,8 +71,8 @@ function CreatePortfolioPage() {
         <Grid item xs={12}>
           {activeStep === 0 ? <CreateBasicInfoSection /> : <CreateCvSections />}
         </Grid>
-        <Grid item xs={12} display="flex" justifyContent="end">
-          {activeStep < steps.length - 1 && (
+        {activeStep === 0 && (
+          <Grid item xs={12} display="flex" justifyContent="end">
             <Button
               onClick={() => setActiveStep((previousStep) => previousStep + 1)}
               variant="contained"
@@ -79,8 +80,19 @@ function CreatePortfolioPage() {
             >
               Next
             </Button>
-          )}
-        </Grid>
+          </Grid>
+        )}
+        {activeStep === 1 && (
+          <Grid item xs={12}>
+            <Button
+              onClick={() => setActiveStep((previousStep) => previousStep - 1)}
+              variant="contained"
+              startIcon={<NavigateBeforeIcon />}
+            >
+              Back
+            </Button>
+          </Grid>
+        )}
       </Grid>
     </>
   );
