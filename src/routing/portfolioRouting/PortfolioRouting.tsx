@@ -1,8 +1,5 @@
 import { createBrowserRouter, type RouteObject } from "react-router-dom";
-import {
-  getBasicInfo,
-  getCv,
-} from "../../api/portfolioGateway/portfolioGateway";
+import { getBasicInfo, getCv } from "../../api/gateways/portfolioGateway";
 import { CreatePortfolioPage } from "../../pages/createPortfolioPage/CreatePortfolioPage";
 import { CvPage } from "../../pages/cvPage/CvPage";
 import { LandingPage } from "../../pages/landingPage/LandingPage";

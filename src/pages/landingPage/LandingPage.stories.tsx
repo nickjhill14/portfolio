@@ -5,7 +5,7 @@ import {
   reactRouterParameters,
   withRouter,
 } from "storybook-addon-react-router-v6";
-import { getBasicInfo } from "../../api/portfolioGateway/portfolioGateway";
+import { getBasicInfo } from "../../api/gateways/portfolioGateway";
 import { BasicInfo } from "../../domain/basicInfo";
 import { LandingPage } from "./LandingPage";
 

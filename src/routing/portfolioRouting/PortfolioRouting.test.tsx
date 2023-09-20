@@ -1,16 +1,13 @@
 import { render, screen } from "@testing-library/react";
 import { RouterProvider, createMemoryRouter } from "react-router-dom";
-import {
-  getBasicInfo,
-  getCv,
-} from "../../api/portfolioGateway/portfolioGateway";
+import { getBasicInfo, getCv } from "../../api/gateways/portfolioGateway";
 import { CreatePortfolioPage } from "../../pages/createPortfolioPage/CreatePortfolioPage";
 import { CvPage } from "../../pages/cvPage/CvPage";
 import { LandingPage } from "../../pages/landingPage/LandingPage";
 import { buildBasicInfo, buildCv } from "../../utils/builders";
 import { PortfolioRoutePaths, portfolioRoutes } from "./PortfolioRouting";
 
-vitest.mock("../../api/portfolioGateway/portfolioGateway");
+vitest.mock("../../api/gateways/portfolioGateway");
 vitest.mock("../../pages/landingPage/LandingPage");
 vitest.mock("../../pages/cvPage/CvPage");
 vitest.mock("../../pages/createPortfolioPage/CreatePortfolioPage");
