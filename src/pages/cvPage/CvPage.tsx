@@ -53,7 +53,19 @@ function CvPage() {
         <Suspense fallback={<CvPageSkeleton />}>
           <Await resolve={cvLoaderData.cv}>
             {({ cvSections, skillsInfo }: Cv) => (
-              <Grid container spacing={2} p={2}>
+              <Grid
+                container
+                spacing={2}
+                p={2}
+                component={motion.div}
+                initial={{ opacity: 0, scale: 0.5 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{
+                  duration: 0.5,
+                  delay: 0.25,
+                  ease: [0, 0.71, 0.2, 1.01],
+                }}
+              >
                 {cvSections && cvSections.length > 0 ? (
                   cvSections?.map((cvSection) => (
                     <Grid item key={cvSection.title} xs={12} sm={6}>

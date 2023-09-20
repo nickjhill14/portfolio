@@ -3,6 +3,7 @@ import AlternateEmailOutlinedIcon from "@mui/icons-material/AlternateEmailOutlin
 import GitHubIcon from "@mui/icons-material/GitHub";
 import LocalPhoneOutlinedIcon from "@mui/icons-material/LocalPhoneOutlined";
 import { Grid, Link, Stack, Typography } from "@mui/material";
+import { motion } from "framer-motion";
 import { Suspense } from "react";
 import { Await } from "react-router-dom";
 import { useLoaderData } from "react-router-typesafe";
@@ -22,7 +23,19 @@ function LandingPage() {
         <Suspense fallback={<LandingPageSkeleton />}>
           <Await resolve={basicInfoLoaderData.basicInfo}>
             {({ name, role, email, phone, linkedIn, gitHub }: BasicInfo) => (
-              <Grid container spacing={2} p={2} mb={2}>
+              <Grid
+                container
+                spacing={2}
+                p={2}
+                component={motion.div}
+                initial={{ opacity: 0, scale: 0.5 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{
+                  duration: 0.5,
+                  delay: 0.25,
+                  ease: [0, 0.71, 0.2, 1.01],
+                }}
+              >
                 <Grid item xs={12}>
                   <Typography variant="h2" component="h1">
                     {name}
