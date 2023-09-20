@@ -13,12 +13,52 @@ describe(CreatePortfolioPage, () => {
     expect(
       screen.getByRole("heading", { name: "Create A Portfolio" }),
     ).toBeInTheDocument();
-    expect(
-      screen.getByRole("heading", { name: "Add Basic Info" }),
-    ).toBeInTheDocument();
   });
 
-  it("navigates to the landing page when clicking the home button", async () => {
+  it("renders the steps with basic info active and others without", () => {
+    render(<CreatePortfolioPage />);
+
+    expect(screen.getByText("Create basic info")).toHaveClass("Mui-active");
+    expect(screen.getByText("Create CV sections")).not.toHaveClass(
+      "Mui-active",
+    );
+  });
+
+  it("changes the steps to the CV sections when clicking next", async () => {
+    render(<CreatePortfolioPage />);
+    await userEvent.click(screen.getByRole("button", { name: "Next" }));
+
+    expect(screen.getByText("Create CV sections")).toHaveClass("Mui-active");
+    expect(screen.getByText("Create basic info")).not.toHaveClass("Mui-active");
+    expect(
+      screen.queryByRole("button", { name: "Next" }),
+    ).not.toBeInTheDocument();
+  });
+
+  it("renders the basic info by default", () => {
+    render(<CreatePortfolioPage />);
+
+    expect(
+      screen.getByRole("heading", { name: "Create Basic Info" }),
+    ).toBeInTheDocument();
+    expect(
+      screen.queryByRole("heading", { name: "Create CV Sections" }),
+    ).not.toBeInTheDocument();
+  });
+
+  it("renders the CV section when clicking next", async () => {
+    render(<CreatePortfolioPage />);
+    await userEvent.click(screen.getByRole("button", { name: "Next" }));
+
+    expect(
+      screen.getByRole("heading", { name: "Create CV Sections" }),
+    ).toBeInTheDocument();
+    expect(
+      screen.queryByRole("heading", { name: "Create Basic Info" }),
+    ).not.toBeInTheDocument();
+  });
+
+  it("navigates to the landing page when clicking home", async () => {
     const navigateMock = vitest.fn();
 
     vitest.mocked(useNavigate).mockReturnValue(navigateMock);

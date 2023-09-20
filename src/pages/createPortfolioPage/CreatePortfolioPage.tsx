@@ -1,13 +1,27 @@
 import { Home } from "@mui/icons-material";
-import { Button, Grid, Typography, useTheme } from "@mui/material";
+import NavigateNextIcon from "@mui/icons-material/NavigateNext";
+import {
+  Button,
+  Grid,
+  Step,
+  StepLabel,
+  Stepper,
+  Typography,
+  useTheme,
+} from "@mui/material";
 import { motion, useScroll } from "framer-motion";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { CreateBasicInfoSection } from "../../components/createBasicInfoSection/CreateBasicInfoSection";
+import { CreateCvSections } from "../../components/createCvSections/CreateCvSections";
 
 function CreatePortfolioPage() {
   const navigate = useNavigate();
+  const [activeStep, setActiveStep] = useState(0);
   const { scrollYProgress } = useScroll();
   const theme = useTheme();
+
+  const steps = ["Create basic info", "Create CV sections"];
 
   return (
     <>
@@ -43,7 +57,29 @@ function CreatePortfolioPage() {
           </Typography>
         </Grid>
         <Grid item xs={12}>
-          <CreateBasicInfoSection />
+          <Stepper>
+            {steps.map((step, index) => {
+              return (
+                <Step key={step} active={index === activeStep}>
+                  <StepLabel>{step}</StepLabel>
+                </Step>
+              );
+            })}
+          </Stepper>
+        </Grid>
+        <Grid item xs={12}>
+          {activeStep === 0 ? <CreateBasicInfoSection /> : <CreateCvSections />}
+        </Grid>
+        <Grid item xs={12} display="flex" justifyContent="end">
+          {activeStep < steps.length - 1 && (
+            <Button
+              onClick={() => setActiveStep((previousStep) => previousStep + 1)}
+              variant="contained"
+              endIcon={<NavigateNextIcon />}
+            >
+              Next
+            </Button>
+          )}
         </Grid>
       </Grid>
     </>

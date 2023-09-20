@@ -61,7 +61,7 @@ function CreateBasicInfoSection() {
       }}
     >
       <Grid item xs={12} md={8}>
-        <Section headingText="Add Basic Info">
+        <Section headingText="Create Basic Info">
           <TextField
             label="Name"
             value={basicInfo.name}

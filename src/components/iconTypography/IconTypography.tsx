@@ -9,7 +9,7 @@ import { MuiIcon } from "../../utils/muiTypes";
 
 const StyledIconTypography = styled(Typography)({
   display: "flex",
-  justifyContent: "flex-start",
+  justifyContent: "start",
   alignItems: "center",
   gap: "5px",
 });

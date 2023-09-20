@@ -14,7 +14,7 @@ describe(CreateBasicInfoSection, () => {
     render(<CreateBasicInfoSection />);
 
     expect(
-      screen.getByRole("heading", { name: "Add Basic Info" }),
+      screen.getByRole("heading", { name: "Create Basic Info" }),
     ).toBeInTheDocument();
     expect(
       screen.getByRole("heading", { name: "Preview" }),
