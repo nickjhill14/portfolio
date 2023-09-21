@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { CreateCvSections } from "./CreateCvSections";
 
 const meta = {
-  title: "Components/CreateCvSections",
+  title: "Features/CreateCvSections",
   component: CreateCvSections,
 } satisfies Meta<typeof CreateCvSections>;
 

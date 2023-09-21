@@ -3,7 +3,7 @@ import { withRouter } from "storybook-addon-react-router-v6";
 import { LandingPageLinks } from "./LandingPageLinks";
 
 const meta = {
-  title: "Components/LandingPageLinks",
+  title: "Features/LandingPageLinks",
   component: LandingPageLinks,
   decorators: [withRouter],
 } satisfies Meta<typeof LandingPageLinks>;

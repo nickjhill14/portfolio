@@ -8,7 +8,7 @@ import {
   Stack,
   Typography,
 } from "@mui/material";
-import { IconTypography } from "../iconTypography/IconTypography";
+import { IconTypography } from "../../components/iconTypography/IconTypography";
 
 type SectionDetailsProps = {
   heading: string;

@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { LandingPageSkeleton } from "./LandingPageSkeleton";
 
 const meta = {
-  title: "Components/LandingPageSkeleton",
+  title: "Features/LandingPageSkeleton",
   component: LandingPageSkeleton,
 } satisfies Meta<typeof LandingPageSkeleton>;
 

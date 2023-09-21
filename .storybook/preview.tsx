@@ -13,7 +13,7 @@ const preview: Preview = {
     },
     options: {
       storySort: {
-        order: ["Pages", "Components"],
+        order: ["Pages", "Features", "Components"],
       },
     },
     showPanel: true,

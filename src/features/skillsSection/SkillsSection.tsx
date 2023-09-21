@@ -1,8 +1,8 @@
 import CircleIcon from "@mui/icons-material/Circle";
 import CircleOutlinedIcon from "@mui/icons-material/CircleOutlined";
 import { Alert, Chip, Divider, Rating, Stack, Typography } from "@mui/material";
+import { Section } from "../../components/section/Section";
 import { SkillsInfo } from "../../domain/cv";
-import { Section } from "../section/Section";
 
 type SkillsSectionProps = {
   skillsInfo: SkillsInfo;

@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { CvPageSkeleton } from "./CvPageSkeleton";
 
 const meta = {
-  title: "Components/CvPageSkeleton",
+  title: "Features/CvPageSkeleton",
   component: CvPageSkeleton,
 } satisfies Meta<typeof CvPageSkeleton>;
 

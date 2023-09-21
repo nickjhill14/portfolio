@@ -3,10 +3,10 @@ import AddIcon from "@mui/icons-material/Add";
 import { Chip, Grid, Stack, TextField, Typography } from "@mui/material";
 import { motion } from "framer-motion";
 import { useState } from "react";
+import { Button } from "../../components/button/Button";
+import { ConfigPreview } from "../../components/configPreview/ConfigPreview";
+import { Section } from "../../components/section/Section";
 import { Cv, CvSection } from "../../domain/cv";
-import { Button } from "../button/Button";
-import { ConfigPreview } from "../configPreview/ConfigPreview";
-import { Section } from "../section/Section";
 
 const defaultCv: Cv = {
   skillsInfo: {

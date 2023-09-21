@@ -7,9 +7,9 @@ import {
 } from "@mui/material";
 import { motion } from "framer-motion";
 import { useState } from "react";
+import { ConfigPreview } from "../../components/configPreview/ConfigPreview";
+import { Section } from "../../components/section/Section";
 import { BasicInfo } from "../../domain/basicInfo";
-import { ConfigPreview } from "../configPreview/ConfigPreview";
-import { Section } from "../section/Section";
 
 const defaultBasicInfo: BasicInfo = {
   name: "",

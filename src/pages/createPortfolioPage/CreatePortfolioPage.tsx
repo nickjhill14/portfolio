@@ -13,8 +13,8 @@ import { motion, useScroll } from "framer-motion";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Button } from "../../components/button/Button";
-import { CreateBasicInfoSection } from "../../components/createBasicInfoSection/CreateBasicInfoSection";
-import { CreateCvSections } from "../../components/createCvSections/CreateCvSections";
+import { CreateBasicInfoSection } from "../../features/createBasicInfoSection/CreateBasicInfoSection";
+import { CreateCvSections } from "../../features/createCvSections/CreateCvSections";
 
 function CreatePortfolioPage() {
   const navigate = useNavigate();

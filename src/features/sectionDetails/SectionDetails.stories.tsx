@@ -5,7 +5,7 @@ import { upperCaseFirstChar } from "../../utils/helpers/helpers";
 import { SectionDetails } from "./SectionDetails";
 
 const meta = {
-  title: "Components/SectionDetails",
+  title: "Features/SectionDetails",
   component: SectionDetails,
 } satisfies Meta<typeof SectionDetails>;
 

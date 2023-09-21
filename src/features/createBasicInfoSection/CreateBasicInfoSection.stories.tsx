@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { CreateBasicInfoSection } from "./CreateBasicInfoSection";
 
 const meta = {
-  title: "Components/CreateBasicInfoSection",
+  title: "Features/CreateBasicInfoSection",
   component: CreateBasicInfoSection,
 } satisfies Meta<typeof CreateBasicInfoSection>;
 

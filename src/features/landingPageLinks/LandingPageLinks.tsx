@@ -3,7 +3,7 @@ import DescriptionIcon from "@mui/icons-material/Description";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import { Button as MuiButton, Stack } from "@mui/material";
 import { Link, useNavigate } from "react-router-dom";
-import { Button } from "../button/Button";
+import { Button } from "../../components/button/Button";
 
 function LandingPageLinks() {
   const navigate = useNavigate();
