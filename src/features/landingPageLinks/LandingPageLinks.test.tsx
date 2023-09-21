@@ -26,8 +26,21 @@ describe(LandingPageLinks, () => {
     useNavigateMock.mockReturnValue(navigateMock);
 
     render(<LandingPageLinks />);
-    await userEvent.click(screen.getByRole("link", { name: "Create" }));
+    await userEvent.click(
+      screen.getByRole("link", { name: "Create Portfolio" }),
+    );
 
     expect(navigateMock).toHaveBeenCalledWith(PortfolioRoutePaths.CREATE);
+  });
+
+  it("navigates to the projects page when clicking the view projects button", async () => {
+    const navigateMock = vitest.fn();
+
+    useNavigateMock.mockReturnValue(navigateMock);
+
+    render(<LandingPageLinks />);
+    await userEvent.click(screen.getByRole("link", { name: "View Projects" }));
+
+    expect(navigateMock).toHaveBeenCalledWith(PortfolioRoutePaths.PROJECTS);
   });
 });

@@ -1,3 +1,4 @@
+import CodeIcon from "@mui/icons-material/Code";
 import CreateIcon from "@mui/icons-material/Create";
 import DescriptionIcon from "@mui/icons-material/Description";
 import GitHubIcon from "@mui/icons-material/GitHub";
@@ -24,7 +25,13 @@ function LandingPageLinks() {
         onClick={() => navigate("/create")}
         role="link"
         startIcon={<CreateIcon />}
-        text="Create"
+        text="Create Portfolio"
+      />
+      <Button
+        onClick={() => navigate("/projects")}
+        role="link"
+        startIcon={<CodeIcon />}
+        text="View Projects"
       />
       <MuiButton
         component={Link}

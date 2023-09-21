@@ -1,13 +1,13 @@
 import AxeBuilder from "@axe-core/playwright";
 import { expect, test } from "@playwright/test";
 
-test.describe("CV Page", () => {
+test.describe("Projects Page", () => {
   test.beforeEach(async ({ page }) => {
-    await page.goto("/cv");
+    await page.goto("/projects");
   });
 
   test("there are no accessibility violations", async ({ page }) => {
-    await expect(page.getByRole("link", { name: "Go Home" })).toBeVisible();
+    await expect(page.getByRole("heading", { name: "Projects" })).toBeVisible();
     const { violations } = await new AxeBuilder({ page }).analyze();
 
     expect(violations).toEqual([]);

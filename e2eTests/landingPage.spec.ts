@@ -10,7 +10,6 @@ test.describe("Landing Page", () => {
     await expect(
       page.getByRole("heading", { name: "Nicholas Hill" }),
     ).toBeVisible();
-
     const { violations } = await new AxeBuilder({ page }).analyze();
 
     expect(violations).toEqual([]);
@@ -23,12 +22,18 @@ test.describe("Landing Page", () => {
   });
 
   test("navigating to the create portfolio page", async ({ page }) => {
-    await page.getByRole("link", { name: "Create" }).click();
+    await page.getByRole("link", { name: "Create Portfolio" }).click();
 
     await expect(page).toHaveURL("/create");
   });
 
-  test("navigating to the GitHub repo", async ({ page, context }) => {
+  test("navigating to the projects page", async ({ page }) => {
+    await page.getByRole("link", { name: "View Projects" }).click();
+
+    await expect(page).toHaveURL("/projects");
+  });
+
+  test("navigating to the GH repo", async ({ page, context }) => {
     const pagePromise = context.waitForEvent("page");
     const visitRepoLink = page.getByRole("link", { name: "Visit Repo" });
 

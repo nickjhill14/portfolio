@@ -28,7 +28,6 @@ const basicInfo: BasicInfo = {
   name: faker.person.fullName(),
   role: faker.person.jobTitle(),
   email: faker.internet.email(),
-  phone: faker.phone.number("+44 7## ### ###"),
   linkedIn: faker.internet.userName(),
   gitHub: faker.internet.userName(),
 };

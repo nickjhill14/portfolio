@@ -21,7 +21,6 @@ test.describe("Create Portfolio Page", () => {
       await expect(
         page.getByRole("heading", { name: "Create Basic Info" }),
       ).toBeVisible();
-
       const { violations } = await new AxeBuilder({ page }).analyze();
 
       expect(violations).toEqual([]);
