@@ -1,3 +1,4 @@
+import { Delete } from "@mui/icons-material";
 import AddIcon from "@mui/icons-material/Add";
 import { Chip, Grid, Stack, TextField, Typography } from "@mui/material";
 import { motion } from "framer-motion";
@@ -23,7 +24,7 @@ function CreateCvSections() {
 
   const cvPreview = JSON.stringify(cv, null, 2);
 
-  function handleCreate() {
+  function createSection() {
     if (!currentCvSection.title) {
       setRequiredTitleError(true);
     } else {
@@ -34,6 +35,16 @@ function CreateCvSections() {
       setCurrentCvSection({ title: "" });
       setRequiredTitleError(false);
     }
+  }
+
+  function deleteSection(title: string) {
+    const currentCvSections = cv.cvSections ?? [];
+
+    const filteredCvSections = currentCvSections.filter(
+      (section) => section.title !== title,
+    );
+
+    setCv({ ...cv, cvSections: filteredCvSections });
   }
 
   return (
@@ -56,7 +67,14 @@ function CreateCvSections() {
               {cv.cvSections && cv.cvSections.length > 0 ? (
                 <Stack direction="row" flexWrap="wrap" gap={1}>
                   {cv.cvSections?.map((section, index) => (
-                    <Chip label={section.title} key={`section-${index}`} />
+                    <Chip
+                      label={section.title}
+                      key={`section-${index}`}
+                      deleteIcon={
+                        <Delete aria-label={`Delete ${section.title}`} />
+                      }
+                      onDelete={() => deleteSection(section.title)}
+                    />
                   ))}
                 </Stack>
               ) : (
@@ -81,7 +99,7 @@ function CreateCvSections() {
             </Grid>
             <Grid item xs={12} display="flex" justifyContent="end">
               <Button
-                onClick={handleCreate}
+                onClick={createSection}
                 startIcon={<AddIcon />}
                 text="Create"
               />
