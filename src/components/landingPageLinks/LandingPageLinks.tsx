@@ -1,9 +1,9 @@
 import CreateIcon from "@mui/icons-material/Create";
 import DescriptionIcon from "@mui/icons-material/Description";
 import GitHubIcon from "@mui/icons-material/GitHub";
-import { Button, Stack } from "@mui/material";
-import { motion } from "framer-motion";
+import { Button as MuiButton, Stack } from "@mui/material";
 import { Link, useNavigate } from "react-router-dom";
+import { Button } from "../button/Button";
 
 function LandingPageLinks() {
   const navigate = useNavigate();
@@ -15,28 +15,18 @@ function LandingPageLinks() {
       data-testid="landing-page-links"
     >
       <Button
-        component={motion.button}
-        whileHover={{ scale: 1.1 }}
-        whileTap={{ scale: 0.9 }}
         onClick={() => navigate("/cv")}
         role="link"
         startIcon={<DescriptionIcon />}
-        variant="contained"
-      >
-        View CV
-      </Button>
+        text="View CV"
+      />
       <Button
-        component={motion.button}
-        whileHover={{ scale: 1.1 }}
-        whileTap={{ scale: 0.9 }}
         onClick={() => navigate("/create")}
         role="link"
         startIcon={<CreateIcon />}
-        variant="contained"
-      >
-        Create
-      </Button>
-      <Button
+        text="Create"
+      />
+      <MuiButton
         component={Link}
         role="link"
         variant="contained"
@@ -46,7 +36,7 @@ function LandingPageLinks() {
         rel="noopener noreferrer"
       >
         Visit Repo
-      </Button>
+      </MuiButton>
     </Stack>
   );
 }

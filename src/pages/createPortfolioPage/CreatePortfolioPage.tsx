@@ -2,7 +2,6 @@ import { Home } from "@mui/icons-material";
 import NavigateBeforeIcon from "@mui/icons-material/NavigateBefore";
 import NavigateNextIcon from "@mui/icons-material/NavigateNext";
 import {
-  Button,
   Grid,
   Step,
   StepLabel,
@@ -13,6 +12,7 @@ import {
 import { motion, useScroll } from "framer-motion";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { Button } from "../../components/button/Button";
 import { CreateBasicInfoSection } from "../../components/createBasicInfoSection/CreateBasicInfoSection";
 import { CreateCvSections } from "../../components/createCvSections/CreateCvSections";
 
@@ -41,16 +41,11 @@ function CreatePortfolioPage() {
       <Grid container spacing={2} p={2}>
         <Grid item xs={12}>
           <Button
-            component={motion.button}
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.9 }}
             onClick={() => navigate("/")}
-            role="link"
             startIcon={<Home />}
-            variant="contained"
-          >
-            Go Home
-          </Button>
+            role="link"
+            text="Go Home"
+          />
         </Grid>
         <Grid item xs={12}>
           <Typography variant="h2" component="h1">
@@ -75,28 +70,18 @@ function CreatePortfolioPage() {
           <Grid item xs={12} display="flex" justifyContent="end">
             <Button
               onClick={() => setActiveStep((previousStep) => previousStep + 1)}
-              variant="contained"
               endIcon={<NavigateNextIcon />}
-              component={motion.button}
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.9 }}
-            >
-              Next
-            </Button>
+              text="Next"
+            />
           </Grid>
         )}
         {activeStep === 1 && (
           <Grid item xs={12}>
             <Button
               onClick={() => setActiveStep((previousStep) => previousStep - 1)}
-              variant="contained"
+              text="Back"
               startIcon={<NavigateBeforeIcon />}
-              component={motion.button}
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.9 }}
-            >
-              Back
-            </Button>
+            />
           </Grid>
         )}
       </Grid>

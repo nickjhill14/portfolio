@@ -1,16 +1,15 @@
 import ContentCopyIcon from "@mui/icons-material/ContentCopy";
 import DownloadIcon from "@mui/icons-material/Download";
 import {
-  Button,
   ClickAwayListener,
   IconButton,
   Stack,
   Tooltip,
   styled,
 } from "@mui/material";
-import { motion } from "framer-motion";
 import { useState } from "react";
 import { downloadJson } from "../../utils/helpers/helpers";
+import { Button } from "../button/Button";
 import { Section } from "../section/Section";
 
 const CopyToClipboardButton = styled(IconButton)({
@@ -54,15 +53,10 @@ function ConfigPreview({ json, fileName }: ConfigPreviewProps) {
         </ClickAwayListener>
       </Stack>
       <Button
-        component={motion.button}
-        whileHover={{ scale: 1.1 }}
-        whileTap={{ scale: 0.9 }}
         onClick={() => downloadJson(fileName, json)}
-        variant="contained"
         startIcon={<DownloadIcon />}
-      >
-        Download
-      </Button>
+        text="Download"
+      />
     </Section>
   );
 }

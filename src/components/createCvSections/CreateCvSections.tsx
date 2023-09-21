@@ -1,8 +1,9 @@
 import AddIcon from "@mui/icons-material/Add";
-import { Button, Grid, TextField } from "@mui/material";
+import { Grid, TextField } from "@mui/material";
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { Cv, CvSection } from "../../domain/cv";
+import { Button } from "../button/Button";
 import { ConfigPreview } from "../configPreview/ConfigPreview";
 import { Section } from "../section/Section";
 
@@ -69,15 +70,10 @@ function CreateCvSections() {
             </Grid>
             <Grid item xs={12} display="flex" justifyContent="end">
               <Button
-                variant="contained"
                 onClick={handleCreate}
-                component={motion.button}
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.9 }}
                 startIcon={<AddIcon />}
-              >
-                Create
-              </Button>
+                text="Create"
+              />
             </Grid>
           </Grid>
         </Section>

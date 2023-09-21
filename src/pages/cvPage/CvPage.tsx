@@ -1,10 +1,11 @@
 import { Home } from "@mui/icons-material";
-import { Alert, Button, Grid, Typography, useTheme } from "@mui/material";
+import { Alert, Grid, Typography, useTheme } from "@mui/material";
 import { motion, useScroll } from "framer-motion";
 import { Suspense } from "react";
 import { Await, useNavigate } from "react-router-dom";
 import { useLoaderData } from "react-router-typesafe";
 import { getCvLoader } from "../../api/loaders/portfolioLoader";
+import { Button } from "../../components/button/Button";
 import { CvPageSkeleton } from "../../components/cvPageSkeleton/CvPageSkeleton";
 import { Section } from "../../components/section/Section";
 import { SectionDetails } from "../../components/sectionDetails/SectionDetails";
@@ -34,16 +35,11 @@ function CvPage() {
       <Grid container spacing={2} p={2}>
         <Grid item xs={12}>
           <Button
-            component={motion.button}
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.9 }}
             onClick={() => navigate("/")}
             role="link"
             startIcon={<Home />}
-            variant="contained"
-          >
-            Go Home
-          </Button>
+            text="Go Home"
+          />
         </Grid>
         <Grid item xs={12}>
           <Typography variant="h2" component="h1">
