@@ -1,5 +1,5 @@
 import AddIcon from "@mui/icons-material/Add";
-import { Grid, TextField } from "@mui/material";
+import { Chip, Grid, Stack, TextField, Typography } from "@mui/material";
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { Cv, CvSection } from "../../domain/cv";
@@ -52,6 +52,17 @@ function CreateCvSections() {
       <Grid item xs={12} md={8}>
         <Section headingText="Create CV Sections">
           <Grid container spacing={2}>
+            <Grid item xs={12}>
+              {cv.cvSections && cv.cvSections.length > 0 ? (
+                <Stack direction="row" spacing={1}>
+                  {cv.cvSections?.map((section, index) => (
+                    <Chip label={section.title} key={`section-${index}`} />
+                  ))}
+                </Stack>
+              ) : (
+                <Typography variant="body1">No CV sections added</Typography>
+              )}
+            </Grid>
             <Grid item xs={12}>
               <TextField
                 required

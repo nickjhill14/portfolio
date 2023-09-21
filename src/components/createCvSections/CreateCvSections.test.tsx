@@ -13,6 +13,7 @@ describe(CreateCvSections, () => {
     expect(
       screen.getByRole("heading", { name: "Create CV Sections" }),
     ).toBeInTheDocument();
+    expect(screen.getByText("No CV sections added")).toBeInTheDocument();
   });
 
   it("displays an error message when no title is provided", async () => {
@@ -47,6 +48,8 @@ describe(CreateCvSections, () => {
     expect(
       screen.getByText(`"title": "${cvSection.title}"`, { exact: false }),
     ).toBeInTheDocument();
+    expect(screen.getByText(cvSection.title)).toBeInTheDocument();
+    expect(screen.queryByText("No CV sections added")).not.toBeInTheDocument();
   });
 
   it("clears the current CV section after creation", async () => {
