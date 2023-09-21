@@ -5,7 +5,7 @@ import {
   reactRouterParameters,
   withRouter,
 } from "storybook-addon-react-router-v6";
-import { getCv } from "../../api//gateways/portfolioGateway";
+import { getCvLoader } from "../../api/loaders/portfolioLoader";
 import { Cv } from "../../domain/cv";
 import { buildDateRange } from "../../utils/builders";
 import { upperCaseFirstChar } from "../../utils/helpers/helpers";
@@ -18,7 +18,7 @@ const meta = {
   parameters: {
     reactRouter: reactRouterParameters({
       routing: {
-        loader: getCv,
+        loader: getCvLoader,
       },
     }),
   },
