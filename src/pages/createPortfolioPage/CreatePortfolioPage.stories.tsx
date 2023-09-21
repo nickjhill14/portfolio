@@ -6,7 +6,6 @@ const meta = {
   title: "Pages/CreatePortfolioPage",
   component: CreatePortfolioPage,
   decorators: [withRouter],
-  tags: ["autodocs"],
 } satisfies Meta<typeof CreatePortfolioPage>;
 
 type Story = StoryObj<typeof meta>;

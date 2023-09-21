@@ -4,7 +4,6 @@ import { CreateCvSections } from "./CreateCvSections";
 const meta = {
   title: "Components/CreateCvSections",
   component: CreateCvSections,
-  tags: ["autodocs"],
 } satisfies Meta<typeof CreateCvSections>;
 
 type Story = StoryObj<typeof meta>;

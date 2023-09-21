@@ -7,7 +7,6 @@ import { SectionDetails } from "./SectionDetails";
 const meta = {
   title: "Components/SectionDetails",
   component: SectionDetails,
-  tags: ["autodocs"],
 } satisfies Meta<typeof SectionDetails>;
 
 type Story = StoryObj<typeof meta>;

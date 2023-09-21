@@ -6,7 +6,6 @@ import { SkillsSection } from "./SkillsSection";
 const meta = {
   title: "Components/SkillsSection",
   component: SkillsSection,
-  tags: ["autodocs"],
 } satisfies Meta<typeof SkillsSection>;
 
 type Story = StoryObj<typeof meta>;

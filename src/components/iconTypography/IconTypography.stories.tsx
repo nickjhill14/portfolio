@@ -7,7 +7,6 @@ import { IconTypography } from "./IconTypography";
 const meta = {
   title: "Components/IconTypography",
   component: IconTypography,
-  tags: ["autodocs"],
 } satisfies Meta<typeof IconTypography>;
 
 type Story = StoryObj<typeof meta>;

@@ -7,7 +7,6 @@ const meta = {
   title: "Components/Button",
   component: Button,
   decorators: [withRouter],
-  tags: ["autodocs"],
 } satisfies Meta<typeof Button>;
 
 type Story = StoryObj<typeof meta>;

@@ -14,7 +14,6 @@ import { CvPage } from "./CvPage";
 const meta = {
   title: "Pages/CvPage",
   component: CvPage,
-  tags: ["autodocs"],
   decorators: [withRouter],
   parameters: {
     reactRouter: reactRouterParameters({

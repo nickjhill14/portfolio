@@ -4,7 +4,6 @@ import { CreateBasicInfoSection } from "./CreateBasicInfoSection";
 const meta = {
   title: "Components/CreateBasicInfoSection",
   component: CreateBasicInfoSection,
-  tags: ["autodocs"],
 } satisfies Meta<typeof CreateBasicInfoSection>;
 
 type Story = StoryObj<typeof meta>;

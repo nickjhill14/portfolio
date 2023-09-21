@@ -5,7 +5,6 @@ import { ConfigPreview } from "./ConfigPreview";
 const meta = {
   title: "Components/ConfigPreview",
   component: ConfigPreview,
-  tags: ["autodocs"],
 } satisfies Meta<typeof ConfigPreview>;
 
 type Story = StoryObj<typeof meta>;

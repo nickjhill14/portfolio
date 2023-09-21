@@ -9,6 +9,21 @@ import { getBasicInfo } from "../../api/gateways/portfolioGateway";
 import { BasicInfo } from "../../domain/basicInfo";
 import { LandingPage } from "./LandingPage";
 
+const meta = {
+  title: "Pages/LandingPage",
+  component: LandingPage,
+  decorators: [withRouter],
+  parameters: {
+    reactRouter: reactRouterParameters({
+      routing: {
+        loader: getBasicInfo,
+      },
+    }),
+  },
+} satisfies Meta<typeof LandingPage>;
+
+type Story = StoryObj<typeof meta>;
+
 const basicInfo: BasicInfo = {
   name: faker.person.fullName(),
   role: faker.person.jobTitle(),
@@ -22,22 +37,6 @@ const basicInfoWithPhone: BasicInfo = {
   ...basicInfo,
   phone: faker.phone.number("+44 7## ### ###"),
 };
-
-const meta = {
-  title: "Pages/LandingPage",
-  component: LandingPage,
-  tags: ["autodocs"],
-  decorators: [withRouter],
-  parameters: {
-    reactRouter: reactRouterParameters({
-      routing: {
-        loader: getBasicInfo,
-      },
-    }),
-  },
-} satisfies Meta<typeof LandingPage>;
-
-type Story = StoryObj<typeof meta>;
 
 const Default: Story = {
   parameters: {

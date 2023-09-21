@@ -6,7 +6,6 @@ const meta = {
   title: "Components/LandingPageLinks",
   component: LandingPageLinks,
   decorators: [withRouter],
-  tags: ["autodocs"],
 } satisfies Meta<typeof LandingPageLinks>;
 
 type Story = StoryObj<typeof meta>;
