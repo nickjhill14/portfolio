@@ -54,7 +54,7 @@ function CreateCvSections() {
           <Grid container spacing={2}>
             <Grid item xs={12}>
               {cv.cvSections && cv.cvSections.length > 0 ? (
-                <Stack direction="row" spacing={1}>
+                <Stack direction="row" flexWrap="wrap" gap={1}>
                   {cv.cvSections?.map((section, index) => (
                     <Chip label={section.title} key={`section-${index}`} />
                   ))}
