@@ -27,7 +27,12 @@ function Footer() {
   }
 
   return (
-    <Stack data-testid="footer" direction="row" justifyContent="space-between">
+    <Stack
+      data-testid="footer"
+      direction="row"
+      justifyContent="space-between"
+      pb={1}
+    >
       <IconButton
         onClick={handleToggleColourMode}
         aria-label={lightMode ? "Toggle dark mode" : "Toggle light mode"}
