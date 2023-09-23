@@ -18,7 +18,6 @@ function BasicInfoSection({ basicInfo }: BasicInfoSectionProps) {
 
   return (
     <Stack
-      spacing={2}
       component={motion.div}
       initial={{ opacity: 0, scale: 0.5 }}
       animate={{ opacity: 1, scale: 1 }}

@@ -1,57 +1,32 @@
 import { Home } from "@mui/icons-material";
 import NavigateBeforeIcon from "@mui/icons-material/NavigateBefore";
 import NavigateNextIcon from "@mui/icons-material/NavigateNext";
-import {
-  Grid,
-  Step,
-  StepLabel,
-  Stepper,
-  Typography,
-  useTheme,
-} from "@mui/material";
-import { motion, useScroll } from "framer-motion";
+import { Grid, Step, StepLabel, Stepper, Typography } from "@mui/material";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Button } from "../../components/button/Button";
+import { Page } from "../../components/page/Page";
 import { CreateBasicInfoSection } from "../../features/createBasicInfoSection/CreateBasicInfoSection";
 import { CreateCvSections } from "../../features/createCvSections/CreateCvSections";
 
 function CreatePortfolioPage() {
   const navigate = useNavigate();
   const [activeStep, setActiveStep] = useState(0);
-  const { scrollYProgress } = useScroll();
-  const theme = useTheme();
 
   const steps = ["Create basic info", "Create CV sections"];
 
   return (
-    <>
-      <motion.div
-        style={{
-          position: "fixed",
-          top: 0,
-          left: 0,
-          right: 0,
-          height: "5px",
-          background: theme.palette.primary.main,
-          transformOrigin: "0%",
-          scaleX: scrollYProgress,
-        }}
+    <Page>
+      <Button
+        onClick={() => navigate("/")}
+        startIcon={<Home />}
+        role="link"
+        text="Go Home"
       />
-      <Grid container spacing={2} p={2}>
-        <Grid item xs={12}>
-          <Button
-            onClick={() => navigate("/")}
-            startIcon={<Home />}
-            role="link"
-            text="Go Home"
-          />
-        </Grid>
-        <Grid item xs={12}>
-          <Typography variant="h2" component="h1">
-            Create A Portfolio
-          </Typography>
-        </Grid>
+      <Typography variant="h2" component="h1">
+        Create A Portfolio
+      </Typography>
+      <Grid container spacing={2}>
         <Grid item xs={12}>
           <Stepper>
             {steps.map((step, index) => {
@@ -85,7 +60,7 @@ function CreatePortfolioPage() {
           </Grid>
         )}
       </Grid>
-    </>
+    </Page>
   );
 }
 
