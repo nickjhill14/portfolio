@@ -1,9 +1,8 @@
 import CodeIcon from "@mui/icons-material/Code";
 import CreateIcon from "@mui/icons-material/Create";
 import DescriptionIcon from "@mui/icons-material/Description";
-import GitHubIcon from "@mui/icons-material/GitHub";
-import { Button as MuiButton, Stack } from "@mui/material";
-import { Link, useNavigate } from "react-router-dom";
+import { Stack } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 import { Button } from "../../components/button/Button";
 
 function LandingPageLinks() {
@@ -33,17 +32,6 @@ function LandingPageLinks() {
         startIcon={<CodeIcon />}
         text="View Projects"
       />
-      <MuiButton
-        component={Link}
-        role="link"
-        variant="contained"
-        startIcon={<GitHubIcon />}
-        to="https://github.com/nickjhill14/portfolio"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Visit Repo
-      </MuiButton>
     </Stack>
   );
 }

@@ -1,10 +1,12 @@
 import { VolunteerActivism } from "@mui/icons-material";
 import CloseIcon from "@mui/icons-material/Close";
 import DarkModeIcon from "@mui/icons-material/DarkMode";
+import GitHubIcon from "@mui/icons-material/GitHub";
 import LightModeIcon from "@mui/icons-material/LightMode";
 import {
   Button,
   IconButton,
+  Link,
   Snackbar,
   Stack,
   SvgIcon,
@@ -39,6 +41,15 @@ function Footer() {
         aria-label={lightMode ? "Toggle dark mode" : "Toggle light mode"}
       >
         {lightMode ? <DarkModeIcon /> : <LightModeIcon />}
+      </IconButton>
+      <IconButton
+        LinkComponent={Link}
+        aria-label="Visit repo"
+        href="https://github.com/nickjhill14/portfolio"
+        target="_blank"
+        rel="noreferrer"
+      >
+        <GitHubIcon />
       </IconButton>
       <IconButton
         onClick={() => setOpenAcks(true)}

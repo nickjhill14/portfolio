@@ -67,4 +67,16 @@ describe(Footer, () => {
       screen.getByText("Thank you to the best pair, Kate"),
     ).not.toBeVisible();
   });
+
+  it("renders a link to the GH repo", async () => {
+    render(<Footer />);
+    const visitRepoLink = screen.getByRole("link", { name: "Visit repo" });
+
+    expect(visitRepoLink).toHaveAttribute(
+      "href",
+      "https://github.com/nickjhill14/portfolio",
+    );
+    expect(visitRepoLink).toHaveAttribute("target", "_blank");
+    expect(visitRepoLink).toHaveAttribute("rel", "noreferrer");
+  });
 });
