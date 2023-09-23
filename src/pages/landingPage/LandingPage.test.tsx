@@ -32,7 +32,6 @@ describe(LandingPage, () => {
 
     expect(screen.getByTestId("landing-page-skeleton")).toBeInTheDocument();
     expect(screen.getByTestId("landing-page-links")).toBeInTheDocument();
-    expect(screen.getByTestId("footer")).toBeInTheDocument();
     expect(
       await screen.findByRole("heading", { name: basicInfo.name }),
     ).toBeInTheDocument();

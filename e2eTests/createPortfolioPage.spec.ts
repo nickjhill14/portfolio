@@ -10,10 +10,16 @@ test.describe("Create Portfolio Page", () => {
     await page.goto("/create");
   });
 
-  test("navigating to the landing page", async ({ page }) => {
-    await page.getByRole("link", { name: "Go Home" }).click();
+  test.describe("page defaults", () => {
+    test("navigating to the landing page", async ({ page }) => {
+      await page.getByRole("link", { name: "Go Home" }).click();
 
-    await expect(page).toHaveURL("/");
+      await expect(page).toHaveURL("/");
+    });
+
+    test("displaying the footer", async ({ page }) => {
+      await expect(page.getByTestId("footer")).toBeVisible();
+    });
   });
 
   test.describe("creating basic info", () => {

@@ -18,4 +18,8 @@ test.describe("CV Page", () => {
 
     await expect(page).toHaveURL("/");
   });
+
+  test("displaying the footer", async ({ page }) => {
+    await expect(page.getByTestId("footer")).toBeVisible();
+  });
 });
