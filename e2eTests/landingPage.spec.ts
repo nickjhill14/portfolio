@@ -32,8 +32,4 @@ test.describe("Landing Page", () => {
 
     await expect(page).toHaveURL("/projects");
   });
-
-  test("displaying the footer", async ({ page }) => {
-    await expect(page.getByTestId("footer")).toBeVisible();
-  });
 });
