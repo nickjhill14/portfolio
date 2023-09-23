@@ -32,11 +32,6 @@ const basicInfo: BasicInfo = {
   gitHub: faker.internet.userName(),
 };
 
-const basicInfoWithPhone: BasicInfo = {
-  ...basicInfo,
-  phone: faker.phone.number("+44 7## ### ###"),
-};
-
 const Default: Story = {
   parameters: {
     msw: {
@@ -49,17 +44,5 @@ const Default: Story = {
   },
 };
 
-const WithPhone: Story = {
-  parameters: {
-    msw: {
-      handlers: [
-        rest.get("/portfolioConfig/basic-info.json", (_, res, ctx) => {
-          return res(ctx.json(basicInfoWithPhone));
-        }),
-      ],
-    },
-  },
-};
-
 export default meta;
-export { Default, WithPhone };
+export { Default };
