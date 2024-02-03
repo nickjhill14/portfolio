@@ -1,3 +1,4 @@
+import { NextUIProvider } from "@nextui-org/react";
 import { Analytics } from "@vercel/analytics/react";
 import { StrictMode } from "react";
 import ReactDOM from "react-dom/client";
@@ -11,11 +12,13 @@ const root = ReactDOM.createRoot(
 
 root.render(
   <StrictMode>
-    <ThemeProvider>
-      <main>
-        <RouterProvider router={portfolioRouter} />
-      </main>
-    </ThemeProvider>
+    <NextUIProvider>
+      <ThemeProvider>
+        <main>
+          <RouterProvider router={portfolioRouter} />
+        </main>
+      </ThemeProvider>
+    </NextUIProvider>
     <Analytics />
   </StrictMode>,
 );
