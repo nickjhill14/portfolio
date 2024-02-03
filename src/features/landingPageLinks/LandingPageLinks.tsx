@@ -1,5 +1,4 @@
 import CodeIcon from "@mui/icons-material/Code";
-import CreateIcon from "@mui/icons-material/Create";
 import DescriptionIcon from "@mui/icons-material/Description";
 import { Stack } from "@mui/material";
 import { useNavigate } from "react-router-dom";
@@ -19,12 +18,6 @@ function LandingPageLinks() {
         role="link"
         startIcon={<DescriptionIcon />}
         text="View CV"
-      />
-      <Button
-        onClick={() => navigate("/create")}
-        role="link"
-        startIcon={<CreateIcon />}
-        text="Create Portfolio"
       />
       <Button
         onClick={() => navigate("/projects")}
