@@ -22,12 +22,6 @@ test.describe("Landing Page", () => {
     await expect(page).toHaveURL("/cv");
   });
 
-  test("navigating to the create portfolio page", async ({ page }) => {
-    await page.getByRole("link", { name: "Create Portfolio" }).click();
-
-    await expect(page).toHaveURL("/create");
-  });
-
   test("navigating to the projects page", async ({ page }) => {
     await page.getByRole("link", { name: "View Projects" }).click();
 
