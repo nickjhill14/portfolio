@@ -5,9 +5,10 @@ import ReactDOM from "react-dom/client";
 import { RouterProvider } from "react-router-dom";
 import { ThemeProvider } from "./contexts/themeContext/ThemeContext";
 import { portfolioRouter } from "./routing/portfolioRouting/PortfolioRouting";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const root = ReactDOM.createRoot(
-  document.getElementById("root") as HTMLElement,
+  document.getElementById("root") as HTMLElement
 );
 
 root.render(
@@ -20,5 +21,6 @@ root.render(
       </ThemeProvider>
     </NextUIProvider>
     <Analytics />
-  </StrictMode>,
+    <SpeedInsights />
+  </StrictMode>
 );
