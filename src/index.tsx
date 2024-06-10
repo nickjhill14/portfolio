@@ -5,7 +5,7 @@ import ReactDOM from "react-dom/client";
 import { RouterProvider } from "react-router-dom";
 import { ThemeProvider } from "./contexts/themeContext/ThemeContext";
 import { portfolioRouter } from "./routing/portfolioRouting/PortfolioRouting";
-import { SpeedInsights } from "@vercel/speed-insights/next";
+import { SpeedInsights } from "@vercel/speed-insights/react";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
