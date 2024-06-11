@@ -1,20 +1,12 @@
-import {
-  Button as MuiButton,
-  type ButtonProps as MuiButtonProps,
-} from "@mui/material";
-import { motion } from "framer-motion";
+import { Button as NextUiButton } from "@nextui-org/button";
 
-type ButtonProps = { onClick: () => void; text: string } & MuiButtonProps;
+type ButtonProps = {
+  onClick: () => void;
+  text: string;
+};
 
-export const Button = ({ onClick, text, ...muiButtonProps }: ButtonProps) => (
-  <MuiButton
-    component={motion.button}
-    whileHover={{ scale: 1.1 }}
-    whileTap={{ scale: 0.9 }}
-    variant="contained"
-    onClick={onClick}
-    {...muiButtonProps}
-  >
+export const Button = ({ onClick, text }: ButtonProps) => (
+  <NextUiButton variant="solid" onClick={onClick}>
     {text}
-  </MuiButton>
+  </NextUiButton>
 );

@@ -1,11 +1,10 @@
-import { Home } from "@mui/icons-material";
 import { Alert, Grid, Typography } from "@mui/material";
+import { Link } from "@nextui-org/link";
 import { motion } from "framer-motion";
 import { Suspense } from "react";
 import { Await, useNavigate } from "react-router-dom";
 import { useLoaderData } from "react-router-typesafe";
 import { getCvLoader } from "../../api/loaders/portfolioLoader";
-import { Button } from "../../components/button/Button";
 import { Page } from "../../components/page/Page";
 import { Section } from "../../components/section/Section";
 import { Cv } from "../../domain/cv";
@@ -15,16 +14,14 @@ import { SkillsSection } from "../../features/skillsSection/SkillsSection";
 
 export const CvPage = () => {
   const cvLoaderData = useLoaderData<typeof getCvLoader>();
+
   const navigate = useNavigate();
 
   return (
     <Page>
-      <Button
-        onClick={() => navigate("/")}
-        role="link"
-        startIcon={<Home />}
-        text="Go Home"
-      />
+      <Link onPress={() => navigate("/")} underline="hover">
+        Go Home
+      </Link>
       <Typography variant="h2" component="h1">
         CV
       </Typography>

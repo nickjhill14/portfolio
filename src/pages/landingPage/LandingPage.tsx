@@ -9,7 +9,7 @@ import { BasicInfoSection } from "../../features/basicInfoSection/BasicInfoSecti
 import { LandingPageLinks } from "../../features/landingPageLinks/LandingPageLinks";
 import { LandingPageSkeleton } from "../../features/landingPageSkeleton/LandingPageSkeleton";
 
-function LandingPage() {
+export const LandingPage = () => {
   const basicInfoLoaderData = useLoaderData<typeof getBasicInfoLoader>();
 
   return (
@@ -26,6 +26,4 @@ function LandingPage() {
       </Stack>
     </Page>
   );
-}
-
-export { LandingPage };
+};

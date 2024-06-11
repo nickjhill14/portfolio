@@ -21,7 +21,7 @@ vitest.mock("react-router-dom", async () => {
 describe(LandingPage, () => {
   const useLoaderDataMock = vitest.mocked(useLoaderData);
 
-  it("renders a loading skeleton when loading basic info data", () => {
+  it("renders a loading skeleton when loading basic info data", async () => {
     const basicInfo = buildBasicInfo();
 
     useLoaderDataMock.mockReturnValue({
@@ -33,6 +33,9 @@ describe(LandingPage, () => {
     expect(screen.getByTestId("landing-page-skeleton")).toBeInTheDocument();
     expect(screen.getByTestId("landing-page-links")).toBeInTheDocument();
     expect(screen.getByTestId("footer")).toBeInTheDocument();
+    expect(
+      await screen.findByRole("heading", { name: basicInfo.name }),
+    ).toBeInTheDocument();
   });
 
   it("renders the page when loading has completed", async () => {

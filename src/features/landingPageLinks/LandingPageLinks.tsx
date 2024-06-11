@@ -1,8 +1,6 @@
-import CodeIcon from "@mui/icons-material/Code";
-import DescriptionIcon from "@mui/icons-material/Description";
 import { Stack } from "@mui/material";
+import { Link } from "@nextui-org/link";
 import { useNavigate } from "react-router-dom";
-import { Button } from "../../components/button/Button";
 
 export const LandingPageLinks = () => {
   const navigate = useNavigate();
@@ -13,18 +11,12 @@ export const LandingPageLinks = () => {
       spacing={2}
       data-testid="landing-page-links"
     >
-      <Button
-        onClick={() => navigate("/cv")}
-        role="link"
-        startIcon={<DescriptionIcon />}
-        text="View CV"
-      />
-      <Button
-        onClick={() => navigate("/projects")}
-        role="link"
-        startIcon={<CodeIcon />}
-        text="View Projects"
-      />
+      <Link onPress={() => navigate("/cv")} underline="hover">
+        View CV
+      </Link>
+      <Link onPress={() => navigate("/projects")} underline="hover">
+        View Projects
+      </Link>
     </Stack>
   );
 };

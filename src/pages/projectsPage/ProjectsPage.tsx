@@ -1,16 +1,14 @@
-import { Home } from "@mui/icons-material";
 import {
   Card,
   CardActions,
   CardContent,
   Grid,
-  Link,
   Typography,
   styled,
 } from "@mui/material";
+import { Link } from "@nextui-org/link";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
-import { Button } from "../../components/button/Button";
 import { Page } from "../../components/page/Page";
 
 const ProjectInfo = styled(CardContent)({
@@ -21,17 +19,14 @@ const ProjectActions = styled(CardActions)({
   paddingLeft: "25px",
 });
 
-function ProjectsPage() {
+export const ProjectsPage = () => {
   const navigate = useNavigate();
 
   return (
     <Page>
-      <Button
-        onClick={() => navigate("/")}
-        role="link"
-        startIcon={<Home />}
-        text="Go Home"
-      />
+      <Link onPress={() => navigate("/")} underline="hover">
+        Go Home
+      </Link>
       <Typography variant="h2" component="h1">
         Projects
       </Typography>
@@ -159,6 +154,4 @@ function ProjectsPage() {
       </Grid>
     </Page>
   );
-}
-
-export { ProjectsPage };
+};
