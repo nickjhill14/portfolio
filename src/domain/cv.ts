@@ -1,24 +1,22 @@
-type Skill = { name: string };
+export type Skill = { name: string };
 
-type Language = { name: string; level: number };
+export type Language = { name: string; level: number };
 
-type SkillsInfo = { skills: Skill[]; languages: Language[] };
+export type SkillsInfo = { skills: Skill[]; languages: Language[] };
 
-type CvSectionItems = {
+export type CvSectionItems = {
   name: string;
   location?: string;
   dateRange?: string;
   details?: string[];
 };
 
-type CvSection = {
+export type CvSection = {
   title: string;
   items?: CvSectionItems[];
 };
 
-type Cv = {
+export type Cv = {
   cvSections?: CvSection[];
   skillsInfo: SkillsInfo;
 };
-
-export type { Cv, CvSection, CvSectionItems, Language, Skill, SkillsInfo };

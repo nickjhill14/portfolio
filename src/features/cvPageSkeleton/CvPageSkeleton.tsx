@@ -1,6 +1,6 @@
 import { Grid, Skeleton } from "@mui/material";
 
-function CvPageSkeleton() {
+export const CvPageSkeleton = () => {
   return (
     <Grid container spacing={2} p={2} data-testid="cv-page-skeleton">
       <Grid item xs={12} sm={6}>
@@ -40,6 +40,4 @@ function CvPageSkeleton() {
       </Grid>
     </Grid>
   );
-}
-
-export { CvPageSkeleton };
+};

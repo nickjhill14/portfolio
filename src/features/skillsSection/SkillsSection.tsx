@@ -4,13 +4,11 @@ import { Alert, Chip, Divider, Rating, Stack, Typography } from "@mui/material";
 import { Section } from "../../components/section/Section";
 import { SkillsInfo } from "../../domain/cv";
 
-type SkillsSectionProps = {
+export type SkillsSectionProps = {
   skillsInfo: SkillsInfo;
 };
 
-function SkillsSection({ skillsInfo }: SkillsSectionProps) {
-  const { skills, languages } = skillsInfo;
-
+export const SkillsSection = ({ skillsInfo: { skills, languages } }: SkillsSectionProps) => {
   return (
     <Section headingText="Skills">
       {skills.length === 0 ? (
@@ -43,6 +41,4 @@ function SkillsSection({ skillsInfo }: SkillsSectionProps) {
       )}
     </Section>
   );
-}
-
-export { SkillsSection, type SkillsSectionProps };
+};

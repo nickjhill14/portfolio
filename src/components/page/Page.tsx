@@ -3,8 +3,9 @@ import { motion, useScroll } from "framer-motion";
 import { PropsWithChildren } from "react";
 import { Footer } from "../footer/Footer";
 
-function Page({ children }: PropsWithChildren) {
+export const Page = ({ children }: PropsWithChildren) => {
   const { scrollYProgress } = useScroll();
+
   const theme = useTheme();
 
   return (
@@ -18,7 +19,7 @@ function Page({ children }: PropsWithChildren) {
           height: "5px",
           background: theme.palette.primary.main,
           transformOrigin: "0%",
-          scaleX: scrollYProgress,
+          scaleX: scrollYProgress
         }}
       />
       <Grid container minHeight="100vh" alignContent="space-between">
@@ -35,6 +36,4 @@ function Page({ children }: PropsWithChildren) {
       </Grid>
     </>
   );
-}
-
-export { Page };
+};

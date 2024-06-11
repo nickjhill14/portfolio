@@ -1,9 +1,4 @@
-import {
-  AlternateEmail,
-  GitHub,
-  LinkedIn,
-  LocalPhone,
-} from "@mui/icons-material";
+import { AlternateEmail, GitHub, LinkedIn, LocalPhone } from "@mui/icons-material";
 import { Link, Stack, Typography } from "@mui/material";
 import { motion } from "framer-motion";
 import { IconTypography } from "../../components/iconTypography/IconTypography";
@@ -13,7 +8,7 @@ type BasicInfoSectionProps = {
   basicInfo: BasicInfo;
 };
 
-function BasicInfoSection({ basicInfo }: BasicInfoSectionProps) {
+export const BasicInfoSection = ({ basicInfo }: BasicInfoSectionProps) => {
   const { name, role, email, phone, linkedIn, gitHub } = basicInfo;
 
   return (
@@ -24,7 +19,7 @@ function BasicInfoSection({ basicInfo }: BasicInfoSectionProps) {
       transition={{
         duration: 0.5,
         delay: 0.25,
-        ease: [0, 0.71, 0.2, 1.01],
+        ease: [0, 0.71, 0.2, 1.01]
       }}
     >
       <Typography variant="h2" component="h1">
@@ -63,6 +58,4 @@ function BasicInfoSection({ basicInfo }: BasicInfoSectionProps) {
       </Stack>
     </Stack>
   );
-}
-
-export { BasicInfoSection };
+};

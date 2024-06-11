@@ -1,4 +1,4 @@
-type BasicInfo = {
+export type BasicInfo = {
   name: string;
   role: string;
   email: string;
@@ -6,5 +6,3 @@ type BasicInfo = {
   gitHub: string;
   phone?: string;
 };
-
-export type { BasicInfo };

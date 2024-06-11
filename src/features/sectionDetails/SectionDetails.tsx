@@ -1,13 +1,6 @@
 import CalendarMonthOutlinedIcon from "@mui/icons-material/CalendarMonthOutlined";
 import LocationOnOutlinedIcon from "@mui/icons-material/LocationOnOutlined";
-import {
-  Divider,
-  List,
-  ListItem,
-  ListItemText,
-  Stack,
-  Typography,
-} from "@mui/material";
+import { Divider, List, ListItem, ListItemText, Stack, Typography } from "@mui/material";
 import { IconTypography } from "../../components/iconTypography/IconTypography";
 
 type SectionDetailsProps = {
@@ -18,7 +11,7 @@ type SectionDetailsProps = {
   divider?: boolean;
 };
 
-function SectionDetails(props: SectionDetailsProps) {
+export const SectionDetails = (props: SectionDetailsProps) => {
   const { heading, location, dateRange, details, divider } = props;
 
   return (
@@ -66,6 +59,4 @@ function SectionDetails(props: SectionDetailsProps) {
       {divider && <Divider data-testid="divider" />}
     </Stack>
   );
-}
-
-export { SectionDetails };
+};

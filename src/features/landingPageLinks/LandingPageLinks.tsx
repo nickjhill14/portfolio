@@ -4,7 +4,7 @@ import { Stack } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import { Button } from "../../components/button/Button";
 
-function LandingPageLinks() {
+export const LandingPageLinks = () => {
   const navigate = useNavigate();
 
   return (
@@ -27,6 +27,4 @@ function LandingPageLinks() {
       />
     </Stack>
   );
-}
-
-export { LandingPageLinks };
+};

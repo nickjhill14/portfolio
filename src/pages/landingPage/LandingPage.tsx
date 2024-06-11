@@ -5,7 +5,7 @@ import { useLoaderData } from "react-router-typesafe";
 import { getBasicInfoLoader } from "../../api/loaders/portfolioLoader";
 import { Page } from "../../components/page/Page";
 import { BasicInfo } from "../../domain/basicInfo";
-import { BasicInfoSection } from "../../features/basicInfoSectiion/BasicInfoSection";
+import { BasicInfoSection } from "../../features/basicInfoSection/BasicInfoSection";
 import { LandingPageLinks } from "../../features/landingPageLinks/LandingPageLinks";
 import { LandingPageSkeleton } from "../../features/landingPageSkeleton/LandingPageSkeleton";
 

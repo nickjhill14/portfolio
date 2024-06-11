@@ -1,22 +1,18 @@
 import { BasicInfo } from "../../domain/basicInfo";
 import { Cv } from "../../domain/cv";
 
-async function getBasicInfo(): Promise<BasicInfo> {
+export const getBasicInfo = async (): Promise<BasicInfo> => {
   const res: Response = await fetch("/portfolioConfig/basic-info.json", {
-    method: "GET",
+    method: "GET"
   });
-  const body = await res.json();
 
-  return body;
-}
+  return await res.json();
+};
 
-async function getCv(): Promise<Cv> {
+export const getCv = async (): Promise<Cv> => {
   const res: Response = await fetch("/portfolioConfig/cv.json", {
-    method: "GET",
+    method: "GET"
   });
-  const body = await res.json();
 
-  return body;
-}
-
-export { getBasicInfo, getCv };
+  return await res.json();
+};
