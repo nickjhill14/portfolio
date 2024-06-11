@@ -1,14 +1,14 @@
 import { NextUIProvider } from "@nextui-org/react";
 import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/react";
 import { StrictMode } from "react";
 import ReactDOM from "react-dom/client";
 import { RouterProvider } from "react-router-dom";
 import { ThemeProvider } from "./contexts/themeContext/ThemeContext";
 import { portfolioRouter } from "./routing/portfolioRouting/PortfolioRouting";
-import { SpeedInsights } from "@vercel/speed-insights/react";
 
 const root = ReactDOM.createRoot(
-  document.getElementById("root") as HTMLElement
+  document.getElementById("root") as HTMLElement,
 );
 
 root.render(
@@ -22,5 +22,5 @@ root.render(
     </NextUIProvider>
     <Analytics />
     <SpeedInsights />
-  </StrictMode>
+  </StrictMode>,
 );
