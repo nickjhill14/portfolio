@@ -1,21 +1,15 @@
-import {
-  AlternateEmail,
-  GitHub,
-  LinkedIn,
-  LocalPhone,
-} from "@mui/icons-material";
-import { Link, Stack, Typography } from "@mui/material";
+import { Stack, Typography } from "@mui/material";
+import { Link } from "@nextui-org/link";
 import { motion } from "framer-motion";
-import { IconTypography } from "../../components/iconTypography/IconTypography";
 import { BasicInfo } from "../../domain/basicInfo";
 
 type BasicInfoSectionProps = {
   basicInfo: BasicInfo;
 };
 
-export const BasicInfoSection = ({ basicInfo }: BasicInfoSectionProps) => {
-  const { name, role, email, phone, linkedIn, gitHub } = basicInfo;
-
+export const BasicInfoSection = ({
+  basicInfo: { name, role, email, phone, linkedIn, gitHub },
+}: BasicInfoSectionProps) => {
   return (
     <Stack
       component={motion.div}
@@ -34,31 +28,27 @@ export const BasicInfoSection = ({ basicInfo }: BasicInfoSectionProps) => {
         {role}
       </Typography>
       <Stack direction={{ xs: "column", sm: "row" }} spacing={2}>
-        <Link
-          href={`mailto:${email}`}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <IconTypography icon={AlternateEmail} text={email} variant="body1" />
+        <Link href={`mailto:${email}`} isExternal showAnchorIcon>
+          {email}
         </Link>
         {phone && (
-          <Link href={`tel:${phone}`} target="_blank" rel="noopener noreferrer">
-            <IconTypography icon={LocalPhone} text={phone} variant="body1" />
+          <Link href={`tel:${phone}`} isExternal showAnchorIcon>
+            {phone}
           </Link>
         )}
         <Link
           href={`https://www.linkedin.com/in/${linkedIn}`}
-          target="_blank"
-          rel="noopener noreferrer"
+          isExternal
+          showAnchorIcon
         >
-          <IconTypography icon={LinkedIn} text={linkedIn} variant="body1" />
+          {linkedIn}
         </Link>
         <Link
           href={`https://www.github.com/${gitHub}`}
-          target="_blank"
-          rel="noopener noreferrer"
+          isExternal
+          showAnchorIcon
         >
-          <IconTypography icon={GitHub} text={gitHub} variant="body1" />
+          {gitHub}
         </Link>
       </Stack>
     </Stack>
