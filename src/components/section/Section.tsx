@@ -5,7 +5,7 @@ const SectionPaper = styled(Paper)({
   padding: "25px",
   display: "flex",
   flexDirection: "column",
-  gap: "10px"
+  gap: "10px",
 });
 
 export type SectionProps = {

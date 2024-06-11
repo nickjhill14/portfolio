@@ -1,4 +1,9 @@
-import { styled, SvgIcon, Typography, type TypographyProps } from "@mui/material";
+import {
+  styled,
+  SvgIcon,
+  Typography,
+  type TypographyProps,
+} from "@mui/material";
 import { ElementType } from "react";
 import { MuiIcon } from "../../utils/muiTypes";
 
@@ -6,7 +11,7 @@ const StyledIconTypography = styled(Typography)({
   display: "flex",
   justifyContent: "start",
   alignItems: "center",
-  gap: "5px"
+  gap: "5px",
 });
 
 type IconTypographyProps = {
@@ -17,14 +22,14 @@ type IconTypographyProps = {
 };
 
 export const IconTypography = ({
-                                 icon,
-                                 text,
-                                 variant,
-                                 component
-                               }: IconTypographyProps) => {
+  icon,
+  text,
+  variant,
+  component,
+}: IconTypographyProps) => {
   const typographyProps: TypographyProps = {
     variant,
-    component
+    component,
   };
 
   return (

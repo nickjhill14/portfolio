@@ -19,7 +19,7 @@ export const Page = ({ children }: PropsWithChildren) => {
           height: "5px",
           background: theme.palette.primary.main,
           transformOrigin: "0%",
-          scaleX: scrollYProgress
+          scaleX: scrollYProgress,
         }}
       />
       <Grid container minHeight="100vh" alignContent="space-between">

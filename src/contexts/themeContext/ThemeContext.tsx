@@ -1,9 +1,18 @@
-import { createTheme, CssBaseline, ThemeProvider as MuiThemeProvider } from "@mui/material";
-import { createContext, PropsWithChildren, useContext, useMemo, useState } from "react";
+import {
+  createTheme,
+  CssBaseline,
+  ThemeProvider as MuiThemeProvider,
+} from "@mui/material";
+import {
+  createContext,
+  PropsWithChildren,
+  useContext,
+  useMemo,
+  useState,
+} from "react";
 
 const ColourMode = createContext({
-  toggleColourMode: () => {
-  }
+  toggleColourMode: () => {},
 });
 
 export const ThemeProvider = ({ children }: PropsWithChildren) => {
@@ -13,19 +22,19 @@ export const ThemeProvider = ({ children }: PropsWithChildren) => {
     () => ({
       toggleColourMode: () => {
         setMode((prevMode) => (prevMode === "light" ? "dark" : "light"));
-      }
+      },
     }),
-    []
+    [],
   );
 
   const theme = useMemo(
     () =>
       createTheme({
         palette: {
-          mode
-        }
+          mode,
+        },
       }),
-    [mode]
+    [mode],
   );
 
   return (

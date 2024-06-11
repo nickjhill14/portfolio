@@ -1,4 +1,7 @@
-import { Button as MuiButton, type ButtonProps as MuiButtonProps } from "@mui/material";
+import {
+  Button as MuiButton,
+  type ButtonProps as MuiButtonProps,
+} from "@mui/material";
 import { motion } from "framer-motion";
 
 type ButtonProps = { onClick: () => void; text: string } & MuiButtonProps;

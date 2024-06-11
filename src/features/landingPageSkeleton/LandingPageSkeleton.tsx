@@ -1,13 +1,7 @@
 import { Grid, Skeleton, Stack, Typography } from "@mui/material";
 
 export const LandingPageSkeleton = () => (
-  <Grid
-    container
-    spacing={2}
-    p={2}
-    mb={2}
-    data-testid="landing-page-skeleton"
-  >
+  <Grid container spacing={2} p={2} mb={2} data-testid="landing-page-skeleton">
     <Grid item xs={12}>
       <Typography variant="h2" component="h1">
         <Skeleton data-testid="name-skeleton" width={500} />

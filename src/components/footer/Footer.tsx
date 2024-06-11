@@ -3,7 +3,15 @@ import CloseIcon from "@mui/icons-material/Close";
 import DarkModeIcon from "@mui/icons-material/DarkMode";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import LightModeIcon from "@mui/icons-material/LightMode";
-import { Button, IconButton, Link, Snackbar, Stack, SvgIcon, Typography } from "@mui/material";
+import {
+  Button,
+  IconButton,
+  Link,
+  Snackbar,
+  Stack,
+  SvgIcon,
+  Typography,
+} from "@mui/material";
 import { useState } from "react";
 import { ReactComponent as BearSvg } from "../../assets/bear.svg";
 import { useColourMode } from "../../contexts/themeContext/ThemeContext";

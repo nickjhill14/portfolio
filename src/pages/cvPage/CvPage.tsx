@@ -40,7 +40,7 @@ export const CvPage = () => {
               transition={{
                 duration: 0.5,
                 delay: 0.25,
-                ease: [0, 0.71, 0.2, 1.01]
+                ease: [0, 0.71, 0.2, 1.01],
               }}
             >
               {cvSections && cvSections.length > 0 ? (

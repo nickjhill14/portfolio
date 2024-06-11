@@ -1,6 +1,13 @@
 import CalendarMonthOutlinedIcon from "@mui/icons-material/CalendarMonthOutlined";
 import LocationOnOutlinedIcon from "@mui/icons-material/LocationOnOutlined";
-import { Divider, List, ListItem, ListItemText, Stack, Typography } from "@mui/material";
+import {
+  Divider,
+  List,
+  ListItem,
+  ListItemText,
+  Stack,
+  Typography,
+} from "@mui/material";
 import { IconTypography } from "../../components/iconTypography/IconTypography";
 
 type SectionDetailsProps = {

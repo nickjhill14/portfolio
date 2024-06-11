@@ -8,7 +8,9 @@ export type SkillsSectionProps = {
   skillsInfo: SkillsInfo;
 };
 
-export const SkillsSection = ({ skillsInfo: { skills, languages } }: SkillsSectionProps) => {
+export const SkillsSection = ({
+  skillsInfo: { skills, languages },
+}: SkillsSectionProps) => {
   return (
     <Section headingText="Skills">
       {skills.length === 0 ? (
