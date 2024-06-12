@@ -1,34 +1,25 @@
 import { render, screen } from "@testing-library/react";
-import { PropsWithChildren } from "react";
-import { Section, SectionProps } from "./Section";
-
-function renderSection(
-  propsOverride?: Partial<PropsWithChildren<SectionProps>>,
-) {
-  const props: PropsWithChildren<SectionProps> = {
-    headingText: "Default Section Heading",
-    children: [],
-    ...propsOverride,
-  };
-
-  render(<Section {...props} />);
-}
+import { Section } from "./Section";
 
 describe(Section, () => {
   it("renders the section heading", () => {
     const headingText = "Section Heading";
 
-    renderSection({ headingText });
+    render(<Section headingText={headingText} />);
 
     expect(
-      screen.getByRole("heading", { name: headingText }),
+      screen.getByRole("heading", { name: headingText, level: 2 }),
     ).toBeInTheDocument();
   });
 
   it("renders a single child", () => {
     const childName = "Child Name";
 
-    renderSection({ children: <button>{childName}</button> });
+    render(
+      <Section headingText="Some Heading">
+        <button>{childName}</button>
+      </Section>,
+    );
 
     expect(screen.getByRole("button", { name: childName })).toBeInTheDocument();
   });
@@ -37,12 +28,12 @@ describe(Section, () => {
     const child1Name = "Child 1 Name";
     const child2Name = "Child 2 Name";
 
-    renderSection({
-      children: [
+    render(
+      <Section headingText="Some Heading">
         <button key={child1Name}>{child1Name}</button>,
         <button key={child2Name}>{child2Name}</button>,
-      ],
-    });
+      </Section>,
+    );
 
     expect(
       screen.getByRole("button", { name: child1Name }),

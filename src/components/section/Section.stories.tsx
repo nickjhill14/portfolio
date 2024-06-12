@@ -11,7 +11,7 @@ const meta = {
 
 type Story = StoryObj<typeof meta>;
 
-const SingleChild: Story = {
+export const SingleChild: Story = {
   args: {
     headingText: upperCaseFirstChar(faker.company.buzzNoun()),
     children: (
@@ -20,7 +20,7 @@ const SingleChild: Story = {
   },
 };
 
-const MultipleChildren: Story = {
+export const MultipleChildren: Story = {
   args: {
     headingText: upperCaseFirstChar(faker.company.buzzNoun()),
     children: [
@@ -35,4 +35,3 @@ const MultipleChildren: Story = {
 };
 
 export default meta;
-export { MultipleChildren, SingleChild };
