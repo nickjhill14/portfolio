@@ -1,6 +1,7 @@
 import CalendarMonthOutlinedIcon from "@mui/icons-material/CalendarMonthOutlined";
 import LocationOnOutlinedIcon from "@mui/icons-material/LocationOnOutlined";
-import { Divider, List, ListItem, ListItemText } from "@mui/material";
+import { List, ListItem, ListItemText } from "@mui/material";
+import { Divider } from "@nextui-org/divider";
 import { IconTypography } from "../../components/iconTypography/IconTypography";
 
 type SectionDetailsProps = {

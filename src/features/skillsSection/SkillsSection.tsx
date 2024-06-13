@@ -1,6 +1,7 @@
 import CircleIcon from "@mui/icons-material/Circle";
 import CircleOutlinedIcon from "@mui/icons-material/CircleOutlined";
-import { Alert, Chip, Divider, Rating } from "@mui/material";
+import { Alert, Chip, Rating } from "@mui/material";
+import { Divider } from "@nextui-org/divider";
 import { Section } from "../../components/section/Section";
 import { SkillsInfo } from "../../domain/cv";
 
