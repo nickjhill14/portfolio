@@ -1,11 +1,4 @@
-import {
-  Card,
-  CardActions,
-  CardContent,
-  Grid,
-  Typography,
-  styled,
-} from "@mui/material";
+import { Card, CardActions, CardContent, Grid, styled } from "@mui/material";
 import { Link } from "@nextui-org/link";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
@@ -27,9 +20,7 @@ export const ProjectsPage = () => {
       <Link onPress={() => navigate("/")} underline="hover">
         Go Home
       </Link>
-      <Typography variant="h2" component="h1">
-        Projects
-      </Typography>
+      <h2>Projects</h2>
       <Grid
         container
         spacing={2}
@@ -45,13 +36,11 @@ export const ProjectsPage = () => {
         <Grid item xs={12} sm={6} md={4}>
           <Card data-testid="portfolio">
             <ProjectInfo>
-              <Typography variant="h5" component="h2">
-                Portfolio
-              </Typography>
-              <Typography variant="body1">
+              <h3>Portfolio</h3>
+              <p>
                 A portfolio web app incl. a tool to generate other portfolio web
                 apps
-              </Typography>
+              </p>
             </ProjectInfo>
             <ProjectActions>
               <Link
@@ -67,12 +56,8 @@ export const ProjectsPage = () => {
         <Grid item xs={12} sm={6} md={4}>
           <Card data-testid="react-app-template">
             <ProjectInfo>
-              <Typography variant="h5" component="h2">
-                React App Template
-              </Typography>
-              <Typography variant="body1">
-                A template for generating React web apps
-              </Typography>
+              <h3>React App Template</h3>
+              <p>A template for generating React web apps</p>
             </ProjectInfo>
             <ProjectActions>
               <Link
@@ -88,14 +73,12 @@ export const ProjectsPage = () => {
         <Grid item xs={12} sm={6} md={4}>
           <Card data-testid="doctor-advice-fis">
             <ProjectInfo>
-              <Typography variant="h5" component="h2">
-                Doctor Advice FIS
-              </Typography>
-              <Typography variant="body1">
+              <h3>Doctor Advice FIS</h3>
+              <p>
                 A fuzzy inference system (FIS) for advising a doctor whether a
                 patient should be referred to a hospital for emergency
                 investigations
-              </Typography>
+              </p>
             </ProjectInfo>
             <ProjectActions>
               <Link
@@ -111,13 +94,11 @@ export const ProjectsPage = () => {
         <Grid item xs={12} sm={6} md={4}>
           <Card data-testid="bench-press-sense">
             <ProjectInfo>
-              <Typography variant="h5" component="h2">
-                Bench Press Sense
-              </Typography>
-              <Typography variant="body1">
+              <h3>Bench Press Sense</h3>
+              <p>
                 An analytical tool for users to improve their current
                 bench-press form
-              </Typography>
+              </p>
             </ProjectInfo>
             <ProjectActions>
               <Link
@@ -133,12 +114,10 @@ export const ProjectsPage = () => {
         <Grid item xs={12} sm={6} md={4}>
           <Card data-testid="football-formations">
             <ProjectInfo>
-              <Typography variant="h5" component="h2">
-                Football Formations
-              </Typography>
-              <Typography variant="body1">
+              <h3>Football Formations</h3>
+              <p>
                 An accessibility demo with the analogy of football formations
-              </Typography>
+              </p>
             </ProjectInfo>
             <ProjectActions>
               <Link

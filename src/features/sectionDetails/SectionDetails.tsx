@@ -1,13 +1,6 @@
 import CalendarMonthOutlinedIcon from "@mui/icons-material/CalendarMonthOutlined";
 import LocationOnOutlinedIcon from "@mui/icons-material/LocationOnOutlined";
-import {
-  Divider,
-  List,
-  ListItem,
-  ListItemText,
-  Stack,
-  Typography,
-} from "@mui/material";
+import { Divider, List, ListItem, ListItemText, Stack } from "@mui/material";
 import { IconTypography } from "../../components/iconTypography/IconTypography";
 
 type SectionDetailsProps = {
@@ -18,14 +11,16 @@ type SectionDetailsProps = {
   divider?: boolean;
 };
 
-export const SectionDetails = (props: SectionDetailsProps) => {
-  const { heading, location, dateRange, details, divider } = props;
-
+export const SectionDetails = ({
+  heading,
+  location,
+  dateRange,
+  details,
+  divider,
+}: SectionDetailsProps) => {
   return (
     <Stack>
-      <Typography variant="h6" component="h2">
-        {heading}
-      </Typography>
+      <h4>{heading}</h4>
       <Stack direction="row" spacing={2}>
         {location && (
           <IconTypography
@@ -55,10 +50,7 @@ export const SectionDetails = (props: SectionDetailsProps) => {
               sx={details.length > 1 ? { display: "list-item" } : {}}
               disablePadding
             >
-              <ListItemText
-                disableTypography
-                primary={<Typography variant="body2">{detail}</Typography>}
-              />
+              <ListItemText disableTypography primary={<p>{detail}</p>} />
             </ListItem>
           ))}
         </List>

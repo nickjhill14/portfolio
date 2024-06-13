@@ -1,4 +1,4 @@
-import { Alert, Grid, Typography } from "@mui/material";
+import { Alert, Grid } from "@mui/material";
 import { Link } from "@nextui-org/link";
 import { motion } from "framer-motion";
 import { Suspense } from "react";
@@ -22,9 +22,7 @@ export const CvPage = () => {
       <Link onPress={() => navigate("/")} underline="hover">
         Go Home
       </Link>
-      <Typography variant="h2" component="h1">
-        CV
-      </Typography>
+      <h2>CV</h2>
       <Suspense fallback={<CvPageSkeleton />}>
         <Await resolve={cvLoaderData.cv}>
           {({ cvSections, skillsInfo }: Cv) => (

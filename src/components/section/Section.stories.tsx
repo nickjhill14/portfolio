@@ -1,5 +1,4 @@
 import { faker } from "@faker-js/faker";
-import { Typography } from "@mui/material";
 import type { Meta, StoryObj } from "@storybook/react";
 import { upperCaseFirstChar } from "../../utils/helpers/helpers";
 import { Section } from "./Section";
@@ -14,9 +13,7 @@ type Story = StoryObj<typeof meta>;
 export const SingleChild: Story = {
   args: {
     headingText: upperCaseFirstChar(faker.company.buzzNoun()),
-    children: (
-      <Typography>{upperCaseFirstChar(faker.company.buzzNoun())}</Typography>
-    ),
+    children: <>{upperCaseFirstChar(faker.company.buzzNoun())}</>,
   },
 };
 
@@ -24,12 +21,8 @@ export const MultipleChildren: Story = {
   args: {
     headingText: upperCaseFirstChar(faker.company.buzzNoun()),
     children: [
-      <Typography key="child-1">
-        {upperCaseFirstChar(faker.company.buzzNoun())}
-      </Typography>,
-      <Typography key="child-2">
-        {upperCaseFirstChar(faker.company.buzzNoun())}
-      </Typography>,
+      <>{upperCaseFirstChar(faker.company.buzzNoun())}</>,
+      <>{upperCaseFirstChar(faker.company.buzzNoun())}</>,
     ],
   },
 };

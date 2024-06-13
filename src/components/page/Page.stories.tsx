@@ -1,4 +1,3 @@
-import { Typography } from "@mui/material";
 import type { Meta, StoryObj } from "@storybook/react";
 import { Page } from "./Page";
 
@@ -9,13 +8,12 @@ const meta = {
 
 type Story = StoryObj<typeof meta>;
 
-const WithNoChildren: Story = {
+export const WithNoChildren: Story = {
   args: { children: undefined },
 };
 
-const WithChildren: Story = {
-  args: { children: <Typography>Children</Typography> },
+export const WithChildren: Story = {
+  args: { children: <>Children</> },
 };
 
 export default meta;
-export { WithChildren, WithNoChildren };

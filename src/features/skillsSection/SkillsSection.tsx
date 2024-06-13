@@ -1,6 +1,6 @@
 import CircleIcon from "@mui/icons-material/Circle";
 import CircleOutlinedIcon from "@mui/icons-material/CircleOutlined";
-import { Alert, Chip, Divider, Rating, Stack, Typography } from "@mui/material";
+import { Alert, Chip, Divider, Rating, Stack } from "@mui/material";
 import { Section } from "../../components/section/Section";
 import { SkillsInfo } from "../../domain/cv";
 
@@ -29,7 +29,7 @@ export const SkillsSection = ({
         <Stack spacing={1}>
           {languages.map(({ name, level }) => (
             <Stack direction="row" key={name}>
-              <Typography component="legend">{name}</Typography>
+              <p>{name}</p>
               <Rating
                 name="read-only"
                 value={level}

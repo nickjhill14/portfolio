@@ -1,4 +1,4 @@
-import { Stack, Typography } from "@mui/material";
+import { Stack } from "@mui/material";
 import { Link } from "@nextui-org/link";
 import { motion } from "framer-motion";
 import { BasicInfo } from "../../domain/basicInfo";
@@ -21,12 +21,8 @@ export const BasicInfoSection = ({
         ease: [0, 0.71, 0.2, 1.01],
       }}
     >
-      <Typography variant="h2" component="h1">
-        {name}
-      </Typography>
-      <Typography variant="h3" component="h2">
-        {role}
-      </Typography>
+      <h2>{name}</h2>
+      <h3>{role}</h3>
       <Stack direction={{ xs: "column", sm: "row" }} spacing={2}>
         <Link href={`mailto:${email}`} isExternal showAnchorIcon>
           {email}
