@@ -1,4 +1,4 @@
-import { Grid, useTheme } from "@mui/material";
+import { useTheme } from "@mui/material";
 import { motion, useScroll } from "framer-motion";
 import { PropsWithChildren } from "react";
 import { Footer } from "../footer/Footer";
@@ -22,18 +22,10 @@ export const Page = ({ children }: PropsWithChildren) => {
           scaleX: scrollYProgress,
         }}
       />
-      <Grid container minHeight="100vh" alignContent="space-between">
-        <Grid container spacing={2} p={2}>
-          <Grid item xs={12}>
-            {children}
-          </Grid>
-        </Grid>
-        <Grid container alignContent="end">
-          <Grid item xs={12}>
-            <Footer />
-          </Grid>
-        </Grid>
-      </Grid>
+      <div>
+        {children}
+        <Footer />
+      </div>
     </>
   );
 };

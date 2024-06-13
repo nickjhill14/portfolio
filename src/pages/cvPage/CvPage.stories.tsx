@@ -113,53 +113,52 @@ const noCvOrSkillsInfo: Cv = {
   },
 };
 
-const Default: Story = {
+export const Default: Story = {
   parameters: {
     msw: {
       handlers: [
-        rest.get("/portfolioConfig/cv.json", (_, res, ctx) => {
-          return res(ctx.json(cv));
-        }),
+        rest.get("/portfolioConfig/cv.json", (_, res, ctx) =>
+          res(ctx.json(cv)),
+        ),
       ],
     },
   },
 };
 
-const NoCv: Story = {
+export const NoCv: Story = {
   parameters: {
     msw: {
       handlers: [
-        rest.get("/portfolioConfig/cv.json", (_, res, ctx) => {
-          return res(ctx.json(noCv));
-        }),
+        rest.get("/portfolioConfig/cv.json", (_, res, ctx) =>
+          res(ctx.json(noCv)),
+        ),
       ],
     },
   },
 };
 
-const CvWithNoItems: Story = {
+export const CvWithNoItems: Story = {
   parameters: {
     msw: {
       handlers: [
-        rest.get("/portfolioConfig/cv.json", (_, res, ctx) => {
-          return res(ctx.json(cvWithNoItems));
-        }),
+        rest.get("/portfolioConfig/cv.json", (_, res, ctx) =>
+          res(ctx.json(cvWithNoItems)),
+        ),
       ],
     },
   },
 };
 
-const NoCvOrSkillsInfo: Story = {
+export const NoCvOrSkillsInfo: Story = {
   parameters: {
     msw: {
       handlers: [
-        rest.get("/portfolioConfig/cv.json", (_, res, ctx) => {
-          return res(ctx.json(noCvOrSkillsInfo));
-        }),
+        rest.get("/portfolioConfig/cv.json", (_, res, ctx) =>
+          res(ctx.json(noCvOrSkillsInfo)),
+        ),
       ],
     },
   },
 };
 
 export default meta;
-export { CvWithNoItems, Default, NoCv, NoCvOrSkillsInfo };

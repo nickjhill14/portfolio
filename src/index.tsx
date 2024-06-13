@@ -4,7 +4,6 @@ import { SpeedInsights } from "@vercel/speed-insights/react";
 import { StrictMode } from "react";
 import ReactDOM from "react-dom/client";
 import { RouterProvider } from "react-router-dom";
-import { ThemeProvider } from "./contexts/themeContext/ThemeContext";
 import "./index.css";
 import { portfolioRouter } from "./routing/portfolioRouting/PortfolioRouting";
 
@@ -15,11 +14,9 @@ const root = ReactDOM.createRoot(
 root.render(
   <StrictMode>
     <NextUIProvider>
-      <ThemeProvider>
-        <main>
-          <RouterProvider router={portfolioRouter} />
-        </main>
-      </ThemeProvider>
+      <main>
+        <RouterProvider router={portfolioRouter} />
+      </main>
     </NextUIProvider>
     <Analytics />
     <SpeedInsights />

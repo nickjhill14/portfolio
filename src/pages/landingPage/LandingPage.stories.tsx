@@ -32,17 +32,16 @@ const basicInfo: BasicInfo = {
   gitHub: faker.internet.userName(),
 };
 
-const Default: Story = {
+export const Default: Story = {
   parameters: {
     msw: {
       handlers: [
-        rest.get("/portfolioConfig/basic-info.json", (_, res, ctx) => {
-          return res(ctx.json(basicInfo));
-        }),
+        rest.get("/portfolioConfig/basic-info.json", (_, res, ctx) =>
+          res(ctx.json(basicInfo)),
+        ),
       ],
     },
   },
 };
 
 export default meta;
-export { Default };

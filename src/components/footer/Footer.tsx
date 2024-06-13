@@ -17,6 +17,7 @@ export const Footer = () => {
 
   return (
     <footer className="flex w-full justify-between p-2" data-testid="footer">
+      {/* TODO: Fix */}
       <Button
         onClick={handleToggleColourMode}
         isIconOnly

@@ -1,4 +1,3 @@
-import { Stack } from "@mui/material";
 import { Suspense } from "react";
 import { Await } from "react-router-dom";
 import { useLoaderData } from "react-router-typesafe";
@@ -14,16 +13,12 @@ export const LandingPage = () => {
 
   return (
     <Page>
-      <Stack spacing={2}>
-        <Suspense fallback={<LandingPageSkeleton />}>
-          <Await resolve={basicInfoLoaderData.basicInfo}>
-            {(basicInfo: BasicInfo) => (
-              <BasicInfoSection basicInfo={basicInfo} />
-            )}
-          </Await>
-        </Suspense>
-        <LandingPageLinks />
-      </Stack>
+      <Suspense fallback={<LandingPageSkeleton />}>
+        <Await resolve={basicInfoLoaderData.basicInfo}>
+          {(basicInfo: BasicInfo) => <BasicInfoSection basicInfo={basicInfo} />}
+        </Await>
+      </Suspense>
+      <LandingPageLinks />
     </Page>
   );
 };

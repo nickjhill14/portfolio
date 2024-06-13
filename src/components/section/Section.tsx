@@ -8,13 +8,11 @@ export type SectionProps = {
 export const Section = ({
   headingText,
   children,
-}: PropsWithChildren<SectionProps>) => {
-  return (
-    <Card>
-      <CardHeader>
-        <h2>{headingText}</h2>
-      </CardHeader>
-      <CardBody>{children}</CardBody>
-    </Card>
-  );
-};
+}: PropsWithChildren<SectionProps>) => (
+  <Card>
+    <CardHeader>
+      <h2>{headingText}</h2>
+    </CardHeader>
+    <CardBody>{children}</CardBody>
+  </Card>
+);

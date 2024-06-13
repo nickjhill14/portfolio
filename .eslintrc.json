@@ -12,7 +12,8 @@
   "ignorePatterns": ["build"],
   "rules": {
     "react/react-in-jsx-scope": "off",
-    "import/no-unresolved": "error"
+    "import/no-unresolved": "error",
+    "arrow-body-style": ["error", "as-needed"]
   },
   "settings": {
     "react": {
