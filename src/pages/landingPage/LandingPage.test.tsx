@@ -7,16 +7,12 @@ import { LandingPage } from "./LandingPage";
 const navigateMock = vitest.fn();
 
 vitest.mock("react-router-typesafe");
-vitest.mock("react-router-dom", async () => {
-  const actual = await vitest.importActual<typeof import("react-router-dom")>(
+vitest.mock("react-router-dom", async () => ({
+  ...(await vitest.importActual<typeof import("react-router-dom")>(
     "react-router-dom",
-  );
-
-  return {
-    ...actual,
-    useNavigate: () => navigateMock,
-  };
-});
+  )),
+  useNavigate: () => navigateMock,
+}));
 
 describe(LandingPage, () => {
   const useLoaderDataMock = vitest.mocked(useLoaderData);

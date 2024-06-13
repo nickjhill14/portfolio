@@ -1,25 +1,13 @@
-import { VolunteerActivism } from "@mui/icons-material";
-import CloseIcon from "@mui/icons-material/Close";
 import DarkModeIcon from "@mui/icons-material/DarkMode";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import LightModeIcon from "@mui/icons-material/LightMode";
-import {
-  Button,
-  IconButton,
-  Link,
-  Snackbar,
-  Stack,
-  SvgIcon,
-  Typography,
-} from "@mui/material";
+import { Button, Link } from "@nextui-org/react";
 import { useState } from "react";
-import { ReactComponent as BearSvg } from "../../assets/bear.svg";
 import { useColourMode } from "../../contexts/themeContext/ThemeContext";
 
 export const Footer = () => {
   const { toggleColourMode } = useColourMode();
 
-  const [openAcks, setOpenAcks] = useState(false);
   const [lightMode, setLightMode] = useState(false);
 
   const handleToggleColourMode = () => {
@@ -28,57 +16,22 @@ export const Footer = () => {
   };
 
   return (
-    <Stack
-      data-testid="footer"
-      direction="row"
-      justifyContent="space-between"
-      pb={1}
-    >
-      <IconButton
+    <footer className="flex w-full justify-between p-2" data-testid="footer">
+      <Button
         onClick={handleToggleColourMode}
+        isIconOnly
         aria-label={lightMode ? "Toggle dark mode" : "Toggle light mode"}
       >
         {lightMode ? <DarkModeIcon /> : <LightModeIcon />}
-      </IconButton>
-      <IconButton
-        LinkComponent={Link}
+      </Button>
+      <Button
+        as={Link}
         aria-label="Visit repo"
         href="https://github.com/nickjhill14/portfolio"
-        target="_blank"
-        rel="noreferrer"
+        isExternal
       >
         <GitHubIcon />
-      </IconButton>
-      <IconButton
-        onClick={() => setOpenAcks(true)}
-        aria-label="View acknowledgements"
-      >
-        <VolunteerActivism />
-      </IconButton>
-      <Snackbar
-        open={openAcks}
-        action={
-          <IconButton
-            aria-label="Close acknowledgements"
-            color="inherit"
-            onClick={() => setOpenAcks(false)}
-            component={Button}
-          >
-            <CloseIcon />
-          </IconButton>
-        }
-        aria-label="Acknowledgements Snackbar"
-        message={
-          <Stack direction="row">
-            <Typography>Thank you to the best pair, Kate</Typography>
-            <SvgIcon
-              component={BearSvg}
-              overflow="visible"
-              transform="scale(0.75) translate(0 -5)"
-            />
-          </Stack>
-        }
-      />
-    </Stack>
+      </Button>
+    </footer>
   );
 };

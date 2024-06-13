@@ -34,18 +34,6 @@ describe(Footer, () => {
     ).not.toBeInTheDocument();
   });
 
-  it("renders a hidden acknowledgement when the view button is clicked", async () => {
-    render(<Footer />);
-    await userEvent.click(
-      screen.getByRole("button", { name: "View acknowledgements" }),
-    );
-
-    expect(
-      screen.getByRole("presentation", { name: "Acknowledgements Snackbar" }),
-    ).toBeInTheDocument();
-    expect(screen.getByText("Thank you to the best pair, Kate")).toBeVisible();
-  });
-
   it("does not render the hidden acknowledgment by default", async () => {
     render(<Footer />);
 
@@ -54,29 +42,15 @@ describe(Footer, () => {
     ).not.toBeInTheDocument();
   });
 
-  it("closes the hidden acknowledgement on click", async () => {
-    render(<Footer />);
-    await userEvent.click(
-      screen.getByRole("button", { name: "View acknowledgements" }),
-    );
-    await userEvent.click(
-      screen.getByRole("button", { name: "Close acknowledgements" }),
-    );
-
-    expect(
-      screen.getByText("Thank you to the best pair, Kate"),
-    ).not.toBeVisible();
-  });
-
   it("renders a link to the GH repo", async () => {
     render(<Footer />);
-    const visitRepoLink = screen.getByRole("link", { name: "Visit repo" });
+    const visitRepoLink = screen.getByRole("button", { name: "Visit repo" });
 
     expect(visitRepoLink).toHaveAttribute(
       "href",
       "https://github.com/nickjhill14/portfolio",
     );
     expect(visitRepoLink).toHaveAttribute("target", "_blank");
-    expect(visitRepoLink).toHaveAttribute("rel", "noreferrer");
+    expect(visitRepoLink).toHaveAttribute("rel", "noopener noreferrer");
   });
 });
