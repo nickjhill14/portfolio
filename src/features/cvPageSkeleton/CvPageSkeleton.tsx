@@ -1,31 +1,27 @@
-import { Skeleton } from "@mui/material";
+import { Skeleton } from "@nextui-org/skeleton";
 
 export const CvPageSkeleton = () => (
-  <div data-testid="cv-page-skeleton">
+  <div
+    className="grid grid-rows-2 grid-cols-2 gap-4"
+    data-testid="cv-page-skeleton"
+  >
+    <Skeleton className="rounded-lg" data-testid="cv-section-1-skeleton">
+      <div className="h-96" />
+    </Skeleton>
+    <Skeleton className="rounded-lg" data-testid="cv-section-2-skeleton">
+      <div className="h-96" />
+    </Skeleton>
+    <Skeleton className="rounded-lg" data-testid="cv-section-3-skeleton">
+      <div className="h-96" />
+    </Skeleton>
+    <Skeleton className="rounded-lg" data-testid="cv-section-4-skeleton">
+      <div className="h-96" />
+    </Skeleton>
     <Skeleton
-      height={250}
-      variant="rectangular"
-      data-testid="cv-section-1-skeleton"
-    />
-    <Skeleton
-      height={250}
-      variant="rectangular"
-      data-testid="cv-section-2-skeleton"
-    />
-    <Skeleton
-      height={250}
-      variant="rectangular"
-      data-testid="cv-section-3-skeleton"
-    />
-    <Skeleton
-      height={250}
-      variant="rectangular"
-      data-testid="cv-section-4-skeleton"
-    />
-    <Skeleton
-      height={250}
-      variant="rectangular"
-      data-testid="skills-section-skeleton"
-    />
+      className="rounded-lg col-span-full"
+      data-testid="cv-skills-section-skeleton"
+    >
+      <div className="h-80" />
+    </Skeleton>
   </div>
 );

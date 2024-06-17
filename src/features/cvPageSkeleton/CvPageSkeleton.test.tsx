@@ -9,6 +9,8 @@ describe(CvPageSkeleton, () => {
     expect(screen.getByTestId("cv-section-2-skeleton")).toBeInTheDocument();
     expect(screen.getByTestId("cv-section-3-skeleton")).toBeInTheDocument();
     expect(screen.getByTestId("cv-section-4-skeleton")).toBeInTheDocument();
-    expect(screen.getByTestId("skills-section-skeleton")).toBeInTheDocument();
+    expect(
+      screen.getByTestId("cv-skills-section-skeleton"),
+    ).toBeInTheDocument();
   });
 });
