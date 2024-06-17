@@ -1,17 +1,26 @@
-import { Skeleton } from "@mui/material";
+import { Skeleton } from "@nextui-org/skeleton";
 
 export const LandingPageSkeleton = () => (
-  <div data-testid="landing-page-skeleton">
-    <h2>
-      <Skeleton data-testid="name-skeleton" width={500} />
-    </h2>
-    <h3>
-      <Skeleton data-testid="role-skeleton" width={750} />
-    </h3>
-    <div>
-      <Skeleton width={125} data-testid="email-skeleton" />
-      <Skeleton width={125} data-testid="git-hub-skeleton" />
-      <Skeleton width={125} data-testid="linked-in-skeleton" />
+  <div
+    className="grid grid-cols-3 gap-4 w-1/2"
+    data-testid="landing-page-skeleton"
+  >
+    <Skeleton className="rounded-lg col-span-full" data-testid="name-skeleton">
+      <div className="h-16" />
+    </Skeleton>
+    <Skeleton className="rounded-lg col-span-2" data-testid="role-skeleton">
+      <div className="h-12" />
+    </Skeleton>
+    <div className="grid grid-cols-subgrid col-span-3 gap-4">
+      <Skeleton className="rounded-lg" data-testid="email-skeleton">
+        <div className="h-8" />
+      </Skeleton>
+      <Skeleton className="rounded-lg" data-testid="github-skeleton">
+        <div className="h-8" />
+      </Skeleton>
+      <Skeleton className="rounded-lg" data-testid="linkedin-skeleton">
+        <div className="h-8" />
+      </Skeleton>
     </div>
   </div>
 );
