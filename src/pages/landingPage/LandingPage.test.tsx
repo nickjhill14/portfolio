@@ -4,14 +4,12 @@ import { renderWithMemoryRouter } from "../../utils/Renderers";
 import { buildBasicInfo } from "../../utils/builders";
 import { LandingPage } from "./LandingPage";
 
-const navigateMock = vitest.fn();
-
 vitest.mock("react-router-typesafe");
 vitest.mock("react-router-dom", async () => ({
   ...(await vitest.importActual<typeof import("react-router-dom")>(
     "react-router-dom",
   )),
-  useNavigate: () => navigateMock,
+  useNavigate: () => vitest.fn(),
 }));
 
 describe(LandingPage, () => {

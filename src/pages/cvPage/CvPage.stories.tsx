@@ -75,6 +75,21 @@ const cv: Cv = {
         },
       ],
     },
+    {
+      title: "Projects",
+      items: [
+        {
+          name: "React App Template",
+          location: "Personal",
+          dateRange: "Sep. 23 - Present",
+        },
+        {
+          name: "Portfolio Generator",
+          location: "Personal",
+          dateRange: "Aug. 23 - Present",
+        },
+      ],
+    },
   ],
   skillsInfo: {
     skills: [

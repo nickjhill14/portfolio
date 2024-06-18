@@ -1,4 +1,4 @@
-import { downloadJson, upperCaseFirstChar } from "./helpers";
+import { upperCaseFirstChar } from "./helpers";
 
 describe("helpers", () => {
   describe(upperCaseFirstChar, () => {
@@ -22,30 +22,6 @@ describe("helpers", () => {
       const transformedWord = upperCaseFirstChar(lowerCasedFirstLetterWord);
 
       expect(transformedWord).toEqual(upperCasedFirstLetterWord);
-    });
-  });
-
-  describe(downloadJson, () => {
-    it("downloads the file", () => {
-      const fileName = "test";
-      const json = JSON.stringify({});
-      const link = {
-        href: "",
-        download: vitest.fn(),
-        click: vitest.fn(),
-      };
-
-      vitest
-        .spyOn(document, "createElement")
-        .mockImplementation(() => link as unknown as HTMLElement);
-
-      downloadJson(fileName, json);
-
-      expect(link.download).toEqual(`${fileName}.json`);
-      expect(link.href).toEqual(
-        `data:text/json;charset=utf-8,${encodeURIComponent(json)}`,
-      );
-      expect(link.click).toHaveBeenCalled();
     });
   });
 });

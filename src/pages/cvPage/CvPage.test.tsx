@@ -1,5 +1,6 @@
 import { screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
+import { useNavigate } from "react-router-dom";
 import { useLoaderData } from "react-router-typesafe";
 import { CvSection } from "../../domain/cv";
 import { PortfolioRoutePaths } from "../../routing/portfolioRouting/PortfolioRouting";
@@ -11,27 +12,22 @@ import {
 } from "../../utils/builders";
 import { CvPage } from "./CvPage";
 
-const navigateMock = vitest.fn();
-
 vitest.mock("react-router-typesafe");
-vitest.mock("react-router-dom", async () => {
-  const actual = await vitest.importActual<typeof import("react-router-dom")>(
+vitest.mock("react-router-dom", async () => ({
+  ...(await vitest.importActual<typeof import("react-router-dom")>(
     "react-router-dom",
-  );
-
-  return {
-    ...actual,
-    useNavigate: () => navigateMock,
-  };
-});
+  )),
+  useNavigate: vitest.fn(),
+}));
 
 describe(CvPage, () => {
-  const useLoaderDataMock = vitest.mocked(useLoaderData);
+  const mockUseLoaderData = vitest.mocked(useLoaderData);
+  const mockUseNavigate = vitest.mocked(useNavigate);
 
   it("renders a loading skeleton when loading CV data", async () => {
     const cvSection = buildCvSection();
 
-    useLoaderDataMock.mockReturnValue({
+    mockUseLoaderData.mockReturnValue({
       cv: Promise.resolve(buildCv({ cvSections: [cvSection] })),
     });
 
@@ -56,7 +52,7 @@ describe(CvPage, () => {
     });
     const cvSections: CvSection[] = [experienceSection, educationSection];
 
-    useLoaderDataMock.mockReturnValue({
+    mockUseLoaderData.mockReturnValue({
       cv: Promise.resolve(buildCv({ cvSections })),
     });
 
@@ -76,7 +72,7 @@ describe(CvPage, () => {
   });
 
   it("renders a message when no CV is provided", async () => {
-    useLoaderDataMock.mockReturnValue({
+    mockUseLoaderData.mockReturnValue({
       cv: Promise.resolve(buildCv({ cvSections: undefined })),
     });
 
@@ -91,7 +87,7 @@ describe(CvPage, () => {
   it("renders a message when a CV section is provided with no items", async () => {
     const cvSections: CvSection[] = [buildCvSection({ items: undefined })];
 
-    useLoaderDataMock.mockReturnValue({
+    mockUseLoaderData.mockReturnValue({
       cv: Promise.resolve(buildCv({ cvSections })),
     });
 
@@ -104,13 +100,16 @@ describe(CvPage, () => {
   });
 
   it("navigates to the landing page when clicking the home link", async () => {
-    useLoaderDataMock.mockReturnValue({
+    const mockNavigate = vitest.fn();
+
+    mockUseNavigate.mockReturnValue(mockNavigate);
+    mockUseLoaderData.mockReturnValue({
       cv: Promise.resolve(buildCv()),
     });
 
     renderWithMemoryRouter(<CvPage />);
     await userEvent.click(screen.getByRole("link", { name: "Go Home" }));
 
-    expect(navigateMock).toHaveBeenCalledWith(PortfolioRoutePaths.BASE);
+    expect(mockNavigate).toHaveBeenCalledWith(PortfolioRoutePaths.BASE);
   });
 });
