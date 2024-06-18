@@ -11,7 +11,7 @@ const meta = {
 
 type Story = StoryObj<typeof meta>;
 
-const Default: Story = {
+export const Default: Story = {
   args: {
     heading: upperCaseFirstChar(faker.company.buzzNoun()),
     location: faker.location.city(),
@@ -19,21 +19,21 @@ const Default: Story = {
   },
 };
 
-const WithSingleDetail: Story = {
+export const WithSingleDetail: Story = {
   args: {
     ...Default.args,
     details: [faker.lorem.sentence(5)],
   },
 };
 
-const WithMultipleDetails: Story = {
+export const WithMultipleDetails: Story = {
   args: {
     ...Default.args,
     details: [faker.lorem.sentence(5), faker.lorem.sentence(5)],
   },
 };
 
-const WithDivider: Story = {
+export const WithDivider: Story = {
   args: {
     ...Default.args,
     divider: true,
@@ -41,4 +41,3 @@ const WithDivider: Story = {
 };
 
 export default meta;
-export { Default, WithDivider, WithMultipleDetails, WithSingleDetail };

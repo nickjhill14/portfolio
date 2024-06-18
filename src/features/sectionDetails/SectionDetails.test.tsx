@@ -45,29 +45,32 @@ describe(SectionDetails, () => {
   });
 
   it("renders the section details with detail list", () => {
-    const details: string[] = ["Detail 1", "Detail 2"];
+    const details = ["Detail 1", "Detail 2"];
 
     render(
       <SectionDetails heading="Section Details Heading" details={details} />,
     );
 
     expect(screen.getByRole("list")).toBeInTheDocument();
-    expect(screen.getAllByRole("listitem")).toHaveLength(details.length);
-    expect(screen.getAllByRole("listitem")[0]).toHaveStyle(
-      "display: list-item",
-    );
-    expect(screen.getByText(details[0])).toBeInTheDocument();
-    expect(screen.getByText(details[1])).toBeInTheDocument();
+    details.forEach((detail) => {
+      const listItem = screen
+        .getAllByRole("listitem")
+        .find((item) => item.textContent === detail);
+
+      expect(listItem).toBeInTheDocument();
+      expect(listItem).toHaveClass("list-disc");
+    });
   });
 
   it("does not render bullet point when there is 1 detail", () => {
-    const details: string[] = ["Detail 1"];
-
     render(
-      <SectionDetails heading="Section Details Heading" details={details} />,
+      <SectionDetails
+        heading="Section Details Heading"
+        details={["Detail 1"]}
+      />,
     );
 
-    expect(screen.getByRole("listitem")).not.toHaveStyle("display: list-item");
+    expect(screen.getByRole("listitem")).not.toHaveClass("list-disc");
   });
 
   it("does not render a divider by default", () => {

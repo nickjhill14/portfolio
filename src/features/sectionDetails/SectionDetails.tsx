@@ -1,6 +1,5 @@
 import CalendarMonthOutlinedIcon from "@mui/icons-material/CalendarMonthOutlined";
 import LocationOnOutlinedIcon from "@mui/icons-material/LocationOnOutlined";
-import { List, ListItem, ListItemText } from "@mui/material";
 import { Divider } from "@nextui-org/divider";
 import { IconTypography } from "../../components/iconTypography/IconTypography";
 
@@ -40,20 +39,13 @@ export const SectionDetails = ({
       )}
     </div>
     {details && details.length > 0 && (
-      <List
-        sx={details.length > 1 ? { listStyleType: "disc", pl: 2 } : {}}
-        disablePadding
-      >
+      <ul className="pl-4">
         {details.map((detail) => (
-          <ListItem
-            key={detail}
-            sx={details.length > 1 ? { display: "list-item" } : {}}
-            disablePadding
-          >
-            <ListItemText disableTypography primary={<p>{detail}</p>} />
-          </ListItem>
+          <li key={detail} className={details.length > 1 ? "list-disc" : ""}>
+            {detail}
+          </li>
         ))}
-      </List>
+      </ul>
     )}
     {divider && <Divider data-testid="divider" />}
   </div>
