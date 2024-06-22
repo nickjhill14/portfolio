@@ -18,4 +18,12 @@ describe(Page, () => {
       screen.getByRole("button", { name: buttonText }),
     ).toBeInTheDocument();
   });
+
+  it("renders the page with the provided classes", () => {
+    const className = "flex flex-col";
+
+    render(<Page className={className} />);
+
+    expect(screen.getByTestId("page")).toHaveClass(className);
+  });
 });

@@ -5,7 +5,7 @@ export const LandingPageLinks = () => {
   const navigate = useNavigate();
 
   return (
-    <div data-testid="landing-page-links">
+    <div className="flex gap-8" data-testid="landing-page-links">
       <Link onPress={() => navigate("/cv")} underline="hover">
         View CV
       </Link>

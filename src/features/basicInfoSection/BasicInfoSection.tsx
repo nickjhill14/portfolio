@@ -8,10 +8,10 @@ type BasicInfoSectionProps = {
 export const BasicInfoSection = ({
   basicInfo: { name, role, email, phone, linkedIn, gitHub },
 }: BasicInfoSectionProps) => (
-  <div>
-    <h2>{name}</h2>
-    <h3>{role}</h3>
-    <div>
+  <div className="flex flex-col gap-2">
+    <h1 className="text-4xl">{name}</h1>
+    <h2 className="text-2l font-bold">{role}</h2>
+    <div className="flex gap-8">
       <Link href={`mailto:${email}`} isExternal showAnchorIcon>
         {email}
       </Link>
