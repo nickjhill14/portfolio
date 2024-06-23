@@ -1,5 +1,6 @@
+import { Home } from "@mui/icons-material";
 import { Alert } from "@mui/material";
-import { Link } from "@nextui-org/link";
+import { Button } from "@nextui-org/react";
 import { Suspense } from "react";
 import { Await, useNavigate } from "react-router-dom";
 import { useLoaderData } from "react-router-typesafe";
@@ -18,10 +19,15 @@ export const CvPage = () => {
 
   return (
     <Page>
-      <Link onPress={() => navigate("/")} underline="hover">
+      <Button
+        startContent={<Home />}
+        onPress={() => navigate("/")}
+        color="primary"
+        className="self-start"
+      >
         Go Home
-      </Link>
-      <h2>CV</h2>
+      </Button>
+      <h1 className="text-4xl">CV</h1>
       <Suspense fallback={<CvPageSkeleton />}>
         <Await resolve={cvLoaderData.cv}>
           {({ cvSections, skillsInfo }: Cv) => (

@@ -1,6 +1,7 @@
+import { Home } from "@mui/icons-material";
 import { Card, CardActions, CardContent, Grid, styled } from "@mui/material";
 import { Link } from "@nextui-org/link";
-import { motion } from "framer-motion";
+import { Button } from "@nextui-org/react";
 import { useNavigate } from "react-router-dom";
 import { Page } from "../../components/page/Page";
 
@@ -17,22 +18,16 @@ export const ProjectsPage = () => {
 
   return (
     <Page>
-      <Link onPress={() => navigate("/")} underline="hover">
-        Go Home
-      </Link>
-      <h2>Projects</h2>
-      <Grid
-        container
-        spacing={2}
-        component={motion.div}
-        initial={{ opacity: 0, scale: 0.5 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{
-          duration: 0.5,
-          delay: 0.25,
-          ease: [0, 0.71, 0.2, 1.01],
-        }}
+      <Button
+        startContent={<Home />}
+        onPress={() => navigate("/")}
+        color="primary"
+        className="self-start"
       >
+        Go Home
+      </Button>
+      <h1 className="text-4xl">Projects</h1>
+      <Grid container spacing={2}>
         <Grid item xs={12} sm={6} md={4}>
           <Card data-testid="portfolio">
             <ProjectInfo>

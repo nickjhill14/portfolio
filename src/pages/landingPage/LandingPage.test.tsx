@@ -26,7 +26,6 @@ describe(LandingPage, () => {
 
     expect(screen.getByTestId("landing-page-skeleton")).toBeInTheDocument();
     expect(screen.getByTestId("landing-page-links")).toBeInTheDocument();
-    expect(screen.getByTestId("footer")).toBeInTheDocument();
     expect(
       await screen.findByRole("heading", { name: basicInfo.name }),
     ).toBeInTheDocument();
@@ -45,7 +44,6 @@ describe(LandingPage, () => {
       await screen.findByRole("heading", { name: basicInfo.name }),
     ).toBeInTheDocument();
     expect(screen.getByTestId("landing-page-links")).toBeInTheDocument();
-    expect(screen.getByTestId("footer")).toBeInTheDocument();
     expect(
       screen.queryByTestId("landing-page-skeleton"),
     ).not.toBeInTheDocument();

@@ -124,13 +124,13 @@ describe(ProjectsPage, () => {
     expect(visitRepoLink).toHaveAttribute("rel", "noreferrer");
   });
 
-  it("navigates to the landing page when clicking the home link", async () => {
+  it("navigates to the landing page when clicking the home btn", async () => {
     const navigateMock = vitest.fn();
 
     vitest.mocked(useNavigate).mockReturnValue(navigateMock);
 
     render(<ProjectsPage />);
-    await userEvent.click(screen.getByRole("link", { name: "Go Home" }));
+    await userEvent.click(screen.getByRole("button", { name: "Go Home" }));
 
     expect(navigateMock).toHaveBeenCalledWith(PortfolioRoutePaths.BASE);
   });

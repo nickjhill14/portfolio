@@ -99,7 +99,7 @@ describe(CvPage, () => {
     ).not.toBeInTheDocument();
   });
 
-  it("navigates to the landing page when clicking the home link", async () => {
+  it("navigates to the landing page when clicking the home btn", async () => {
     const mockNavigate = vitest.fn();
 
     mockUseNavigate.mockReturnValue(mockNavigate);
@@ -108,7 +108,7 @@ describe(CvPage, () => {
     });
 
     renderWithMemoryRouter(<CvPage />);
-    await userEvent.click(screen.getByRole("link", { name: "Go Home" }));
+    await userEvent.click(screen.getByRole("button", { name: "Go Home" }));
 
     expect(mockNavigate).toHaveBeenCalledWith(PortfolioRoutePaths.BASE);
   });

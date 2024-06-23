@@ -12,7 +12,7 @@ export const LandingPage = () => {
   const basicInfoLoaderData = useLoaderData<typeof getBasicInfoLoader>();
 
   return (
-    <Page className="flex flex-col gap-2">
+    <Page>
       <Suspense fallback={<LandingPageSkeleton />}>
         <Await resolve={basicInfoLoaderData.basicInfo}>
           {(basicInfo: BasicInfo) => <BasicInfoSection basicInfo={basicInfo} />}
