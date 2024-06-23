@@ -8,6 +8,7 @@ export const Footer = () => (
       aria-label="Visit repo"
       href="https://github.com/nickjhill14/portfolio"
       isExternal
+      color="primary"
     >
       <GitHubIcon />
     </Button>

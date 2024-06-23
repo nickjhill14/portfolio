@@ -1,7 +1,6 @@
 import { NextUIProvider } from "@nextui-org/react";
 import type { Preview, StoryFn } from "@storybook/react";
 import { initialize, mswLoader } from "storybook-msw-addon";
-import { ThemeProvider } from "../src/contexts/themeContext/ThemeContext";
 import "./../src/index.css";
 
 const preview: Preview = {
@@ -22,12 +21,6 @@ const preview: Preview = {
   },
 };
 
-const withTheme = (StoryFn: StoryFn) => (
-  <ThemeProvider>
-    <StoryFn />
-  </ThemeProvider>
-);
-
 const withNextUi = (StoryFn: StoryFn) => (
   <NextUIProvider>
     <StoryFn />
@@ -38,6 +31,6 @@ initialize().then(() => console.log("MSW running"));
 
 export const loaders = [mswLoader];
 
-export const decorators = [withTheme, withNextUi];
+export const decorators = [withNextUi];
 
 export default preview;

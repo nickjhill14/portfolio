@@ -1,4 +1,6 @@
-import { Link } from "@nextui-org/link";
+import CodeIcon from "@mui/icons-material/Code";
+import DescriptionIcon from "@mui/icons-material/Description";
+import { Button } from "@nextui-org/react";
 import { useNavigate } from "react-router-dom";
 
 export const LandingPageLinks = () => {
@@ -6,12 +8,20 @@ export const LandingPageLinks = () => {
 
   return (
     <div className="flex gap-8" data-testid="landing-page-links">
-      <Link onPress={() => navigate("/cv")} underline="hover">
+      <Button
+        onClick={() => navigate("/cv")}
+        startContent={<DescriptionIcon />}
+        color="primary"
+      >
         View CV
-      </Link>
-      <Link onPress={() => navigate("/projects")} underline="hover">
+      </Button>
+      <Button
+        color="primary"
+        onPress={() => navigate("/projects")}
+        startContent={<CodeIcon />}
+      >
         View Projects
-      </Link>
+      </Button>
     </div>
   );
 };
