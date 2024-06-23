@@ -16,7 +16,7 @@ export const SkillsSection = ({
     {skills.length === 0 ? (
       <Alert severity="warning">No skills provided</Alert>
     ) : (
-      <div>
+      <div className="flex gap-2 flex-wrap">
         {skills.map(({ name }) => (
           <Chip label={name} variant="outlined" key={name} />
         ))}

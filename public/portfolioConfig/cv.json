@@ -27,43 +27,6 @@
       ]
     },
     {
-      "title": "Education",
-      "items": [
-        {
-          "name": "Masters In Computer Science",
-          "location": "University Of Nottingham",
-          "dateRange": "Sep. 13 - Jul. 17"
-        },
-        {
-          "name": "3 A Levels",
-          "location": "Beaumont School",
-          "dateRange": "Sep. 11 - Aug. 13"
-        },
-        {
-          "name": "12 GCSEs",
-          "location": "Beaumont School",
-          "dateRange": "Sep. 09 - Aug. 11"
-        }
-      ]
-    },
-    {
-      "title": "Achievements",
-      "items": [
-        {
-          "name": "AWS Certified Cloud Practitioner",
-          "details": ["Understanding of AWS concepts and services"]
-        },
-        {
-          "name": "7Digital/Esendex For Software Quality",
-          "details": ["For the Autonomous Robot Image Tagging System project"]
-        },
-        {
-          "name": "C++ Hall Of Fame, University Of Nottingham",
-          "details": ["For a high attaining C++ game project"]
-        }
-      ]
-    },
-    {
       "title": "Projects",
       "items": [
         {
@@ -101,53 +64,174 @@
           ]
         }
       ]
+    },
+    {
+      "title": "Education",
+      "items": [
+        {
+          "name": "Masters In Computer Science",
+          "location": "University Of Nottingham",
+          "dateRange": "Sep. 13 - Jul. 17"
+        },
+        {
+          "name": "3 A Levels",
+          "location": "Beaumont School",
+          "dateRange": "Sep. 11 - Aug. 13"
+        },
+        {
+          "name": "12 GCSEs",
+          "location": "Beaumont School",
+          "dateRange": "Sep. 09 - Aug. 11"
+        }
+      ]
+    },
+    {
+      "title": "Achievements",
+      "items": [
+        {
+          "name": "AWS Certified Cloud Practitioner",
+          "details": ["Understanding of AWS concepts and services"]
+        },
+        {
+          "name": "7Digital/Esendex For Software Quality",
+          "details": ["For the Autonomous Robot Image Tagging System project"]
+        },
+        {
+          "name": "C++ Hall Of Fame, University Of Nottingham",
+          "details": ["For a high attaining C++ game project"]
+        }
+      ]
     }
   ],
   "skillsInfo": {
     "skills": [
-      { "name": "JavaScript" },
-      { "name": "TypeScript" },
-      { "name": "Java" },
-      { "name": "Python" },
-      { "name": "HTML" },
-      { "name": "CSS" },
-      { "name": "React" },
-      { "name": "Redux" },
-      { "name": "Node.js" },
-      { "name": "Spring" },
-      { "name": "SQL" },
-      { "name": "PostgreSQL" },
-      { "name": "JUnit" },
-      { "name": "Jest" },
-      { "name": "Cypress" },
-      { "name": "Playwright" },
-      { "name": "Terraform" },
-      { "name": "AWS" },
-      { "name": "Docker" },
-      { "name": "OpenShift" },
-      { "name": "Agile" },
-      { "name": "Kanban" },
-      { "name": "Clean Code" },
-      { "name": "TDD" },
-      { "name": "CI/CD" },
-      { "name": "REST" },
-      { "name": "Microservices" },
-      { "name": "Microfrontends" },
-      { "name": "BFF" },
-      { "name": "Git" },
-      { "name": "GitHub" },
-      { "name": "Bitbucket" },
-      { "name": "GoCD" },
-      { "name": "GitHub Actions" },
-      { "name": "Jenkins" },
-      { "name": "Jira" },
-      { "name": "Kibana" },
-      { "name": "Snowflake" },
-      { "name": "Mermaid.js" }
+      {
+        "name": "JavaScript"
+      },
+      {
+        "name": "TypeScript"
+      },
+      {
+        "name": "Java"
+      },
+      {
+        "name": "Python"
+      },
+      {
+        "name": "HTML"
+      },
+      {
+        "name": "CSS"
+      },
+      {
+        "name": "React"
+      },
+      {
+        "name": "Redux"
+      },
+      {
+        "name": "Node.js"
+      },
+      {
+        "name": "Spring"
+      },
+      {
+        "name": "SQL"
+      },
+      {
+        "name": "PostgreSQL"
+      },
+      {
+        "name": "JUnit"
+      },
+      {
+        "name": "Jest"
+      },
+      {
+        "name": "Cypress"
+      },
+      {
+        "name": "Playwright"
+      },
+      {
+        "name": "Terraform"
+      },
+      {
+        "name": "AWS"
+      },
+      {
+        "name": "Docker"
+      },
+      {
+        "name": "OpenShift"
+      },
+      {
+        "name": "Agile"
+      },
+      {
+        "name": "Kanban"
+      },
+      {
+        "name": "Clean Code"
+      },
+      {
+        "name": "TDD"
+      },
+      {
+        "name": "CI/CD"
+      },
+      {
+        "name": "REST"
+      },
+      {
+        "name": "Microservices"
+      },
+      {
+        "name": "Microfrontends"
+      },
+      {
+        "name": "BFF"
+      },
+      {
+        "name": "Git"
+      },
+      {
+        "name": "GitHub"
+      },
+      {
+        "name": "Bitbucket"
+      },
+      {
+        "name": "GoCD"
+      },
+      {
+        "name": "GitHub Actions"
+      },
+      {
+        "name": "Jenkins"
+      },
+      {
+        "name": "Jira"
+      },
+      {
+        "name": "Kibana"
+      },
+      {
+        "name": "Snowflake"
+      },
+      {
+        "name": "Mermaid.js"
+      }
     ],
     "languages": [
-      { "name": "English", "level": 5 },
-      { "name": "Mandarin Chinese", "level": 2 }
+      {
+        "name": "English",
+        "level": 5
+      },
+      {
+        "name": "Mandarin Chinese",
+        "level": 2
+      }
     ]
   }
 }

@@ -18,28 +18,30 @@ export const SectionDetails = ({
   details,
   divider,
 }: SectionDetailsProps) => (
-  <div>
-    <h4>{heading}</h4>
+  <div className="flex flex-col gap-2">
     <div>
-      {location && (
-        <IconTypography
-          icon={LocationOnOutlinedIcon}
-          text={location}
-          variant="caption"
-          data-testid="location"
-        />
-      )}
-      {dateRange && (
-        <IconTypography
-          icon={CalendarMonthOutlinedIcon}
-          text={dateRange}
-          variant="caption"
-          data-testid="date-range"
-        />
-      )}
+      <h3 className="text-l">{heading}</h3>
+      <div className="flex gap-4">
+        {location && (
+          <IconTypography
+            icon={LocationOnOutlinedIcon}
+            text={location}
+            variant="caption"
+            data-testid="location"
+          />
+        )}
+        {dateRange && (
+          <IconTypography
+            icon={CalendarMonthOutlinedIcon}
+            text={dateRange}
+            variant="caption"
+            data-testid="date-range"
+          />
+        )}
+      </div>
     </div>
     {details && details.length > 0 && (
-      <ul className="pl-4">
+      <ul className={`flex flex-col gap-2 ${details.length > 1 && "pl-4"}`}>
         {details.map((detail) => (
           <li key={detail} className={details.length > 1 ? "list-disc" : ""}>
             {detail}

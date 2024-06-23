@@ -31,7 +31,7 @@ export const CvPage = () => {
       <Suspense fallback={<CvPageSkeleton />}>
         <Await resolve={cvLoaderData.cv}>
           {({ cvSections, skillsInfo }: Cv) => (
-            <div className="grid grid-rows-2 grid-cols-2 gap-4">
+            <div className="grid grid-flow-row grid-cols-2 gap-4">
               {cvSections && cvSections.length > 0 ? (
                 cvSections.map(({ title, items }) => (
                   <Section key={title} headingText={title}>
