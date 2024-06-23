@@ -15,7 +15,7 @@ test.describe("Projects Page", () => {
   });
 
   test("navigating to the landing page", async ({ page }) => {
-    await page.getByRole("link", { name: "Go Home" }).click();
+    await page.getByRole("button", { name: "Go Home" }).click();
 
     await expect(page).toHaveURL("/");
   });

@@ -8,14 +8,14 @@ test.describe("CV Page", () => {
 
   // TODO: Fix this
   test.skip("there are no accessibility violations", async ({ page }) => {
-    await expect(page.getByRole("link", { name: "Go Home" })).toBeVisible();
+    await expect(page.getByRole("button", { name: "Go Home" })).toBeVisible();
     const { violations } = await new AxeBuilder({ page }).analyze();
 
     expect(violations).toEqual([]);
   });
 
   test("navigating to the landing page", async ({ page }) => {
-    await page.getByRole("link", { name: "Go Home" }).click();
+    await page.getByRole("button", { name: "Go Home" }).click();
 
     await expect(page).toHaveURL("/");
   });

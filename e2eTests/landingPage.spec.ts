@@ -17,13 +17,13 @@ test.describe("Landing Page", () => {
   });
 
   test("navigating to the CV page", async ({ page }) => {
-    await page.getByRole("link", { name: "View CV" }).click();
+    await page.getByRole("button", { name: "View CV" }).click();
 
     await expect(page).toHaveURL("/cv");
   });
 
   test("navigating to the projects page", async ({ page }) => {
-    await page.getByRole("link", { name: "View Projects" }).click();
+    await page.getByRole("button", { name: "View Projects" }).click();
 
     await expect(page).toHaveURL("/projects");
   });
