@@ -9,7 +9,7 @@ type CvSectionProps = {
 
 // TODO: Add tests and stories
 export const CvSection = ({ cv }: CvSectionProps) => (
-  <div className="grid grid-flow-row md:grid-cols-2 gap-4">
+  <div className="grid grid-flow-row grid-cols-1 md:grid-cols-2 gap-4">
     {cv.cvSections.map(({ title, items }) => (
       <Section key={title} headingText={title}>
         {items.map((item, index) => (
