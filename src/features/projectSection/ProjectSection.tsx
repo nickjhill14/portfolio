@@ -45,8 +45,14 @@ export const ProjectsSection = ({
             <Button aria-label="View image" color="primary" onPress={onOpen}>
               <VisibilityIcon />
             </Button>
-            <Modal isOpen={isOpen} onOpenChange={onOpenChange}>
-              <ModalContent className="flex items-center p-4">
+            <Modal
+              isOpen={isOpen}
+              onOpenChange={onOpenChange}
+              classNames={{
+                closeButton: "bg-primary text-white hover:bg-primary-600",
+              }}
+            >
+              <ModalContent className="flex items-center p-4 bg-primary">
                 {<Image />}
               </ModalContent>
             </Modal>
