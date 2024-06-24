@@ -15,7 +15,7 @@ const root = ReactDOM.createRoot(
 root.render(
   <StrictMode>
     <NextUIProvider>
-      <main className="h-screen flex flex-col justify-between pt-16 px-16 pb-4">
+      <main className="h-screen flex flex-col justify-between pt-8 px-8 md:pt-16 md:px-16 pb-4">
         <RouterProvider router={portfolioRouter} />
         <Footer />
       </main>

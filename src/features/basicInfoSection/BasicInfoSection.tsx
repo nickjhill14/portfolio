@@ -11,7 +11,7 @@ export const BasicInfoSection = ({
   <div className="flex flex-col gap-4">
     <h1 className="text-4xl">{name}</h1>
     <h2 className="text-2l text-secondary font-bold">{role}</h2>
-    <div className="flex gap-4">
+    <div className="flex flex-col gap-4 md:flex-row">
       <Link
         href={`mailto:${email}`}
         isExternal

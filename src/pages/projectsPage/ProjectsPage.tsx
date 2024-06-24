@@ -20,7 +20,7 @@ export const ProjectsPage = () => {
         Go Home
       </Button>
       <h1 className="text-4xl">Projects</h1>
-      <div className="grid grid-flow-row grid-cols-2 gap-4">
+      <div className="grid grid-flow-row md:grid-cols-2 gap-4">
         <Card>
           <CardHeader>
             <h2 className="text-2l text-secondary font-bold">Portfolio</h2>

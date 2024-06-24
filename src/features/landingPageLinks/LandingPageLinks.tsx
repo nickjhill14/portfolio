@@ -7,7 +7,7 @@ export const LandingPageLinks = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="flex gap-8" data-testid="landing-page-links">
+    <div className="flex gap-4 flex-wrap" data-testid="landing-page-links">
       <Button
         onClick={() => navigate("/cv")}
         startContent={<DescriptionIcon />}
