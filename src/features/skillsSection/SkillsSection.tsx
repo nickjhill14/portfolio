@@ -26,9 +26,11 @@ export const SkillsSection = ({
     <Section headingText="Skills">
       <div className="flex flex-col gap-2">
         <div className="flex gap-2 flex-wrap">
-          {skills.map(({ key, name }) => (
-            <Chip key={name} text={name} className={skillKeyColours[key]} />
-          ))}
+          {skills
+            .sort(({ key: aKey }, { key: bKey }) => aKey.localeCompare(bKey))
+            .map(({ key, name }) => (
+              <Chip key={name} text={name} className={skillKeyColours[key]} />
+            ))}
         </div>
         <h3 className="text-secondary">Key</h3>
         <div className="flex gap-2">
