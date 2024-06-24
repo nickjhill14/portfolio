@@ -1,4 +1,4 @@
-import { render, screen } from "@testing-library/react";
+import { render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { useNavigate } from "react-router-dom";
 import { PortfolioRoutePaths } from "../../routing/portfolioRouting/PortfolioRouting";
@@ -67,6 +67,23 @@ describe(ProjectsPage, () => {
         "https://github.com/nickjhill14/bench-press-sense",
         "https://github.com/nickjhill14/football-formations",
       ]).includes(link.getAttribute("href"));
+    });
+  });
+
+  it("renders the portfolio diagram on click", async () => {
+    render(<ProjectsPage />);
+    await userEvent.click(screen.getByRole("button", { name: "View diagram" }));
+
+    expect(screen.getByRole("dialog")).toBeInTheDocument();
+  });
+
+  it("closes portfolio diagram on click", async () => {
+    render(<ProjectsPage />);
+    await userEvent.click(screen.getByRole("button", { name: "View diagram" }));
+    await userEvent.click(screen.getByRole("button", { name: "Close" }));
+
+    await waitFor(() => {
+      expect(screen.queryByRole("dialog")).not.toBeInTheDocument();
     });
   });
 

@@ -261,7 +261,7 @@ export const cv: Cv = {
       },
       {
         key: SkillKey.other,
-        name: "Mermaid.js",
+        name: "Mermaid",
       },
     ],
     languages: [

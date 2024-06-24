@@ -1,13 +1,24 @@
 import { Home } from "@mui/icons-material";
 import GitHubIcon from "@mui/icons-material/GitHub";
+import VisibilityIcon from "@mui/icons-material/Visibility";
 import { CardBody, CardHeader } from "@nextui-org/card";
 import { Link } from "@nextui-org/link";
-import { Button, Card, CardFooter } from "@nextui-org/react";
+import {
+  Button,
+  Card,
+  CardFooter,
+  Modal,
+  ModalContent,
+  useDisclosure,
+} from "@nextui-org/react";
 import { useNavigate } from "react-router-dom";
+import { ReactComponent as PortfolioDiagram } from "../../assets/portfolio-context-diagram.svg";
 import { Page } from "../../components/page/Page";
 
 export const ProjectsPage = () => {
   const navigate = useNavigate();
+
+  const { isOpen, onOpen, onOpenChange } = useDisclosure();
 
   return (
     <Page>
@@ -31,7 +42,7 @@ export const ProjectsPage = () => {
               apps
             </p>
           </CardBody>
-          <CardFooter>
+          <CardFooter className="flex gap-2">
             <Button
               as={Link}
               aria-label="Visit repo"
@@ -41,6 +52,14 @@ export const ProjectsPage = () => {
             >
               <GitHubIcon />
             </Button>
+            <Button aria-label="View diagram" color="primary" onPress={onOpen}>
+              <VisibilityIcon />
+            </Button>
+            <Modal isOpen={isOpen} onOpenChange={onOpenChange}>
+              <ModalContent className="flex items-center p-4">
+                <PortfolioDiagram />
+              </ModalContent>
+            </Modal>
           </CardFooter>
         </Card>
         <Card>
