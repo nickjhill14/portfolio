@@ -10,7 +10,7 @@ export const Section = ({
   children,
 }: PropsWithChildren<SectionProps>) => (
   <Card>
-    <CardHeader className="p-4 pb-2">
+    <CardHeader className="pb-2">
       <h2 className="text-2l text-secondary font-bold">{headingText}</h2>
     </CardHeader>
     <CardBody className="flex flex-col gap-4">{children}</CardBody>

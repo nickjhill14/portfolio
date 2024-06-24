@@ -20,7 +20,7 @@ export const SectionDetails = ({
 }: SectionDetailsProps) => (
   <div className="flex flex-col gap-2">
     <div>
-      <h3 className="text-l">{heading}</h3>
+      <h3 className="text-secondary">{heading}</h3>
       <div className="flex gap-4">
         {location && (
           <IconTypography
@@ -43,7 +43,10 @@ export const SectionDetails = ({
     {details && details.length > 0 && (
       <ul className={`flex flex-col gap-2 ${details.length > 1 && "pl-4"}`}>
         {details.map((detail) => (
-          <li key={detail} className={details.length > 1 ? "list-disc" : ""}>
+          <li
+            key={detail}
+            className={`${details.length > 1 ? "list-disc" : ""} text-small`}
+          >
             {detail}
           </li>
         ))}

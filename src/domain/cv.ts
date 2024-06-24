@@ -1,4 +1,13 @@
-export type Skill = { name: string };
+export enum SkillKey {
+  language = "Language",
+  framework = "Framework",
+  testing = "Testing",
+  infra = "Infra",
+  platform = "Platform",
+  other = "Other",
+}
+
+export type Skill = { key: SkillKey; name: string };
 
 export type Language = { name: string; level: number };
 

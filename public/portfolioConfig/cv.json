@@ -106,120 +106,159 @@
   "skillsInfo": {
     "skills": [
       {
+        "key": "Language",
         "name": "JavaScript"
       },
       {
+        "key": "Language",
         "name": "TypeScript"
       },
       {
+        "key": "Language",
         "name": "Java"
       },
       {
+        "key": "Language",
         "name": "Python"
       },
       {
+        "key": "Language",
         "name": "HTML"
       },
       {
+        "key": "Language",
         "name": "CSS"
       },
       {
+        "key": "Framework",
         "name": "React"
       },
       {
+        "key": "Framework",
         "name": "Redux"
       },
       {
+        "key": "Platform",
         "name": "Node.js"
       },
       {
+        "key": "Framework",
         "name": "Spring"
       },
       {
+        "key": "Language",
         "name": "SQL"
       },
       {
+        "key": "Language",
         "name": "PostgreSQL"
       },
       {
+        "key": "Testing",
         "name": "JUnit"
       },
       {
+        "key": "Testing",
         "name": "Jest"
       },
       {
+        "key": "Testing",
         "name": "Cypress"
       },
       {
+        "key": "Testing",
         "name": "Playwright"
       },
       {
+        "key": "Infra",
         "name": "Terraform"
       },
       {
+        "key": "Infra",
         "name": "AWS"
       },
       {
+        "key": "Platform",
         "name": "Docker"
       },
       {
+        "key": "Platform",
         "name": "OpenShift"
       },
       {
+        "key": "Other",
         "name": "Agile"
       },
       {
+        "key": "Other",
         "name": "Kanban"
       },
       {
+        "key": "Other",
         "name": "Clean Code"
       },
       {
+        "key": "Testing",
         "name": "TDD"
       },
       {
+        "key": "Other",
         "name": "CI/CD"
       },
       {
+        "key": "Framework",
         "name": "REST"
       },
       {
+        "key": "Infra",
         "name": "Microservices"
       },
       {
+        "key": "Infra",
         "name": "Microfrontends"
       },
       {
+        "key": "Other",
         "name": "BFF"
       },
       {
+        "key": "Other",
         "name": "Git"
       },
       {
+        "key": "Platform",
         "name": "GitHub"
       },
       {
+        "key": "Platform",
         "name": "Bitbucket"
       },
       {
+        "key": "Platform",
         "name": "GoCD"
       },
       {
+        "key": "Platform",
         "name": "GitHub Actions"
       },
       {
+        "key": "Platform",
         "name": "Jenkins"
       },
       {
+        "key": "Platform",
         "name": "Jira"
       },
       {
+        "key": "Platform",
         "name": "Kibana"
       },
       {
+        "key": "Platform",
         "name": "Snowflake"
       },
       {
+        "key": "Other",
         "name": "Mermaid.js"
       }
     ],

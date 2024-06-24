@@ -32,9 +32,19 @@ describe(SkillsSection, () => {
       />,
     );
 
-    expect(screen.getByRole("heading", { name: "Skills" })).toBeInTheDocument();
+    expect(
+      screen.getByRole("heading", { name: "Skills", level: 2 }),
+    ).toBeInTheDocument();
     expect(screen.getByText(skills1Name)).toBeInTheDocument();
     expect(screen.getByText(skills2Name)).toBeInTheDocument();
+    expect(
+      screen.getByRole("heading", { name: "Key", level: 3 }),
+    ).toBeInTheDocument();
+    ["Language", "Framework", "Testing", "Infra", "Platform", "Other"].forEach(
+      (key) => {
+        expect(screen.getByText(key)).toBeInTheDocument();
+      },
+    );
     expect(screen.getByText(language1Name)).toBeInTheDocument();
     expect(screen.getByLabelText(`${language1Level} Star`)).toBeInTheDocument();
     expect(screen.getByText(language2Name)).toBeInTheDocument();
