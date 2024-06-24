@@ -1,6 +1,6 @@
 import { faker } from "@faker-js/faker";
 import { BasicInfo } from "../domain/basicInfo";
-import { Cv, CvSection, CvSectionItems, Language, Skill } from "../domain/cv";
+import { Language, Skill, SkillKey } from "../domain/cv";
 
 export const buildBasicInfo = (override?: Partial<BasicInfo>): BasicInfo => ({
   name: "Portfolio Pete",
@@ -27,6 +27,7 @@ export const buildDateRange = (): string =>
     .join(" - ");
 
 export const buildSkill = (override?: Partial<Skill>): Skill => ({
+  key: SkillKey.other,
   name: "Portfolio Creation",
   ...override,
 });
@@ -34,19 +35,5 @@ export const buildSkill = (override?: Partial<Skill>): Skill => ({
 export const buildLanguage = (override?: Partial<Language>): Language => ({
   name: "English",
   level: 5,
-  ...override,
-});
-
-export const buildCvSection = (override?: Partial<CvSection>): CvSection => ({
-  title: "Experience",
-  ...override,
-});
-
-export const buildCvSectionItems = (
-  override?: Partial<CvSectionItems>,
-): CvSectionItems => ({ name: "Went To University", ...override });
-
-export const buildCv = (override?: Partial<Cv>): Cv => ({
-  skillsInfo: { skills: [], languages: [] },
   ...override,
 });
