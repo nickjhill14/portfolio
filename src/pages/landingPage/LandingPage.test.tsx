@@ -1,10 +1,11 @@
 import { screen } from "@testing-library/react";
-import { useLoaderData } from "react-router-typesafe";
+import { basicInfo } from "../../config/basicInfo";
+import { BasicInfoSection } from "../../features/basicInfoSection/BasicInfoSection";
+import { getProps, mockComponent } from "../../utils/ComponentMocks";
 import { renderWithMemoryRouter } from "../../utils/Renderers";
-import { buildBasicInfo } from "../../utils/builders";
 import { LandingPage } from "./LandingPage";
 
-vitest.mock("react-router-typesafe");
+vitest.mock("../../features/basicInfoSection/BasicInfoSection");
 vitest.mock("react-router-dom", async () => ({
   ...(await vitest.importActual<typeof import("react-router-dom")>(
     "react-router-dom",
@@ -13,39 +14,16 @@ vitest.mock("react-router-dom", async () => ({
 }));
 
 describe(LandingPage, () => {
-  const useLoaderDataMock = vitest.mocked(useLoaderData);
-
-  it("renders a loading skeleton when loading basic info data", async () => {
-    const basicInfo = buildBasicInfo();
-
-    useLoaderDataMock.mockReturnValue({
-      basicInfo: Promise.resolve(basicInfo),
-    });
-
-    renderWithMemoryRouter(<LandingPage />);
-
-    expect(screen.getByTestId("landing-page-skeleton")).toBeInTheDocument();
-    expect(screen.getByTestId("landing-page-links")).toBeInTheDocument();
-    expect(
-      await screen.findByRole("heading", { name: basicInfo.name }),
-    ).toBeInTheDocument();
+  beforeEach(() => {
+    mockComponent(BasicInfoSection);
   });
 
   it("renders the page when loading has completed", async () => {
-    const basicInfo = buildBasicInfo();
-
-    useLoaderDataMock.mockReturnValue({
-      basicInfo: Promise.resolve(basicInfo),
-    });
-
     renderWithMemoryRouter(<LandingPage />);
 
-    expect(
-      await screen.findByRole("heading", { name: basicInfo.name }),
-    ).toBeInTheDocument();
+    expect(getProps(BasicInfoSection).lastCall.basicInfo).toStrictEqual(
+      basicInfo,
+    );
     expect(screen.getByTestId("landing-page-links")).toBeInTheDocument();
-    expect(
-      screen.queryByTestId("landing-page-skeleton"),
-    ).not.toBeInTheDocument();
   });
 });

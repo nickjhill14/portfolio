@@ -22,10 +22,10 @@ export type CvSectionItems = {
 
 export type CvSection = {
   title: string;
-  items?: CvSectionItems[];
+  items: CvSectionItems[];
 };
 
 export type Cv = {
-  cvSections?: CvSection[];
+  cvSections: CvSection[];
   skillsInfo: SkillsInfo;
 };
