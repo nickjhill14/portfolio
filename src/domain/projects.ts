@@ -1,5 +1,6 @@
 import { FunctionComponent, SVGProps } from "react";
-import { Skill } from "./cv";
+
+import { Skill } from "./skills";
 
 export type Project = {
   title: string;

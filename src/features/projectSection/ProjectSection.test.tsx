@@ -1,7 +1,7 @@
 import { render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { ReactComponent as PortfolioDiagram } from "../../assets/portfolio-context-diagram.svg";
-import { buildProject } from "../../utils/builders";
+import { buildProject, buildSkill } from "../../utils/builders";
 import { ProjectsSection } from "./ProjectSection";
 
 describe(ProjectsSection, () => {
@@ -20,6 +20,16 @@ describe(ProjectsSection, () => {
     expect(
       screen.queryByRole("button", { name: "View image" }),
     ).not.toBeInTheDocument();
+  });
+
+  it("renders skills", () => {
+    const skills = [buildSkill(), buildSkill()];
+
+    render(<ProjectsSection project={buildProject({ skills })} />);
+
+    skills.forEach(({ name }) => {
+      expect(screen.getByText(name)).toBeInTheDocument();
+    });
   });
 
   it("renders the image on view click", async () => {

@@ -10,7 +10,9 @@ import {
   ModalContent,
   useDisclosure,
 } from "@nextui-org/react";
+import { Chip } from "../../components/chip/Chip";
 import { Project } from "../../domain/projects";
+import { skillKeyColours } from "../../domain/skills";
 
 type ProjectSectionProps = {
   project: Project;
@@ -18,7 +20,7 @@ type ProjectSectionProps = {
 
 // TODO: Add stories
 export const ProjectsSection = ({
-  project: { title, description, githubLink, Image },
+  project: { title, description, githubLink, Image, skills },
 }: ProjectSectionProps) => {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
 
@@ -27,8 +29,13 @@ export const ProjectsSection = ({
       <CardHeader>
         <h2 className="text-2l text-secondary font-bold">{title}</h2>
       </CardHeader>
-      <CardBody>
+      <CardBody className="flex flex-col gap-2">
         <p>{description}</p>
+        <div className="flex gap-2 flex-wrap">
+          {skills.map(({ name, key }) => (
+            <Chip key={name} text={name} className={skillKeyColours[key]} />
+          ))}
+        </div>
       </CardBody>
       <CardFooter className="flex gap-2">
         <Button

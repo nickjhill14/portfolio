@@ -1,4 +1,5 @@
-import { Cv, SkillKey } from "../domain/cv";
+import { Cv } from "../domain/cv";
+import { SkillKey } from "../domain/skills";
 
 export const cv: Cv = {
   cvSections: [

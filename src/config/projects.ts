@@ -1,6 +1,6 @@
 import { ReactComponent as PortfolioDiagram } from "../assets/portfolio-context-diagram.svg";
-import { SkillKey } from "../domain/cv";
 import { Project } from "../domain/projects";
+import { SkillKey } from "../domain/skills";
 
 export const projects: Project[] = [
   {
