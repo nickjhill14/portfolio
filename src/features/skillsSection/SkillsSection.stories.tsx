@@ -10,7 +10,7 @@ const meta = {
 
 type Story = StoryObj<typeof meta>;
 
-const SingleSkillAndLanguage: Story = {
+export const SingleSkillAndLanguage: Story = {
   args: {
     skillsInfo: {
       skills: [{ name: upperCaseFirstChar(faker.hacker.ingverb()) }],
@@ -21,7 +21,7 @@ const SingleSkillAndLanguage: Story = {
   },
 };
 
-const MultipleSkillsAndLanguages: Story = {
+export const MultipleSkillsAndLanguages: Story = {
   args: {
     skillsInfo: {
       skills: [
@@ -36,15 +36,10 @@ const MultipleSkillsAndLanguages: Story = {
   },
 };
 
-const NoSkillsOrLanguages: Story = {
+export const NoSkillsOrLanguages: Story = {
   args: {
     skillsInfo: { skills: [], languages: [] },
   },
 };
 
 export default meta;
-export {
-  MultipleSkillsAndLanguages,
-  NoSkillsOrLanguages,
-  SingleSkillAndLanguage,
-};
