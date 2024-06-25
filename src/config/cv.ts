@@ -38,11 +38,6 @@ export const cv: Cv = {
           dateRange: "Sep. 23 - Present",
         },
         {
-          name: "Portfolio Generator",
-          location: "Personal",
-          dateRange: "Aug. 23 - Present",
-        },
-        {
           name: "Bahmni",
           location: "Thoughtworks",
           dateRange: "Jul. 20 - Sep. 20",
