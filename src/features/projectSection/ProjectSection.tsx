@@ -44,12 +44,18 @@ export const ProjectsSection = ({
           href={githubLink}
           isExternal
           color="primary"
+          isIconOnly
         >
           <GitHubIcon />
         </Button>
         {Image && (
           <>
-            <Button aria-label="View image" color="primary" onPress={onOpen}>
+            <Button
+              isIconOnly
+              aria-label="View image"
+              color="primary"
+              onPress={onOpen}
+            >
               <VisibilityIcon />
             </Button>
             <Modal
