@@ -1,5 +1,5 @@
 import { Cv } from "../domain/cv";
-import { SkillKey } from "../domain/skills";
+import { SkillType } from "../domain/skills";
 
 export const cv: Cv = {
   cvSections: [
@@ -109,159 +109,159 @@ export const cv: Cv = {
   skillsInfo: {
     skills: [
       {
-        key: SkillKey.language,
+        key: SkillType.language,
         name: "JavaScript",
       },
       {
-        key: SkillKey.language,
+        key: SkillType.language,
         name: "TypeScript",
       },
       {
-        key: SkillKey.language,
+        key: SkillType.language,
         name: "Java",
       },
       {
-        key: SkillKey.language,
+        key: SkillType.language,
         name: "Python",
       },
       {
-        key: SkillKey.language,
+        key: SkillType.language,
         name: "HTML",
       },
       {
-        key: SkillKey.language,
+        key: SkillType.language,
         name: "CSS",
       },
       {
-        key: SkillKey.framework,
+        key: SkillType.framework,
         name: "React",
       },
       {
-        key: SkillKey.framework,
+        key: SkillType.framework,
         name: "Redux",
       },
       {
-        key: SkillKey.platform,
+        key: SkillType.platform,
         name: "Node.js",
       },
       {
-        key: SkillKey.framework,
+        key: SkillType.framework,
         name: "Spring",
       },
       {
-        key: SkillKey.language,
+        key: SkillType.language,
         name: "SQL",
       },
       {
-        key: SkillKey.language,
+        key: SkillType.language,
         name: "PostgreSQL",
       },
       {
-        key: SkillKey.testing,
+        key: SkillType.testing,
         name: "JUnit",
       },
       {
-        key: SkillKey.testing,
+        key: SkillType.testing,
         name: "Jest",
       },
       {
-        key: SkillKey.testing,
+        key: SkillType.testing,
         name: "Cypress",
       },
       {
-        key: SkillKey.testing,
+        key: SkillType.testing,
         name: "Playwright",
       },
       {
-        key: SkillKey.infra,
+        key: SkillType.infra,
         name: "Terraform",
       },
       {
-        key: SkillKey.infra,
+        key: SkillType.infra,
         name: "AWS",
       },
       {
-        key: SkillKey.platform,
+        key: SkillType.platform,
         name: "Docker",
       },
       {
-        key: SkillKey.platform,
+        key: SkillType.platform,
         name: "OpenShift",
       },
       {
-        key: SkillKey.other,
+        key: SkillType.other,
         name: "Agile",
       },
       {
-        key: SkillKey.other,
+        key: SkillType.other,
         name: "Kanban",
       },
       {
-        key: SkillKey.other,
+        key: SkillType.other,
         name: "Clean Code",
       },
       {
-        key: SkillKey.testing,
+        key: SkillType.testing,
         name: "TDD",
       },
       {
-        key: SkillKey.other,
+        key: SkillType.other,
         name: "CI/CD",
       },
       {
-        key: SkillKey.framework,
+        key: SkillType.framework,
         name: "REST",
       },
       {
-        key: SkillKey.infra,
+        key: SkillType.infra,
         name: "Microservices",
       },
       {
-        key: SkillKey.infra,
+        key: SkillType.infra,
         name: "Microfrontends",
       },
       {
-        key: SkillKey.other,
+        key: SkillType.other,
         name: "BFF",
       },
       {
-        key: SkillKey.other,
+        key: SkillType.other,
         name: "Git",
       },
       {
-        key: SkillKey.platform,
+        key: SkillType.platform,
         name: "GitHub",
       },
       {
-        key: SkillKey.platform,
+        key: SkillType.platform,
         name: "Bitbucket",
       },
       {
-        key: SkillKey.platform,
+        key: SkillType.platform,
         name: "GoCD",
       },
       {
-        key: SkillKey.platform,
+        key: SkillType.platform,
         name: "GitHub Actions",
       },
       {
-        key: SkillKey.platform,
+        key: SkillType.platform,
         name: "Jenkins",
       },
       {
-        key: SkillKey.platform,
+        key: SkillType.platform,
         name: "Jira",
       },
       {
-        key: SkillKey.platform,
+        key: SkillType.platform,
         name: "Kibana",
       },
       {
-        key: SkillKey.platform,
+        key: SkillType.platform,
         name: "Snowflake",
       },
       {
-        key: SkillKey.other,
+        key: SkillType.other,
         name: "Mermaid",
       },
     ],

@@ -9,6 +9,7 @@ export const Footer = () => (
       href="https://github.com/nickjhill14/portfolio"
       isExternal
       color="primary"
+      isIconOnly
     >
       <GitHubIcon />
     </Button>

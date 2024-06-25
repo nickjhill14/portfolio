@@ -1,6 +1,6 @@
 import { ReactComponent as PortfolioDiagram } from "../assets/portfolio-context-diagram.svg";
 import { Project } from "../domain/projects";
-import { SkillKey } from "../domain/skills";
+import { SkillType } from "../domain/skills";
 
 export const projects: Project[] = [
   {
@@ -9,10 +9,10 @@ export const projects: Project[] = [
     githubLink: "https://github.com/nickjhill14/portfolio",
     Image: PortfolioDiagram,
     skills: [
-      { key: SkillKey.language, name: "TypeScript" },
-      { key: SkillKey.framework, name: "React" },
-      { key: SkillKey.infra, name: "Vercel" },
-      { key: SkillKey.platform, name: "GitHub" },
+      { key: SkillType.language, name: "TypeScript" },
+      { key: SkillType.framework, name: "React" },
+      { key: SkillType.infra, name: "Vercel" },
+      { key: SkillType.platform, name: "GitHub" },
     ],
   },
   {
@@ -20,8 +20,8 @@ export const projects: Project[] = [
     description: "A template for generating React web apps",
     githubLink: "https://github.com/nickjhill14/react-app-template",
     skills: [
-      { key: SkillKey.language, name: "TypeScript" },
-      { key: SkillKey.framework, name: "React" },
+      { key: SkillType.language, name: "TypeScript" },
+      { key: SkillType.framework, name: "React" },
     ],
   },
   {
@@ -29,7 +29,7 @@ export const projects: Project[] = [
     description:
       "A fuzzy inference system (FIS) for advising a doctor whether a patient should be referred to a hospital for emergency investigations",
     githubLink: "https://github.com/nickjhill14/doctor-advice-fis",
-    skills: [{ key: SkillKey.language, name: "R" }],
+    skills: [{ key: SkillType.language, name: "R" }],
   },
   {
     title: "Bench Press Sense",
@@ -37,8 +37,8 @@ export const projects: Project[] = [
       "An analytical tool for users to improve their current bench-press form",
     githubLink: "https://github.com/nickjhill14/bench-press-sense",
     skills: [
-      { key: SkillKey.language, name: "Python" },
-      { key: SkillKey.other, name: "GrovePi" },
+      { key: SkillType.language, name: "Python" },
+      { key: SkillType.other, name: "GrovePi" },
     ],
   },
   {
@@ -47,8 +47,8 @@ export const projects: Project[] = [
       "An accessibility demo with the analogy of football formations",
     githubLink: "https://github.com/nickjhill14/football-formations",
     skills: [
-      { key: SkillKey.language, name: "TypeScript" },
-      { key: SkillKey.framework, name: "React" },
+      { key: SkillType.language, name: "TypeScript" },
+      { key: SkillType.framework, name: "React" },
     ],
   },
 ];

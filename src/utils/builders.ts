@@ -2,7 +2,7 @@ import { faker } from "@faker-js/faker";
 import { BasicInfo } from "../domain/basicInfo";
 import { Language } from "../domain/cv";
 import { Project } from "../domain/projects";
-import { Skill, SkillKey } from "../domain/skills";
+import { Skill, SkillType } from "../domain/skills";
 
 export const buildBasicInfo = (override?: Partial<BasicInfo>): BasicInfo => ({
   name: "Portfolio Pete",
@@ -29,7 +29,7 @@ export const buildDateRange = (): string =>
     .join(" - ");
 
 export const buildSkill = (override?: Partial<Skill>): Skill => ({
-  key: SkillKey.other,
+  key: SkillType.other,
   name: faker.hacker.noun(),
   ...override,
 });

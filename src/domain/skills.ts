@@ -1,4 +1,4 @@
-export enum SkillKey {
+export enum SkillType {
   language = "Language",
   framework = "Framework",
   testing = "Testing",
@@ -7,13 +7,13 @@ export enum SkillKey {
   other = "Other",
 }
 
-export type Skill = { key: SkillKey; name: string };
+export type Skill = { key: SkillType; name: string };
 
-export const skillKeyColours: Record<SkillKey, string> = {
-  [SkillKey.language]: "bg-blue-300",
-  [SkillKey.framework]: "bg-amber-300",
-  [SkillKey.testing]: "bg-emerald-300",
-  [SkillKey.infra]: "bg-fuchsia-300",
-  [SkillKey.platform]: "bg-lime-300",
-  [SkillKey.other]: "bg-gray-300",
+export const skillKeyColours: Record<SkillType, string> = {
+  [SkillType.language]: "bg-blue-300",
+  [SkillType.framework]: "bg-amber-300",
+  [SkillType.testing]: "bg-emerald-300",
+  [SkillType.infra]: "bg-fuchsia-300",
+  [SkillType.platform]: "bg-lime-300",
+  [SkillType.other]: "bg-gray-300",
 };

@@ -1,6 +1,6 @@
 import { faker } from "@faker-js/faker";
 import type { Meta, StoryObj } from "@storybook/react";
-import { SkillKey } from "../../domain/skills";
+import { SkillType } from "../../domain/skills";
 import { upperCaseFirstChar } from "../../utils/helpers/helpers";
 import { SkillsSection } from "./SkillsSection";
 
@@ -16,7 +16,7 @@ export const SingleSkillAndLanguage: Story = {
     skillsInfo: {
       skills: [
         {
-          key: SkillKey.infra,
+          key: SkillType.infra,
           name: upperCaseFirstChar(faker.hacker.ingverb()),
         },
       ],
@@ -32,11 +32,11 @@ export const MultipleSkillsAndLanguages: Story = {
     skillsInfo: {
       skills: [
         {
-          key: SkillKey.testing,
+          key: SkillType.testing,
           name: upperCaseFirstChar(faker.hacker.ingverb()),
         },
         {
-          key: SkillKey.infra,
+          key: SkillType.infra,
           name: upperCaseFirstChar(faker.hacker.ingverb()),
         },
       ],
