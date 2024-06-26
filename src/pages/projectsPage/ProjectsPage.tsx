@@ -1,6 +1,7 @@
 import { Home } from "@mui/icons-material";
 import HelpIcon from "@mui/icons-material/Help";
 import { Button, Tooltip } from "@nextui-org/react";
+import { Variants, motion } from "framer-motion";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Page } from "../../components/page/Page";
@@ -12,6 +13,25 @@ export const ProjectsPage = () => {
   const navigate = useNavigate();
 
   const [showKey, setShowKey] = useState(false);
+
+  const containerAnimation: Variants = {
+    hidden: { opacity: 1, scale: 0 },
+    visible: {
+      opacity: 1,
+      scale: 1,
+      transition: {
+        delayChildren: 0.3,
+        staggerChildren: 0.2,
+      },
+    },
+  };
+  const sectionAnimation: Variants = {
+    hidden: { y: 20, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+    },
+  };
 
   return (
     <Page>
@@ -44,11 +64,18 @@ export const ProjectsPage = () => {
         </Tooltip>
       </div>
       <h1 className="text-4xl">Projects</h1>
-      <div className="grid grid-flow-row md:grid-cols-2 gap-4">
+      <motion.div
+        variants={containerAnimation}
+        initial="hidden"
+        animate="visible"
+        className="grid grid-flow-row md:grid-cols-2 gap-4"
+      >
         {projects.map((project) => (
-          <ProjectsSection key={project.title} project={project} />
+          <motion.div variants={sectionAnimation} key={project.title}>
+            <ProjectsSection project={project} />
+          </motion.div>
         ))}
-      </div>
+      </motion.div>
     </Page>
   );
 };
