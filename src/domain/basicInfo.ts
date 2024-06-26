@@ -4,5 +4,4 @@ export type BasicInfo = {
   email: string;
   linkedIn: string;
   gitHub: string;
-  phone?: string;
 };
