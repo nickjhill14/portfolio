@@ -10,6 +10,7 @@ import {
   ModalContent,
   useDisclosure,
 } from "@nextui-org/react";
+import { motion } from "framer-motion";
 import { Chip } from "../../components/chip/Chip";
 import { Project } from "../../domain/projects";
 import { skillKeyColours } from "../../domain/skills";
@@ -38,26 +39,30 @@ export const ProjectsSection = ({
         </div>
       </CardBody>
       <CardFooter className="flex gap-2">
-        <Button
-          as={Link}
-          aria-label="Visit repo"
-          href={githubLink}
-          isExternal
-          color="primary"
-          isIconOnly
-        >
-          <GitHubIcon />
-        </Button>
+        <motion.div whileHover={{ scale: 1.2 }}>
+          <Button
+            as={Link}
+            aria-label="Visit repo"
+            href={githubLink}
+            isExternal
+            color="primary"
+            isIconOnly
+          >
+            <GitHubIcon />
+          </Button>
+        </motion.div>
         {Image && (
           <>
-            <Button
-              isIconOnly
-              aria-label="View image"
-              color="primary"
-              onPress={onOpen}
-            >
-              <VisibilityIcon />
-            </Button>
+            <motion.div whileHover={{ scale: 1.2 }}>
+              <Button
+                isIconOnly
+                aria-label="View image"
+                color="primary"
+                onPress={onOpen}
+              >
+                <VisibilityIcon />
+              </Button>
+            </motion.div>
             <Modal
               isOpen={isOpen}
               onOpenChange={onOpenChange}
