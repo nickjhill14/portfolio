@@ -26,7 +26,6 @@ export const ProjectsPage = () => {
         </Button>
         <Tooltip
           content={<SkillsKey />}
-          showArrow
           placement="bottom-end"
           isOpen={showKey}
           onOpenChange={(open) => setShowKey(open)}

@@ -33,7 +33,6 @@ export const SkillsSection = ({
           </div>
           <Tooltip
             content={<SkillsKey />}
-            showArrow
             placement="bottom-end"
             isOpen={showKey}
             onOpenChange={(open) => setShowKey(open)}

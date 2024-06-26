@@ -1,6 +1,7 @@
 import { NextUIProvider } from "@nextui-org/react";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/react";
+import { ThemeProvider } from "next-themes";
 import { StrictMode } from "react";
 import ReactDOM from "react-dom/client";
 import { RouterProvider } from "react-router-dom";
@@ -15,10 +16,12 @@ const root = ReactDOM.createRoot(
 root.render(
   <StrictMode>
     <NextUIProvider>
-      <main className="h-screen flex flex-col justify-between pt-8 px-8 md:pt-16 md:px-16 pb-4">
-        <RouterProvider router={portfolioRouter} />
-        <Footer />
-      </main>
+      <ThemeProvider attribute="class" defaultTheme="light">
+        <main className="h-screen flex flex-col justify-between pt-8 px-8 md:pt-16 md:px-16 pb-4">
+          <RouterProvider router={portfolioRouter} />
+          <Footer />
+        </main>
+      </ThemeProvider>
     </NextUIProvider>
     <Analytics />
     <SpeedInsights />

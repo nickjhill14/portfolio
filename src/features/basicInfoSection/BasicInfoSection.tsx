@@ -16,7 +16,7 @@ export const BasicInfoSection = ({
         initial={{ clipPath: "polygon(0 0, 0 0, 0 100%, 0% 100%)" }}
         whileInView={{ clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)" }}
         viewport={{ once: true }}
-        transition={{ duration: 1.5 }}
+        transition={{ duration: 1 }}
         className="text-4xl"
       >
         {name}
