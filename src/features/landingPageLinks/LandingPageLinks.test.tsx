@@ -32,15 +32,4 @@ describe(LandingPageLinks, () => {
 
     expect(navigateMock).toHaveBeenCalledWith(PortfolioRoutePaths.PROJECTS);
   });
-
-  it("navigates to the music page when clicking the view music btn", async () => {
-    const navigateMock = vitest.fn();
-
-    useNavigateMock.mockReturnValue(navigateMock);
-
-    render(<LandingPageLinks />);
-    await userEvent.click(screen.getByRole("button", { name: "View Music" }));
-
-    expect(navigateMock).toHaveBeenCalledWith(PortfolioRoutePaths.MUSIC);
-  });
 });

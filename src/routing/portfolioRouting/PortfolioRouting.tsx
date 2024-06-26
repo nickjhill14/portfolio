@@ -1,4 +1,5 @@
 import { createBrowserRouter, type RouteObject } from "react-router-dom";
+import { BlogPage } from "../../pages/blogPage/BlogPage";
 import { CvPage } from "../../pages/cvPage/CvPage";
 import { LandingPage } from "../../pages/landingPage/LandingPage";
 import { MusicPage } from "../../pages/musicPage/MusicPage";
@@ -8,6 +9,7 @@ export enum PortfolioRoutePaths {
   BASE = "/",
   CV = "/cv",
   PROJECTS = "/projects",
+  BLOG = "/blog",
   MUSIC = "/music",
 }
 
@@ -23,6 +25,10 @@ export const portfolioRoutes: RouteObject[] = [
   {
     path: PortfolioRoutePaths.PROJECTS,
     element: <ProjectsPage />,
+  },
+  {
+    path: PortfolioRoutePaths.BLOG,
+    element: <BlogPage />,
   },
   {
     path: PortfolioRoutePaths.MUSIC,

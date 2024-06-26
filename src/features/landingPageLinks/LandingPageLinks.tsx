@@ -1,6 +1,5 @@
 import CodeIcon from "@mui/icons-material/Code";
 import DescriptionIcon from "@mui/icons-material/Description";
-import MusicNoteIcon from "@mui/icons-material/MusicNote";
 import { Button } from "@nextui-org/react";
 import { useNavigate } from "react-router-dom";
 import { PortfolioRoutePaths } from "../../routing/portfolioRouting/PortfolioRouting";
@@ -26,13 +25,6 @@ export const LandingPageLinks = () => {
         startContent={<CodeIcon />}
       >
         View Projects
-      </Button>
-      <Button
-        color="primary"
-        onPress={() => navigate(PortfolioRoutePaths.MUSIC)}
-        startContent={<MusicNoteIcon />}
-      >
-        View Music
       </Button>
     </div>
   );
