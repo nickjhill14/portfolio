@@ -33,11 +33,6 @@ export const cv: Cv = {
       title: "Projects",
       items: [
         {
-          name: "React App Template",
-          location: "Personal",
-          dateRange: "Sep. 23 - Present",
-        },
-        {
           name: "Bahmni",
           location: "Thoughtworks",
           dateRange: "Jul. 20 - Sep. 20",
