@@ -23,32 +23,34 @@ export const SkillsSection = ({
   return (
     <Section headingText="Skills">
       <div className="flex flex-col gap-2">
-        <div className="flex gap-2 flex-wrap">
-          {skills
-            .sort(({ key: aKey }, { key: bKey }) => aKey.localeCompare(bKey))
-            .map(({ key, name }) => (
-              <Chip key={name} text={name} className={skillKeyColours[key]} />
-            ))}
-        </div>
-        <Tooltip
-          content={<SkillsKey />}
-          showArrow
-          placement="bottom-end"
-          isOpen={showKey}
-          onOpenChange={(open) => setShowKey(open)}
-        >
-          <Button
-            isIconOnly
-            disabled
-            onMouseEnter={() => setShowKey(true)}
-            onMouseLeave={() => setShowKey(false)}
-            onPress={() => setShowKey(!showKey)}
-            className="max-w-fit self-end"
-            aria-label="View key"
+        <div className="flex gap-2">
+          <div className="flex gap-2 flex-wrap">
+            {skills
+              .sort(({ key: aKey }, { key: bKey }) => aKey.localeCompare(bKey))
+              .map(({ key, name }) => (
+                <Chip key={name} text={name} className={skillKeyColours[key]} />
+              ))}
+          </div>
+          <Tooltip
+            content={<SkillsKey />}
+            showArrow
+            placement="bottom-end"
+            isOpen={showKey}
+            onOpenChange={(open) => setShowKey(open)}
           >
-            <HelpIcon />
-          </Button>
-        </Tooltip>
+            <Button
+              isIconOnly
+              disabled
+              onMouseEnter={() => setShowKey(true)}
+              onMouseLeave={() => setShowKey(false)}
+              onPress={() => setShowKey(!showKey)}
+              className="max-w-fit self-end"
+              aria-label="View key"
+            >
+              <HelpIcon />
+            </Button>
+          </Tooltip>
+        </div>
       </div>
       <Divider />
       {languages.map(({ name, level }) => (
