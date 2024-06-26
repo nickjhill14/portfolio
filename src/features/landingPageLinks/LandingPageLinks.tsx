@@ -1,7 +1,9 @@
 import CodeIcon from "@mui/icons-material/Code";
 import DescriptionIcon from "@mui/icons-material/Description";
+import MusicNoteIcon from "@mui/icons-material/MusicNote";
 import { Button } from "@nextui-org/react";
 import { useNavigate } from "react-router-dom";
+import { PortfolioRoutePaths } from "../../routing/portfolioRouting/PortfolioRouting";
 
 export const LandingPageLinks = () => {
   const navigate = useNavigate();
@@ -9,7 +11,7 @@ export const LandingPageLinks = () => {
   return (
     <div className="flex gap-4 flex-wrap" data-testid="landing-page-links">
       <Button
-        onClick={() => navigate("/cv")}
+        onClick={() => navigate(PortfolioRoutePaths.CV)}
         startContent={<DescriptionIcon />}
         color="primary"
       >
@@ -17,10 +19,17 @@ export const LandingPageLinks = () => {
       </Button>
       <Button
         color="primary"
-        onPress={() => navigate("/projects")}
+        onPress={() => navigate(PortfolioRoutePaths.PROJECTS)}
         startContent={<CodeIcon />}
       >
         View Projects
+      </Button>
+      <Button
+        color="primary"
+        onPress={() => navigate(PortfolioRoutePaths.MUSIC)}
+        startContent={<MusicNoteIcon />}
+      >
+        View Music
       </Button>
     </div>
   );

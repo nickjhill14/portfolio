@@ -1,12 +1,12 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { withRouter } from "storybook-addon-react-router-v6";
-import { ProjectsPage } from "./ProjectsPage";
+import { MusicPage } from "./MusicPage";
 
 const meta = {
-  title: "Pages/ProjectsPage",
-  component: ProjectsPage,
+  title: "Pages/MusicPage",
+  component: MusicPage,
   decorators: [withRouter],
-} satisfies Meta<typeof ProjectsPage>;
+} satisfies Meta<typeof MusicPage>;
 
 type Story = StoryObj<typeof meta>;
 
