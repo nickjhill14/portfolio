@@ -1,6 +1,7 @@
 import { Home } from "@mui/icons-material";
 import HelpIcon from "@mui/icons-material/Help";
 import { Button, Tooltip } from "@nextui-org/react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Page } from "../../components/page/Page";
 import { projects } from "../../config/projects";
@@ -9,6 +10,8 @@ import { ProjectsSection } from "../../features/projectSection/ProjectSection";
 
 export const ProjectsPage = () => {
   const navigate = useNavigate();
+
+  const [showKey, setShowKey] = useState(false);
 
   return (
     <Page>
@@ -21,12 +24,21 @@ export const ProjectsPage = () => {
         >
           Go Home
         </Button>
-        <Tooltip content={<SkillsKey />} showArrow placement="bottom-end">
+        <Tooltip
+          content={<SkillsKey />}
+          showArrow
+          placement="bottom-end"
+          isOpen={showKey}
+          onOpenChange={(open) => setShowKey(open)}
+        >
           <Button
             isIconOnly
             disabled
             className="max-w-fit self-end"
             aria-label="View key"
+            onMouseEnter={() => setShowKey(true)}
+            onMouseLeave={() => setShowKey(false)}
+            onPress={() => setShowKey(!showKey)}
           >
             <HelpIcon />
           </Button>
