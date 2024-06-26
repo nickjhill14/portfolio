@@ -23,7 +23,7 @@ export const BasicInfoSection = ({
       </motion.h1>
       <motion.p
         initial={{ scale: 1, opacity: 0 }}
-        transition={{ ease: "easeInOut", duration: 2, delay: 4 }}
+        transition={{ ease: "easeInOut", duration: 1.5, delay: 4 }}
         animate={{
           rotateZ: [0, 0, 0, 100, 0, 100, 0, 100, 0, 0, 0],
           opacity: [0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0],
