@@ -38,14 +38,14 @@ export const BasicInfoSection = ({
       initial={{ clipPath: "polygon(0 0, 0 0, 0 100%, 0% 100%)" }}
       whileInView={{ clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)" }}
       viewport={{ once: true }}
-      transition={{ duration: 10, delay: 1.5 }}
+      transition={{ duration: 5, delay: 1.5 }}
       className="text-2l text-secondary font-bold"
     >
       {role}
     </motion.h2>
     <motion.div
       initial={{ opacity: 0 }}
-      transition={{ ease: "easeIn", duration: 1, delay: 3 }}
+      transition={{ ease: "easeIn", duration: 1, delay: 2 }}
       animate={{ opacity: 1 }}
     >
       <BasicInfoLinks email={email} linkedIn={linkedIn} gitHub={gitHub} />

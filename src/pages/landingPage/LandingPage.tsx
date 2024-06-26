@@ -9,7 +9,7 @@ export const LandingPage = () => (
     <BasicInfoSection basicInfo={basicInfo} />
     <motion.div
       initial={{ opacity: 0 }}
-      transition={{ ease: "easeIn", duration: 1, delay: 3 }}
+      transition={{ ease: "easeIn", duration: 1, delay: 2 }}
       animate={{ opacity: 1 }}
     >
       <LandingPageLinks />
