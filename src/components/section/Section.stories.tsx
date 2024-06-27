@@ -21,9 +21,16 @@ export const MultipleChildren: Story = {
   args: {
     headingText: upperCaseFirstChar(faker.company.buzzNoun()),
     children: [
-      <>{upperCaseFirstChar(faker.company.buzzNoun())}</>,
-      <>{upperCaseFirstChar(faker.company.buzzNoun())}</>,
+      upperCaseFirstChar(faker.company.buzzNoun()),
+      upperCaseFirstChar(faker.company.buzzNoun()),
     ],
+  },
+};
+
+export const CustomClass: Story = {
+  args: {
+    ...SingleChild.args,
+    className: "bg-red-500",
   },
 };
 

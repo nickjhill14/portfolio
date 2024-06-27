@@ -42,4 +42,12 @@ describe(Section, () => {
       screen.getByRole("button", { name: child2Name }),
     ).toBeInTheDocument();
   });
+
+  it("adds classnames to the container", () => {
+    const className = "custom-class";
+
+    render(<Section headingText="Some Heading" className={className} />);
+
+    expect(screen.getByTestId("section-container")).toHaveClass(className);
+  });
 });

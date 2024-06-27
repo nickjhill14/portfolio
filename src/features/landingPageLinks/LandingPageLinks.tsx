@@ -1,3 +1,4 @@
+import BookIcon from "@mui/icons-material/Book";
 import CodeIcon from "@mui/icons-material/Code";
 import DescriptionIcon from "@mui/icons-material/Description";
 import { Button } from "@nextui-org/react";
@@ -25,6 +26,13 @@ export const LandingPageLinks = () => {
         startContent={<CodeIcon />}
       >
         View Projects
+      </Button>
+      <Button
+        color="primary"
+        onPress={() => navigate(PortfolioRoutePaths.BLOG)}
+        startContent={<BookIcon />}
+      >
+        View Blog
       </Button>
     </div>
   );

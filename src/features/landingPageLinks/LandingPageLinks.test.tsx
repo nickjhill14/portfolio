@@ -32,4 +32,15 @@ describe(LandingPageLinks, () => {
 
     expect(navigateMock).toHaveBeenCalledWith(PortfolioRoutePaths.PROJECTS);
   });
+
+  it("navigates to the blog page when clicking the view blog btn", async () => {
+    const navigateMock = vitest.fn();
+
+    useNavigateMock.mockReturnValue(navigateMock);
+
+    render(<LandingPageLinks />);
+    await userEvent.click(screen.getByRole("button", { name: "View Blog" }));
+
+    expect(navigateMock).toHaveBeenCalledWith(PortfolioRoutePaths.BLOG);
+  });
 });
