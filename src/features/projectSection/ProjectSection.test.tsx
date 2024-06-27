@@ -1,6 +1,5 @@
 import { render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import { ReactComponent as PortfolioDiagram } from "../../assets/portfolio-context-diagram.svg";
 import { buildProject, buildSkill } from "../../utils/builders";
 import { ProjectsSection } from "./ProjectSection";
 
@@ -34,7 +33,7 @@ describe(ProjectsSection, () => {
 
   it("renders the image on view click", async () => {
     render(
-      <ProjectsSection project={buildProject({ Image: PortfolioDiagram })} />,
+      <ProjectsSection project={buildProject({ imgSrc: "path/to/img.png" })} />,
     );
     await userEvent.click(screen.getByRole("button", { name: "View image" }));
 
@@ -43,7 +42,7 @@ describe(ProjectsSection, () => {
 
   it("closes image on close click", async () => {
     render(
-      <ProjectsSection project={buildProject({ Image: PortfolioDiagram })} />,
+      <ProjectsSection project={buildProject({ imgSrc: "path/to/img.png" })} />,
     );
     await userEvent.click(screen.getByRole("button", { name: "View image" }));
     await userEvent.click(screen.getByRole("button", { name: "Close" }));

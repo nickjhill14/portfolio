@@ -1,5 +1,3 @@
-import { FunctionComponent, SVGProps } from "react";
-
 import { Skill } from "./skills";
 
 export type Project = {
@@ -7,5 +5,5 @@ export type Project = {
   description: string;
   skills: Skill[];
   githubLink: string;
-  Image?: FunctionComponent<SVGProps<SVGSVGElement>>;
+  imgSrc?: string;
 };

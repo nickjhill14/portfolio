@@ -21,7 +21,7 @@ type ProjectSectionProps = {
 
 // TODO: Add stories
 export const ProjectsSection = ({
-  project: { title, description, githubLink, Image, skills },
+  project: { title, description, githubLink, imgSrc, skills },
 }: ProjectSectionProps) => {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
 
@@ -51,7 +51,7 @@ export const ProjectsSection = ({
             <GitHubIcon />
           </Button>
         </motion.div>
-        {Image && (
+        {imgSrc && (
           <>
             <motion.div whileHover={{ scale: 1.2 }}>
               <Button
@@ -71,7 +71,7 @@ export const ProjectsSection = ({
               }}
             >
               <ModalContent className="flex items-center p-4 bg-primary">
-                {<Image />}
+                <img src={imgSrc} alt={`${title} diagram`} />
               </ModalContent>
             </Modal>
           </>

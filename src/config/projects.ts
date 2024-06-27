@@ -1,4 +1,4 @@
-import { ReactComponent as PortfolioDiagram } from "../assets/portfolio-context-diagram.svg";
+import PortfolioDiagram from "../assets/portfolio-context-diagram.png";
 import { Project } from "../domain/projects";
 import { SkillType } from "../domain/skills";
 
@@ -7,7 +7,7 @@ export const projects: Project[] = [
     title: "Portfolio",
     description: "A portfolio web app",
     githubLink: "https://github.com/nickjhill14/portfolio",
-    Image: PortfolioDiagram,
+    imgSrc: PortfolioDiagram,
     skills: [
       { key: SkillType.language, name: "TypeScript" },
       { key: SkillType.framework, name: "React" },
