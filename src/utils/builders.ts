@@ -1,5 +1,6 @@
 import { faker } from "@faker-js/faker";
 import { BasicInfo } from "../domain/basicInfo";
+import { Blog, BlogSection } from "../domain/blog";
 import { Language } from "../domain/cv";
 import { Project } from "../domain/projects";
 import { Skill, SkillType } from "../domain/skills";
@@ -45,5 +46,19 @@ export const buildProject = (override?: Partial<Project>): Project => ({
   description: faker.lorem.sentence(),
   githubLink: faker.internet.url(),
   skills: [],
+  ...override,
+});
+
+export const buildBlog = (override?: Partial<Blog>): Blog => ({
+  title: faker.hacker.noun(),
+  sections: [],
+  ...override,
+});
+
+export const buildBlogSection = (
+  override?: Partial<BlogSection>,
+): BlogSection => ({
+  heading: faker.hacker.noun(),
+  content: [],
   ...override,
 });

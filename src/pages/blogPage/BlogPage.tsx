@@ -2,7 +2,8 @@ import { Home } from "@mui/icons-material";
 import { Button } from "@nextui-org/react";
 import { useNavigate } from "react-router-dom";
 import { Page } from "../../components/page/Page";
-import { BlogSection } from "../../features/blogSection/BlogSection";
+import { reactTestingBlog } from "../../config/blog";
+import { BlogArticle } from "../../features/blogArticle/BlogArticle";
 
 export const BlogPage = () => {
   const navigate = useNavigate();
@@ -18,7 +19,7 @@ export const BlogPage = () => {
         Go Home
       </Button>
       <h1 className="text-4xl">Blog</h1>
-      <BlogSection />
+      <BlogArticle blog={reactTestingBlog} />
     </Page>
   );
 };

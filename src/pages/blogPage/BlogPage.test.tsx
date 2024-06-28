@@ -1,17 +1,18 @@
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { useNavigate } from "react-router-dom";
-import { BlogSection } from "../../features/blogSection/BlogSection";
+import { reactTestingBlog } from "../../config/blog";
+import { BlogArticle } from "../../features/blogArticle/BlogArticle";
 import { PortfolioRoutePaths } from "../../routing/portfolioRouting/PortfolioRouting";
-import { mockComponent } from "../../utils/ComponentMocks";
+import { getProps, mockComponent } from "../../utils/ComponentMocks";
 import { BlogPage } from "./BlogPage";
 
-vitest.mock("../../features/blogSection/BlogSection");
+vitest.mock("../../features/blogArticle/BlogArticle");
 vitest.mock("react-router-dom");
 
 describe(BlogPage, () => {
   beforeEach(() => {
-    mockComponent(BlogSection);
+    mockComponent(BlogArticle);
   });
 
   it("renders the page", async () => {
@@ -20,7 +21,7 @@ describe(BlogPage, () => {
     expect(
       screen.getByRole("heading", { name: "Blog", level: 1 }),
     ).toBeInTheDocument();
-    expect(screen.getByText(BlogSection.name)).toBeInTheDocument();
+    expect(getProps(BlogArticle).lastCall.blog).toStrictEqual(reactTestingBlog);
   });
 
   it("navigates to the landing page when clicking the home btn", async () => {
