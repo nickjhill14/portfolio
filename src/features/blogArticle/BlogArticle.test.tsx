@@ -15,6 +15,9 @@ describe(BlogArticle, () => {
       }),
     ).toBeInTheDocument();
     expect(
+      screen.getByText(`Est. Read Time: ${blog.readTime} mins`),
+    ).toBeInTheDocument();
+    expect(
       screen.queryByText(/This blog is still in draft mode/),
     ).not.toBeInTheDocument();
   });
@@ -22,9 +25,7 @@ describe(BlogArticle, () => {
   it("renders the article in draft mode", () => {
     render(<BlogArticle blog={buildBlog({ isDraft: true })} />);
 
-    expect(
-      screen.getByText(/This blog is still in draft mode/),
-    ).toBeInTheDocument();
+    expect(screen.getByText("🚧 Draft 🚧")).toBeInTheDocument();
   });
 
   it("renders the article (with sections)", () => {
@@ -40,6 +41,7 @@ describe(BlogArticle, () => {
         }),
       ).toBeInTheDocument();
     });
+    expect(screen.getAllByRole("separator")).toHaveLength(sections.length - 1);
   });
 
   it("renders the article and the section text content", () => {
@@ -54,7 +56,7 @@ describe(BlogArticle, () => {
     expect(screen.getByText(text)).toBeInTheDocument();
   });
 
-  it("renders the article and the section lis content", () => {
+  it("renders the article and the section list content", () => {
     const list = ["Item 1", "Item 2"];
 
     render(
@@ -84,5 +86,33 @@ describe(BlogArticle, () => {
     );
 
     expect(screen.getByRole("img", { name: alt })).toHaveAttribute("src", src);
+  });
+
+  it("renders the article and the section React element content", () => {
+    render(
+      <BlogArticle
+        blog={buildBlog({
+          sections: [
+            buildBlogSection({ content: [<button key="some-btn" />] }),
+          ],
+        })}
+      />,
+    );
+
+    expect(screen.getByRole("button")).toBeInTheDocument();
+  });
+
+  it("renders the article and the section React element list content", () => {
+    render(
+      <BlogArticle
+        blog={buildBlog({
+          sections: [
+            buildBlogSection({ content: [[<button key="some-btn" />]] }),
+          ],
+        })}
+      />,
+    );
+
+    expect(screen.getByRole("button")).toBeInTheDocument();
   });
 });

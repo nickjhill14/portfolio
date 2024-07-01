@@ -51,6 +51,7 @@ export const buildProject = (override?: Partial<Project>): Project => ({
 
 export const buildBlog = (override?: Partial<Blog>): Blog => ({
   title: faker.hacker.noun(),
+  readTime: faker.number.int(),
   sections: [],
   ...override,
 });
