@@ -1,5 +1,5 @@
 import { Link } from "@nextui-org/link";
-import { Code, Snippet } from "@nextui-org/react";
+import { Code } from "@nextui-org/react";
 import ReactComponentTesting from "../assets/react-component-mock-vs-real.png";
 import { Blog } from "../domain/blog";
 
@@ -89,56 +89,12 @@ export const reactTestingBlog: Blog = {
     {
       heading: "Implementation",
       content: [
-        <Snippet key="implementation-mock" hideSymbol color="primary">
-          <span className="whitespace-pre-wrap">
-            import {`{ ReactElement }`} from &ldquo;react&ldquo;;
-          </span>
-          <span className="whitespace-pre-wrap">
-            import {`{ type MockedFunction }`} from &ldquo;vitest&ldquo;;
-          </span>
-          <br />
-          <span className="whitespace-pre-wrap">
-            type Component{`<Props>`} = (props: Props) {`=>`} ReactElement |
-            null | undefined;
-          </span>
-          <br />
-          <span className="whitespace-pre-wrap">
-            export const mockComponent = {`<Props,>`}( component: Component
-            {`<Props>`}, ): MockedFunction{`<Component<Props>> =>`}
-            vitest.mocked(component).mockReturnValue(
-            {`<div>{component.name}</div>`});
-          </span>
-        </Snippet>,
-        <Snippet key="implementation-props" hideSymbol color="primary">
-          <span className="whitespace-pre-wrap">
-            import {`{ ReactElement }`} from &ldquo;react&ldquo;;
-          </span>
-          <br />
-          <span className="whitespace-pre-wrap">
-            type Component{`<Props>`} = (props: Props) {`=>`} ReactElement |
-            null | undefined;
-          </span>
-          <br />
-          <span className="whitespace-pre-wrap">
-            export const getProps = {`<Props,>`}(component: Component{`<Props>`}
-            ,): {`{ calls: Props[]; lastCall: Props }} => {`}
-          </span>
-          <span className="whitespace-pre-wrap">
-            const {`{ lastCall, calls }`} = vitest.mocked(component).mock;
-          </span>
-          <br />
-          <span className="whitespace-pre-wrap">if (!lastCall) {`{`}</span>
-          <span className="whitespace-pre-wrap">
-            throw new Error({"`${component.name}`"} was not called`);
-          </span>
-          <span className="whitespace-pre-wrap">{`}`}</span>
-          <br />
-          <span className="whitespace-pre-wrap">
-            return{" "}
-            {`{ calls: calls.map((call) => call[0]), lastCall: lastCall[0] };`}
-          </span>
-          <span className="whitespace-pre-wrap">{`};`}</span>
-        </Snippet>,
+        {
+          code: `import { ReactElement } from "react";import { type MockedFunction } from "vitest";type Component<Props> = (props: Props) => ReactElement | null | undefined;export const mockComponent = <Props,>(component: Component<Props>,): MockedFunction<Component<Props>> => vitest.mocked(component).mockReturnValue(<div>{component.name}</div>);`,
+        },
+        {
+          code: `export const getProps = <Props,>(component: Component<Props>,): { calls: Props[]; lastCall: Props } => {const { lastCall, calls } = vitest.mocked(component).mock;if (!lastCall) {throw new Error(\`\${component.name} was not called\`);}return { calls: calls.map((call) => call[0]), lastCall: lastCall[0] };};`,
+        },
       ],
     },
   ],

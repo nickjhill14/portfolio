@@ -1,16 +1,19 @@
 import AccessTimeFilledIcon from "@mui/icons-material/AccessTimeFilled";
 import { Divider } from "@nextui-org/divider";
 import { Image } from "@nextui-org/image";
-import { ReactElement } from "react";
 import { Section } from "../../components/section/Section";
-import { Blog, ImgSrc } from "../../domain/blog";
+import { Blog, Code, ImgSrc } from "../../domain/blog";
+import { CodeBlock } from "./CodeBlock";
 
 type BlogArticleProps = {
   blog: Blog;
 };
 
-const isImgSrc = (content: ReactElement | ImgSrc): content is ImgSrc =>
+const isImgSrc = (content: ImgSrc | unknown): content is ImgSrc =>
   (content as ImgSrc).src !== undefined;
+
+const isCode = (content: Code | unknown): content is Code =>
+  (content as Code).code !== undefined;
 
 export const BlogArticle = ({
   blog: { title, sections, isDraft, readTime },
@@ -48,6 +51,8 @@ export const BlogArticle = ({
                 width={500}
               />
             );
+          } else if (isCode(content)) {
+            return <CodeBlock key={key} code={content.code} />;
           }
 
           return content;
