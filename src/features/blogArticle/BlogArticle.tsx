@@ -13,7 +13,7 @@ const isImgSrc = (content: ImgSrc | unknown): content is ImgSrc =>
   (content as ImgSrc).src !== undefined;
 
 const isCode = (content: Code | unknown): content is Code =>
-  (content as Code).code !== undefined;
+  (content as Code).snippetPath !== undefined;
 
 export const BlogArticle = ({
   blog: { title, sections, isDraft, readTime },
@@ -52,7 +52,7 @@ export const BlogArticle = ({
               />
             );
           } else if (isCode(content)) {
-            return <CodeBlock key={key} code={content.code} />;
+            return <CodeBlock key={key} snippetPath={content.snippetPath} />;
           }
 
           return content;

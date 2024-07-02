@@ -1,25 +1,28 @@
-import { Snippet } from "@nextui-org/react";
-import esTreePlugin from "prettier/plugins/estree";
-import tsPlugin from "prettier/plugins/typescript";
-import prettier from "prettier/standalone";
+import highlightJs from "highlight.js";
+import "highlight.js/styles/github-dark.css";
 import { useEffect, useState } from "react";
 
 type CodeBlockProps = {
-  code: string;
+  snippetPath: string;
 };
 
-export const CodeBlock = ({ code }: CodeBlockProps) => {
-  const [formattedCode, setFormattedCode] = useState("");
+export const CodeBlock = ({ snippetPath }: CodeBlockProps) => {
+  const [code, setCode] = useState("");
 
   useEffect(() => {
-    prettier
-      .format(code, { parser: "typescript", plugins: [tsPlugin, esTreePlugin] })
-      .then(setFormattedCode);
+    fetch(snippetPath)
+      .then((response) => response.text())
+      .then(setCode);
   }, []);
 
   return (
-    <Snippet hideSymbol>
-      <pre>{formattedCode}</pre>
-    </Snippet>
+    <pre className="hljs text-small rounded-large p-4 overflow-auto">
+      <code
+        className="overflow-scroll"
+        dangerouslySetInnerHTML={{
+          __html: highlightJs.highlight("typescript", code).value,
+        }}
+      />
+    </pre>
   );
 };

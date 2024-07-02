@@ -6,7 +6,7 @@ type List = Array<string | ReactElement>;
 
 export type ImgSrc = { src: string; alt: string };
 
-export type Code = { code: string };
+export type Code = { snippetPath: string };
 
 export type BlogSection = {
   heading: string;

@@ -1,0 +1,15 @@
+import { ReactElement } from "react";
+
+type Component<Props> = (props: Props) => ReactElement | null | undefined;
+
+export const getProps = <Props,>(
+  component: Component<Props>,
+): { calls: Props[]; lastCall: Props } => {
+  const { lastCall, calls } = vitest.mocked(component).mock;
+
+  if (!lastCall) {
+    throw new Error(`${component.name} was not called`);
+  }
+
+  return { calls: calls.map((call) => call[0]), lastCall: lastCall[0] };
+};

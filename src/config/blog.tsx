@@ -1,5 +1,7 @@
 import { Link } from "@nextui-org/link";
 import { Code } from "@nextui-org/react";
+import GetPropsSnippet from "../assets/get-props-snippet.txt";
+import MockComponentSnippet from "../assets/mock-component-snippet.txt";
 import ReactComponentTesting from "../assets/react-component-mock-vs-real.png";
 import { Blog } from "../domain/blog";
 
@@ -90,10 +92,10 @@ export const reactTestingBlog: Blog = {
       heading: "Implementation",
       content: [
         {
-          code: `import { ReactElement } from "react";import { type MockedFunction } from "vitest";type Component<Props> = (props: Props) => ReactElement | null | undefined;export const mockComponent = <Props,>(component: Component<Props>,): MockedFunction<Component<Props>> => vitest.mocked(component).mockReturnValue(<div>{component.name}</div>);`,
+          snippetPath: MockComponentSnippet,
         },
         {
-          code: `export const getProps = <Props,>(component: Component<Props>,): { calls: Props[]; lastCall: Props } => {const { lastCall, calls } = vitest.mocked(component).mock;if (!lastCall) {throw new Error(\`\${component.name} was not called\`);}return { calls: calls.map((call) => call[0]), lastCall: lastCall[0] };};`,
+          snippetPath: GetPropsSnippet,
         },
       ],
     },

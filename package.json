@@ -13,6 +13,7 @@
     "@vercel/analytics": "^1.0.2",
     "@vercel/speed-insights": "^1.0.11",
     "framer-motion": "^10.18.0",
+    "highlight.js": "^11.9.0",
     "next-themes": "^0.3.0",
     "prettier": "3.0.1",
     "prettier-plugin-organize-imports": "^3.2.3",

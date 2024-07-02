@@ -1,0 +1,9 @@
+import { ReactElement } from "react";
+import { type MockedFunction } from "vitest";
+
+type Component<Props> = (props: Props) => ReactElement | null | undefined;
+
+export const mockComponent = <Props,>(
+  component: Component<Props>,
+): MockedFunction<Component<Props>> =>
+  vitest.mocked(component).mockReturnValue(<div>{component.name}</div>);
