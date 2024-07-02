@@ -91,9 +91,34 @@ export const reactTestingBlog: Blog = {
     {
       heading: "Implementation",
       content: [
+        <p key="implementation-intro">
+          Implementing this pattern in code is simplistic. An example of this
+          can be found in this{" "}
+          <Link
+            isExternal
+            href="https://github.com/nickjhill14/react-component-testing"
+            underline="hover"
+            showAnchorIcon
+          >
+            GitHub repo
+          </Link>
+          .
+        </p>,
+        <p key="implementation-mock-component">
+          The first step is to add a function to mock a React component. A
+          reference to the component is passed in and the props are then
+          inferred via the generic. The name of the component is then returned
+          as text.
+        </p>,
         {
           snippetPath: MockComponentSnippet,
         },
+        <p key="implementation-get-props">
+          The next step is to add a function to get the props for the mock
+          component. This allows the tester to assert on what props are passed
+          or invoked. It also provides the ability to invoke a function to test
+          the behaviour of the parent component in response.
+        </p>,
         {
           snippetPath: GetPropsSnippet,
         },
