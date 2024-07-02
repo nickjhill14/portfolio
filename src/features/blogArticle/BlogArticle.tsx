@@ -18,7 +18,7 @@ export const BlogArticle = ({
     </div>
     {isDraft && <strong>🚧 Draft 🚧</strong>}
     {sections.map((section, index) => (
-      <div key={`Section ${index}`} className="flex flex-col gap-2">
+      <div key={`section-${index}`} className="flex flex-col gap-2">
         <h3 className="text-secondary">{section.heading}</h3>
         <BlogContent blogSection={section} />
         {index < sections.length - 1 && <Divider />}

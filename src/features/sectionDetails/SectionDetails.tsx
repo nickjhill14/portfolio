@@ -1,7 +1,6 @@
 import CalendarMonthOutlinedIcon from "@mui/icons-material/CalendarMonthOutlined";
 import LocationOnOutlinedIcon from "@mui/icons-material/LocationOnOutlined";
 import { Divider } from "@nextui-org/divider";
-import { IconTypography } from "../../components/iconTypography/IconTypography";
 
 type SectionDetailsProps = {
   heading: string;
@@ -23,20 +22,16 @@ export const SectionDetails = ({
       <h3 className="text-secondary">{heading}</h3>
       <div className="flex gap-4">
         {location && (
-          <IconTypography
-            icon={LocationOnOutlinedIcon}
-            text={location}
-            variant="caption"
-            data-testid="location"
-          />
+          <div className="flex gap-1 items-center text-small">
+            <LocationOnOutlinedIcon />
+            <p>{location}</p>
+          </div>
         )}
         {dateRange && (
-          <IconTypography
-            icon={CalendarMonthOutlinedIcon}
-            text={dateRange}
-            variant="caption"
-            data-testid="date-range"
-          />
+          <div className="flex gap-1 items-center text-small">
+            <CalendarMonthOutlinedIcon />
+            <p>{dateRange}</p>
+          </div>
         )}
       </div>
     </div>
