@@ -2,7 +2,7 @@ import { Card, CardBody, CardHeader } from "@nextui-org/card";
 import { PropsWithChildren } from "react";
 
 export type SectionProps = {
-  headingText: string;
+  headingText?: string;
   className?: string;
 };
 
@@ -12,9 +12,11 @@ export const Section = ({
   children,
 }: PropsWithChildren<SectionProps>) => (
   <Card data-testid="section-container" className={className}>
-    <CardHeader className="pb-2">
-      <h2 className="text-2l text-secondary font-bold">{headingText}</h2>
-    </CardHeader>
+    {headingText && (
+      <CardHeader className="pb-2">
+        <h2 className="text-2l text-secondary font-bold">{headingText}</h2>
+      </CardHeader>
+    )}
     <CardBody className="flex flex-col gap-4">{children}</CardBody>
   </Card>
 );

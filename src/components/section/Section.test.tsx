@@ -12,6 +12,12 @@ describe(Section, () => {
     ).toBeInTheDocument();
   });
 
+  it("does not render heading when not provided", () => {
+    render(<Section />);
+
+    expect(screen.queryByRole("heading")).not.toBeInTheDocument();
+  });
+
   it("renders a single child", () => {
     const childName = "Child Name";
 

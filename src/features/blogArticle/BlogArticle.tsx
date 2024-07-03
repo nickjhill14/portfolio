@@ -9,9 +9,9 @@ type BlogArticleProps = {
 };
 
 export const BlogArticle = ({
-  blog: { title, sections, isDraft, readTime },
+  blog: { sections, isDraft, readTime },
 }: BlogArticleProps) => (
-  <Section headingText={title} className="md:w-2/3">
+  <Section className="md:w-2/3">
     <div className="flex items-center gap-1">
       <AccessTimeFilledIcon />
       <p className="font-light">Est. Read Time: {readTime} mins</p>

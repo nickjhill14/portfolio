@@ -22,7 +22,8 @@ export const CodeBlock = ({ snippetPath }: CodeBlockProps) => {
         <code
           className="overflow-scroll"
           dangerouslySetInnerHTML={{
-            __html: highlightJs.highlight("typescript", code).value,
+            __html: highlightJs.highlight(code, { language: "typescript" })
+              .value,
           }}
         />
       </pre>

@@ -8,7 +8,7 @@ import { Blog } from "../domain/blog";
 export const reactTestingBlog: Blog = {
   title: "React Component Testing",
   isDraft: true,
-  readTime: 5,
+  readTime: 10,
   sections: [
     {
       heading: "Overview",

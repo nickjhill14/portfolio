@@ -9,12 +9,6 @@ describe(BlogArticle, () => {
     render(<BlogArticle blog={blog} />);
 
     expect(
-      screen.getByRole("heading", {
-        name: blog.title,
-        level: 2,
-      }),
-    ).toBeInTheDocument();
-    expect(
       screen.getByText(`Est. Read Time: ${blog.readTime} mins`),
     ).toBeInTheDocument();
     expect(
