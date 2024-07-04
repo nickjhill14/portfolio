@@ -1,5 +1,6 @@
-import AccessTimeFilledIcon from "@mui/icons-material/AccessTimeFilled";
+import { AccessTimeFilled, CalendarMonth } from "@mui/icons-material";
 import { Divider } from "@nextui-org/divider";
+import { format } from "date-fns";
 import { Section } from "../../components/section/Section";
 import { Blog } from "../../domain/blog";
 import { BlogContent } from "./BlogContent";
@@ -9,12 +10,18 @@ type BlogArticleProps = {
 };
 
 export const BlogArticle = ({
-  blog: { sections, isDraft, readTime },
+  blog: { sections, date, isDraft, readTime },
 }: BlogArticleProps) => (
   <Section className="md:w-2/3">
-    <div className="flex items-center gap-1">
-      <AccessTimeFilledIcon />
-      <p className="font-light">Est. Read Time: {readTime} mins</p>
+    <div className="flex flex-col gap-4">
+      <div className="flex items-center gap-1">
+        <CalendarMonth />
+        <p className="font-light">{format(date, "dd/MM/yyyy")}</p>
+      </div>
+      <div className="flex items-center gap-1">
+        <AccessTimeFilled />
+        <p className="font-light">Est. Read Time: {readTime} mins</p>
+      </div>
     </div>
     {isDraft && <strong>🚧 Draft 🚧</strong>}
     {sections.map((section, index) => (

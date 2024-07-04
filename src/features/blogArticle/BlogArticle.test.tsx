@@ -4,13 +4,17 @@ import { BlogArticle } from "./BlogArticle";
 
 describe(BlogArticle, () => {
   it("renders the article (without sections)", () => {
-    const blog = buildBlog();
+    const date = new Date(
+      "Wed Jul 03 2024 16:06:42 GMT+0100 (British Summer Time)",
+    );
+    const blog = buildBlog({ date });
 
     render(<BlogArticle blog={blog} />);
 
     expect(
       screen.getByText(`Est. Read Time: ${blog.readTime} mins`),
     ).toBeInTheDocument();
+    expect(screen.getByText("03/07/2024")).toBeInTheDocument();
     expect(
       screen.queryByText(/This blog is still in draft mode/),
     ).not.toBeInTheDocument();

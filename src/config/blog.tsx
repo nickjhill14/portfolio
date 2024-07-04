@@ -7,6 +7,7 @@ import { Blog } from "../domain/blog";
 
 export const reactTestingBlog: Blog = {
   title: "React Component Testing",
+  date: new Date("Wed Jul 03 2024 16:06:42 GMT+0100 (British Summer Time)"),
   isDraft: true,
   readTime: 10,
   sections: [

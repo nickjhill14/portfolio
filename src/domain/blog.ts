@@ -15,6 +15,7 @@ export type BlogSection = {
 
 export type Blog = {
   title: string;
+  date: Date;
   sections: Array<BlogSection>;
   readTime: number;
   isDraft?: boolean;
