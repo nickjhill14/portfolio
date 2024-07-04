@@ -1,8 +1,10 @@
 import { Biotech, Home } from "@mui/icons-material";
+import { Link } from "@nextui-org/link";
 import { Button } from "@nextui-org/react";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import { Page } from "../../components/page/Page";
+import { basicInfo } from "../../config/basicInfo";
 import { blogs } from "../../config/blog";
 import { PortfolioRoutePaths } from "../../routing/portfolioRouting/PortfolioRouting";
 
@@ -26,6 +28,17 @@ export const BlogPage = () => {
         animate={{ opacity: 1 }}
         className="flex flex-col gap-4"
       >
+        <div className="flex gap-1">
+          <p>For blog request and/or any queries. Please contact me here:</p>
+          <Link
+            href={`mailto:${basicInfo.email}`}
+            isExternal
+            underline="hover"
+            showAnchorIcon
+          >
+            {basicInfo.email}
+          </Link>
+        </div>
         <Button
           startContent={<Biotech />}
           onPress={() =>

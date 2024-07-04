@@ -1,6 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { useNavigate } from "react-router-dom";
+import { basicInfo } from "../../config/basicInfo";
 import { PortfolioRoutePaths } from "../../routing/portfolioRouting/PortfolioRouting";
 import { BlogPage } from "./BlogPage";
 
@@ -13,6 +14,16 @@ describe(BlogPage, () => {
     expect(
       screen.getByRole("heading", { name: "Blog", level: 1 }),
     ).toBeInTheDocument();
+    expect(
+      screen.getByText(
+        "For blog request and/or any queries. Please contact me here:",
+      ),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole("link", {
+        name: basicInfo.email,
+      }),
+    ).toHaveAttribute("href", `mailto:${basicInfo.email}`);
   });
 
   it("navigates to the landing page when clicking the home btn", async () => {
