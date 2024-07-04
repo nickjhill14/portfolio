@@ -3,10 +3,8 @@ import { Button } from "@nextui-org/react";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import { Page } from "../../components/page/Page";
-import {
-  BlogRoutePaths,
-  PortfolioRoutePaths,
-} from "../../routing/portfolioRouting/PortfolioRouting";
+import { blogs } from "../../config/blog";
+import { PortfolioRoutePaths } from "../../routing/portfolioRouting/PortfolioRouting";
 
 export const BlogPage = () => {
   const navigate = useNavigate();
@@ -28,18 +26,19 @@ export const BlogPage = () => {
         animate={{ opacity: 1 }}
         className="flex flex-col gap-4"
       >
-        <h2 className="text-2l text-secondary font-bold">Testing</h2>
         <Button
           startContent={<Biotech />}
           onPress={() =>
             navigate(
-              `${PortfolioRoutePaths.BLOG}${BlogRoutePaths.REACT_COMPONENT_TESTING}`,
+              `${PortfolioRoutePaths.BLOG}/${blogs[0].title
+                .replaceAll(" ", "-")
+                .toLowerCase()}`,
             )
           }
           color="primary"
           className="self-start"
         >
-          React Component Testing
+          {blogs[0].title}
         </Button>
       </motion.div>
     </Page>

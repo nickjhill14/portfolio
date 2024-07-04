@@ -1,10 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { useNavigate } from "react-router-dom";
-import {
-  BlogRoutePaths,
-  PortfolioRoutePaths,
-} from "../../routing/portfolioRouting/PortfolioRouting";
+import { PortfolioRoutePaths } from "../../routing/portfolioRouting/PortfolioRouting";
 import { BlogPage } from "./BlogPage";
 
 vitest.mock("react-router-dom");
@@ -15,9 +12,6 @@ describe(BlogPage, () => {
 
     expect(
       screen.getByRole("heading", { name: "Blog", level: 1 }),
-    ).toBeInTheDocument();
-    expect(
-      screen.getByRole("heading", { name: "Testing", level: 2 }),
     ).toBeInTheDocument();
   });
 
@@ -43,7 +37,7 @@ describe(BlogPage, () => {
     );
 
     expect(navigateMock).toHaveBeenCalledWith(
-      `${PortfolioRoutePaths.BLOG}${BlogRoutePaths.REACT_COMPONENT_TESTING}`,
+      `${PortfolioRoutePaths.BLOG}/react-component-testing`,
     );
   });
 });

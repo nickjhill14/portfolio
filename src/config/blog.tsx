@@ -127,3 +127,5 @@ export const reactTestingBlog: Blog = {
     },
   ],
 };
+
+export const blogs = [reactTestingBlog];

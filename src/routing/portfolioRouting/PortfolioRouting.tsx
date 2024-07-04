@@ -1,5 +1,5 @@
 import { createBrowserRouter, type RouteObject } from "react-router-dom";
-import { reactTestingBlog } from "../../config/blog";
+import { blogs, reactTestingBlog } from "../../config/blog";
 import { BlogPage } from "../../pages/blogPage/BlogPage";
 import { BlogTemplatePage } from "../../pages/blogPage/blogTemplatePage/BlogTemplatePage";
 import { CvPage } from "../../pages/cvPage/CvPage";
@@ -13,10 +13,6 @@ export enum PortfolioRoutePaths {
   PROJECTS = "/projects",
   BLOG = "/blog",
   MUSIC = "/music",
-}
-
-export enum BlogRoutePaths {
-  REACT_COMPONENT_TESTING = "/react-component-testing",
 }
 
 export const portfolioRoutes: RouteObject[] = [
@@ -37,7 +33,9 @@ export const portfolioRoutes: RouteObject[] = [
     element: <BlogPage />,
   },
   {
-    path: `${PortfolioRoutePaths.BLOG}${BlogRoutePaths.REACT_COMPONENT_TESTING}`,
+    path: `${PortfolioRoutePaths.BLOG}/${blogs[0].title
+      .replaceAll(" ", "-")
+      .toLowerCase()}`,
     element: <BlogTemplatePage blog={reactTestingBlog} />,
   },
   {
