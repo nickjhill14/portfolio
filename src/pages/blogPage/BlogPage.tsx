@@ -28,8 +28,8 @@ export const BlogPage = () => {
         animate={{ opacity: 1 }}
         className="flex flex-col gap-4"
       >
-        <div className="flex gap-1">
-          <p>For blog request and/or any queries. Please contact me here:</p>
+        <p>
+          For blog request and/or any queries. Please contact me here:{" "}
           <Link
             href={`mailto:${basicInfo.email}`}
             isExternal
@@ -38,7 +38,7 @@ export const BlogPage = () => {
           >
             {basicInfo.email}
           </Link>
-        </div>
+        </p>
         <Button
           startContent={<Biotech />}
           onPress={() =>
