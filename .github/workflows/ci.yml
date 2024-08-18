@@ -2,7 +2,7 @@ name: CI/CD
 env:
   VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
   VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
-on: [ push ]
+on: [push]
 jobs:
   build-and-test:
     runs-on: ubuntu-latest
