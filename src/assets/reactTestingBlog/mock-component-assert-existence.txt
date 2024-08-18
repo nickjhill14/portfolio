@@ -1,0 +1,5 @@
+it('renders the blog section', () => {
+  render(<Homepage />);
+
+  expect(screen.getByText(BlogSection.name)).toBeInTheDocument();
+});

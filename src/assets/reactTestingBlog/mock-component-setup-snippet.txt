@@ -1,0 +1,12 @@
+import { mockComponent } from "../../utils/ComponentMocks";
+import { Homepage } from "./Homepage";
+import { BlogSection } from "./BlogSection";
+
+vitest.mock("./BlogSection");
+
+describe(Homepage, () => {
+  beforeEach(() => {
+    mockComponent(BlogSection);
+  });
+
+...

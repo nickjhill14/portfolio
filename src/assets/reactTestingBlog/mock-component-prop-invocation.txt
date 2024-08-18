@@ -1,0 +1,10 @@
+it("saves the blog", async () => {
+  mockGetBlog.mockResolvedValue(buildBlog());
+
+  render(<Homepage />);
+  await waitFor(() => {
+    getProps(BlogSection).lastCall.save();
+  });
+
+  expect(await screen.findByText('Saved')).toBeInTheDocument();
+});

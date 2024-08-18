@@ -1,0 +1,11 @@
+it('passes the blog to the blog section', async () => {
+  const blog = buildBlog();
+
+  mockGetBlog.mockResolvedValue(blog);
+
+  render(<Homepage />);
+
+  await waitFor(() => {
+    expect(getProps(BlogSection).lastCall.blog).toStrictEqual(blog);
+  });
+});

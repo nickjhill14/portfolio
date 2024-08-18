@@ -1,0 +1,5 @@
+it('passes undefined to the blog section initially', () => {
+  render(<Homepage />);
+
+  expect(getProps(BlogSection).calls[0].blog).toBeUndefined();
+});

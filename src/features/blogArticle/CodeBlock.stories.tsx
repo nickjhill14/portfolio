@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import MockComponentSnippet from "../../assets/mock-component-snippet.txt";
+import MockComponentSnippet from "../../assets/reactTestingBlog/mock-component-snippet.txt";
 import { CodeBlock } from "./CodeBlock";
 
 const meta = {
