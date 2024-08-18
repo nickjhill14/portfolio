@@ -31,7 +31,7 @@ export const buildDateRange = (): string =>
 
 export const buildSkill = (override?: Partial<Skill>): Skill => ({
   key: SkillType.other,
-  name: faker.hacker.noun(),
+  name: faker.commerce.productName(),
   ...override,
 });
 

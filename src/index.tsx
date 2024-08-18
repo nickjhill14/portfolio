@@ -17,7 +17,7 @@ root.render(
   <StrictMode>
     <NextUIProvider>
       <ThemeProvider attribute="class" defaultTheme="light">
-        <main className="h-screen flex flex-col justify-between pt-8 px-8 md:pt-16 md:px-16 pb-4">
+        <main className="h-screen flex flex-col justify-between pt-8 px-4 md:pt-16 md:px-16 pb-4">
           <RouterProvider router={portfolioRouter} />
           <Footer />
         </main>
