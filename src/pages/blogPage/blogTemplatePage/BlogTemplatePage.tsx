@@ -47,7 +47,14 @@ export const BlogTemplatePage = ({ blog }: BlogTemplatePageProps) => {
         </Button>
       </div>
       <h1 className="text-4xl">{blog.title}</h1>
-      <BlogArticle blog={blog} />
+      <motion.div
+        initial={{ opacity: 0 }}
+        transition={{ ease: "easeIn", duration: 0.5 }}
+        animate={{ opacity: 1 }}
+        className="flex flex-col gap-4"
+      >
+        <BlogArticle blog={blog} />
+      </motion.div>
     </Page>
   );
 };
