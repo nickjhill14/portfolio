@@ -4,7 +4,7 @@ export type Language = { name: string; level: number };
 
 export type SkillsInfo = { skills: Skill[]; languages: Language[] };
 
-export type CvSectionItems = {
+export type CvSectionItem = {
   name: string;
   location?: string;
   dateRange?: string;
@@ -13,7 +13,7 @@ export type CvSectionItems = {
 
 export type CvSection = {
   title: string;
-  items: CvSectionItems[];
+  items: CvSectionItem[];
 };
 
 export type Cv = {

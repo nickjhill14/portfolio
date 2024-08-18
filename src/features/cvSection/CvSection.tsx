@@ -8,7 +8,7 @@ type CvSectionProps = {
   cv: Cv;
 };
 
-// TODO: Add tests and stories
+// TODO: Add stories
 export const CvSection = ({ cv }: CvSectionProps) => {
   const containerAnimation: Variants = {
     hidden: { opacity: 1, scale: 0 },
@@ -28,6 +28,14 @@ export const CvSection = ({ cv }: CvSectionProps) => {
       opacity: 1,
     },
   };
+
+  if (
+    cv.cvSections.length === 0 &&
+    cv.skillsInfo.skills.length === 0 &&
+    cv.skillsInfo.languages.length === 0
+  ) {
+    return null;
+  }
 
   return (
     <motion.div

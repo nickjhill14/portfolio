@@ -1,16 +1,41 @@
 import { faker } from "@faker-js/faker";
 import { BasicInfo } from "../domain/basicInfo";
 import { Blog, BlogSection } from "../domain/blog";
-import { Language } from "../domain/cv";
+import {
+  Cv,
+  CvSection,
+  CvSectionItem,
+  Language,
+  SkillsInfo,
+} from "../domain/cv";
 import { Project } from "../domain/projects";
 import { Skill, SkillType } from "../domain/skills";
 
 export const buildBasicInfo = (override?: Partial<BasicInfo>): BasicInfo => ({
-  name: "Portfolio Pete",
-  role: "Portfolio Creator",
-  email: "portfolio-pete@email.com",
-  linkedIn: "portfolio-pete",
-  gitHub: "portfolio-pete-dev",
+  name: faker.person.fullName(),
+  role: faker.person.jobTitle(),
+  email: faker.internet.email(),
+  linkedIn: faker.internet.userName(),
+  gitHub: faker.internet.userName(),
+  ...override,
+});
+
+export const buildCv = (override?: Partial<Cv>): Cv => ({
+  cvSections: [],
+  skillsInfo: buildSkillsInfo(),
+  ...override,
+});
+
+export const buildCvSection = (override?: Partial<CvSection>): CvSection => ({
+  title: faker.person.jobArea(),
+  items: [],
+  ...override,
+});
+
+export const buildCvSectionItem = (
+  override?: Partial<CvSectionItem>,
+): CvSectionItem => ({
+  name: faker.person.jobTitle(),
   ...override,
 });
 
@@ -29,6 +54,14 @@ export const buildDateRange = (): string =>
     )
     .join(" - ");
 
+export const buildSkillsInfo = (
+  override?: Partial<SkillsInfo>,
+): SkillsInfo => ({
+  skills: [],
+  languages: [],
+  ...override,
+});
+
 export const buildSkill = (override?: Partial<Skill>): Skill => ({
   key: SkillType.other,
   name: faker.commerce.productName(),
@@ -36,7 +69,7 @@ export const buildSkill = (override?: Partial<Skill>): Skill => ({
 });
 
 export const buildLanguage = (override?: Partial<Language>): Language => ({
-  name: "English",
+  name: faker.location.country(),
   level: 5,
   ...override,
 });
