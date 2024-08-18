@@ -12,10 +12,12 @@ export const cv: Cv = {
           dateRange: "Feb. 20 - Present",
           details: [
             "Advocating software excellence through the effective implementation of coding practices, cross-role collaboration, and QA strategy",
+            "Creating evolving and scalable architectures to meet business demands",
+            "Cultivating the growth of devs via mentoring and knowledge sharing",
             "Digitally transforming clients in the healthcare and automotive industries",
-            "Driving the development of high-performing via Agile methodologies",
+            "Driving high-performing teams via Agile methodologies",
             "Working across the tech stack (frontend, backend, and infra)",
-            "Contributing to internal, external, and open-source projects globally",
+            "Contributing to a number of internal and external open-source projects",
           ],
         },
         {
