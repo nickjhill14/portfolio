@@ -37,19 +37,20 @@ export const CvSection = ({ cv }: CvSectionProps) => {
       className="grid grid-flow-row grid-cols-1 md:grid-cols-2 gap-4"
     >
       {cv.cvSections.map(({ title, items }) => (
-        <Section key={title} headingText={title}>
-          {items.map((item, index) => (
-            <motion.div variants={sectionAnimation} key={item.name}>
+        <motion.div variants={sectionAnimation} key={title}>
+          <Section headingText={title}>
+            {items.map((item, index) => (
               <SectionDetails
                 heading={item.name}
                 location={item.location}
                 dateRange={item.dateRange}
                 details={item.details}
                 divider={items && index < items.length - 1}
+                key={item.name}
               />
-            </motion.div>
-          ))}
-        </Section>
+            ))}
+          </Section>
+        </motion.div>
       ))}
       <motion.div variants={sectionAnimation} className="col-span-full">
         <SkillsSection skillsInfo={cv.skillsInfo} />
