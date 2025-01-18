@@ -1,6 +1,6 @@
 {
   "name": "portfolio",
-  "version": "0.12.6",
+  "version": "0.12.7",
   "private": true,
   "type": "module",
   "dependencies": {
@@ -26,7 +26,7 @@
   "devDependencies": {
     "@axe-core/playwright": "^4.7.3",
     "@faker-js/faker": "^8.0.2",
-    "@playwright/test": "^1.37.1",
+    "@playwright/test": "^1.49.1",
     "@storybook/addon-essentials": "^7.4.0",
     "@storybook/addon-interactions": "^7.4.0",
     "@storybook/addon-links": "^7.4.0",
