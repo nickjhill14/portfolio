@@ -64,7 +64,7 @@ export const cv: Cv = {
       title: "Education",
       items: [
         {
-          name: "Masters In Computer Science",
+          name: "Masters In Computer Science (1st Class)",
           location: "University Of Nottingham",
           dateRange: "Sep. 13 - Jul. 17",
         },
