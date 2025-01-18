@@ -1,4 +1,4 @@
-import { type Skill } from "./skills";
+import { Skill } from "./skills";
 
 export type Language = { name: string; level: number };
 
@@ -6,6 +6,7 @@ export type SkillsInfo = { skills: Skill[]; languages: Language[] };
 
 export type CvSectionItem = {
   name: string;
+  link?: string;
   location?: string;
   dateRange?: string;
   details?: string[];

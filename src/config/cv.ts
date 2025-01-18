@@ -84,11 +84,18 @@ export const cv: Cv = {
       title: "Achievements",
       items: [
         {
+          name: "Machine Learning Project Publication, Thoughtworks",
+          details: [
+            "Credited in a Wall Street Journal article for a recipe development app for Mondelez",
+          ],
+          link: "https://www.wsj.com/articles/oreo-owner-mondelez-taps-ai-to-tweak-its-classic-snacks-6fa4c4cd?reflink=desktopwebshare_permalink",
+        },
+        {
           name: "AWS Certified Cloud Practitioner",
           details: ["Understanding of AWS concepts and services"],
         },
         {
-          name: "7Digital/Esendex For Software Quality",
+          name: "7Digital/Esendex Award For Software Quality",
           details: ["For the Autonomous Robot Image Tagging System project"],
         },
         {

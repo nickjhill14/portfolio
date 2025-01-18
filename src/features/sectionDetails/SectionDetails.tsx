@@ -1,9 +1,11 @@
 import CalendarMonthOutlinedIcon from "@mui/icons-material/CalendarMonthOutlined";
 import LocationOnOutlinedIcon from "@mui/icons-material/LocationOnOutlined";
 import { Divider } from "@nextui-org/divider";
+import { Link } from "@nextui-org/link";
 
 type SectionDetailsProps = {
   heading: string;
+  link?: string;
   location?: string;
   dateRange?: string;
   details?: string[];
@@ -12,6 +14,7 @@ type SectionDetailsProps = {
 
 export const SectionDetails = ({
   heading,
+  link,
   location,
   dateRange,
   details,
@@ -19,7 +22,12 @@ export const SectionDetails = ({
 }: SectionDetailsProps) => (
   <div className="flex flex-col gap-2">
     <div>
-      <h3 className="text-secondary">{heading}</h3>
+      <div className="flex gap-1 items-center">
+        <h3 className="text-secondary">{heading}</h3>
+        {link && (
+          <Link href={link} isExternal underline="hover" showAnchorIcon />
+        )}
+      </div>
       <div className="flex gap-4">
         {location && (
           <div className="flex gap-1 items-center text-small">

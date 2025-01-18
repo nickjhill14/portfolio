@@ -50,6 +50,7 @@ export const CvSection = ({ cv }: CvSectionProps) => {
             {items.map((item, index) => (
               <SectionDetails
                 heading={item.name}
+                link={item.link}
                 location={item.location}
                 dateRange={item.dateRange}
                 details={item.details}

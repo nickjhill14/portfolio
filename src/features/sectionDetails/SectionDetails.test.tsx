@@ -1,3 +1,4 @@
+import { faker } from "@faker-js/faker";
 import { render, screen } from "@testing-library/react";
 import { buildDateRange } from "../../utils/builders";
 import { SectionDetails } from "./SectionDetails";
@@ -16,6 +17,18 @@ describe(SectionDetails, () => {
       screen.queryByTestId("CalendarMonthOutlinedIcon"),
     ).not.toBeInTheDocument();
     expect(screen.queryByRole("list")).not.toBeInTheDocument();
+    expect(screen.queryByRole("link")).not.toBeInTheDocument();
+  });
+
+  it("renders the link when provided", () => {
+    const link = faker.internet.url();
+
+    render(<SectionDetails heading="Test heading" link={link} />);
+    const linkComponent = screen.getByRole("link");
+
+    expect(linkComponent).toHaveAttribute("href", link);
+    expect(linkComponent).toHaveAttribute("target", "_blank");
+    expect(linkComponent).toHaveAttribute("rel", "noopener noreferrer");
   });
 
   it("renders the location when provided", () => {
