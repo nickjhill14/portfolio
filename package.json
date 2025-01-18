@@ -11,7 +11,7 @@
     "@mui/material": "^5.14.7",
     "@nextui-org/react": "^2.4.1",
     "@vercel/analytics": "^1.0.2",
-    "@vercel/speed-insights": "^1.0.11",
+    "@vercel/speed-insights": "^1.1.0",
     "date-fns": "^3.6.0",
     "framer-motion": "^10.18.0",
     "highlight.js": "^11.9.0",
