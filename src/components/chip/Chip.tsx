@@ -3,7 +3,7 @@ type ChipProps = {
   className?: string;
 };
 
-// TODO: Add tests and stories
+// TODO: Add tests
 export const Chip = ({ text, className }: ChipProps) => (
   <div
     className={`p-2 rounded-full max-w-fit text-white text-small ${className}`}
