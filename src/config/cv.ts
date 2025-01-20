@@ -12,12 +12,39 @@ export const cv: Cv = {
           dateRange: "Feb. 20 - Present",
           details: [
             "Advocating software excellence through the effective implementation of coding practices, cross-role collaboration, and QA strategy",
+            "Full-stack development using modern and emerging technologies",
             "Creating evolving and scalable architectures to meet business demands",
-            "Cultivating the growth of devs via mentoring and knowledge sharing",
-            "Digitally transforming clients in the healthcare and automotive industries",
+            "Mentored developers, fostering growth through knowledge sharing",
             "Driving high-performing teams via Agile methodologies",
-            "Working across the tech stack (frontend, backend, and infra)",
-            "Contributing to a number of internal and external open-source projects",
+            "Digitally transforming clients across a range of industries including food, automotive, and healthcare",
+          ],
+          collapsibleDetails: [
+            {
+              title: "Food Industry",
+              details: [
+                "Led the frontend development of a food recipe development app that utilises machine learning. Built in React, TypeScript, .NET, Python, and Azure",
+                "Coordinated with Product Owners, Machine Learning Engineers, and Data Engineers on building a scalable and transformative app",
+              ],
+            },
+            {
+              title: "Automotive Industry",
+              details: [
+                "Led development of business-critical features, improving user experience and positively impacting 500,000+ customers. Collaborated closely with Product Owners, Lead Engineers, and Designers",
+                "Built and maintained numerous Microfrontends and Microservices using React, TypeScript, Express, NestJS, Java, and Spring Boot",
+                "Defined and implemented a robust QA strategy, leveraging tools like Percy, Playwright, Cypress, Jest, and JUnit to improve reliability",
+                "Developed a UI component library using Storybook to improve developer efficiency and design consistency",
+                "Established a reliable Continuous Integration strategy with a number of build pipelines facilitating frequent production deployments",
+                "Improved business intelligence through the development of an analytics dashboard using Snowflake and Kafka",
+                "Documented REST APIs and architectures using OpenAPI and Mermaid respectively",
+              ],
+            },
+            {
+              title: "Healthcare Industry",
+              details: [
+                "Built a tool to digitise a crucial healthcare process, reducing costs whilst improving employee quality-of-life and patient care",
+                "Developed and integrated a React UI with a number of Python Lambda functions hosted in AWS and provisioned using Terraform",
+              ],
+            },
           ],
         },
         {
@@ -28,6 +55,50 @@ export const cv: Cv = {
             "Scored 97% Teaching English As A Foreign Language (GA Level 3)",
             "Scored 91% in the Chinese Language Proficiency Test (HSK Level 3)",
           ],
+        },
+      ],
+    },
+    {
+      title: "Achievements",
+      items: [
+        {
+          name: "Machine Learning Project Publication, Thoughtworks",
+          details: [
+            "Credited in the Wall Street Journal article for a recipe development app for Mondelez",
+          ],
+          link: "https://www.wsj.com/articles/oreo-owner-mondelez-taps-ai-to-tweak-its-classic-snacks-6fa4c4cd?reflink=desktopwebshare_permalink",
+        },
+        {
+          name: "AWS Certified Cloud Practitioner",
+          details: ["Understanding of AWS concepts and services"],
+        },
+        {
+          name: "7Digital/Esendex Award For Software Quality",
+          details: ["For the Autonomous Robot Image Tagging System project"],
+        },
+        {
+          name: "C++ Hall Of Fame, University Of Nottingham",
+          details: ["For a high attaining C++ game project"],
+        },
+      ],
+    },
+    {
+      title: "Education",
+      items: [
+        {
+          name: "Masters In Computer Science (1st Class)",
+          location: "University Of Nottingham",
+          dateRange: "Sep. 13 - Jul. 17",
+        },
+        {
+          name: "3 A Levels",
+          location: "Beaumont School",
+          dateRange: "Sep. 11 - Aug. 13",
+        },
+        {
+          name: "12 GCSEs",
+          location: "Beaumont School",
+          dateRange: "Sep. 09 - Aug. 11",
         },
       ],
     },
@@ -57,50 +128,6 @@ export const cv: Cv = {
           details: [
             "Developed a system composed of an autonomous image-capturing robot and a web app allowing users to tag objects in the images taken",
           ],
-        },
-      ],
-    },
-    {
-      title: "Education",
-      items: [
-        {
-          name: "Masters In Computer Science (1st Class)",
-          location: "University Of Nottingham",
-          dateRange: "Sep. 13 - Jul. 17",
-        },
-        {
-          name: "3 A Levels",
-          location: "Beaumont School",
-          dateRange: "Sep. 11 - Aug. 13",
-        },
-        {
-          name: "12 GCSEs",
-          location: "Beaumont School",
-          dateRange: "Sep. 09 - Aug. 11",
-        },
-      ],
-    },
-    {
-      title: "Achievements",
-      items: [
-        {
-          name: "Machine Learning Project Publication, Thoughtworks",
-          details: [
-            "Credited in a Wall Street Journal article for a recipe development app for Mondelez",
-          ],
-          link: "https://www.wsj.com/articles/oreo-owner-mondelez-taps-ai-to-tweak-its-classic-snacks-6fa4c4cd?reflink=desktopwebshare_permalink",
-        },
-        {
-          name: "AWS Certified Cloud Practitioner",
-          details: ["Understanding of AWS concepts and services"],
-        },
-        {
-          name: "7Digital/Esendex Award For Software Quality",
-          details: ["For the Autonomous Robot Image Tagging System project"],
-        },
-        {
-          name: "C++ Hall Of Fame, University Of Nottingham",
-          details: ["For a high attaining C++ game project"],
         },
       ],
     },

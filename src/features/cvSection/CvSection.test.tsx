@@ -16,19 +16,6 @@ describe(CvSection, () => {
     mockComponent(SkillsSection);
   });
 
-  it("does not render when CV is empty", () => {
-    const { container } = render(
-      <CvSection
-        cv={buildCv({
-          skillsInfo: { skills: [], languages: [] },
-          cvSections: [],
-        })}
-      />,
-    );
-
-    expect(container).toBeEmptyDOMElement();
-  });
-
   it("renders CV sections when provided", () => {
     const cvSection1 = buildCvSection();
     const cvSection2 = buildCvSection();

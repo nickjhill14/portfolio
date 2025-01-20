@@ -8,7 +8,6 @@ type CvSectionProps = {
   cv: Cv;
 };
 
-// TODO: Add stories
 export const CvSection = ({ cv }: CvSectionProps) => {
   const containerAnimation: Variants = {
     hidden: { opacity: 1, scale: 0 },
@@ -29,14 +28,6 @@ export const CvSection = ({ cv }: CvSectionProps) => {
     },
   };
 
-  if (
-    cv.cvSections.length === 0 &&
-    cv.skillsInfo.skills.length === 0 &&
-    cv.skillsInfo.languages.length === 0
-  ) {
-    return null;
-  }
-
   return (
     <motion.div
       variants={containerAnimation}
@@ -54,6 +45,7 @@ export const CvSection = ({ cv }: CvSectionProps) => {
                 location={item.location}
                 dateRange={item.dateRange}
                 details={item.details}
+                collapsibleDetails={item.collapsibleDetails}
                 divider={items && index < items.length - 1}
                 key={item.name}
               />
