@@ -75,12 +75,6 @@ npm run test:e2e:ui
 npm start
 ```
 
-## 📖 Storybook
-
-```shell
-npm run storybook
-```
-
 ## ✍️ Committing
 
 Prior to committing, run the pre-commit script:

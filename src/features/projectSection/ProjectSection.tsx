@@ -19,7 +19,6 @@ type ProjectSectionProps = {
   project: Project;
 };
 
-// TODO: Add stories
 export const ProjectsSection = ({
   project: { title, description, githubLink, imgSrc, skills },
 }: ProjectSectionProps) => {
