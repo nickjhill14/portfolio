@@ -1,5 +1,11 @@
+# Storybook
+/storybook-static
+
 # Depedencies
 node_modules/
+
+# Build
+dist/
 
 # Config
 .prettierrc.js
