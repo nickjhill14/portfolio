@@ -17,7 +17,7 @@ export const BasicInfoSection = ({
         whileInView={{ clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)" }}
         viewport={{ once: true }}
         transition={{ duration: 1 }}
-        className="text-4xl"
+        className="text-5xl"
       >
         {name}
       </motion.h1>
@@ -29,7 +29,7 @@ export const BasicInfoSection = ({
           opacity: [0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0],
           scale: 1,
         }}
-        className="text-4xl"
+        className="text-5xl"
       >
         👋
       </motion.p>
@@ -39,7 +39,7 @@ export const BasicInfoSection = ({
       whileInView={{ clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)" }}
       viewport={{ once: true }}
       transition={{ duration: 5, delay: 1 }}
-      className="text-2l text-secondary font-bold"
+      className="text-2xl text-primary-700 font-bold"
     >
       {role}
     </motion.h2>
