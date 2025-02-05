@@ -13,6 +13,7 @@ describe("PortfolioRouting", () => {
     const portfolioRouter = createMemoryRouter(portfolioRoutes, {
       initialEntries: [route],
     });
+
     render(<RouterProvider router={portfolioRouter} />);
 
     expect(
@@ -26,6 +27,7 @@ describe("PortfolioRouting", () => {
       const portfolioRouter = createMemoryRouter(portfolioRoutes, {
         initialEntries: [`${PortfolioRoutePaths.BLOG}/${route}`],
       });
+
       render(<RouterProvider router={portfolioRouter} />);
 
       expect(

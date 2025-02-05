@@ -1,6 +1,9 @@
 import "@testing-library/jest-dom";
 import { vi } from "vitest";
+import "vitest-canvas-mock";
 import createFetchMock from "vitest-fetch-mock";
+
+vitest.mock("@lordicon/react");
 
 const fetchMocker = createFetchMock(vi);
 

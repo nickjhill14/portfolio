@@ -12,13 +12,17 @@ describe(Footer, () => {
     mockUseTheme.mockReturnValue({ themes: [], setTheme: vitest.fn() });
   });
 
-  it("renders a link to the GH repo", async () => {
+  it("renders the footer", async () => {
     render(<Footer />);
 
     expect(screen.getByRole("button", { name: "Visit repo" })).toHaveAttribute(
       "href",
       "https://github.com/nickjhill14/portfolio",
     );
+    expect(screen.getByText("Developed by Nicholas Hill")).toBeInTheDocument();
+    expect(
+      screen.getByRole("link", { name: "Animated icons by Lordicon.com" }),
+    ).toHaveAttribute("href", "https://lordicon.com");
   });
 
   it("sets the mode to dark on click", async () => {
