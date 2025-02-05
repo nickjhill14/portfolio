@@ -1,7 +1,9 @@
-import { Book } from "@mui/icons-material";
+import { Player } from "@lordicon/react";
 import { Button } from "@nextui-org/react";
 import { motion, useScroll, useSpring } from "framer-motion";
+import { useRef } from "react";
 import { useNavigate } from "react-router-dom";
+import BackIcon from "../../../assets/animatedIcons/system-solid-161-trending-flat-hover-ternd-flat-4.json";
 import { Page } from "../../../components/page/Page";
 import { Blog } from "../../../domain/blog";
 import { BlogArticle } from "../../../features/blogArticle/BlogArticle";
@@ -16,6 +18,8 @@ export const BlogTemplatePage = ({ blog }: BlogTemplatePageProps) => {
 
   const { scrollYProgress } = useScroll();
 
+  const backIconRef = useRef<Player>(null);
+
   const scaleX = useSpring(scrollYProgress, {
     stiffness: 100,
     damping: 30,
@@ -29,7 +33,12 @@ export const BlogTemplatePage = ({ blog }: BlogTemplatePageProps) => {
         style={{ scaleX }}
       />
       <Button
-        startContent={<Book />}
+        startContent={
+          <span className="rotate-180">
+            <Player ref={backIconRef} icon={BackIcon} />
+          </span>
+        }
+        onMouseEnter={() => backIconRef.current?.playFromBeginning()}
         onPress={() => navigate(PortfolioRoutePaths.BLOG)}
         color="primary"
         className="self-start"
