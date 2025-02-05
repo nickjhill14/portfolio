@@ -6,10 +6,12 @@ import HomeIcon from "../../assets/animatedIcons/system-solid-41-home-hover-home
 
 type PageProps = {
   showHomeButton: boolean;
+  className?: string;
 };
 
 export const Page = ({
   showHomeButton,
+  className,
   children,
 }: PropsWithChildren<PageProps>) => {
   const navigate = useNavigate();
@@ -17,7 +19,7 @@ export const Page = ({
   const homeIconRef = useRef<Player>(null);
 
   return (
-    <div className="flex flex-col gap-4">
+    <div className={`flex flex-col gap-4${className ? className : ""}`}>
       {showHomeButton && (
         <Button
           startContent={<Player ref={homeIconRef} icon={HomeIcon} />}
