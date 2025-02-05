@@ -8,7 +8,6 @@ describe("PortfolioRouting", () => {
     [PortfolioRoutePaths.CV, "CV"],
     [PortfolioRoutePaths.PROJECTS, "Projects"],
     [PortfolioRoutePaths.BLOG, "Blog"],
-    [PortfolioRoutePaths.MUSIC, "Music"],
   ])("navigates to the %s route", (route, heading) => {
     const portfolioRouter = createMemoryRouter(portfolioRoutes, {
       initialEntries: [route],

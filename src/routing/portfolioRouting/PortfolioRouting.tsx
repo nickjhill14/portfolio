@@ -4,7 +4,6 @@ import { BlogPage } from "../../pages/blogPage/BlogPage";
 import { BlogTemplatePage } from "../../pages/blogPage/blogTemplatePage/BlogTemplatePage";
 import { CvPage } from "../../pages/cvPage/CvPage";
 import { LandingPage } from "../../pages/landingPage/LandingPage";
-import { MusicPage } from "../../pages/musicPage/MusicPage";
 import { ProjectsPage } from "../../pages/projectsPage/ProjectsPage";
 
 export enum PortfolioRoutePaths {
@@ -12,7 +11,6 @@ export enum PortfolioRoutePaths {
   CV = "/cv",
   PROJECTS = "/projects",
   BLOG = "/blog",
-  MUSIC = "/music",
 }
 
 export const portfolioRoutes: RouteObject[] = [
@@ -37,10 +35,6 @@ export const portfolioRoutes: RouteObject[] = [
       .replaceAll(" ", "-")
       .toLowerCase()}`,
     element: <BlogTemplatePage blog={reactTestingBlog} />,
-  },
-  {
-    path: PortfolioRoutePaths.MUSIC,
-    element: <MusicPage />,
   },
 ];
 
