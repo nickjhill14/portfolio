@@ -1,14 +1,10 @@
 import { render, screen } from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
-import { useNavigate } from "react-router-dom";
 import { projects } from "../../config/projects";
 import { ProjectsSection } from "../../features/projectSection/ProjectSection";
-import { PortfolioRoutePaths } from "../../routing/portfolioRouting/PortfolioRouting";
 import { getProps, mockComponent } from "../../utils/ComponentMocks";
 import { ProjectsPage } from "./ProjectsPage";
 
 vitest.mock("../../features/projectSection/ProjectSection");
-vitest.mock("react-router-dom");
 
 describe(ProjectsPage, () => {
   beforeEach(() => {
@@ -26,16 +22,5 @@ describe(ProjectsPage, () => {
         project,
       );
     });
-  });
-
-  it("navigates to the landing page when clicking the home btn", async () => {
-    const navigateMock = vitest.fn();
-
-    vitest.mocked(useNavigate).mockReturnValue(navigateMock);
-
-    render(<ProjectsPage />);
-    await userEvent.click(screen.getByRole("button", { name: "Go Home" }));
-
-    expect(navigateMock).toHaveBeenCalledWith(PortfolioRoutePaths.BASE);
   });
 });

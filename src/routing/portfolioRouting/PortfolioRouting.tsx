@@ -13,7 +13,7 @@ export enum PortfolioRoutePaths {
   BLOG = "/blog",
 }
 
-export const portfolioRoutes: RouteObject[] = [
+const portfolioRoutes: RouteObject[] = [
   {
     path: PortfolioRoutePaths.BASE,
     element: <LandingPage />,

@@ -5,7 +5,7 @@ import { BasicInfoSection } from "../../features/basicInfoSection/BasicInfoSecti
 import { LandingPageLinks } from "../../features/landingPageLinks/LandingPageLinks";
 
 export const LandingPage = () => (
-  <Page>
+  <Page showHomeButton={false}>
     <BasicInfoSection basicInfo={basicInfo} />
     <motion.div
       initial={{ opacity: 0 }}

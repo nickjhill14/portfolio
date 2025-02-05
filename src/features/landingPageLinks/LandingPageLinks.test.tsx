@@ -4,8 +4,6 @@ import { useNavigate } from "react-router-dom";
 import { PortfolioRoutePaths } from "../../routing/portfolioRouting/PortfolioRouting";
 import { LandingPageLinks } from "./LandingPageLinks";
 
-vitest.mock("react-router-dom");
-
 describe(LandingPageLinks, () => {
   const useNavigateMock = vitest.mocked(useNavigate);
 

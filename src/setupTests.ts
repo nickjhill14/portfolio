@@ -4,6 +4,7 @@ import "vitest-canvas-mock";
 import createFetchMock from "vitest-fetch-mock";
 
 vitest.mock("@lordicon/react");
+vitest.mock("react-router-dom");
 
 const fetchMocker = createFetchMock(vi);
 

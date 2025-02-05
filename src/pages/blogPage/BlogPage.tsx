@@ -1,4 +1,4 @@
-import { Biotech, Home } from "@mui/icons-material";
+import { Biotech } from "@mui/icons-material";
 import { Link } from "@nextui-org/link";
 import { Button } from "@nextui-org/react";
 import { motion } from "framer-motion";
@@ -12,15 +12,7 @@ export const BlogPage = () => {
   const navigate = useNavigate();
 
   return (
-    <Page>
-      <Button
-        startContent={<Home />}
-        onPress={() => navigate("/")}
-        color="primary"
-        className="self-start"
-      >
-        Go Home
-      </Button>
+    <Page showHomeButton>
       <h1 className="text-4xl">Blog</h1>
       <motion.div
         initial={{ opacity: 0 }}
