@@ -23,22 +23,22 @@ export const SectionDetails = ({
   divider,
 }: SectionDetailsProps) => (
   <div className="flex flex-col gap-2">
-    <div>
+    <div className="flex flex-col gap-4">
       <div className="flex gap-1 items-center">
         <h3 className="text-secondary">{heading}</h3>
         {link && (
           <Link href={link} isExternal underline="hover" showAnchorIcon />
         )}
       </div>
-      <div className="flex gap-4">
+      <div className="flex gap-2 flex-wrap">
         {location && (
-          <div className="flex gap-1 items-center text-small">
+          <div className="flex gap-1 items-center text-small text-nowrap">
             <LocationOnOutlinedIcon />
             <p>{location}</p>
           </div>
         )}
         {dateRange && (
-          <div className="flex gap-1 items-center text-small">
+          <div className="flex gap-1 items-center text-small text-nowrap">
             <CalendarMonthOutlinedIcon />
             <p>{dateRange}</p>
           </div>

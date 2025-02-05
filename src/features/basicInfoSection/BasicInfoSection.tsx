@@ -16,14 +16,14 @@ export const BasicInfoSection = ({
         initial={{ clipPath: "polygon(0 0, 0 0, 0 100%, 0% 100%)" }}
         whileInView={{ clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)" }}
         viewport={{ once: true }}
-        transition={{ duration: 1 }}
+        transition={{ duration: 0.5 }}
         className="text-5xl"
       >
         {name}
       </motion.h1>
       <motion.p
         initial={{ scale: 1, opacity: 0 }}
-        transition={{ ease: "easeInOut", duration: 1.5, delay: 2 }}
+        transition={{ ease: "easeInOut", duration: 2, delay: 1 }}
         animate={{
           rotateZ: [0, 0, 0, 100, 0, 100, 0, 100, 0, 0, 0],
           opacity: [0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0],
@@ -38,7 +38,7 @@ export const BasicInfoSection = ({
       initial={{ clipPath: "polygon(0 0, 0 0, 0 100%, 0% 100%)" }}
       whileInView={{ clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)" }}
       viewport={{ once: true }}
-      transition={{ duration: 5, delay: 1 }}
+      transition={{ duration: 2.5, delay: 0.75 }}
       className="text-2xl text-primary-700 font-bold"
     >
       {role}
