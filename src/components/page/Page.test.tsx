@@ -1,7 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { useNavigate } from "react-router-dom";
-import { PortfolioRoutePaths } from "../../routing/portfolioRouting/PortfolioRouting";
+import { PortfolioRoutePaths } from "../../routing/PortfolioRouting";
 import { Page } from "./Page";
 
 describe(Page, () => {

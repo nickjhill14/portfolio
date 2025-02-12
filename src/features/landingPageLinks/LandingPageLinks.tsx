@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 import CvIcon from "../../assets/animatedIcons/system-solid-14-article-hover-article.json";
 import BookIcon from "../../assets/animatedIcons/system-solid-19-book-hover-book.json";
 import CodeIcon from "../../assets/animatedIcons/system-solid-34-code-hover-code.json";
-import { PortfolioRoutePaths } from "../../routing/portfolioRouting/PortfolioRouting";
+import { PortfolioRoutePaths } from "../../routing/PortfolioRouting";
 
 export const LandingPageLinks = () => {
   const navigate = useNavigate();

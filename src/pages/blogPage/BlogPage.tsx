@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 import { Page } from "../../components/page/Page";
 import { basicInfo } from "../../config/basicInfo";
 import { blogs } from "../../config/blog";
-import { PortfolioRoutePaths } from "../../routing/portfolioRouting/PortfolioRouting";
+import { PortfolioRoutePaths } from "../../routing/PortfolioRouting";
 
 export const BlogPage = () => {
   const navigate = useNavigate();

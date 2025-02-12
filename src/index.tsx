@@ -8,7 +8,7 @@ import { RouterProvider } from "react-router-dom";
 import { Footer } from "./components/footer/Footer";
 import "./index.css";
 import { ErrorPage } from "./pages/errorPage/ErrorPage";
-import { portfolioRouter } from "./routing/portfolioRouting/PortfolioRouting";
+import { portfolioRouter } from "./routing/PortfolioRouting";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement,

@@ -7,7 +7,7 @@ import BackIcon from "../../../assets/animatedIcons/system-solid-161-trending-fl
 import { Page } from "../../../components/page/Page";
 import { Blog } from "../../../domain/blog";
 import { BlogArticle } from "../../../features/blogArticle/BlogArticle";
-import { PortfolioRoutePaths } from "../../../routing/portfolioRouting/PortfolioRouting";
+import { PortfolioRoutePaths } from "../../../routing/PortfolioRouting";
 
 type BlogTemplatePageProps = {
   blog: Blog;
