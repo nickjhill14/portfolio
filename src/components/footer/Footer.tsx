@@ -9,7 +9,10 @@ export const Footer = () => {
   const { theme, setTheme } = useTheme();
 
   return (
-    <footer className="flex flex-col items-center gap-1" data-testid="footer">
+    <footer
+      className="flex flex-col items-center gap-1 pt-4"
+      data-testid="footer"
+    >
       <div className="flex justify-center gap-4">
         <motion.div whileHover={{ scale: 1.2 }}>
           <Button
