@@ -1,7 +1,7 @@
+import { Button, Link } from "@heroui/react";
 import DarkModeIcon from "@mui/icons-material/DarkMode";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import WbSunnyIcon from "@mui/icons-material/WbSunny";
-import { Button, Link } from "@nextui-org/react";
 import { motion } from "framer-motion";
 import { useTheme } from "next-themes";
 
@@ -33,7 +33,7 @@ export const Footer = () => {
             } mode`}
             color="primary"
             isIconOnly
-            onClick={() => setTheme(theme === "light" ? "dark" : "light")}
+            onPress={() => setTheme(theme === "light" ? "dark" : "light")}
           >
             {theme === "light" ? <WbSunnyIcon /> : <DarkModeIcon />}
           </Button>

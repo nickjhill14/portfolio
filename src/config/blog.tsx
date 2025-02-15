@@ -1,5 +1,5 @@
-import { Link } from "@nextui-org/link";
-import { Code } from "@nextui-org/react";
+import { Link } from "@heroui/link";
+import { Code } from "@heroui/react";
 import GetPropsSnippet from "../assets/reactTestingBlog/get-props-snippet.txt";
 import MockComponentAssertExistence from "../assets/reactTestingBlog/mock-component-assert-existence.txt";
 import MockComponentAssertPropsCalls from "../assets/reactTestingBlog/mock-component-assert-props-calls.txt";

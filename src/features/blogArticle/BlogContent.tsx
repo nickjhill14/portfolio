@@ -1,4 +1,4 @@
-import { Image } from "@nextui-org/image";
+import { Image } from "@heroui/image";
 import { BlogSection, Code, ImgSrc } from "../../domain/blog";
 import { CodeBlock } from "./CodeBlock";
 

@@ -1,8 +1,8 @@
+import { Divider } from "@heroui/divider";
+import { Link } from "@heroui/link";
+import { Accordion, AccordionItem } from "@heroui/react";
 import CalendarMonthOutlinedIcon from "@mui/icons-material/CalendarMonthOutlined";
 import LocationOnOutlinedIcon from "@mui/icons-material/LocationOnOutlined";
-import { Divider } from "@nextui-org/divider";
-import { Link } from "@nextui-org/link";
-import { Accordion, AccordionItem } from "@nextui-org/react";
 import { CvSectionItem } from "../../domain/cv";
 
 type SectionDetailsProps = {

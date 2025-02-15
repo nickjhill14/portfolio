@@ -1,4 +1,4 @@
-import { Snippet } from "@nextui-org/react";
+import { Snippet } from "@heroui/react";
 import highlightJs from "highlight.js";
 import "highlight.js/styles/github-dark.css";
 import { useEffect, useState } from "react";

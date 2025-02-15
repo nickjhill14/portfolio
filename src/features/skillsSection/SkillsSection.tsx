@@ -1,7 +1,7 @@
+import { Divider } from "@heroui/divider";
 import CircleIcon from "@mui/icons-material/Circle";
 import CircleOutlinedIcon from "@mui/icons-material/CircleOutlined";
 import { Rating } from "@mui/material";
-import { Divider } from "@nextui-org/divider";
 import { Chip } from "../../components/chip/Chip";
 import { Section } from "../../components/section/Section";
 import { SkillsInfo } from "../../domain/cv";

@@ -1,4 +1,4 @@
-import { NextUIProvider } from "@nextui-org/react";
+import { HeroUIProvider } from "@heroui/react";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/react";
 import { ThemeProvider } from "next-themes";
@@ -16,7 +16,7 @@ const root = ReactDOM.createRoot(
 
 root.render(
   <StrictMode>
-    <NextUIProvider>
+    <HeroUIProvider>
       <ThemeProvider attribute="class" defaultTheme="dark">
         <main className="h-screen flex flex-col justify-between pt-8 px-4 md:pt-16 md:px-16 pb-4">
           <RouterProvider
@@ -26,7 +26,7 @@ root.render(
           <Footer />
         </main>
       </ThemeProvider>
-    </NextUIProvider>
+    </HeroUIProvider>
     <Analytics />
     <SpeedInsights />
   </StrictMode>,

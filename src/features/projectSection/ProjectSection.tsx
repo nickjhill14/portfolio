@@ -1,7 +1,5 @@
-import GitHubIcon from "@mui/icons-material/GitHub";
-import VisibilityIcon from "@mui/icons-material/Visibility";
-import { CardBody, CardHeader } from "@nextui-org/card";
-import { Link } from "@nextui-org/link";
+import { CardBody, CardHeader } from "@heroui/card";
+import { Link } from "@heroui/link";
 import {
   Button,
   Card,
@@ -9,7 +7,9 @@ import {
   Modal,
   ModalContent,
   useDisclosure,
-} from "@nextui-org/react";
+} from "@heroui/react";
+import GitHubIcon from "@mui/icons-material/GitHub";
+import VisibilityIcon from "@mui/icons-material/Visibility";
 import { motion } from "framer-motion";
 import { Chip } from "../../components/chip/Chip";
 import { Project } from "../../domain/projects";

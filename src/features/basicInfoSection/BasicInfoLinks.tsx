@@ -1,7 +1,7 @@
+import { Link } from "@heroui/link";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import MailIcon from "@mui/icons-material/Mail";
-import { Link } from "@nextui-org/link";
 
 type BasicInfoLinksProps = {
   email: string;

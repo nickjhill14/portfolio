@@ -1,6 +1,6 @@
+import { Link } from "@heroui/link";
+import { Button } from "@heroui/react";
 import { Biotech } from "@mui/icons-material";
-import { Link } from "@nextui-org/link";
-import { Button } from "@nextui-org/react";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import { Page } from "../../components/page/Page";

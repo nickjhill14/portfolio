@@ -1,5 +1,5 @@
+import { Button } from "@heroui/react";
 import { Player } from "@lordicon/react";
-import { Button } from "@nextui-org/react";
 
 import { useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
@@ -29,7 +29,7 @@ export const LandingPageLinks = () => {
       data-testid="landing-page-links"
     >
       <Button
-        onClick={() => navigate(PortfolioRoutePaths.CV)}
+        onPress={() => navigate(PortfolioRoutePaths.CV)}
         color="primary"
         onMouseEnter={() => cvIconRef.current?.playFromBeginning()}
         startContent={<Player ref={cvIconRef} icon={CvIcon} />}

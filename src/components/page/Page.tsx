@@ -1,5 +1,5 @@
+import { Button } from "@heroui/react";
 import { Player } from "@lordicon/react";
-import { Button } from "@nextui-org/react";
 import { PropsWithChildren, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import HomeIcon from "../../assets/animatedIcons/system-solid-41-home-hover-home-2.json";

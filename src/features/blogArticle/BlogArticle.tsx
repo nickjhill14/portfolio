@@ -1,5 +1,5 @@
+import { Divider } from "@heroui/divider";
 import { AccessTimeFilled, CalendarMonth } from "@mui/icons-material";
-import { Divider } from "@nextui-org/divider";
 import { format } from "date-fns";
 import { Section } from "../../components/section/Section";
 import { Blog } from "../../domain/blog";
