@@ -41,6 +41,7 @@ export const BlogTemplatePage = ({ blog }: BlogTemplatePageProps) => {
         onMouseEnter={() => backIconRef.current?.playFromBeginning()}
         onPress={() => navigate(PortfolioRoutePaths.BLOG)}
         color="primary"
+        size="lg"
         className="self-start"
       >
         Back

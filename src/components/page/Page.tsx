@@ -26,12 +26,12 @@ export const Page = ({
           onMouseEnter={() => homeIconRef.current?.playFromBeginning()}
           onPress={() => navigate("/")}
           color="primary"
+          size="lg"
           className="self-start"
         >
           Go Home
         </Button>
       )}
-
       {children}
     </div>
   );

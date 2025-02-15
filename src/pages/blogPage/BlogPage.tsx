@@ -1,8 +1,10 @@
 import { Link } from "@heroui/link";
 import { Button } from "@heroui/react";
-import { Biotech } from "@mui/icons-material";
+import { Player } from "@lordicon/react";
 import { motion } from "framer-motion";
+import { useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
+import BugIcon from "../../assets/animatedIcons/system-solid-21-bug-in-bug.json";
 import { Page } from "../../components/page/Page";
 import { basicInfo } from "../../config/basicInfo";
 import { blogs } from "../../config/blog";
@@ -10,6 +12,12 @@ import { PortfolioRoutePaths } from "../../routing/PortfolioRouting";
 
 export const BlogPage = () => {
   const navigate = useNavigate();
+
+  const bugIconRef = useRef<Player>(null);
+
+  useEffect(() => {
+    bugIconRef.current?.playFromBeginning();
+  }, []);
 
   return (
     <Page showHomeButton>
@@ -32,7 +40,6 @@ export const BlogPage = () => {
           </Link>
         </p>
         <Button
-          startContent={<Biotech />}
           onPress={() =>
             navigate(
               `${PortfolioRoutePaths.BLOG}/${blogs[0].title
@@ -41,7 +48,10 @@ export const BlogPage = () => {
             )
           }
           color="primary"
+          size="lg"
           className="self-start"
+          startContent={<Player ref={bugIconRef} icon={BugIcon} />}
+          onMouseEnter={() => bugIconRef.current?.playFromBeginning()}
         >
           {blogs[0].title}
         </Button>
