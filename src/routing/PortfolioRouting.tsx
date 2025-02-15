@@ -6,6 +6,7 @@ import { CvPage } from "../pages/cvPage/CvPage";
 import { ErrorPage } from "../pages/errorPage/ErrorPage";
 import { LandingPage } from "../pages/landingPage/LandingPage";
 import { ProjectsPage } from "../pages/projectsPage/ProjectsPage";
+import { SquirdlePage } from "../pages/squirdlePage/SquirdlePage";
 
 export enum PortfolioRoutePaths {
   BASE = "/",
@@ -31,6 +32,10 @@ const portfolioRoutes: RouteObject[] = [
   {
     path: PortfolioRoutePaths.BLOG,
     element: <BlogPage />,
+  },
+  {
+    path: `${PortfolioRoutePaths.PROJECTS}/squirdle`,
+    element: <SquirdlePage />,
   },
   {
     path: `${PortfolioRoutePaths.BLOG}/${blogs[0].title
