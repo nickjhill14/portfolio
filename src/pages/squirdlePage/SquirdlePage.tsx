@@ -63,22 +63,10 @@ export const SquirdlePage = () => {
           <p>
             Guess: <span className="font-bold">{guessCount + 1}</span>
           </p>
-          {guesses.map((guess, guessIndex) => (
-            <div key={`guess-${guessIndex}`} className="flex gap-1">
-              <p>{guessIndex + 1}: </p>
-              <div className="font-bold">
-                {guess.split("").map((char, charIndex) => (
-                  <span
-                    key={`guess-${guessIndex}-char-${charIndex}`}
-                    className={
-                      randomPokemon.name.includes(char) ? "text-green-500" : ""
-                    }
-                  >
-                    {char}
-                  </span>
-                ))}
-              </div>
-            </div>
+          {guesses.map((guess, index) => (
+            <p key={`guess-${index}`}>
+              {index + 1}: <span className="font-bold">{guess}</span>
+            </p>
           ))}
           <Form onSubmit={submitGuess}>
             <div className="flex gap-2 items-center">
