@@ -1,8 +1,7 @@
-import { Button, Form, Image, Input, Spinner } from "@heroui/react";
+import { Button, Form, Input, Spinner } from "@heroui/react";
 import { Player } from "@lordicon/react";
-import { motion } from "framer-motion";
-import { FormEvent, useEffect, useRef, useState } from "react";
-import { useRandomPokemon } from "../../api/useRandomPokemon";
+import { FormEvent, useEffect, useMemo, useRef, useState } from "react";
+import { usePokemonNames } from "../../api/usePokemonNames";
 import GuessIcon from "../../assets/animatedIcons/system-solid-26-play-hover-play.json";
 import { Page } from "../../components/page/Page";
 import { GUESS_LIMIT } from "../../config/squirdle";
@@ -14,9 +13,14 @@ enum GameState {
 }
 
 export const SquirdlePage = () => {
-  const { randomPokemon, isLoading } = useRandomPokemon();
+  const { pokemonNames, isLoading } = usePokemonNames();
 
   const guessIconRef = useRef<Player>(null);
+
+  const pokemonToGuessIndex = useMemo(
+    () => Math.floor(Math.random() * 151),
+    [pokemonNames],
+  );
 
   const [currentGuess, setCurrentGuess] = useState("");
   const [guesses, setGuesses] = useState<string[]>([]);
@@ -27,13 +31,14 @@ export const SquirdlePage = () => {
     guessIconRef.current?.playFromBeginning();
   }, []);
 
-  if (isLoading || !randomPokemon) {
+  if (isLoading) {
     return <Spinner />;
   }
 
-  const formattedPokemonToGuess = `${randomPokemon.name
+  const pokemonToGuess = pokemonNames[pokemonToGuessIndex];
+  const formattedPokemonToGuess = `${pokemonToGuess
     .charAt(0)
-    .toUpperCase()}${randomPokemon.name.substring(1)}`;
+    .toUpperCase()}${pokemonToGuess.substring(1)}`;
 
   const submitGuess = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -44,7 +49,7 @@ export const SquirdlePage = () => {
     setGuesses([...guesses, currentGuess]);
     setCurrentGuess("");
 
-    if (currentGuess.toLowerCase() === randomPokemon.name.toLowerCase()) {
+    if (currentGuess.toLowerCase() === pokemonToGuess.toLowerCase()) {
       setGameState(GameState.SUCCESS);
       return;
     }
@@ -63,15 +68,32 @@ export const SquirdlePage = () => {
           <p>
             Guess: <span className="font-bold">{guessCount + 1}</span>
           </p>
-          {guesses.map((guess, index) => (
-            <p key={`guess-${index}`}>
-              {index + 1}: <span className="font-bold">{guess}</span>
-            </p>
-          ))}
+          {guesses.map((guess, index) => {
+            const hintLimit =
+              guesses.length > pokemonToGuess.length - 1
+                ? pokemonToGuess.length
+                : guesses.length;
+            const hints = pokemonToGuess.substring(0, hintLimit);
+
+            const formattedGuess = guess.split("").map((char, index) => (
+              <span
+                className={hints.includes(char) ? "text-green-500" : ""}
+                key={`guess-char-${index}`}
+              >
+                {char}
+              </span>
+            ));
+
+            return (
+              <p key={`guess-${index}`}>
+                {index + 1}: <span className="font-bold">{formattedGuess}</span>
+              </p>
+            );
+          })}
           <Form onSubmit={submitGuess}>
             <div className="flex gap-2 items-center">
               <Input
-                label="Who's that Pokémon?"
+                label="Who's that Pokemon?"
                 value={currentGuess}
                 onChange={(event) => setCurrentGuess(event.target.value)}
                 className="w-fit"
@@ -90,34 +112,15 @@ export const SquirdlePage = () => {
         </>
       )}
       {gameState === GameState.SUCCESS && (
-        <div className="flex gap-4 items-center flex-wrap">
-          <div className="flex flex-col gap-4">
-            <p className="text-xl">
-              Gotcha!{" "}
-              <span className="font-bold">{formattedPokemonToGuess}</span> was
-              caught!
-            </p>
-            <p className="text-lg">
-              It took <span className="font-bold">{guessCount}</span> attempt(s)
-            </p>
-          </div>
-          {randomPokemon.sprites.front_default !== null && (
-            <motion.div
-              initial={{ opacity: 0, scale: 0 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{
-                duration: 0.4,
-                scale: { type: "spring", visualDuration: 0.4, bounce: 0.5 },
-              }}
-            >
-              <Image
-                alt={`${formattedPokemonToGuess} sprite`}
-                src={randomPokemon.sprites.front_default}
-                width={300}
-              />
-            </motion.div>
-          )}
-        </div>
+        <>
+          <p>
+            Gotcha! <span className="font-bold">{formattedPokemonToGuess}</span>{" "}
+            was caught!
+          </p>
+          <p>
+            It took <span className="font-bold">{guessCount}</span> attempt(s)
+          </p>
+        </>
       )}
       {gameState === GameState.FAILURE && (
         <p>
