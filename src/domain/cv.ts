@@ -1,8 +1,6 @@
 import { Skill } from "./skills";
 
-export type Language = { name: string; level: number };
-
-export type SkillsInfo = { skills: Skill[]; languages: Language[] };
+export type SkillsInfo = { skills: Skill[] };
 
 export type CollapsibleDetail = { title: string; details: string[] };
 

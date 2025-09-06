@@ -5,7 +5,7 @@ import { Footer } from "./Footer";
 
 vitest.mock("next-themes");
 
-describe(Footer, () => {
+describe("Footer", () => {
   const mockUseTheme = vitest.mocked(useTheme);
 
   beforeEach(() => {
@@ -15,14 +15,11 @@ describe(Footer, () => {
   it("renders the footer", async () => {
     render(<Footer />);
 
-    expect(screen.getByRole("button", { name: "Visit repo" })).toHaveAttribute(
+    expect(screen.getByRole("link", { name: "Visit repo" })).toHaveAttribute(
       "href",
       "https://github.com/nickjhill14/portfolio",
     );
     expect(screen.getByText("Developed by Nicholas Hill")).toBeInTheDocument();
-    expect(
-      screen.getByRole("link", { name: "Animated icons by Lordicon.com" }),
-    ).toHaveAttribute("href", "https://lordicon.com");
   });
 
   it("sets the mode to dark on click", async () => {

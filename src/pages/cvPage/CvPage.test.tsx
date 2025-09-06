@@ -1,12 +1,12 @@
 import { render, screen } from "@testing-library/react";
-import { cv } from "../../config/cv";
-import { CvSection } from "../../features/cvSection/CvSection";
-import { getProps, mockComponent } from "../../utils/ComponentMocks";
+import { cv } from "@/config/cv";
+import { CvSection } from "@/features/cvSection/CvSection";
+import { getProps, mockComponent } from "@/utils/ComponentMocks";
 import { CvPage } from "./CvPage";
 
 vitest.mock("../../features/cvSection/CvSection");
 
-describe(CvPage, () => {
+describe("CvPage", () => {
   beforeEach(() => {
     mockComponent(CvSection);
   });

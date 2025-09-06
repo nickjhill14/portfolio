@@ -1,18 +1,12 @@
 import { createBrowserRouter, type RouteObject } from "react-router-dom";
-import { blogs, reactTestingBlog } from "../config/blog";
-import { BlogPage } from "../pages/blogPage/BlogPage";
-import { BlogTemplatePage } from "../pages/blogPage/blogTemplatePage/BlogTemplatePage";
-import { CvPage } from "../pages/cvPage/CvPage";
-import { ErrorPage } from "../pages/errorPage/ErrorPage";
-import { LandingPage } from "../pages/landingPage/LandingPage";
-import { ProjectsPage } from "../pages/projectsPage/ProjectsPage";
-
-export enum PortfolioRoutePaths {
-  BASE = "/",
-  CV = "/cv",
-  PROJECTS = "/projects",
-  BLOG = "/blog",
-}
+import { blogs, reactTestingBlog } from "@/config/blog";
+import { BlogPage } from "@/pages/blogPage/BlogPage";
+import { BlogTemplatePage } from "@/pages/blogPage/blogTemplatePage/BlogTemplatePage";
+import { CvPage } from "@/pages/cvPage/CvPage";
+import { ErrorPage } from "@/pages/errorPage/ErrorPage";
+import { LandingPage } from "@/pages/landingPage/LandingPage";
+import { ProjectsPage } from "@/pages/projectsPage/ProjectsPage";
+import { PortfolioRoutePaths } from "@/routing/routePaths";
 
 const portfolioRoutes: RouteObject[] = [
   {

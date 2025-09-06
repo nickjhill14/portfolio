@@ -1,81 +1,54 @@
-import { CardBody, CardHeader } from "@heroui/card";
-import { Link } from "@heroui/link";
+import { Button } from "@/components/ui/button";
 import {
-  Button,
   Card,
+  CardContent,
+  CardDescription,
   CardFooter,
-  Modal,
-  ModalContent,
-  useDisclosure,
-} from "@heroui/react";
-import GitHubIcon from "@mui/icons-material/GitHub";
-import VisibilityIcon from "@mui/icons-material/Visibility";
-import { motion } from "framer-motion";
-import { Chip } from "../../components/chip/Chip";
-import { Project } from "../../domain/projects";
-import { skillKeyColours } from "../../domain/skills";
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Typography } from "@/components/ui/typography";
+import { Chip } from "@/components/chip/Chip";
+import { Project } from "@/domain/projects";
+import { siGithub } from "simple-icons";
+import { skillKeyColours } from "@/domain/skills";
+import { Link } from "@/components/Link";
 
 type ProjectSectionProps = {
   project: Project;
 };
 
-export const ProjectsSection = ({
-  project: { title, description, githubLink, imgSrc, skills },
-}: ProjectSectionProps) => {
-  const { isOpen, onOpen, onOpenChange } = useDisclosure();
-
-  return (
-    <Card>
-      <CardHeader>
-        <h2 className="text-2l text-secondary font-bold">{title}</h2>
-      </CardHeader>
-      <CardBody className="flex flex-col gap-2">
-        <p>{description}</p>
-        <div className="flex gap-2 flex-wrap">
-          {skills.map(({ name, key }) => (
-            <Chip key={name} text={name} className={skillKeyColours[key]} />
-          ))}
-        </div>
-      </CardBody>
-      <CardFooter className="flex gap-2">
-        <motion.div whileHover={{ scale: 1.2 }}>
-          <Button
-            as={Link}
-            aria-label="Visit repo"
-            href={githubLink}
-            isExternal
-            color="primary"
-            isIconOnly
+export const ProjectsSection = ({ project }: ProjectSectionProps) => (
+  <Card>
+    <CardHeader>
+      <CardTitle>
+        <Typography.H2>{project.title}</Typography.H2>
+      </CardTitle>
+      <CardDescription>{project.description}</CardDescription>
+    </CardHeader>
+    <CardContent className="flex gap-2 flex-wrap">
+      {project.skills.map((skill) => (
+        <Chip
+          key={skill.name}
+          text={skill.name}
+          className={skillKeyColours[skill.key]}
+        />
+      ))}
+    </CardContent>
+    <CardFooter className="flex justify-end">
+      <Button asChild aria-label="Visit repo" size="icon">
+        <Link href={project.githubLink} isExternal>
+          <svg
+            viewBox="0 0 24 24"
+            width="20"
+            height="20"
+            fill="currentColor"
+            aria-label="GitHub"
           >
-            <GitHubIcon />
-          </Button>
-        </motion.div>
-        {imgSrc && (
-          <>
-            <motion.div whileHover={{ scale: 1.2 }}>
-              <Button
-                isIconOnly
-                aria-label="View image"
-                color="primary"
-                onPress={onOpen}
-              >
-                <VisibilityIcon />
-              </Button>
-            </motion.div>
-            <Modal
-              isOpen={isOpen}
-              onOpenChange={onOpenChange}
-              classNames={{
-                closeButton: "bg-primary text-white hover:bg-primary-600",
-              }}
-            >
-              <ModalContent className="flex items-center p-4 bg-primary">
-                <img src={imgSrc} alt={`${title} diagram`} />
-              </ModalContent>
-            </Modal>
-          </>
-        )}
-      </CardFooter>
-    </Card>
-  );
-};
+            <path d={siGithub.path} />
+          </svg>
+        </Link>
+      </Button>
+    </CardFooter>
+  </Card>
+);

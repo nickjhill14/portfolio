@@ -1,5 +1,6 @@
-import { Link } from "@heroui/link";
-import { Code } from "@heroui/react";
+import { Link } from "@/components/Link";
+import { Code } from "@/components/ui/code";
+import { Typography } from "@/components/ui/typography";
 import GetPropsSnippet from "../assets/reactTestingBlog/get-props-snippet.txt";
 import MockComponentAssertExistence from "../assets/reactTestingBlog/mock-component-assert-existence.txt";
 import MockComponentAssertPropsCalls from "../assets/reactTestingBlog/mock-component-assert-props-calls.txt";
@@ -8,7 +9,7 @@ import MockComponentPropInvocation from "../assets/reactTestingBlog/mock-compone
 import MockComponentSetupSnippet from "../assets/reactTestingBlog/mock-component-setup-snippet.txt";
 import MockComponentSnippet from "../assets/reactTestingBlog/mock-component-snippet.txt";
 import ReactComponentTesting from "../assets/reactTestingBlog/react-component-mock-vs-real.png";
-import { Blog } from "../domain/blog";
+import { Blog } from "@/domain/blog";
 
 export const reactTestingBlog: Blog = {
   title: "React Component Testing",
@@ -31,38 +32,38 @@ export const reactTestingBlog: Blog = {
       content: [
         "Splitting React components into 3 different directories helps divide responsibilities. This improves codebase navigability and is useful in a monorepo or MFE architecture where there may be a demand for a shared component library. These directories are:",
         [
-          <p key="project-structure-pages">
-            <Code>/pages</Code>: The highest-level on a route. Can incl.{" "}
+          <Typography.P key="project-structure-pages">
+            <Code>/pages</Code>: The highest-level on a route. Can include{" "}
             <Code>/features</Code> and <Code>/components</Code> (e.g.{" "}
             <Code>{`<Homepage />`}</Code>)
-          </p>,
-          <p key="project-structure-features">
+          </Typography.P>,
+          <Typography.P key="project-structure-features">
             <Code>/features</Code>: Contains domain logic and language. Can
-            incl. other <Code>/features</Code> and <Code>/components</Code>{" "}
+            include other <Code>/features</Code> and <Code>/components</Code>{" "}
             (e.g. <Code>{`<BlogSection />`}</Code>)
-          </p>,
-          <p key="project-structure-components">
-            <Code>/components</Code>: Generic components. Can incl. other
+          </Typography.P>,
+          <Typography.P key="project-structure-components">
+            <Code>/components</Code>: Generic components. Can include other
             components in <Code>/components</Code> (e.g.{" "}
             <Code>{`<Button />`}</Code>)
-          </p>,
+          </Typography.P>,
         ],
       ],
     },
     {
       heading: "Mocks VS. Real",
       content: [
-        <p key="mocks-vs-real-intro">
+        <Typography.P key="mocks-vs-real-intro">
           As seen in the diagram below, the aim is to always use the real
           components from <Code>/components</Code> at every level. This is to
           ensure that user interaction is not neglected.
-        </p>,
-        <p key="mocks-vs-real-explanation">
+        </Typography.P>,
+        <Typography.P key="mocks-vs-real-explanation">
           Generally, components in <Code>/pages</Code> and{" "}
           <Code>/features</Code> are more complex. Therefore, by mocking
           components in <Code>/features</Code>, the coupling between these is
           reduced and the test focus is on the logical behaviour.
-        </p>,
+        </Typography.P>,
         { src: ReactComponentTesting, alt: "React component layer testing" },
       ],
     },
@@ -75,82 +76,77 @@ export const reactTestingBlog: Blog = {
     {
       heading: "API Calls",
       content: [
-        <p key="api-calls">
+        <Typography.P key="api-calls">
           When testing a React component&apos;s behaviour when calling APIs, it
           is recommended to simulate the backend behaviour as realistically as
           possible.
           <br />
           <br />
           By utilising a tool such as{" "}
-          <Link
-            isExternal
-            href="https://mswjs.io/"
-            underline="hover"
-            showAnchorIcon
-          >
+          <Link isExternal href="https://mswjs.io/" className="inline">
             MSW
           </Link>{" "}
           to stub the backend and to simulate it&apos;s behaviour.
-        </p>,
+        </Typography.P>,
       ],
     },
     {
       heading: "Implementation",
       content: [
-        <p key="implementation-mock-component">
+        <Typography.P key="implementation-mock-component">
           The first step is to add a function to mock a React component. A
           reference to the component is passed in and the props are then
           inferred via the generic. The name of the component is then returned
           as text.
-        </p>,
+        </Typography.P>,
         {
           snippetPath: MockComponentSnippet,
         },
-        <p key="implementation-get-props">
+        <Typography.P key="implementation-get-props">
           The next step is to add a function to get the props for the mock
           component. This allows the tester to assert on what props are passed
           or invoked. It also provides the ability to invoke a function to test
           the behaviour of the parent component in response.
-        </p>,
+        </Typography.P>,
         {
           snippetPath: GetPropsSnippet,
         },
-        <p key="implementation-test-setup">
+        <Typography.P key="implementation-test-setup">
           To setup a mocked component in a test, pass a reference to the
           component before each test. Make sure to mock the import path too.
-        </p>,
+        </Typography.P>,
         {
           snippetPath: MockComponentSetupSnippet,
         },
-        <p key="implementation-assert-existence">
+        <Typography.P key="implementation-assert-existence">
           To test that a component has been rendered, assert that the component
           name is in the doc.
-        </p>,
+        </Typography.P>,
         {
           snippetPath: MockComponentAssertExistence,
         },
-        <p key="implementation-assert-props-last-call">
+        <Typography.P key="implementation-assert-props-last-call">
           To test that a prop has been passed to a component, call{" "}
           <Code>getProps(...)</Code> with a reference to the component. The{" "}
           <Code>.lastCall</Code> property will return the last value that was
           passed to the prop.
-        </p>,
+        </Typography.P>,
         {
           snippetPath: MockComponentAssertPropsLastCall,
         },
-        <p key="implementation-assert-props-calls">
+        <Typography.P key="implementation-assert-props-calls">
           A prop&apos;s value may change through a component&apos;s lifecycle.
           The <Code>.calls[index]</Code> property will return the value that was
           passed to the prop for the call given by the index.
-        </p>,
+        </Typography.P>,
         {
           snippetPath: MockComponentAssertPropsCalls,
         },
-        <p key="implementation-prop-invocation">
+        <Typography.P key="implementation-prop-invocation">
           To invoke a prop function on a mocked component, use{" "}
           <Code>getProps(...).lastCall</Code> to retrieve and invoke the
           function.
-        </p>,
+        </Typography.P>,
         {
           snippetPath: MockComponentPropInvocation,
         },
@@ -159,7 +155,7 @@ export const reactTestingBlog: Blog = {
     {
       heading: "Conclusion",
       content: [
-        <p key="summary">
+        <Typography.P key="summary">
           The advantages of this approach helps separate business/domain logic
           and generic UI components.
           <br />
@@ -169,25 +165,15 @@ export const reactTestingBlog: Blog = {
           scenario would be to create either an integration test at the page
           level without using mocked components or to create a higher-level test
           using a tool such as{" "}
-          <Link
-            isExternal
-            href="https://playwright.dev/"
-            underline="hover"
-            showAnchorIcon
-          >
+          <Link isExternal href="https://playwright.dev/" className="inline">
             Playwright
           </Link>{" "}
           or{" "}
-          <Link
-            isExternal
-            href="https://www.cypress.io/"
-            underline="hover"
-            showAnchorIcon
-          >
+          <Link isExternal href="https://www.cypress.io/" className="inline">
             Cypress
           </Link>{" "}
           to simulate user interactions in the browser.
-        </p>,
+        </Typography.P>,
       ],
     },
   ],

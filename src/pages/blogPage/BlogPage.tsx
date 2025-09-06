@@ -1,61 +1,42 @@
-import { Link } from "@heroui/link";
-import { Button } from "@heroui/react";
-import { Player } from "@lordicon/react";
-import { motion } from "framer-motion";
-import { useEffect, useRef } from "react";
+import { Button } from "@/components/ui/button";
+import { Link } from "@/components/Link";
+import { Typography } from "@/components/ui/typography";
+import { Bug } from "lucide-react";
 import { useNavigate } from "react-router-dom";
-import BugIcon from "../../assets/animatedIcons/system-solid-21-bug-in-bug.json";
-import { Page } from "../../components/page/Page";
-import { basicInfo } from "../../config/basicInfo";
-import { blogs } from "../../config/blog";
-import { PortfolioRoutePaths } from "../../routing/PortfolioRouting";
+import { Page } from "@/components/page/Page";
+import { basicInfo } from "@/config/basicInfo";
+import { blogs } from "@/config/blog";
+
+import { PortfolioRoutePaths } from "@/routing/routePaths";
 
 export const BlogPage = () => {
   const navigate = useNavigate();
 
-  const bugIconRef = useRef<Player>(null);
-
-  useEffect(() => {
-    bugIconRef.current?.playFromBeginning();
-  }, []);
-
   return (
     <Page showHomeButton>
-      <h1 className="text-4xl">Blog</h1>
-      <motion.div
-        initial={{ opacity: 0 }}
-        transition={{ ease: "easeIn", duration: 0.5 }}
-        animate={{ opacity: 1 }}
-        className="flex flex-col gap-4"
-      >
-        <p>
-          For blog request and/or any queries. Please contact me here:{" "}
-          <Link
-            href={`mailto:${basicInfo.email}`}
-            isExternal
-            underline="hover"
-            showAnchorIcon
-          >
+      <Typography.H1>Blog</Typography.H1>
+      <div className="flex flex-col gap-4">
+        <Typography.P className="inline-flex">
+          For blog request and/or any queries. Please contact me here:
+          <Link href={`mailto:${basicInfo.email}`} isExternal className="ml-1">
             {basicInfo.email}
           </Link>
-        </p>
+          .
+        </Typography.P>
         <Button
-          onPress={() =>
+          onClick={() =>
             navigate(
               `${PortfolioRoutePaths.BLOG}/${blogs[0].title
                 .replaceAll(" ", "-")
                 .toLowerCase()}`,
             )
           }
-          color="primary"
-          size="lg"
           className="self-start"
-          startContent={<Player ref={bugIconRef} icon={BugIcon} />}
-          onMouseEnter={() => bugIconRef.current?.playFromBeginning()}
         >
+          <Bug />
           {blogs[0].title}
         </Button>
-      </motion.div>
+      </div>
     </Page>
   );
 };

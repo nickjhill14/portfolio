@@ -12,6 +12,7 @@
 # Production
 /build
 .vercel
+dist
 
 # Env Vars
 .env.local

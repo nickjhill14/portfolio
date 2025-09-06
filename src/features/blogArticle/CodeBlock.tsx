@@ -1,11 +1,11 @@
-import { Snippet } from "@heroui/react";
+import { CodeBlock as CodeBlockWrapper } from "@/components/ui/code-block";
 import highlightJs from "highlight.js";
 import "highlight.js/styles/github-dark.css";
 import { useEffect, useState } from "react";
 
-type CodeBlockProps = {
+interface CodeBlockProps {
   snippetPath: string;
-};
+}
 
 export const CodeBlock = ({ snippetPath }: CodeBlockProps) => {
   const [code, setCode] = useState("");
@@ -17,16 +17,12 @@ export const CodeBlock = ({ snippetPath }: CodeBlockProps) => {
   }, []);
 
   return (
-    <Snippet hideSymbol className="max-w-fit overflow-auto">
-      <pre className="hljs text-small rounded-large p-4">
-        <code
-          className="overflow-scroll"
-          dangerouslySetInnerHTML={{
-            __html: highlightJs.highlight(code, { language: "typescript" })
-              .value,
-          }}
-        />
-      </pre>
-    </Snippet>
+    <CodeBlockWrapper className="max-w-fit overflow-auto">
+      <code
+        dangerouslySetInnerHTML={{
+          __html: highlightJs.highlight(code, { language: "typescript" }).value,
+        }}
+      />
+    </CodeBlockWrapper>
   );
 };

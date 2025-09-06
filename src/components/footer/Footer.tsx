@@ -1,9 +1,8 @@
-import { Button, Link } from "@heroui/react";
-import DarkModeIcon from "@mui/icons-material/DarkMode";
-import GitHubIcon from "@mui/icons-material/GitHub";
-import WbSunnyIcon from "@mui/icons-material/WbSunny";
-import { motion } from "framer-motion";
+import { Button } from "@/components/ui/button";
+import { Typography } from "@/components/ui/typography";
+import { Moon, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
+import { siGithub } from "simple-icons";
 
 export const Footer = () => {
   const { theme, setTheme } = useTheme();
@@ -14,41 +13,40 @@ export const Footer = () => {
       data-testid="footer"
     >
       <div className="flex justify-center gap-4">
-        <motion.div whileHover={{ scale: 1.2 }}>
-          <Button
-            as={Link}
-            aria-label="Visit repo"
-            href="https://github.com/nickjhill14/portfolio"
-            isExternal
-            color="primary"
-            isIconOnly
-          >
-            <GitHubIcon />
+        <div>
+          <Button asChild aria-label="Visit repo" size="icon">
+            <a
+              href="https://github.com/nickjhill14/portfolio"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <svg
+                viewBox="0 0 24 24"
+                width="20"
+                height="20"
+                fill="currentColor"
+                aria-label="GitHub"
+              >
+                <path d={siGithub.path} />
+              </svg>
+            </a>
           </Button>
-        </motion.div>
-        <motion.div whileHover={{ scale: 1.2 }}>
+        </div>
+        <div>
           <Button
             aria-label={`Change to ${
               theme === "light" ? "dark" : "light"
             } mode`}
-            color="primary"
-            isIconOnly
-            onPress={() => setTheme(theme === "light" ? "dark" : "light")}
+            size="icon"
+            onClick={() => setTheme(theme === "light" ? "dark" : "light")}
           >
-            {theme === "light" ? <WbSunnyIcon /> : <DarkModeIcon />}
+            {theme === "light" ? <Sun size={20} /> : <Moon size={20} />}
           </Button>
-        </motion.div>
+        </div>
       </div>
-      <p className="text-xs">Developed by Nicholas Hill</p>
-      <Link
-        href="https://lordicon.com"
-        isExternal
-        className="text-xs"
-        underline="hover"
-        showAnchorIcon
-      >
-        Animated icons by Lordicon.com
-      </Link>
+      <Typography.P className="text-xs">
+        Developed by Nicholas Hill
+      </Typography.P>
     </footer>
   );
 };

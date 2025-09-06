@@ -1,5 +1,5 @@
-import { Cv } from "../domain/cv";
-import { SkillType } from "../domain/skills";
+import { Cv } from "@/domain/cv";
+import { SkillType } from "@/domain/skills";
 
 export const cv: Cv = {
   cvSections: [
@@ -59,6 +59,35 @@ export const cv: Cv = {
       ],
     },
     {
+      title: "Projects",
+      items: [
+        {
+          name: "Bahmni",
+          location: "Thoughtworks",
+          dateRange: "Jul. 20 - Sep. 20",
+          details: [
+            "Enriched an existing open-source medical record and hospital system with SNOMED Clinical Terms for COVID-19.",
+          ],
+        },
+        {
+          name: "OpenMRS",
+          location: "Thoughtworks",
+          dateRange: "Apr. 20 - Sep. 20",
+          details: [
+            "Developed a patient registration module for an open-source project supporting healthcare in developing countries.",
+          ],
+        },
+        {
+          name: "Autonomous Robot Image Tagging System",
+          location: "University Of Nottingham",
+          dateRange: "Sep. 14 - Jul. 15",
+          details: [
+            "Developed a system composed of an autonomous image-capturing robot and a web app allowing users to tag objects in the images taken.",
+          ],
+        },
+      ],
+    },
+    {
       title: "Achievements",
       items: [
         {
@@ -99,35 +128,6 @@ export const cv: Cv = {
           name: "12 GCSEs",
           location: "Beaumont School",
           dateRange: "Sep. 09 - Aug. 11",
-        },
-      ],
-    },
-    {
-      title: "Projects",
-      items: [
-        {
-          name: "Bahmni",
-          location: "Thoughtworks",
-          dateRange: "Jul. 20 - Sep. 20",
-          details: [
-            "Enriched an existing open-source medical record and hospital system with SNOMED Clinical Terms for COVID-19",
-          ],
-        },
-        {
-          name: "OpenMRS",
-          location: "Thoughtworks",
-          dateRange: "Apr. 20 - Sep. 20",
-          details: [
-            "Developed a patient registration module for an open-source project supporting healthcare in developing countries",
-          ],
-        },
-        {
-          name: "Autonomous Robot Image Tagging System",
-          location: "University Of Nottingham",
-          dateRange: "Sep. 14 - Jul. 15",
-          details: [
-            "Developed a system composed of an autonomous image-capturing robot and a web app allowing users to tag objects in the images taken",
-          ],
         },
       ],
     },
@@ -289,16 +289,6 @@ export const cv: Cv = {
       {
         key: SkillType.other,
         name: "Mermaid",
-      },
-    ],
-    languages: [
-      {
-        name: "English",
-        level: 5,
-      },
-      {
-        name: "Mandarin Chinese",
-        level: 2,
       },
     ],
   },

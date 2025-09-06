@@ -1,54 +1,46 @@
-import { render, screen, waitFor } from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
-import { buildProject, buildSkill } from "../../utils/builders";
+import { render, screen } from "@testing-library/react";
+import { buildProject, buildSkill } from "@/utils/builders";
 import { ProjectsSection } from "./ProjectSection";
 
-describe(ProjectsSection, () => {
-  it("renders the section", () => {
-    const project = buildProject();
+describe("ProjectsSection", () => {
+  it("renders the project title and description", () => {
+    const project = buildProject({
+      title: "Test Project",
+      description: "A test project description",
+    });
 
     render(<ProjectsSection project={project} />);
 
     expect(
-      screen.getByRole("heading", { name: project.title, level: 2 }),
+      screen.getByRole("heading", { name: project.title }),
     ).toBeInTheDocument();
     expect(screen.getByText(project.description)).toBeInTheDocument();
-    expect(
-      screen.getByRole("button", { name: "Visit repo" }),
-    ).toBeInTheDocument();
-    expect(
-      screen.queryByRole("button", { name: "View image" }),
-    ).not.toBeInTheDocument();
   });
 
-  it("renders skills", () => {
-    const skills = [buildSkill(), buildSkill()];
+  it("renders the GitHub link", () => {
+    const project = buildProject({
+      githubLink: "https://github.com/test/repo",
+    });
+
+    render(<ProjectsSection project={project} />);
+
+    expect(screen.getByRole("link", { name: "Visit repo" })).toHaveAttribute(
+      "href",
+      project.githubLink,
+    );
+  });
+
+  it("renders project skills as chips", () => {
+    const skills = [
+      buildSkill({ name: "TypeScript" }),
+      buildSkill({ name: "React" }),
+      buildSkill({ name: "Next.js" }),
+    ];
 
     render(<ProjectsSection project={buildProject({ skills })} />);
 
-    skills.forEach(({ name }) => {
-      expect(screen.getByText(name)).toBeInTheDocument();
-    });
-  });
-
-  it("renders the image on view click", async () => {
-    render(
-      <ProjectsSection project={buildProject({ imgSrc: "path/to/img.png" })} />,
-    );
-    await userEvent.click(screen.getByRole("button", { name: "View image" }));
-
-    expect(screen.getByRole("dialog")).toBeInTheDocument();
-  });
-
-  it("closes image on close click", async () => {
-    render(
-      <ProjectsSection project={buildProject({ imgSrc: "path/to/img.png" })} />,
-    );
-    await userEvent.click(screen.getByRole("button", { name: "View image" }));
-    await userEvent.click(screen.getByRole("button", { name: "Close" }));
-
-    await waitFor(() => {
-      expect(screen.queryByRole("dialog")).not.toBeInTheDocument();
+    skills.forEach((skill) => {
+      expect(screen.getByText(skill.name)).toBeInTheDocument();
     });
   });
 });

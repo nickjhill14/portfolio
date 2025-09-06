@@ -1,10 +1,10 @@
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { useNavigate } from "react-router-dom";
-import { PortfolioRoutePaths } from "../../routing/PortfolioRouting";
 import { Page } from "./Page";
+import { PortfolioRoutePaths } from "@/routing/routePaths";
 
-describe(Page, () => {
+describe("Page", () => {
   it("renders the children (without home button)", () => {
     const buttonText = "Click Me!";
     const children = <button>{buttonText}</button>;

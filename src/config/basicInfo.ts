@@ -1,4 +1,4 @@
-import { BasicInfo } from "../domain/basicInfo";
+import { BasicInfo } from "@/domain/basicInfo";
 
 export const basicInfo: BasicInfo = {
   name: "Nicholas Hill",

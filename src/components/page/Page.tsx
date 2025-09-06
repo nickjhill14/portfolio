@@ -1,8 +1,7 @@
-import { Button } from "@heroui/react";
-import { Player } from "@lordicon/react";
-import { PropsWithChildren, useRef } from "react";
+import { Button } from "@/components/ui/button";
+import { Home } from "lucide-react";
+import { PropsWithChildren } from "react";
 import { useNavigate } from "react-router-dom";
-import HomeIcon from "../../assets/animatedIcons/system-solid-41-home-hover-home-2.json";
 
 type PageProps = {
   showHomeButton: boolean;
@@ -16,19 +15,11 @@ export const Page = ({
 }: PropsWithChildren<PageProps>) => {
   const navigate = useNavigate();
 
-  const homeIconRef = useRef<Player>(null);
-
   return (
-    <div className={`flex flex-col gap-4${className ? className : ""}`}>
+    <div className={`space-y-4 ${className ?? ""}`}>
       {showHomeButton && (
-        <Button
-          startContent={<Player ref={homeIconRef} icon={HomeIcon} />}
-          onMouseEnter={() => homeIconRef.current?.playFromBeginning()}
-          onPress={() => navigate("/")}
-          color="primary"
-          size="lg"
-          className="self-start"
-        >
+        <Button onClick={() => navigate("/")} className="self-start">
+          <Home />
           Go Home
         </Button>
       )}

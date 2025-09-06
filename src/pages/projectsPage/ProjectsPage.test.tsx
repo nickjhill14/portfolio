@@ -1,12 +1,12 @@
 import { render, screen } from "@testing-library/react";
-import { projects } from "../../config/projects";
-import { ProjectsSection } from "../../features/projectSection/ProjectSection";
-import { getProps, mockComponent } from "../../utils/ComponentMocks";
+import { projects } from "@/config/projects";
+import { ProjectsSection } from "@/features/projectSection/ProjectSection";
+import { getProps, mockComponent } from "@/utils/ComponentMocks";
 import { ProjectsPage } from "./ProjectsPage";
 
 vitest.mock("../../features/projectSection/ProjectSection");
 
-describe(ProjectsPage, () => {
+describe("ProjectsPage", () => {
   beforeEach(() => {
     mockComponent(ProjectsSection);
   });

@@ -1,8 +1,8 @@
 import { render, screen } from "@testing-library/react";
-import { buildBasicInfo } from "../../utils/builders";
+import { buildBasicInfo } from "@/utils/builders";
 import { BasicInfoSection } from "./BasicInfoSection";
 
-describe(BasicInfoSection, () => {
+describe("BasicInfoSection", () => {
   it("renders the section", async () => {
     const basicInfo = buildBasicInfo();
 
@@ -11,9 +11,8 @@ describe(BasicInfoSection, () => {
     expect(
       screen.getByRole("heading", { name: basicInfo.name, level: 1 }),
     ).toBeInTheDocument();
-    expect(screen.getByText("👋")).toBeInTheDocument();
     expect(
-      screen.getByRole("heading", { name: basicInfo.role, level: 2 }),
+      screen.getByRole("heading", { name: basicInfo.role }),
     ).toBeInTheDocument();
     expect(
       screen.getByRole("link", {
@@ -30,7 +29,7 @@ describe(BasicInfoSection, () => {
     );
     expect(
       screen.getByRole("link", {
-        name: basicInfo.gitHub,
+        name: new RegExp(basicInfo.gitHub),
       }),
     ).toHaveAttribute("href", `https://www.github.com/${basicInfo.gitHub}`);
   });

@@ -1,10 +1,10 @@
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { useNavigate } from "react-router-dom";
-import { PortfolioRoutePaths } from "../../routing/PortfolioRouting";
 import { LandingPageLinks } from "./LandingPageLinks";
+import { PortfolioRoutePaths } from "@/routing/routePaths";
 
-describe(LandingPageLinks, () => {
+describe("LandingPageLinks", () => {
   const useNavigateMock = vitest.mocked(useNavigate);
 
   it("navigates to the CV page when clicking the CV btn", async () => {

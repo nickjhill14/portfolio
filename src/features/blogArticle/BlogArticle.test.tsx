@@ -1,116 +1,79 @@
-import { render, screen, within } from "@testing-library/react";
-import { buildBlog, buildBlogSection } from "../../utils/builders";
+import { render, screen } from "@testing-library/react";
+import { format } from "date-fns";
+import { buildBlog, buildBlogSection } from "@/utils/builders";
+import { getProps, mockComponent } from "@/utils/ComponentMocks";
 import { BlogArticle } from "./BlogArticle";
+import { BlogContent } from "./BlogContent";
 
-describe(BlogArticle, () => {
-  it("renders the article (without sections)", () => {
-    const date = new Date(
-      "Wed Jul 03 2024 16:06:42 GMT+0100 (British Summer Time)",
-    );
-    const blog = buildBlog({ date });
+vi.mock("./BlogContent");
 
-    render(<BlogArticle blog={blog} />);
-
-    expect(
-      screen.getByText(`Est. Read Time: ${blog.readTime} mins`),
-    ).toBeInTheDocument();
-    expect(screen.getByText("03/07/2024")).toBeInTheDocument();
-    expect(
-      screen.queryByText(/This blog is still in draft mode/),
-    ).not.toBeInTheDocument();
+describe("BlogArticle", () => {
+  beforeEach(() => {
+    mockComponent(BlogContent);
+    vi.clearAllMocks();
   });
 
-  it("renders the article in draft mode", () => {
+  it("displays formatted date", () => {
+    const date = new Date("2024-07-03T16:06:42.000Z");
+
+    render(<BlogArticle blog={buildBlog({ date })} />);
+
+    expect(screen.getByText(format(date, "dd/MM/yyyy"))).toBeInTheDocument();
+  });
+
+  it("displays estimated read time", () => {
+    const readTime = 5;
+
+    render(<BlogArticle blog={buildBlog({ readTime })} />);
+
+    expect(
+      screen.getByText(`Est. Read Time: ${readTime} mins`),
+    ).toBeInTheDocument();
+  });
+
+  it("shows draft indicator when blog is in draft mode", () => {
     render(<BlogArticle blog={buildBlog({ isDraft: true })} />);
 
     expect(screen.getByText("🚧 Draft 🚧")).toBeInTheDocument();
   });
 
-  it("renders the article (with sections)", () => {
-    const sections = [buildBlogSection(), buildBlogSection()];
+  it("does not show draft indicator when blog is not in draft mode", () => {
+    render(<BlogArticle blog={buildBlog({ isDraft: false })} />);
+
+    expect(screen.queryByText("🚧 Draft 🚧")).not.toBeInTheDocument();
+  });
+
+  it("renders empty article when no sections provided", () => {
+    render(<BlogArticle blog={buildBlog({ sections: [] })} />);
+
+    expect(screen.queryByText(BlogContent.name)).not.toBeInTheDocument();
+  });
+
+  it("renders single section with heading", () => {
+    const heading = "Test Section";
+    const section = buildBlogSection({ heading });
+
+    render(<BlogArticle blog={buildBlog({ sections: [section] })} />);
+
+    expect(screen.getByRole("heading", { name: heading })).toBeInTheDocument();
+    expect(getProps(BlogContent).lastCall.blogSection).toStrictEqual(section);
+  });
+
+  it("renders multiple sections with headings", () => {
+    const sections = [
+      buildBlogSection({ heading: "First Section" }),
+      buildBlogSection({ heading: "Second Section" }),
+    ];
 
     render(<BlogArticle blog={buildBlog({ sections })} />);
 
-    sections.forEach(({ heading }) => {
+    sections.forEach((section, index) => {
       expect(
-        screen.getByRole("heading", {
-          name: heading,
-          level: 3,
-        }),
+        screen.getByRole("heading", { name: section.heading }),
       ).toBeInTheDocument();
-    });
-    expect(screen.getAllByRole("separator")).toHaveLength(sections.length - 1);
-  });
-
-  it("renders the article and the section text content", () => {
-    const text = "Some text";
-
-    render(
-      <BlogArticle
-        blog={buildBlog({ sections: [buildBlogSection({ content: [text] })] })}
-      />,
-    );
-
-    expect(screen.getByText(text)).toBeInTheDocument();
-  });
-
-  it("renders the article and the section list content", () => {
-    const list = ["Item 1", "Item 2"];
-
-    render(
-      <BlogArticle
-        blog={buildBlog({ sections: [buildBlogSection({ content: [list] })] })}
-      />,
-    );
-    const listComponent = within(screen.getByRole("list"));
-
-    list.forEach((item, index) => {
-      expect(listComponent.getAllByRole("listitem")[index]).toHaveTextContent(
-        item,
+      expect(getProps(BlogContent).calls[index].blogSection).toStrictEqual(
+        section,
       );
     });
-  });
-
-  it("renders the article and the section img content", () => {
-    const src = "path/to/img.png";
-    const alt = "Some image";
-
-    render(
-      <BlogArticle
-        blog={buildBlog({
-          sections: [buildBlogSection({ content: [{ src, alt }] })],
-        })}
-      />,
-    );
-
-    expect(screen.getByRole("img", { name: alt })).toHaveAttribute("src", src);
-  });
-
-  it("renders the article and the section React element content", () => {
-    render(
-      <BlogArticle
-        blog={buildBlog({
-          sections: [
-            buildBlogSection({ content: [<button key="some-btn" />] }),
-          ],
-        })}
-      />,
-    );
-
-    expect(screen.getByRole("button")).toBeInTheDocument();
-  });
-
-  it("renders the article and the section React element list content", () => {
-    render(
-      <BlogArticle
-        blog={buildBlog({
-          sections: [
-            buildBlogSection({ content: [[<button key="some-btn" />]] }),
-          ],
-        })}
-      />,
-    );
-
-    expect(screen.getByRole("button")).toBeInTheDocument();
   });
 });

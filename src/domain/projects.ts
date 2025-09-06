@@ -5,5 +5,4 @@ export type Project = {
   description: string;
   skills: Skill[];
   githubLink: string;
-  imgSrc?: string;
 };
